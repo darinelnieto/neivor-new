@@ -53,7 +53,7 @@ src="https://www.facebook.com/tr?id=197329169765507&ev=PageView&noscript=1"
 <body <?php body_class(); ?>>
 <div id="page"> <!-- +Page container -->
   <header id="header-wrapper">
-    <!-- <div class="container">
+    <div class="container">
       <div class="row align-items-center">
         <div class="col-2">
           <?= get_custom_logo(); ?>
@@ -70,6 +70,5 @@ src="https://www.facebook.com/tr?id=197329169765507&ev=PageView&noscript=1"
           </div>
         </div>
       </div>
-    </div> -->
-    <?php get_template_part('partials/globals/new-nav'); ?>
+    </div>
   </header>
