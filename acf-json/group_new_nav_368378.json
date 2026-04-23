@@ -1,0 +1,184 @@
+{
+  "key": "group_new_nav_368378",
+  "title": "New Nav",
+  "fields": [
+    {
+      "key": "field_nn_tab_logo",
+      "label": "Logo",
+      "name": "",
+      "type": "tab",
+      "placement": "left",
+      "endpoint": 0
+    },
+    {
+      "key": "field_nn_logo_text",
+      "label": "Logo texto",
+      "name": "new_nav_logo_text",
+      "type": "text",
+      "default_value": "Neivor",
+      "placeholder": "Neivor",
+      "maxlength": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_nn_logo_url",
+      "label": "Logo URL",
+      "name": "new_nav_logo_url",
+      "type": "url",
+      "default_value": "/",
+      "placeholder": "https://"
+    },
+    {
+      "key": "field_nn_tab_menu",
+      "label": "Menú",
+      "name": "",
+      "type": "tab",
+      "placement": "left",
+      "endpoint": 0
+    },
+    {
+      "key": "field_nn_nav_items",
+      "label": "Ítems de navegación",
+      "name": "new_nav_items",
+      "type": "repeater",
+      "layout": "block",
+      "pagination": 0,
+      "min": 0,
+      "max": 0,
+      "collapsed": "field_nn_item_label",
+      "button_label": "Agregar ítem",
+      "sub_fields": [
+        {
+          "key": "field_nn_item_label",
+          "label": "Label",
+          "name": "item_label",
+          "type": "text",
+          "required": 1,
+          "placeholder": "Ej: Soluciones",
+          "parent_repeater": "field_nn_nav_items"
+        },
+        {
+          "key": "field_nn_item_url",
+          "label": "URL (solo si no tiene submenú)",
+          "name": "item_url",
+          "type": "url",
+          "placeholder": "https://",
+          "parent_repeater": "field_nn_nav_items"
+        },
+        {
+          "key": "field_nn_item_groups",
+          "label": "Grupos del submenú",
+          "name": "item_groups",
+          "type": "repeater",
+          "layout": "block",
+          "min": 0,
+          "max": 0,
+          "collapsed": "field_nn_group_label",
+          "button_label": "Agregar grupo",
+          "instructions": "Deja vacío si el ítem no tiene submenú.",
+          "parent_repeater": "field_nn_nav_items",
+          "sub_fields": [
+            {
+              "key": "field_nn_group_label",
+              "label": "Etiqueta del grupo",
+              "name": "group_label",
+              "type": "text",
+              "placeholder": "Ej: 🏢 Condominios (vacío = sin etiqueta)",
+              "parent_repeater": "field_nn_item_groups"
+            },
+            {
+              "key": "field_nn_group_items",
+              "label": "Ítems del grupo",
+              "name": "group_items",
+              "type": "repeater",
+              "layout": "table",
+              "min": 1,
+              "max": 0,
+              "collapsed": "field_nn_gitem_label",
+              "button_label": "Agregar enlace",
+              "parent_repeater": "field_nn_item_groups",
+              "sub_fields": [
+                {
+                  "key": "field_nn_gitem_label",
+                  "label": "Label",
+                  "name": "gitem_label",
+                  "type": "text",
+                  "required": 1,
+                  "placeholder": "Ej: Desarrolladores",
+                  "parent_repeater": "field_nn_group_items"
+                },
+                {
+                  "key": "field_nn_gitem_url",
+                  "label": "URL",
+                  "name": "gitem_url",
+                  "type": "url",
+                  "placeholder": "https://",
+                  "parent_repeater": "field_nn_group_items"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "field_nn_tab_cta",
+      "label": "CTAs",
+      "name": "",
+      "type": "tab",
+      "placement": "left",
+      "endpoint": 0
+    },
+    {
+      "key": "field_nn_cta_demo_text",
+      "label": "Botón demo — Texto",
+      "name": "new_nav_cta_demo_text",
+      "type": "text",
+      "default_value": "Ver Demo",
+      "placeholder": "Ver Demo"
+    },
+    {
+      "key": "field_nn_cta_demo_url",
+      "label": "Botón demo — URL",
+      "name": "new_nav_cta_demo_url",
+      "type": "url",
+      "default_value": "https://www.neivor.com/agenda-una-demo-asesoria/",
+      "placeholder": "https://"
+    },
+    {
+      "key": "field_nn_cta_login_text",
+      "label": "Iniciar sesión — Texto",
+      "name": "new_nav_cta_login_text",
+      "type": "text",
+      "default_value": "Iniciar sesión",
+      "placeholder": "Iniciar sesión"
+    },
+    {
+      "key": "field_nn_cta_login_url",
+      "label": "Iniciar sesión — URL",
+      "name": "new_nav_cta_login_url",
+      "type": "url",
+      "placeholder": "https://"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "acf-options-header"
+      }
+    ]
+  ],
+  "menu_order": 10,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Gestión del nuevo nav (new-nav.php)",
+  "show_in_rest": 0,
+  "modified": 1745416800
+}

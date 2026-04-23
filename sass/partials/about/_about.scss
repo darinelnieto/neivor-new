@@ -1,0 +1,51 @@
+.about-partial-c4b5c3 {
+    padding: 0 1rem 100px 1rem;
+    background: $white;
+    .row{
+        justify-content: space-between;
+        .texts-contain{
+            display: flex;
+            flex-direction: column;
+            gap: 24;
+            h2{
+                color: #0A2540;
+                font-size: 40px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%;
+                strong{
+                    font-weight: 600;
+                }
+                
+            }
+            p{
+                color: #0A2540;
+                font-size: 25px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%;
+                letter-spacing: 0.1px;
+            }
+            @media(max-width:500px){
+                gap: 8px;
+                margin-bottom: 8px;
+                h2{
+                    font-size: 32px;
+                }
+                p{
+                    font-size: 16px;
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .image-contain{
+            img{
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+    @media(max-width:768px){
+        padding-bottom: 37px;
+    }
+}

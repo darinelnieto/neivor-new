@@ -1,0 +1,22 @@
+{
+    "post_types": {
+        "post": [],
+        "fqas_post": [],
+        "blogs": [],
+        "protection_post":[],
+        "success_stories":[]
+    },
+    "taxonomies": {
+        "category":[],
+        "size_cat":[],
+        "segment_cat":[],
+        "zone_cat":[]
+    },
+    "admin_pages":[
+        "options-theme_page_acf-options-header",
+        "toplevel_page_acf-options-footer",
+        "options-theme_page_acf-options-news",
+        "options-theme_page_acf-options-allies",
+        "options-theme_page_acf-options-how-to-hire-it"
+    ]
+}

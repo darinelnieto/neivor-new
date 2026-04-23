@@ -1,0 +1,85 @@
+.purple-card-partial-379799 {
+    background: #1B112D;
+    padding: 100px 0;
+    position: relative;
+    margin-bottom: 190px;
+    .svg{
+        position: absolute;
+        right: 4%;
+        bottom: 0;
+        transform: translateY(60%);
+    }
+    .card-purple{
+        padding: 50px 40px;
+        flex: 1 0 0;
+        border-radius: 16px 100px 16px 16px;
+        background: linear-gradient(133deg, rgba(123, 97, 255, 0.11) 5.94%, rgba(74, 58, 153, 0.00) 90.31%);
+        h2{
+            margin-bottom: 31px;
+            color: $white;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 150%;
+            letter-spacing: 0.1px;
+        }
+        p{
+            color: #FFF;
+            font-size: 25px;
+            font-weight: 500;
+            line-height: 150%;
+            letter-spacing: 0.1px;
+            margin-bottom: 71px;
+        }
+        a{
+            display: flex;
+            height: 48px;
+            padding: 8px 16px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            align-self: stretch;
+            border-radius: 35px;
+            background: #7D65FE;
+            text-decoration: none;
+            width: 228px;
+            span{
+                color: $white;
+                text-align: center;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 150%;
+                letter-spacing: 0.1px;
+            }
+        }
+        @media(max-width:500px){
+            padding: 50px 40px;
+            border-radius: 16px 100px 16px 16px;
+            background: linear-gradient(133deg, rgba(123, 97, 255, 0.11) 5.94%, rgba(74, 58, 153, 0.00) 90.31%);
+            h2{
+                font-size: 30px;
+                margin-bottom: 20px;
+            }
+            p{
+                margin-bottom: 20px;
+                font-size: 20px;
+            }
+            a{
+                display: flex;
+                width: 166px;
+                height: 38px;
+                padding: 5.672px 7px 5.672px 11.344px;
+                justify-content: center;
+                align-items: center;
+                gap: 7.09px;
+                span{
+                    font-size: 13px;
+                    letter-spacing: 0.071px;
+                }
+            }
+        }
+    }
+    @media(max-width:768px){
+        padding: 60px 0px;
+    }
+}

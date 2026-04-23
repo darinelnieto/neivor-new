@@ -1,0 +1,86 @@
+.logos-slide-partial-f8ca70 {
+    position: relative;
+    padding: 3rem 0;
+    background: transparent;
+
+    @media(max-width: 768px) {
+        padding: 2rem 0;
+    }
+
+    .svg-bottom {
+        position: absolute;
+        bottom: 3rem;
+        transform: none;
+        right: 1%;
+        z-index: 2;
+
+        @media(max-width: 768px) {
+            display: none;
+        }
+    }
+
+    .clip-path {
+        position: relative;
+        clip-path: polygon(0 8%, 100% 0%, 100% 92%, 0% 100%);
+        background: #1A1728;
+        min-height: 483px;
+        padding: 6rem 24px;
+
+        @media(max-width: 768px) {
+            clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%);
+            min-height: auto;
+            padding: 4rem 16px;
+        }
+
+        .col-12 {
+            p {
+                color: #ffffff;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 150%;
+                letter-spacing: 0.1px;
+                margin-bottom: 2rem;
+                position: relative;
+                z-index: 2;
+
+                span {
+                    color: #A999FF;
+                }
+
+                @media(max-width: 500px) {
+                    font-size: 16px;
+                    text-align: center;
+                }
+            }
+
+            .slide-contain {
+                position: relative;
+
+                &::after {
+                    content: '';
+                    width: 106px;
+                    height: 326px;
+                    position: absolute;
+                    right: -1px;
+                    top: 0;
+                    z-index: 1;
+                    display: block;
+                    background: linear-gradient(270deg, #1A1728 4.89%, rgba(26, 23, 40, 0.00) 91.73%);
+                }
+
+                .logos-slide {
+                    margin-bottom: 2rem;
+                    opacity: 0;
+                    transition: 1s;
+                }
+            }
+        }
+
+        .col-12:last-child {
+            .logos-slide {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

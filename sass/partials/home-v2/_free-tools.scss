@@ -1,0 +1,138 @@
+.new-free-tools-partial-home {
+    padding: 5rem 0 1rem;
+    @media(max-width: 768px) {
+        padding-bottom: 0;
+        padding-top: 1rem;
+    }
+    .ft-header {
+        margin-bottom: 2.5rem;
+
+        h2 {
+            color: #0A2540;
+            font-size: 40px;
+            font-weight: 400;
+            line-height: 1.3;
+            letter-spacing: 0.1px;
+            margin-bottom: 8px;
+
+            strong {
+                font-weight: 700;
+            }
+
+            @media (max-width: 768px) {
+                font-size: 26px;
+            }
+        }
+
+        .ft-subtitle {
+            color: #637281;
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 150%;
+            margin: 0;
+
+            @media (max-width: 768px) {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .ft-slide {
+        opacity: 0;
+        transition: opacity 0.5s;
+        padding-bottom: 12px;
+
+        .owl-item {
+            padding: 4px 10px 20px;
+        }
+
+        .owl-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            align-items: center;
+            margin-top: .5rem;
+
+            .owl-dot span {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: #B6B6B6;
+                display: block;
+            }
+
+            .owl-dot.active span {
+                width: 9px;
+                height: 9px;
+                background: #7D65FE;
+            }
+        }
+    }
+
+    .ft-card {
+        background: #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0px 8px 16px 0px #00000014;
+        max-width: 347px;
+        padding: 6px 6px 24px;
+
+        .ft-card__image {
+            width: 100%;
+            flex-shrink: 0;
+            overflow: hidden;
+
+            .ft-img {
+                width: 100%;
+                height: 209px;
+                object-fit: cover;
+                display: block;
+            }
+        }
+
+        .ft-card__body {
+            padding: 20px 18px 0;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+
+            .ft-card__title {
+                color: #0A2540;
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 150%;
+                margin-bottom: 0;
+            }
+
+            .ft-card__desc {
+                color: #0A2540;
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 150%;
+                margin-bottom: 2rem;
+                flex: 1;
+            }
+
+            .ft-card__cta {
+                display: inline-flex;
+                align-items: center;
+                gap: 4px;
+                color: #7E66FC;
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-size: 12px;
+                font-weight: 700;
+                letter-spacing: 1.2px;
+                text-decoration: none;
+                text-transform: uppercase;
+                margin-top: auto;
+
+                &:hover {
+                    color: #5b47d6;
+                }
+            }
+        }
+    }
+}

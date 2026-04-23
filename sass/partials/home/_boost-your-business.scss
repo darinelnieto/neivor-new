@@ -1,0 +1,102 @@
+.boost-your-business-partial-ca6162 {
+    display: flex;
+    padding: 5rem 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    align-self: stretch;
+    .title-and-intro{
+        padding: 0 24px;
+        h2{
+            color: #0A2540;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 150%;
+            letter-spacing: 0.1px;
+            strong{
+                font-weight: 700;
+            }
+            @media(max-width:768px){
+                font-size: 25px;
+            }
+        }
+        p{
+            color: #637281;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%;
+            letter-spacing: 0.1px;
+            @media(max-width:768px){
+                font-size: 18px;
+            }
+        }
+    }
+    .boost-slide{
+        opacity: 0;
+        transition: 1s;
+        .owl-item{
+            .card-item{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                align-self: stretch;
+                border-radius: 18.409px;
+                position: relative;
+                .feature-image{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 11.045px;
+                    @media(max-width:768px){
+                        min-height: 398px;
+                    }
+                }
+                .content{
+                    position: absolute;
+                    border-radius: 11.045px;
+                    width: 100%;
+                    left: 0;
+                    bottom: 0;
+                    padding: 10rem 24px 24px 24px;
+                    .logo{
+                        width: 154.636px;
+                    }
+                    .comment{
+                        color: #ffffff;
+                        font-size: 17.489px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 150%;
+                        align-self: stretch;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+        .owl-dots{
+            display: flex;
+            justify-self: center;
+            gap: 8px;
+            align-items: center;
+            margin-top: 1rem;
+            .owl-dot{
+                width: 5.395px;
+                height: 5.395px;
+                border-radius: 50%;
+                background: #B6B6B6;
+            }
+            .owl-dot.active{
+                width: 8.811px;
+                height: 8.811px;
+                background: #7D65FE;
+            }
+        }
+    }
+    .the-slide-movil{
+        padding: 0;
+        width: 100%;
+    }
+}

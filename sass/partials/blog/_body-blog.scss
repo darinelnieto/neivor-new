@@ -1,0 +1,140 @@
+.body-blog-partial-73d001 {
+    padding: 0px 24px 10rem 24px;
+    #post-contain{
+        .row{
+            .post-item{
+                text-decoration: none;
+                color: #ffffff;
+                .card-post{
+                    position: relative;
+                    width: 100%;
+                    height: auto;
+                    overflow: hidden;
+                    border-radius: 24px;
+                    .feature-img{
+                        width: 100%;
+                        max-height: 50%;
+                        object-fit: cover;
+                        @media(max-width:510px){
+                            min-height: 389px;
+                        }
+                    }
+                    .color{
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        left: 0;
+                        top: 0;
+                        transition: .5s;
+                    }
+                    .content{
+                        position: absolute;
+                        width: 100%;
+                        height: auto;
+                        left: 0;
+                        bottom: 0;
+                        z-index: 1;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 9.92px;
+                        padding: 24px;
+                        .logo{
+                            max-width: 120.16px;
+                            max-height: 120.16px;
+                            flex-shrink: 0;
+                            @media(max-width: 768px){
+                                max-width: 119.16px;
+                                max-height: 120.285px;
+                            }
+                        }
+                        .text-content{
+                            display: flex;
+                            flex-direction: column;
+                            gap: 12px;
+                            h3{
+                                color: #FFF;
+                                font-size: 20px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 150%;
+                                margin-bottom: 0;
+                                overflow: hidden;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 2;
+                                line-clamp: 2; 
+                                -webkit-box-orient: vertical;
+                            }
+                            p{
+                                color: #FFF;
+                                font-size: 16px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: 150%; 
+                                margin-bottom: 0;
+                                overflow: hidden;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 2;
+                                line-clamp: 2;
+                                -webkit-box-orient: vertical;
+                            }
+                            @media(max-width: 768px){
+                                h3{
+                                    font-size: 20px;
+                                    -webkit-line-clamp: 3;
+                                    line-clamp: 3; 
+                                }
+                                p{
+                                    font-size: 16px;
+                                    -webkit-line-clamp: 3;
+                                    line-clamp: 3; 
+                                }
+                            }
+                        }
+                    }
+                    &:hover{
+                        .color{
+                            transform: translateY(20%);
+                        }
+                    }
+                }
+            }
+            .item-lg{
+                .card-post{
+                    .feature-img{
+                        max-height: 100%;
+                    }
+                    .content{
+                        gap: 12px;
+                        .logo{
+                            max-width: 11vw;
+                            max-height: 11vw;
+                            @media(max-width: 768px){
+                                max-width: 119.16px;
+                                max-height: 120.285px;
+                            }
+                        }
+                        .text-content{
+                            h3{
+                                font-size: 40px;
+                            }
+                            p{
+                                font-size: 24px;
+                            }
+                            @media(max-width: 768px){
+                                h3{
+                                    font-size: 20px;
+                                }
+                                p{
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .row:nth-child(2n){
+            flex-direction: row-reverse;
+        }
+    }
+}

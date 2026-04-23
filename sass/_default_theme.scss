@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+/*============ Variables ============*/
+$white: #ffffff;
+$gray: #F6F9FC;
+
+$secondary_font: 'plus-jakarta-sans', sans-serif;
+*{
+    font-family: "Urbanist", sans-serif;
+}
+html{
+    width: 100%;
+    overflow-x: hidden;
+    body{
+        width: 100%;
+        overflow-x: hidden;
+    }
+}
+header{
+    padding: 10px 24px;
+    background: #7D65FE;
+    position: absolute;
+    left: 0;
+    top: 0px;
+    width: 100%;
+    z-index: 10;
+    z-index: 9999;
+    .custom-logo-link{
+        @media(max-width:768px){
+            img{
+                display: flex;
+                height: auto;
+                width: 82.296px;
+                padding: 3.091px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 3.864px;
+            }
+        }
+    }
+    .close-submenu-movil{
+        position: relative;
+        z-index: 99;
+        min-width: 300px;
+        span{
+            display: flex;
+            position: absolute;
+            top: 0;
+            transform: translate(-20%, -88%);
+            align-items: center;
+            left: 0;
+            cursor: pointer;
+            color: #0A2540;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 150%; /* 30px */
+            letter-spacing: 0.1px;
+        }
+    }
+    .bar-menu{
+        display: none;
+        position: relative;
+        width: 33.429px;
+        height: 19.429px;
+        flex-direction: column;
+        justify-content: space-between;
+        float: right;
+        z-index: 99;
+        span{
+            background: #ffffff;
+            width: 90%;
+            height: 2px;
+            border-radius: 20px;
+            transition: .2s;
+        }
+        @media(max-width:991px){
+            display: flex;
+        }
+    }
+    .bar-menu.active{
+        height: 33.429px;
+        background: #F5F5F5;
+        border-radius: 50%;
+        span{
+            background: #0A2540;
+            width: 50%;
+        }
+        .top{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+        .bottom{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+        .center{
+            display: none;
+        }
+    }
+}
+header.sticky{
+    position: fixed;
+}
+.container{
+    max-width: 1159px !important;
+    width: 100%;
+}
+section.has_eae_slider.elementor-section.elementor-top-section.elementor-element.elementor-element-b6b1c4c.elementor-section-full_width.elementor-section-height-default.elementor-section-height-default {
+    display: none;
+}
+section#footer-blue {
+    display: none;
+}
+#wpadminbar{
+    bottom: 0;
+    top: inherit;
+}

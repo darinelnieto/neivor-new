@@ -1,0 +1,94 @@
+.we-are-the-ally-partial-b5ee70 {
+    padding: 70px 0;
+    background: #F6F9FC;
+    .description{
+        color: #0A2540;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+        margin-bottom: 85px;
+        strong{
+            font-weight: 600;
+        }
+    }
+    .allies-contain{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 100px;
+        align-self: stretch;
+        .ally{
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            .logo{
+                img{
+                    width: 100%;
+                }
+                @media(max-width:500px){
+                    max-width: 90px;
+                }
+            }
+            .description-contain{
+                p{
+                    color: #0A2540;
+                    font-size: 25px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 150%; /* 37.5px */
+                    letter-spacing: 0.1px;
+                    strong{
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+        @media(max-width:768px){
+            flex-direction: column-reverse;
+            background: #F6F9FC;
+            padding: 40px 1.5rem;
+            gap: 0;
+            .ally{
+                flex-direction: column;
+                align-items: flex-start;
+                margin: 24px 0;
+                border-bottom: 1px solid #DDD;
+                gap: 12px;
+                .logo{
+                    width: fit-content;
+                    text-align: left;
+                }
+                .description-contain{
+                    p{
+                        font-size: 16px;
+                        font-weight: 400;
+                        strong{
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+            .ally:first-child{
+                border-bottom: none !important;
+                margin-bottom: 0 !important;
+            }
+            .ally:last-child{
+                padding-top: 0;
+            }
+        }
+    }
+    @media(max-width:768px){
+        padding: 59px 0;
+        background: $white;
+        .description{
+            font-size: 25px;
+            font-weight: 400;
+            padding: 0 1.5rem;
+            margin-bottom: 24px;
+            strong{
+                font-weight: 700;
+            }
+        }
+    }
+}

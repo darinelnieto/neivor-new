@@ -1,0 +1,89 @@
+.featured-results-partial-83b742 {
+    background: #ffffff;
+    padding: 40px 24px 120px 24px;
+    h2{
+        color: #0A2540; 
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 150%;
+        letter-spacing: 0.1px;
+        margin-bottom: 40px;
+        @media(max-width:500px){
+            font-size: 25px;
+            margin-bottom: 47px;
+        }
+    }
+    .result-card{
+        display: flex;
+        max-width: 353px;
+        max-height: 251px;
+        height: 100%;
+        padding: 24px 13.948px;
+        flex-direction: column;
+        gap: 15px;
+        border-radius: 14.306px;
+        background: #FFF;
+        box-shadow: 3.576px 3.576px 15px 0px #F1F1F1;
+        @media(max-width:510px){
+            gap: 6.2px;
+        }
+        .top{
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            align-self: stretch;
+            .icon{
+                max-width: 55px;
+                width: 100%;
+                height: auto;
+                @media(max-width:510px){
+                    max-width: 52px;
+                }
+            }
+            .text{
+                color: #000000;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 150%;
+                letter-spacing: 0.1px;
+                @media(max-width:510px){
+                    font-size: 12.039px;
+                }
+            }
+        }
+        .result{
+            h3{
+                color: #0A2540;
+                font-size: 40px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 140%;
+                margin-bottom: 0;
+                @media(max-width:510px){
+                    font-size: 30.098px;
+                }
+            }
+        }
+        .number-result{
+            h3{
+                display: flex;
+                justify-content: left;
+            }
+            .after{
+                flex-direction: row-reverse;
+            }
+        }
+        .description{
+            color: #000000;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 150%;
+            letter-spacing: 0.1px;
+            @media(max-width:510px){
+                margin-bottom: 0;
+            }
+        }
+    }
+}

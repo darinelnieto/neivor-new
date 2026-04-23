@@ -1,0 +1,161 @@
+.filter-blog-partial-0a1dca {
+    padding: 6rem 24px 4rem 24px;
+    position: relative;
+    .svg-top{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        transform: translateY(-36%);
+        z-index: 1;
+        svg{
+            width: 100%;
+            height: auto;
+        }
+        @media(max-width:768px){
+            display: none;
+        }
+    }
+    .svg-left{
+        position: absolute;
+        left: 3%;
+        top: 50%;
+        transform: translate(-3%, -50%);
+        @media(max-width:768px){
+            display: none;
+        }
+    }
+    /*================= Filtr content =================*/
+    .title-content{
+        h2{
+            color: #0A2540;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 150%;
+            letter-spacing: 0.1px;
+            strong{
+                font-weight: 700;
+            }
+            @media(max-width:510px){
+                font-size: 25px;
+                color: #0A2540;
+            }
+        }
+        p{
+            color: #0A2540;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%;
+            letter-spacing: 0.1px;
+            @media(max-width:510px){
+                font-size: 28px;
+                color: #637281;
+            }
+        }
+    }
+    .filter-contain{
+        display: flex;
+        width: 100%;
+        padding: 24px 14.09px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        align-self: stretch;
+        border-radius: 11.272px;
+        border: 2.818px solid rgba(255, 255, 255, 0.00);
+        background: #FFF;
+        box-shadow: 0px 4px 16px 10px rgba(163, 163, 163, 0.25);
+        p{
+            color: #0A2540;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 150%;
+        }
+        .filter{
+            width: 100%;
+            .filter-item{
+                border-radius: 8px;
+                padding: 10px 11.272px;
+                background: #F2F2F2;
+                .open-filter{
+                    display: flex;
+                    width: 100%;
+                    padding: 5.636px 0;
+                    justify-content: space-between;
+                    align-items: center;
+                    align-self: stretch;
+                    cursor: pointer;
+                    .text{
+                        color: #888;
+                        font-size: 16.908px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                    }
+                    .svg{
+                        width: 16.908px;
+                        height: 16.908px;
+                        position: relative;
+                        svg{
+                            width: 100%;
+                            height: auto;
+                            position: absolute;
+                            top: 0;
+                        }
+                    }
+                }
+                .options{
+                    display: none;
+                    transition: .2s;
+                    ul{
+                        list-style: none;
+                        padding: 0;
+                        margin-bottom: 0;
+                        li{
+                            a{
+                                text-decoration: none;
+                                color: #888;
+                                font-size: 16.908px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: normal;
+                            }
+                        }
+                    }
+                }
+            }
+            .filter-item.show{
+                .options{
+                   display: block;
+                }
+            }
+            /*============ Cta ===========*/
+            .filter-init{
+                margin-left: auto;
+                border: none;
+                display: flex;
+                width: 160px;
+                height: 48px;
+                padding: 8px 16px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                flex-shrink: 0;
+                border-radius: 35px;
+                background: #7D65FE;
+                span{
+                    color: #FFF;
+                    text-align: center;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 150%;
+                    letter-spacing: 0.1px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+.after-banner-section-partial-b30c5f {
+    padding: 7rem 24px;
+    background: #F6F9FC;
+    .icon-contain{
+        position: relative;
+        width: 98.647px;
+        height: 93.5px;
+        margin: 0 auto; 
+        img{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+    }
+    h2{
+        color: #23375E;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%;
+        letter-spacing: 0.1px;
+        span{
+            font-weight: 300;
+        }
+    }
+    p{
+        color: #637281;
+        font-size: 19px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 150%;
+        letter-spacing: 0.1px;
+        margin-bottom: 0;
+        strong{
+            color: #23375E;
+            font-weight: 700;
+        }
+    }
+    @media(max-width:510px){
+        padding: 4rem 24px;
+    }
+}

@@ -1,0 +1,82 @@
+.we-are-here-partial-7651d1 {
+    padding-top: 100px;
+    background: #ffffff;
+    .we-are-here{
+        .title{
+            color: #0A2540;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%;
+            letter-spacing: 0.1px;
+            margin-bottom: 24px;
+            strong{
+                font-weight: 700;
+            }
+            @media(max-width:500px){
+                font-size: 25px;
+            }
+        }
+        .item{
+            margin-bottom: 150px;
+            .image{
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.04), 0px 8px 16px 0px rgba(0, 0, 0, 0.08);
+            }
+            .icon{
+                max-width: 24px;
+                height: 24px;
+            }
+            h4{
+                color: #0A2540;
+                font-size: 25px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 150%;
+                letter-spacing: 0.1px;
+                @media(max-width:500px){
+                    font-size: 20px;
+                    font-weight: 700;
+                }
+            }
+            .description{
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%;
+                letter-spacing: 0.1px;
+                *{
+                    color: #637281 !important;
+                }
+                @media(max-width:500px){
+                    font-size: 16px;
+                }
+            }
+            @media(max-width:768px){
+                margin-bottom: 32px;
+                padding: 16px;
+                border-radius: 8px;
+                background: #FFF;
+                box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.04), -8px 8px 16px 0px rgba(0, 0, 0, 0.08);
+            }
+        }
+        @media(max-width:768px){
+            padding: 0 24px;
+        }
+        .item:nth-child(2n){
+            @media(min-width:768px){
+                flex-direction: row-reverse;
+            }
+        }
+    }
+    .we-are-here:last-child{
+        .item:last-child{
+            margin-bottom: 100px;
+            @media (max-width: 500px){
+                margin-bottom: 81px;
+            }
+        }
+    }
+}
