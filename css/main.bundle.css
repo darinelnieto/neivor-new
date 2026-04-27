@@ -141,15 +141,18 @@ section#footer-blue {
   left: 0;
   right: 0;
   height: var(--nn-nav-h);
-  background: #7d65fe;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--nn-border);
   z-index: 1000;
   display: flex;
   align-items: center;
   padding: 0 24px;
   gap: 10px;
+  background: transparent;
+}
+.new-nav-partial-368378 nav.acttive-bg {
+  background: #7d65fe;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--nn-border);
 }
 .new-nav-partial-368378 .nav-inner {
   width: 100%;
@@ -159,7 +162,7 @@ section#footer-blue {
   align-items: center;
   gap: 0;
 }
-.new-nav-partial-368378 .logo {
+.new-nav-partial-368378 .custom-logo-link > .custom-logo {
   font-size: 18px;
   font-weight: 600;
   letter-spacing: -0.5px;

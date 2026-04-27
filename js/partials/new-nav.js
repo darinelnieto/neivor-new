@@ -123,4 +123,12 @@
   window.closeSub = function () {
     track.className = 'drawer-track level-1';
   };
+
+  // ─── SCROLL NAV BG ───
+  const navEl = document.querySelector('.new-nav-partial-368378 nav');
+  function updateNavBg() {
+    navEl.classList.toggle('acttive-bg', window.scrollY > 0);
+  }
+  window.addEventListener('scroll', updateNavBg, { passive: true });
+  updateNavBg();
 }());
