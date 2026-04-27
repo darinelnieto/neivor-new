@@ -65,24 +65,11 @@ if ( ! empty( $ft['cards'] ) ) {
         <?php endif; ?>
     </div>
 </section>
-<script>
-    $('.ft-slide').owlCarousel({
-        autoplay: false,
-        loop: false,
-        nav: false,
-        dots: true,
-        touchDrag: true,
-        mouseDrag: true,
-        responsive: {
-            0: {
-                items: 1,
-                center: true,
-                margin: 12,
-            },
-            768: {
-                items: 3,
-                margin: 24,
-            }
-        }
-    }).css({'opacity': 1});
-</script>
+<?php
+wp_enqueue_script(
+    'free-tools',
+    get_template_directory_uri() . '/js/partials/free-tools.js',
+    [ 'jquery', 'owl-carousel.js' ],
+    '1.0',
+    true
+);

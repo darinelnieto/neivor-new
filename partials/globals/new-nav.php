@@ -143,7 +143,5 @@ foreach ( $nav_items as $item ) {
 
 </section>
 
-<script>
-window.newNavData = <?= wp_json_encode( $js_items ); ?>;
-</script>
+<?php wp_localize_script( 'new-nav', 'newNavData', $js_items ); ?>
                     
