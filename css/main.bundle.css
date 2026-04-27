@@ -149,6 +149,7 @@ section#footer-blue {
   display: flex;
   align-items: center;
   padding: 0 24px;
+  gap: 10px;
 }
 .new-nav-partial-368378 .nav-inner {
   width: 100%;

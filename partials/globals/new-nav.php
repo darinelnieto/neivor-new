@@ -54,7 +54,9 @@ foreach ( $nav_items as $item ) {
   <!-- ═══════════════ NAVBAR ═══════════════ -->
   <nav>
     <div class="nav-inner">
-      <a href="<?= esc_url( $logo_url ); ?>" class="logo"><?= esc_html( $logo_text ); ?></a>
+      <a href="<?= esc_url( $logo_url ); ?>" class="logo">
+        <?= get_custom_logo(); ?>
+      </a>
 
       <ul class="nav-links" id="navLinks">
         <?php foreach ( $nav_items as $item ) :
