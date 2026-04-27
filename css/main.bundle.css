@@ -7914,46 +7914,46 @@ section#footer-blue {
 }
 .new-properties-you-trust-partial-88f88c .card-property img {
   margin: 0.7rem auto;
-  width: 64px;
-  height: 64px;
+  width: 64px !important;
+  height: 64px !important;
   object-fit: contain;
 }
 @media (max-width: 768px) {
   .new-properties-you-trust-partial-88f88c .card-property img {
-    width: 30.92px;
-    height: 30.92px;
+    width: 30.92px !important;
+    height: 30.92px !important;
   }
 }
-.new-properties-you-trust-partial-88f88c .card-property h4 {
+.new-properties-you-trust-partial-88f88c .card-property .name {
   color: #23375E;
   text-align: center;
-  font-size: 40px;
+  font-size: 40px !important;
   font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
-  letter-spacing: 0.1px;
-  align-self: stretch;
-  margin: 0;
+  font-weight: 700 !important;
+  line-height: 150% !important;
+  letter-spacing: 0.1px !important;
+  align-self: stretch !important;
+  margin: 0 !important;
 }
 @media (max-width: 768px) {
-  .new-properties-you-trust-partial-88f88c .card-property h4 {
-    font-size: 19.33px;
+  .new-properties-you-trust-partial-88f88c .card-property .name {
+    font-size: 19.33px !important;
   }
 }
 .new-properties-you-trust-partial-88f88c .card-property p {
   color: #637281;
   text-align: center;
-  font-size: 20px;
+  font-size: 20px !important;
   font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  letter-spacing: 0.1px;
-  align-self: stretch;
-  margin: 0;
+  font-weight: 500 !important;
+  line-height: 150% !important;
+  letter-spacing: 0.1px !important;
+  align-self: stretch !important;
+  margin: 0 !important;
 }
 @media (max-width: 768px) {
   .new-properties-you-trust-partial-88f88c .card-property p {
-    font-size: 9.66px;
+    font-size: 9.66px !important;
   }
 }
 
@@ -8482,7 +8482,7 @@ section#footer-blue {
 .new-banner-partial-4607af .statistics .stat {
   width: max-content;
 }
-.new-banner-partial-4607af .statistics .stat h3 {
+.new-banner-partial-4607af .statistics .stat .label {
   color: #7E66FC;
   font-size: 24px;
   font-weight: 500;
@@ -8674,7 +8674,7 @@ section#footer-blue {
   height: 22px;
   object-fit: contain;
 }
-.new-banner-partial-4607af .image-contain .overly .desktop-content .content .texts h4 {
+.new-banner-partial-4607af .image-contain .overly .desktop-content .content .texts .label {
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;

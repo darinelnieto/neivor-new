@@ -12,7 +12,7 @@ $properties = get_field('properties_you_trust_content');
 if($properties['enable_trusting_properties'] === true):
     $key = 0;
 ?>
-<section class="properties-you-trust-partial-88f88c">
+<section class="new-properties-you-trust-partial-88f88c">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -28,7 +28,7 @@ if($properties['enable_trusting_properties'] === true):
                         <div class="icon">
                             <img src="<?= $item['icon']['url']; ?>" alt="<?= $item['icon']['title']; ?>">
                         </div>
-                        <h4 class="name"><?= $item['item_name']; ?></h4>
+                        <p class="name"><?= $item['item_name']; ?></p>
                         <p class="description"><?= $item['description'] ?></p>
                     </div>
                 </div>

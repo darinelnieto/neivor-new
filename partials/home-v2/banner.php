@@ -20,7 +20,7 @@ $banner = get_field('add_banner');
                     <div class="statistics d-none d-md-flex">
                         <?php foreach($banner['statistics'] as $stat): ?>
                             <div class="stat">
-                                <h3><?= $stat['value'] ?? ''; ?></h3>
+                                <p class="label"><?= $stat['value'] ?? ''; ?></p>
                                 <p><?= $stat['name'] ?? ''; ?></p>
                             </div>
                         <?php endforeach; ?>
@@ -37,13 +37,11 @@ $banner = get_field('add_banner');
                 <div class="image-contain">
                     <?= wp_get_attachment_image($banner['main_image'], 'full', false, array(
                         'class' => 'hero-image d-none d-md-block',
-                        'loading' => 'lazy',
-                        'decoding' => 'async',
+                        'fetchpriority' => 'high',
                     )) ?? ''; ?>
                     <?= wp_get_attachment_image($banner['movil_image'], 'full', false, array(
                         'class' => 'hero-image d-block d-md-none',
-                        'loading' => 'lazy',
-                        'decoding' => 'async',
+                        'fetchpriority' => 'high',
                     )) ?? ''; ?>
                     <?php if(!empty($banner['overly_image'])): $overly = $banner['overly_image']; ?>
                         <div class="overly">
@@ -52,12 +50,11 @@ $banner = get_field('add_banner');
                                     <div class="icon">
                                         <?= wp_get_attachment_image($overly['icon'], 'full', false, array(
                                             'class' => 'overly-icon',
-                                            'loading' => 'lazy',
-                                            'decoding' => 'async',
+                                            'fetchpriority' => 'high',
                                         )) ?? ''; ?>
                                     </div>
                                     <div class="texts">
-                                        <h4><?= $overly['subtitle'] ?? ''; ?></h4>
+                                        <p class="label"><?= $overly['subtitle'] ?? ''; ?></p>
                                         <p><?= $overly['description'] ?? ''; ?></p>
                                     </div>
                                 </div>

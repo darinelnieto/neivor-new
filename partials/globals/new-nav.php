@@ -98,7 +98,9 @@ foreach ( $nav_items as $item ) {
       </div>
 
       <button class="hamburger" id="hamburger" aria-label="Menú">
-        <span></span><span></span><span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </div>
   </nav>
