@@ -162,14 +162,10 @@ section#footer-blue {
   align-items: center;
   gap: 0;
 }
-.new-nav-partial-368378 .custom-logo-link > .custom-logo {
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: -0.5px;
-  color: white;
-  text-decoration: none;
-  margin-right: 32px;
-  flex-shrink: 0;
+.new-nav-partial-368378 .custom-logo-link > img {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
 }
 .new-nav-partial-368378 .nav-links {
   display: flex;

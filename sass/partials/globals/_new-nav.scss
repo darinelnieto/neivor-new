@@ -39,14 +39,10 @@
     gap: 0;
   }
 
-  .custom-logo-link > .custom-logo {
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: -0.5px;
-    color: white;
-    text-decoration: none;
-    margin-right: 32px;
-    flex-shrink: 0;
+  .custom-logo-link > img {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
   }
 
   // ─── DESKTOP NAV LINKS ───
