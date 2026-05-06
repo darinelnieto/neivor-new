@@ -61,21 +61,21 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/financial-services-gnp-template.php"
+                "value": "templates/financial-services-gnp-template.php"
             }
         ],
         [
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/financial-services-template.php"
+                "value": "templates/financial-services-template.php"
             }
         ],
         [
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/markets-template.php"
+                "value": "templates/markets-template.php"
             }
         ]
     ],

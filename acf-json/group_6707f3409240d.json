@@ -96,7 +96,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "<strong><\/strong>",
+                    "default_value": "<strong></strong>",
                     "maxlength": "",
                     "placeholder": "",
                     "prepend": "",
@@ -156,7 +156,7 @@
                 },
                 {
                     "key": "field_6707f49c81032",
-                    "label": "Get advice\/demo",
+                    "label": "Get advice/demo",
                     "name": "get_advicedemo",
                     "aria-label": "",
                     "type": "link",
@@ -178,7 +178,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/markets-template.php"
+                "value": "templates/markets-template.php"
             }
         ]
     ],

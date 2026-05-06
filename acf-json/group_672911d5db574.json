@@ -366,7 +366,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "<strong><\/strong>",
+                    "default_value": "<strong></strong>",
                     "maxlength": "",
                     "placeholder": "",
                     "prepend": "",
@@ -471,7 +471,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "<span class=\"purple-desktop\"><\/span>\r\n<strong><\/strong>",
+                    "default_value": "<span class=\"purple-desktop\"></span>\r\n<strong></strong>",
                     "maxlength": "",
                     "rows": "",
                     "placeholder": "",
@@ -1100,7 +1100,7 @@
                     "name": "description",
                     "aria-label": "",
                     "type": "textarea",
-                    "instructions": "You can use the <strong><\/strong> tag to make the text bold.",
+                    "instructions": "You can use the <strong></strong> tag to make the text bold.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1168,7 +1168,7 @@
                             "name": "description",
                             "aria-label": "",
                             "type": "textarea",
-                            "instructions": "You can use the <strong><\/strong> tag to make the text bold.",
+                            "instructions": "You can use the <strong></strong> tag to make the text bold.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -1339,7 +1339,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "<strong><\/strong>",
+                    "default_value": "<strong></strong>",
                     "maxlength": "",
                     "rows": 3,
                     "placeholder": "",
@@ -1398,7 +1398,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/about-us-template.php"
+                "value": "templates/about-us-template.php"
             }
         ]
     ],

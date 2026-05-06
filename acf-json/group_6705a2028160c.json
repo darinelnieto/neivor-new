@@ -207,7 +207,7 @@
                 },
                 {
                     "key": "field_6706f1b257747",
-                    "label": "Get advice\/demo",
+                    "label": "Get advice/demo",
                     "name": "get_advicedemo",
                     "aria-label": "",
                     "type": "link",
@@ -229,7 +229,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/markets-template.php"
+                "value": "templates/markets-template.php"
             }
         ]
     ],

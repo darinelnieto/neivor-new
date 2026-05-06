@@ -1,0 +1,243 @@
+{
+	"key": "group_flexible_three_col_cards",
+	"title": "Flexible - Three Columns Card",
+	"fields": [
+		{
+			"key": "field_ftcc_title_bold",
+			"label": "Titulo negrita",
+			"name": "title_bold",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "Ej: Disenado para cualquier",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"prepend": "",
+			"append": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_ftcc_title_regular",
+			"label": "Titulo regular",
+			"name": "title_regular",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "Ej: tipo de desarrollo inmobiliario",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"prepend": "",
+			"append": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_ftcc_description",
+			"label": "Descripcion de la seccion",
+			"name": "section_description",
+			"aria-label": "",
+			"type": "textarea",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": "",
+			"rows": 3,
+			"new_lines": ""
+		},
+		{
+			"key": "field_ftcc_cards",
+			"label": "Tarjetas",
+			"name": "cards",
+			"aria-label": "",
+			"type": "repeater",
+			"instructions": "La primera tarjeta sera la grande (columna izquierda). Las siguientes se apilan en la columna derecha.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"collapsed": "field_ftcc_card_title",
+			"min": 0,
+			"max": 0,
+			"layout": "block",
+			"button_label": "Agregar tarjeta",
+			"sub_fields": [
+				{
+					"key": "field_ftcc_card_style",
+					"label": "Estilo",
+					"name": "card_style",
+					"aria-label": "",
+					"type": "select",
+					"instructions": "Dark: imagen de fondo. Light: fondo claro.",
+					"required": 0,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "25",
+						"class": "",
+						"id": ""
+					},
+					"choices": {
+						"dark": "Dark (imagen + overlay)",
+						"light": "Light (fondo claro)"
+					},
+					"default_value": "dark",
+					"return_format": "value",
+					"multiple": 0,
+					"allow_null": 0,
+					"ui": 0,
+					"ajax": 0,
+					"placeholder": ""
+				},
+				{
+					"key": "field_ftcc_card_title",
+					"label": "Titulo",
+					"name": "card_title",
+					"aria-label": "",
+					"type": "text",
+					"instructions": "",
+					"required": 1,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "75",
+						"class": "",
+						"id": ""
+					},
+					"default_value": "",
+					"placeholder": "",
+					"prepend": "",
+					"append": "",
+					"maxlength": ""
+				},
+				{
+					"key": "field_ftcc_card_description",
+					"label": "Descripcion",
+					"name": "card_description",
+					"aria-label": "",
+					"type": "textarea",
+					"instructions": "",
+					"required": 0,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "",
+						"class": "",
+						"id": ""
+					},
+					"default_value": "",
+					"placeholder": "",
+					"maxlength": "",
+					"rows": 3,
+					"new_lines": ""
+				},
+				{
+					"key": "field_ftcc_card_bg_image",
+					"label": "Imagen de fondo",
+					"name": "background_image",
+					"aria-label": "",
+					"type": "image",
+					"instructions": "Requerida para estilo Dark",
+					"required": 0,
+					"conditional_logic": [
+						[
+							{
+								"field": "field_ftcc_card_style",
+								"operator": "==",
+								"value": "dark"
+							}
+						]
+					],
+					"wrapper": {
+						"width": "50",
+						"class": "",
+						"id": ""
+					},
+					"return_format": "array",
+					"preview_size": "medium",
+					"library": "all",
+					"min_width": "",
+					"min_height": "",
+					"min_size": "",
+					"max_width": "",
+					"max_height": "",
+					"max_size": "",
+					"mime_types": ""
+				},
+				{
+					"key": "field_ftcc_card_icon",
+					"label": "Icono",
+					"name": "icon",
+					"aria-label": "",
+					"type": "image",
+					"instructions": "Opcional. Icono a la izquierda del contenido.",
+					"required": 0,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "50",
+						"class": "",
+						"id": ""
+					},
+					"return_format": "array",
+					"preview_size": "thumbnail",
+					"library": "all",
+					"min_width": "",
+					"min_height": "",
+					"min_size": "",
+					"max_width": "",
+					"max_height": "",
+					"max_size": "",
+					"mime_types": ""
+				},
+				{
+					"key": "field_ftcc_card_category",
+					"label": "Etiqueta de categoria",
+					"name": "category_label",
+					"aria-label": "",
+					"type": "text",
+					"instructions": "Opcional. Ej: Desarrolladores",
+					"required": 0,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "",
+						"class": "",
+						"id": ""
+					},
+					"default_value": "",
+					"placeholder": "",
+					"prepend": "",
+					"append": "",
+					"maxlength": ""
+				}
+			]
+		}
+	],
+	"location": [],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": false,
+	"description": "",
+	"show_in_rest": 0,
+	"modified": 1777552205
+}

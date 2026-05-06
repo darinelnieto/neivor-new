@@ -1,0 +1,105 @@
+.flexible-faqs-partial-ed7c1c {
+    background-color: #ffffff;
+    padding: 64px 24px;
+    .title {
+        font-size: 30px;
+        line-height: 36px;
+        font-weight: 400;
+        color: #2C2F30;
+        margin-bottom: 48px;
+        strong{
+            font-weight: 800;
+        }
+    }
+    .faqs {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        list-style: lower-alpha;
+        .faq-item {
+            &::marker{
+                color: #7E66FC;
+                font-size: 20px;
+                line-height: 28px;
+                font-weight: 700;
+            }
+            .faq-question{
+                font-size: 20px;
+                line-height: 28px;
+                font-weight: 700;
+                color: #2C2F30;
+            }
+            .faq-answer{
+                font-size: 16px;
+                line-height: 26px;
+                font-weight: 400;
+                color: #595C5D;
+                margin-top: 8px;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        background-color: #f5f6f8;
+        padding: 48px 24px;
+
+        .title {
+            font-size: 25px;
+            line-height: 35px;
+            margin-bottom: 25.3px;
+        }
+
+        .faqs {
+            gap: 0;
+            margin: 0;
+            padding: 0;
+            .faq-item {
+                border-bottom: 1px solid #d9dde3;
+                padding: 0;
+                &::marker {
+                    font-size: 12px;
+                }
+
+                .faq-question {
+                    align-items: center;
+                    color: #2c2f30;
+                    cursor: pointer;
+                    display: flex;
+                    font-size: 12px;
+                    font-weight: 700;
+                    line-height: 16px;
+                    margin: 0;
+                    padding: 20px 34px 20px 5px;
+                    position: relative;
+                    &::after {
+                        color: #7e66fc;
+                        content: '+';
+                        font-size: 25px;
+                        font-weight: 300;
+                        line-height: 1;
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+
+                .faq-answer {
+                    font-size: 12px;
+                    line-height: 16px;
+                    margin: 0;
+                    padding: 0 34px 24px 5px;
+                }
+
+                &.is-open {
+                    .faq-question {
+                        &::after {
+                            content: '-';
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

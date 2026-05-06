@@ -1289,7 +1289,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/home-template.php"
+                "value": "templates/home-template.php"
             }
         ]
     ],

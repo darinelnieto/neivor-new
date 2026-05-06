@@ -550,7 +550,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "<span><\/span>",
+            "default_value": "<span></span>",
             "maxlength": "",
             "rows": "",
             "placeholder": "",
@@ -694,7 +694,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "<a href=\"#\"> <i class=\"fa-solid fa-chevron-right\"><\/i><\/a>",
+            "default_value": "<a href=\"#\"> <i class=\"fa-solid fa-chevron-right\"></i></a>",
             "maxlength": "",
             "rows": 3,
             "placeholder": "",
@@ -906,14 +906,14 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/markets-template.php"
+                "value": "templates/markets-template.php"
             }
         ],
         [
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/financial-services-template.php"
+                "value": "templates/financial-services-template.php"
             }
         ]
     ],

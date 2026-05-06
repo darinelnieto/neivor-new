@@ -68,7 +68,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "Software inmobiliario\r\n<span>para administrar<\/span> \r\npreventas, rentas y \r\ncondominos",
+                    "default_value": "Software inmobiliario\r\n<span>para administrar</span> \r\npreventas, rentas y \r\ncondominos",
                     "maxlength": "",
                     "allow_in_bindings": 0,
                     "rows": 3,
@@ -246,7 +246,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "<script charset=\"utf-8\" type=\"text\/javascript\" src=\"\/\/js.hsforms.net\/forms\/embed\/v2.js\"><\/script>\r\n<script id=\"hs-form-custom-tracking\">\r\n  hbspt.forms.create({\r\n    portalId: \"20854675\",\r\n    formId: \"725fe76c-bca3-4fe8-b2d9-06032fa38048\",\r\n    region: \"na1\",\r\n    onFormReady: function($form) {\r\n      const iconURL = 'https:\/\/upload.wikimedia.org\/wikipedia\/commons\/6\/6b\/WhatsApp.svg';\r\n      const button = $form.find('input[type=\"submit\"], button[type=\"submit\"]');\r\n\r\n      if (button.length && !button.hasClass('customized')) {\r\n        if (button.is('input')) {\r\n          const value = button.val();\r\n          const newButton = $(`\r\n            <button type=\"submit\" class=\"${button.attr('class')} customized wa__member_name\" style=\"display: flex; align-items: center; gap: 8px;\">\r\n              <img src=\"${iconURL}\" alt=\"WhatsApp\" style=\"height: 18px;\">\r\n              <span>${value}<\/span>\r\n            <\/button>\r\n          `);\r\n          button.replaceWith(newButton);\r\n        } else {\r\n          const originalText = button.text();\r\n          button.html(`\r\n            <img src=\"${iconURL}\" alt=\"WhatsApp\" style=\"height: 18px; margin-right: 8px; vertical-align: middle;\">\r\n            <span>${originalText}<\/span>\r\n          `).addClass('customized');\r\n        }\r\n      }\r\n    },\r\n    onFormSubmit: function($form) {\r\n      const email = $form.find('input[name=\"email\"]').val();\r\n      if (email) {\r\n        \/\/ 1. Seguimiento para Facebook Pixel\r\n        fbq('track', 'Contact');\r\n\r\n        \/\/ 2. Seguimiento para Google Analytics 4\r\n        if (typeof gtag === 'function') {\r\n          gtag('event', 'generate_lead', {\r\n            'event_category': 'sales',\r\n            'event_label': 'whatsapp_demo_condos_administrador',\r\n            'page_location': window.location.href,\r\n            'value': 1.0\r\n          });\r\n        }\r\n\r\n        \/\/ 3. Redirección a WhatsApp\r\n        const message = \"Hola, mi correo es \" + encodeURIComponent(email) + \" vi información sobre Neivor y me interesa conocer más sobre sus servicios.\";\r\n        const whatsappURL = \"https:\/\/api.whatsapp.com\/send?phone=5215610456659&text=\" + message;\r\n        window.open(whatsappURL, '_blank');\r\n      }\r\n    }\r\n  });\r\n<\/script>",
+                    "default_value": "<script charset=\"utf-8\" type=\"text/javascript\" src=\"//js.hsforms.net/forms/embed/v2.js\"></script>\r\n<script id=\"hs-form-custom-tracking\">\r\n  hbspt.forms.create({\r\n    portalId: \"20854675\",\r\n    formId: \"725fe76c-bca3-4fe8-b2d9-06032fa38048\",\r\n    region: \"na1\",\r\n    onFormReady: function($form) {\r\n      const iconURL = 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg';\r\n      const button = $form.find('input[type=\"submit\"], button[type=\"submit\"]');\r\n\r\n      if (button.length && !button.hasClass('customized')) {\r\n        if (button.is('input')) {\r\n          const value = button.val();\r\n          const newButton = $(`\r\n            <button type=\"submit\" class=\"${button.attr('class')} customized wa__member_name\" style=\"display: flex; align-items: center; gap: 8px;\">\r\n              <img src=\"${iconURL}\" alt=\"WhatsApp\" style=\"height: 18px;\">\r\n              <span>${value}</span>\r\n            </button>\r\n          `);\r\n          button.replaceWith(newButton);\r\n        } else {\r\n          const originalText = button.text();\r\n          button.html(`\r\n            <img src=\"${iconURL}\" alt=\"WhatsApp\" style=\"height: 18px; margin-right: 8px; vertical-align: middle;\">\r\n            <span>${originalText}</span>\r\n          `).addClass('customized');\r\n        }\r\n      }\r\n    },\r\n    onFormSubmit: function($form) {\r\n      const email = $form.find('input[name=\"email\"]').val();\r\n      if (email) {\r\n        // 1. Seguimiento para Facebook Pixel\r\n        fbq('track', 'Contact');\r\n\r\n        // 2. Seguimiento para Google Analytics 4\r\n        if (typeof gtag === 'function') {\r\n          gtag('event', 'generate_lead', {\r\n            'event_category': 'sales',\r\n            'event_label': 'whatsapp_demo_condos_administrador',\r\n            'page_location': window.location.href,\r\n            'value': 1.0\r\n          });\r\n        }\r\n\r\n        // 3. Redirección a WhatsApp\r\n        const message = \"Hola, mi correo es \" + encodeURIComponent(email) + \" vi información sobre Neivor y me interesa conocer más sobre sus servicios.\";\r\n        const whatsappURL = \"https://api.whatsapp.com/send?phone=5215610456659&text=\" + message;\r\n        window.open(whatsappURL, '_blank');\r\n      }\r\n    }\r\n  });\r\n</script>",
                     "maxlength": "",
                     "allow_in_bindings": 0,
                     "rows": "",
@@ -1213,7 +1213,7 @@
                     "name": "cta_link",
                     "aria-label": "",
                     "type": "link",
-                    "instructions": "Botón\/enlace de la sección",
+                    "instructions": "Botón/enlace de la sección",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -1806,7 +1806,7 @@
                         },
                         {
                             "key": "v2_field_byb_stat",
-                            "label": "Estadtica \/ logro",
+                            "label": "Estadtica / logro",
                             "name": "stat",
                             "aria-label": "",
                             "type": "text",
@@ -2262,7 +2262,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/home-new-template.php"
+                "value": "templates/home-new-template.php"
             }
         ]
     ],

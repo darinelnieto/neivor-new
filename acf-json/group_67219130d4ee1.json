@@ -116,7 +116,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "<strong><\/strong>",
+                    "default_value": "<strong></strong>",
                     "maxlength": "",
                     "rows": "",
                     "placeholder": "",
@@ -173,7 +173,7 @@
                     "name": "nav_title",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "Enclose the content you want to display in orange between the <span><\/span> tags",
+                    "instructions": "Enclose the content you want to display in orange between the <span></span> tags",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -181,7 +181,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "<span><\/span>",
+                    "default_value": "<span></span>",
                     "maxlength": "",
                     "placeholder": "",
                     "prepend": "",
@@ -339,7 +339,7 @@
                     "name": "max_width_desktop",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "Example of using the value in px: <strong>100px<\/strong>",
+                    "instructions": "Example of using the value in px: <strong>100px</strong>",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -359,7 +359,7 @@
                     "name": "max_width_movil",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "Example of using the value in px: <strong>100px<\/strong>",
+                    "instructions": "Example of using the value in px: <strong>100px</strong>",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -544,7 +544,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "<span><\/span>",
+                    "default_value": "<span></span>",
                     "maxlength": "",
                     "rows": "",
                     "placeholder": "",
@@ -1295,7 +1295,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/financial-services-gnp-template.php"
+                "value": "templates/financial-services-gnp-template.php"
             }
         ]
     ],

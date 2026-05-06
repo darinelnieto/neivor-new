@@ -121,3 +121,26 @@ section#footer-blue {
     bottom: 0;
     top: inherit;
 }
+// h2 size
+@mixin h2-size{
+    font-size: 35px;
+    line-height: 150%;
+    font-weight: 400;
+    color: #0A2540;
+    strong{
+        font-weight: 700;
+    }
+    @media(max-width:991px){
+        font-size: 25px;
+    }
+}
+// p size
+@mixin p-size{
+    font-size: 24px;
+    line-height: 150%;
+    letter-spacing: 0.1px;
+    color: #637281;
+    @media(max-width:991px){
+        font-size: 20px;
+    }
+}

@@ -45,7 +45,7 @@ if(get_field('enable_voices_by_size')):
                                 <div class="body-item this-item-<?= $key_item; ?>">
                                     <input type="hidden" class="position-item" value="<?= $key_item; ?>">
                                     <div class="description-contain">
-                                        <p class="description"><?= $item['descriptions']; ?></p>
+                                        <p class="description"><?= $item['descriptions'] ?? ''; ?></p>
                                         <div class="end-content">
                                             <span class="name">
                                                 <a style="color:#7D65FE" href="<?= $item['link']['url']; ?>" target="<?= $item['link']['target']; ?>"><?= $item['link']['title']; ?></a>  
@@ -76,7 +76,7 @@ if(get_field('enable_voices_by_size')):
                                 </div>
                                 <div class="body-item">
                                     <div class="description-contain">
-                                        <p class="description"><?= $item['descriptions']; ?></p>
+                                        <p class="description"><?= $item['descriptions'] ?? ''; ?></p>
                                         <div class="end-content">
                                             <span class="name">
                                                  <a style="color:#7D65FE" href="<?= $item['link']['url']; ?>" target="<?= $item['link']['target']; ?>"><?= $item['link']['title']; ?></a>   
