@@ -21,7 +21,11 @@ if($groups['logos_corporate_list']):
             <?php foreach($groups['logos_corporate_list'] as $item): ?>
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="image-contain">
-                        <img src="<?= $item['logo']['url']; ?>" alt="<?= $item['logo']['title']; ?>">
+                        <?= wp_get_attachment_image($item['logo']['ID'], 'large', false, array(
+                            'class' => 'logo-image',
+                            'loading' => 'lazy',
+                            'decoding' => 'async',
+                        )); ?>
                     </div>
                 </div>
             <?php endforeach; ?>

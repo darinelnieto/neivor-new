@@ -27,8 +27,16 @@ if($banner):
     <div class="banner-slide owl-carousel">
         <?php foreach($banner as $item): ?>
             <div class="item">
-                <img src="<?= $item['image_desktop']['url']; ?>" alt="<?= $item['image_desktop']['title']; ?>" class="desktop">
-                <img src="<?= $item['image_movil']['url']; ?>" alt="<?= $item['image_movil']['title']; ?>" class="movil">
+                <?= wp_get_attachment_image( $item['image_desktop']['ID'], 'full', false, array( 
+                    'class' => 'desktop', 
+                    'loading' => 'lazy', 
+                    'decoding' => 'async' 
+                ) ); ?>
+                <?= wp_get_attachment_image( $item['image_movil']['ID'], 'full', false, array( 
+                    'class' => 'movil', 
+                    'loading' => 'lazy', 
+                    'decoding' => 'async' 
+                ) ); ?>
                 <div class="container">
                     <div class="row">
                         <div class="col-12 col-md-6">

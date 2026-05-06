@@ -39,7 +39,11 @@ if ( $after_banner['enable_conten_after_banner'] === true ) :
                     <div class="abs-card">
                         <?php if ( ! empty( $card['image'] ) ) : ?>
                             <div class="abs-card__image">
-                                <?= wp_get_attachment_image( $card['image'], 'large', false, [ 'alt' => esc_attr( $card['card_title'] ?? '' ) ] ); ?>
+                                <?= wp_get_attachment_image( $card['image'], 'large', false, array(
+                                    'class' => 'img-fluid',
+                                    'loading' => 'lazy',
+                                    'decoding' => 'async',
+                                )); ?>
                             </div>
                         <?php endif; ?>
                         <div class="abs-card__body">

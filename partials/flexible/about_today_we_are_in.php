@@ -18,7 +18,11 @@ $clients = get_sub_field('clients_list');
                 <p><?= $content['description']; ?></p>
             </div>
             <div class="col-12 col-md-7 col-lg-8 text-center">
-                <img src="<?= $content['map']['url']; ?>" alt="<?= $content['map']['title']; ?>" class="map">
+                <?= wp_get_attachment_image($content['map']['ID'], 'large', false, array(
+                    'class' => 'map',
+                    'loading' => 'lazy',
+                    'decoding' => 'async',
+                )); ?>
             </div>
         </div>
         <!--- Section sliders cities --->
@@ -38,7 +42,11 @@ $clients = get_sub_field('clients_list');
                                     <div class="logos-slide owl-carousel">
                                         <?php foreach($item['clients_logos'] as $logo): ?>
                                             <div class="item">
-                                                <img src="<?= $logo['url']; ?>" alt="<?= $logo['title']; ?>" class="logo">
+                                                <?= wp_get_attachment_image($logo['ID'], 'large', false, array(
+                                                    'class' => 'logo',
+                                                    'loading' => 'lazy',
+                                                    'decoding' => 'async',
+                                                )); ?>
                                             </div>
                                         <?php endforeach; ?>
                                     </div>

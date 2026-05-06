@@ -24,7 +24,11 @@ if ( ! empty( $ft['cards'] ) ) {
         <div class="ft-card">
             <?php if ( ! empty( $card['image'] ) ) : ?>
                 <div class="ft-card__image">
-                    <?= wp_get_attachment_image( $card['image'], 'medium_large', false, [ 'class' => 'ft-img' ] ); ?>
+                    <?= wp_get_attachment_image( $card['image'], 'medium_large', false, array(
+                        'class' => 'ft-img',
+                        'loading' => 'lazy',
+                        'decoding' => 'async',
+                    ) ); ?>
                 </div>
             <?php endif; ?>
             <div class="ft-card__body">

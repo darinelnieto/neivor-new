@@ -58,7 +58,12 @@ $key = 0;
                         </div>
                     </div>
                     <div class="col-12 <?php if($item['two_columns'] === true): ?>col-md-6 <?php else: ?>text-center<?php endif; ?>">
-                        <img src="<?= $item['image']['url']; ?>" alt="<?= $item['image']['title']; ?>" class="how-it-works-image" <?php if($item['enable_manual_image_styles']): ?>style="max-width:<?= $item['max_width_image'] ?>; "<?php endif; ?>>
+                        <?= wp_get_attachment_image( $item['image']['ID'], 'full', false, array(
+                            'class' => 'how-it-works-image',
+                            'loading' => 'lazy',
+                            'decoding' => 'async',
+                            'style' => $item['enable_manual_image_styles'] ? 'max-width:' . $item['max_width_image'] . ';' : '',
+                        )); ?>
                     </div>
                 </div>
             </div>

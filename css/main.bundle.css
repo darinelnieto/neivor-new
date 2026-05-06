@@ -5717,6 +5717,7 @@ section#footer-blue {
 }
 .how-it-works-partial-ed70bf .how-it-work-item .how-it-works-image {
   width: 100%;
+  object-fit: cover;
 }
 @media (max-width: 768px) {
   .how-it-works-partial-ed70bf .how-it-work-item {

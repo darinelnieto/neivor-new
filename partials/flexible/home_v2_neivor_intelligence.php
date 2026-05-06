@@ -48,7 +48,11 @@ if ( empty( $ni ) || empty( $ni['enable'] ) ) return;
 
             <?php if ( ! empty( $ni['image'] ) ) : ?>
                 <div class="ni-media">
-                    <?= wp_get_attachment_image( $ni['image'], 'large', false, [ 'alt' => esc_attr( $ni['title_bold'] ?? '' ) ] ); ?>
+                    <?= wp_get_attachment_image( $ni['image'], 'large', false, array(
+                        'class' => 'ni-image',
+                        'loading' => 'lazy',
+                        'decoding' => 'async',
+                    ) ); ?>
 
                     <?php if ( ! empty( $ni['pill_text_regular'] ) || ! empty( $ni['pill_text_colored'] ) ) :
                         $pill_link = $ni['pill_link'] ?? [];
@@ -66,7 +70,7 @@ if ( empty( $ni ) || empty( $ni['enable'] ) ) return;
                             </a>
                             <?php if ( ! empty( $ni['pill_icon'] ) ) : ?>
                                 <span class="ni-pill__icon">
-                                    <?= wp_get_attachment_image( $ni['pill_icon'], 'thumbnail', false, [ 'alt' => '' ] ); ?>
+                                    <?= wp_get_attachment_image( $ni['pill_icon'], 'large', false, array( 'alt' => '', 'loading' => 'lazy', 'decoding' => 'async' ) ); ?>
                                 </span>
                             <?php endif; ?>
                         </div>

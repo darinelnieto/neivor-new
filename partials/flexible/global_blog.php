@@ -27,7 +27,7 @@ if($blog->have_posts()):
                         <div class="item">
                             <div class="card-post">
                                 <div class="image-contain">
-                                    <img src="<?= get_the_post_thumbnail_url($blog->ID); ?>" alt="<?= the_title($blog->ID); ?>">
+                                    <?= get_the_post_thumbnail($blog->ID, 'full', array('class' => 'card-post-image', 'loading' => 'lazy', 'decoding' => 'async')); ?>
                                 </div>
                                 <div class="body-card">
                                     <h4 class="post-name"><?= the_title($blog->ID); ?></h4>

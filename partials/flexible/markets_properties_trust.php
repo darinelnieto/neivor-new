@@ -34,7 +34,11 @@ $properties = get_sub_field('group_content_properties_that_trust_neivor');
                                 </filter>
                             </defs>
                         </svg>
-                        <img src="<?= $before_properties['icon']['url']; ?>" alt="<?= $before_properties['icon']['title']; ?>">
+                        <?= wp_get_attachment_image( $before_properties['icon']['ID'], 'full', false, array( 
+                            'class' => 'icon-image', 
+                            'loading' => 'lazy', 
+                            'decoding' => 'async' 
+                        ) ); ?>
                     </div>
                 </div>
                 <div class="col-12 col-md-10">
@@ -55,7 +59,11 @@ $properties = get_sub_field('group_content_properties_that_trust_neivor');
                 <div class="col-6 col-lg-3 mb-4">
                     <div class="card-property">
                         <div class="icon">
-                            <img src="<?= $item['icon']['url']; ?>" alt="<?= $item['icon']['title']; ?>">
+                            <?= wp_get_attachment_image( $item['icon']['ID'], 'full', false, array( 
+                                'class' => 'icon-image', 
+                                'loading' => 'lazy', 
+                                'decoding' => 'async' 
+                            ) ); ?>
                         </div>
                         <h4 class="name"><?= $item['item_name']; ?></h4>
                         <p class="description"><?= $item['description'] ?></p>

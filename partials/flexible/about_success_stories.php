@@ -21,12 +21,20 @@ if($success_stories['cases']):
                         <div class="item">
                             <div class="card-history">
                                 <div class="image-contain">
-                                    <img src="<?= $item['feature_image']['url']; ?>" alt="<?= $item['feature_image']['title']; ?>" class="feature-image">
+                                    <?= wp_get_attachment_image($item['feature_image']['ID'], 'large', false, array(
+                                        'class' => 'feature-image',
+                                        'loading' => 'lazy',
+                                        'decoding' => 'async',
+                                    )); ?>
                                     <?php if($item['logos']): ?>
                                         <div class="logo-contain">
                                             <?php foreach($item['logos'] as $logo): ?>
                                                 <div class="logo">
-                                                    <img src="<?= $logo['logo']['url']; ?>" alt="<?= $logo['logo']['title']; ?>" class="logo">
+                                                    <?= wp_get_attachment_image($logo['logo']['ID'], 'large', false, array(
+                                                        'class' => 'logo',
+                                                        'loading' => 'lazy',
+                                                        'decoding' => 'async',
+                                                    )); ?>
                                                 </div>
                                             <?php endforeach; ?>
                                         </div>

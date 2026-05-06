@@ -22,6 +22,11 @@ if($about['title'] && $about['description']):
             <div class="col-12 col-md-5">
                 <div class="image-contain">
                     <img src="<?= $about['image']['url']; ?>" alt="<?= $about['image']['title']; ?>">
+                    <?= wp_get_attachment_image($about['image']['ID'], 'large', false, array(
+                        'class' => 'about-image',
+                        'loading' => 'lazy',
+                        'decoding' => 'async',
+                    )); ?>
                 </div>
             </div>
         </div>

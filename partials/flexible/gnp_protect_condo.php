@@ -21,7 +21,11 @@ if($content['cards']):
                 <div class="col-12 col-sm-6 col-md-4 mb-4">
                     <div class="card-item">
                         <div class="image-contain">
-                            <img src="<?= $item['image']['url']; ?>" alt="<?= $item['image']['url']; ?>">
+                            <?= wp_get_attachment_image( $item['image']['ID'], 'full', false, array(
+                                'class' => 'img-fluid',
+                                'loading' => 'lazy',
+                                'decoding' => 'async',
+                            )); ?>
                         </div>
                         <div class="text-contain">
                             <h4><?= $item['name']; ?></h4>

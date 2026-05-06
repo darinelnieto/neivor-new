@@ -37,7 +37,11 @@ $stories = get_sub_field('true_story_repeat');
                                     <div class="item">
                                         <div class="card-story">
                                             <div class="image-contain">
-                                                <img src="<?= $story['photo']['url']; ?>" alt="<?= $story['photo']['title']; ?>">
+                                                <?= wp_get_attachment_image( $story['photo']['ID'], 'full', false, array(
+                                                    'class' => 'img-fluid',
+                                                    'loading' => 'lazy',
+                                                    'decoding' => 'async',
+                                                )); ?>
                                             </div>
                                             <div class="body">
                                                 <h4><?= $story['name']; ?></h4>

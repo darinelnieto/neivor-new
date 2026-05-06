@@ -22,7 +22,11 @@ if ( ! empty( $boost['cards'] ) ) {
         ?>
         <a href="<?= esc_url( $link_url ); ?>" <?= $link_target; ?> class="card-item">
             <?php if ( ! empty( $item['feature_image'] ) ) : ?>
-                <?= wp_get_attachment_image( $item['feature_image'], 'large', false, [ 'class' => 'feature-image' ] ); ?>
+                <?= wp_get_attachment_image( $item['feature_image'], 'large', false, array(
+                    'class' => 'feature-image',
+                    'loading' => 'lazy',
+                    'decoding' => 'async',
+                )); ?>
             <?php endif; ?>
             <div class="card-overlay"></div>
             <div class="card-content">
@@ -32,7 +36,11 @@ if ( ! empty( $boost['cards'] ) ) {
                     <span class="card-tag" style="--dot-color: <?= $dot_color; ?>"><?= esc_html( $item['tag'] ); ?></span>
                 <?php endif; ?>
                 <?php if ( ! empty( $item['logo'] ) ) : ?>
-                    <?= wp_get_attachment_image( $item['logo'], 'medium', false, [ 'class' => 'card-logo' ] ); ?>
+                    <?= wp_get_attachment_image( $item['logo'], 'medium', false, array(
+                        'class' => 'card-logo',
+                        'loading' => 'lazy',
+                        'decoding' => 'async',
+                    )); ?>
                 <?php endif; ?>
                 <?php if ( ! empty( $item['name'] ) ) : ?>
                     <h3 class="card-name"><?= esc_html( $item['name'] ); ?></h3>

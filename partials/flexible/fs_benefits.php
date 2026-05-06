@@ -33,7 +33,11 @@ if(get_sub_field('enable_benefits')):
             <div class="row benefit">
                 <div class="col-12 col-md-1">
                     <div class="icon-contain">
-                        <img src="<?= $item['icon']['url']; ?>" alt="<?= $item['icon']['title']; ?>">
+                        <?= wp_get_attachment_image( $item['icon']['ID'], 'large', false, array(
+                            'class' => 'card__icon',
+                            'loading' => 'lazy',
+                            'decoding' => 'async',
+                        )); ?>
                     </div>
                 </div>
                 <div class="col-12 col-md-11">

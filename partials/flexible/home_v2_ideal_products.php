@@ -34,13 +34,17 @@ if ( $ideal_product['enable_ideal_product'] === true ) :
                     <div class="product-card">
                         <?php if ( ! empty( $item['image'] ) ) : ?>
                             <div class="image-contain">
-                                <?= wp_get_attachment_image( $item['image'], 'large', false, [ 'alt' => esc_attr( $item['name'] ?? '' ) ] ); ?>
+                                <?= wp_get_attachment_image( $item['image'], 'large', false, array(
+                                    'class' => 'product-image',
+                                    'loading' => 'lazy',
+                                    'decoding' => 'async',
+                                )); ?>
                             </div>
                         <?php endif; ?>
                         <div class="body-card">
                             <div class="card-title-wrap">
                                 <?php if ( ! empty( $item['icon'] ) ) : ?>
-                                    <?= wp_get_attachment_image( $item['icon'], 'thumbnail', false, [ 'class' => 'card-icon', 'alt' => '' ] ); ?>
+                                    <?= wp_get_attachment_image( $item['icon'], 'thumbnail', false, array( 'class' => 'card-icon', 'loading' => 'lazy', 'decoding' => 'async' ) ); ?>
                                 <?php endif; ?>
                                 <?php if ( ! empty( $item['name'] ) ) : ?>
                                     <h3><?= esc_html( $item['name'] ); ?></h3>

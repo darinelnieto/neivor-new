@@ -21,7 +21,11 @@ if($allies):
             </div>
             <?php if($allies['allies_list']): foreach($allies['allies_list'] as $item): ?>
                 <div class="col-6 col-md-4 col-lg-2 mb-4 text-center">
-                    <img src="<?= $item['logo']['url']; ?>" alt="<?= $item['logo']['title']; ?>">
+                    <?= wp_get_attachment_image( $item['logo']['ID'], 'full', false, array(
+                        'class' => 'img-fluid',
+                        'loading' => 'lazy',
+                        'decoding' => 'async'
+                    )); ?>
                 </div>
             <?php endforeach; endif; ?>
         </div>

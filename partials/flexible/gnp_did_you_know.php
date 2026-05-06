@@ -32,7 +32,11 @@ if($know_that['items']):
                 <div class="col-12 col-sm-6 col-lg-4 mb-4">
                     <div class="card-content">
                         <div class="image-contain">
-                            <img src="<?= $item['icon']['url']; ?>" alt="<?= $item['icon']['url']; ?>">
+                            <?= wp_get_attachment_image( $item['icon']['ID'], 'full', false, array(
+                                'class' => 'img-fluid',
+                                'loading' => 'lazy',
+                                'decoding' => 'async',
+                            )); ?>
                         </div>
                         <div class="text-contain">
                             <h4><?= $item['title']; ?></h4>

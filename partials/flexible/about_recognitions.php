@@ -28,7 +28,11 @@ if($recognitions['recognitions_list']):
                     <?php foreach($recognitions['recognitions_list'] as $item): ?>
                         <div class="item">
                             <a href="<?= $item['link']['url']; ?>" target="<?= $item['link']['target']; ?>">
-                                <img src="<?= $item['image']['url']; ?>" alt="<?= $item['image']['title']; ?>">
+                                <?= wp_get_attachment_image($item['image']['ID'], 'large', false, array(
+                                    'class' => 'recognition-image',
+                                    'loading' => 'lazy',
+                                    'decoding' => 'async',
+                                )); ?>
                                 <span><?= $item['link']['title']; ?></span>
                             </a>
                         </div>

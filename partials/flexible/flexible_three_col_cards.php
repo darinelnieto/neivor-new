@@ -38,17 +38,29 @@ if ( ! $cards ) return;
             <div class="col-12 col-md-6 col-lg-7 mb-4 mb-md-0 card-col card-col--featured">
                 <div class="card--<?= esc_attr( $style ); ?> card--featured">
                     <?php if ( $style === 'dark' ) : ?>
-                        <?= wp_get_attachment_image( $image, 'full', false, ['class' => 'card__bg-img'] ); ?>
+                        <?= wp_get_attachment_image( $image, 'full', false, array(
+                            'class' => 'card__bg-img',
+                            'loading' => 'lazy',
+                            'decoding' => 'async',
+                        )); ?>
                         <div class="card__content card__content--dark">
                             <h3 class="card__title"><?= $ctitle ?? ''; ?></h3>
                             <p class="card__desc"><?= $cdesc ?? ''; ?></p>
                         </div>
                     <?php else : ?>
-                        <?php if ( $image ) : ?><?= wp_get_attachment_image( $image, 'full', false, ['class' => 'card__bg-img'] ); ?><?php endif; ?>
+                        <?php if ( $image ) : ?><?= wp_get_attachment_image( $image, 'full', false, array(
+                            'class' => 'card__bg-img',
+                            'loading' => 'lazy',
+                            'decoding' => 'async',
+                        )); ?><?php endif; ?>
                         <div class="card__content card__content--light">
                             <div class="card__meta">
                                 <div class="card__icon-wrap">
-                                    <?= wp_get_attachment_image( $icon, 'thumbnail', false, ['class' => 'card__icon'] ); ?>
+                                    <?= wp_get_attachment_image( $icon, 'thumbnail', false, array(
+                                        'class' => 'card__icon',
+                                        'loading' => 'lazy',
+                                        'decoding' => 'async',
+                                    )); ?>
                                 </div>
                                 <div class="card__info">
                                     <span class="card__category"><?=  $cat ?? '' ; ?></span>
@@ -80,7 +92,11 @@ if ( ! $cards ) return;
                 ?>
                 <?php if ( $style === 'dark' ) : ?>
                     <div class="card--<?= esc_attr( $style ); ?> card--featured card__content--dark mb-4">
-                        <?= wp_get_attachment_image( $image, 'full', false, array( 'class' => 'card__bg-img' )); ?>
+                        <?= wp_get_attachment_image( $image, 'full', false, array(
+                            'class' => 'card__bg-img',
+                            'loading' => 'lazy',
+                            'decoding' => 'async',
+                        )); ?>
                         <div class="card__content ">
                             <?php if ( $ctitle ) : ?><h3 class="card__title"><?= $ctitle ?? ''; ?></h3><?php endif; ?>
                             <?php if ( $cdesc ) : ?><p class="card__desc"><?= $cdesc ?? ''; ?></p><?php endif; ?>
@@ -89,11 +105,19 @@ if ( ! $cards ) return;
                 <?php else : ?>
                     <div class="card">
                         <div class="card--<?= esc_attr( $style ); ?> card__content--light">
-                            <?php if ( $image ) : ?><?= wp_get_attachment_image( $image, 'full', false, array( 'class' => 'card__bg-img' )); ?><?php endif; ?>
+                            <?php if ( $image ) : ?><?= wp_get_attachment_image( $image, 'full', false, array(
+                                'class' => 'card__bg-img',
+                                'loading' => 'lazy',
+                                'decoding' => 'async',
+                            )); ?><?php endif; ?>
                             <div class="card__content ">
                                 <div class="card__meta">
                                     <div class="card__icon-wrap">
-                                        <?= wp_get_attachment_image( $icon, 'thumbnail', false, array( 'class' => 'card__icon' )); ?>
+                                        <?= wp_get_attachment_image( $icon, 'thumbnail', false, array(
+                                            'class' => 'card__icon',
+                                            'loading' => 'lazy',
+                                            'decoding' => 'async',
+                                        )); ?>
                                     </div>
                                     <div class="card__info">
                                         <span class="card__category"><?= $cat ?? ''; ?></span>

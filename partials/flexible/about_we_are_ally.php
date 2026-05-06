@@ -20,7 +20,11 @@ if($allies['allies_list']):
                     <?php foreach($allies['allies_list'] as $item): ?>
                         <div class="ally">
                             <div class="logo">
-                                <img src="<?= $item['logo']['url']; ?>" alt="<?= $item['logo']['title']; ?>">
+                                <?= wp_get_attachment_image($item['logo']['ID'], 'large', false, array(
+                                    'class' => 'logo',
+                                    'loading' => 'lazy',
+                                    'decoding' => 'async',
+                                )); ?>
                             </div>
                             <div class="description-contain">
                                 <p><?= $item['description']; ?></p>

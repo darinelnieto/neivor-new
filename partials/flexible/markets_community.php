@@ -22,7 +22,11 @@ if(get_sub_field('enable_community')):
                             <div class="col-12 col-md-6 col-lg-4 mb-4">
                                 <div class="community-card">
                                     <div class="image-contain">
-                                        <img src="<?= $item['image']['url']; ?>" alt="<?= $item['image']['title']; ?>">
+                                        <?= wp_get_attachment_image( $item['image']['ID'], 'large', false, array(
+                                            'class' => 'community-image', 
+                                            'loading' => 'lazy', 
+                                            'decoding' => 'async' 
+                                        ) ); ?>
                                     </div>
                                     <div class="body-item">
                                         <div class="description">

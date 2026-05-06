@@ -20,12 +20,20 @@ if($recent['items']):
                     <?php foreach($recent['items'] as $item): ?>
                         <div class="card-content">
                             <div class="image-contain">
-                                <img src="<?= $item['image']['url']; ?>" alt="<?= $item['image']['title']; ?>">
+                                <?= wp_get_attachment_image( $item['image']['ID'], 'full', false, array( 
+                                    'class' => 'event-image', 
+                                    'loading' => 'lazy', 
+                                    'decoding' => 'async' 
+                                ) ); ?>
                             </div>
                             <div class="text-contain">
                                 <div class="description-content">
                                     <div class="logo-contain">
-                                        <img src="<?= $item['logo']['url']; ?>" alt="<?= $item['logo']['title']; ?>">
+                                        <?= wp_get_attachment_image( $item['logo']['ID'], 'full', false, array( 
+                                            'class' => 'logo-image', 
+                                            'loading' => 'lazy', 
+                                            'decoding' => 'async' 
+                                        ) ); ?>
                                         <span><?= $item['name']; ?></span>
                                     </div>
                                     <p><?= $item['description']; ?></p>

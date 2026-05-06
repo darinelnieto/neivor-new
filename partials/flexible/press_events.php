@@ -30,7 +30,11 @@ if($events['events_list']):
                                     <a href="<?= $item['link']['url']; ?>" target="<?= $item['link']['target']; ?>">
                                         <div class="event-card">
                                             <div class="image-contain">
-                                                <img src="<?= $item['image']['url']; ?>" alt="<?= $item['image']['title']; ?>">
+                                                <?= wp_get_attachment_image( $item['image']['ID'], 'full', false, array( 
+                                                    'class' => 'event-image', 
+                                                    'loading' => 'lazy', 
+                                                    'decoding' => 'async' 
+                                                ) ); ?>
                                             </div>
                                             <div class="text-contain">
                                                 <h4 class="name"><?= $item['name']; ?></h4>

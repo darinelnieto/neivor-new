@@ -23,11 +23,19 @@ if($highlights):
         <?php foreach($highlights as $item): ?>
             <div class="item">
                 <div class="logo-contain">
-                    <img src="<?= $item['logo']['url']; ?>" alt="<?= $item['logo']['title']; ?>">
+                    <?= wp_get_attachment_image( $item['logo']['ID'], 'full', false, array( 
+                        'class' => 'logo-image', 
+                        'loading' => 'lazy', 
+                        'decoding' => 'async' 
+                    ) ); ?>
                 </div>
                 <div class="card-content">
                     <div class="image-contain">
-                        <img src="<?= $item['feature_image']['url']; ?>" alt="<?= $item['feature_image']['title']; ?>">
+                        <?= wp_get_attachment_image( $item['feature_image']['ID'], 'full', false, array( 
+                            'class' => 'feature-image', 
+                            'loading' => 'lazy', 
+                            'decoding' => 'async' 
+                        ) ); ?>
                     </div>
                     <div class="text-contain">
                         <div class="description-content">
