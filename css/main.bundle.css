@@ -849,6 +849,7 @@ section#footer-blue {
     max-width: 100%;
     height: auto;
     max-height: 408.12px;
+    margin-bottom: 55px;
   }
 }
 .slide-cards-with-gradient-partial-da9845 .cards-slide .card-item .image img {
@@ -1037,7 +1038,7 @@ section#footer-blue {
   justify-content: center;
   gap: 8px;
   position: absolute;
-  top: 420.12px;
+  top: 432.12px;
   left: 50%;
   transform: translateX(-50%);
 }

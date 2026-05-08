@@ -34,6 +34,7 @@
                     max-width: 100%;
                     height: auto;
                     max-height: 408.12px;
+                    margin-bottom: 55px;
                 }
                 img{
                     width: 100%;
@@ -211,14 +212,14 @@
         }
         // Owl carousel dots styles
         .owl-dots{
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 8px;
-                position: absolute;
-                top: 420.12px;
-                left: 50%;
-                transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            position: absolute;
+            top: 432.12px;
+            left: 50%;
+            transform: translateX(-50%);
             .owl-dot{
                 width: 15.14px;
                 height: 15.14px;
