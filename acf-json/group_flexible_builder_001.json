@@ -3815,6 +3815,414 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_69fb4d9451318": {
+                    "key": "layout_69fb4d9451318",
+                    "name": "flexible_cards_whit_five_items",
+                    "label": "flexible_cards_whit_five_items",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_69fb4d9c5131a",
+                            "label": "Row cards flexible columns",
+                            "name": "row_cards_flexible_columns",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_69fb50e95131b",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_69fdc1d982687",
+                                    "label": "Description",
+                                    "name": "description",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "Sin importar si construyes casas, torres o terrenos — el problema entre la firma y la escrituración es el mismo. Neivor tiene una solución pensada para resolverlo.",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "rows": 3,
+                                    "placeholder": "",
+                                    "new_lines": "br"
+                                },
+                                {
+                                    "key": "field_69fdc20882688",
+                                    "label": "Tarjetas",
+                                    "name": "tarjetas",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "block",
+                                    "pagination": 0,
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Agregar Fila",
+                                    "rows_per_page": 20,
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_69fdc21a82689",
+                                            "label": "Card style",
+                                            "name": "card_style",
+                                            "aria-label": "",
+                                            "type": "select",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "choices": {
+                                                "dark": "Dark (imagen + overlay)",
+                                                "light": "Light (fondo claro)"
+                                            },
+                                            "default_value": "dark",
+                                            "return_format": "value",
+                                            "multiple": 0,
+                                            "allow_null": 0,
+                                            "allow_in_bindings": 0,
+                                            "ui": 0,
+                                            "ajax": 0,
+                                            "placeholder": "",
+                                            "create_options": 0,
+                                            "save_options": 0,
+                                            "parent_repeater": "field_69fdc20882688"
+                                        },
+                                        {
+                                            "key": "field_69fdc28d8268a",
+                                            "label": "Grid size",
+                                            "name": "grid_size",
+                                            "aria-label": "",
+                                            "type": "number",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": 4,
+                                            "min": "",
+                                            "max": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "step": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "parent_repeater": "field_69fdc20882688"
+                                        },
+                                        {
+                                            "key": "field_69fdc40350977",
+                                            "label": "Card dark",
+                                            "name": "card_dark",
+                                            "aria-label": "",
+                                            "type": "group",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_69fdc21a82689",
+                                                        "operator": "==",
+                                                        "value": "dark"
+                                                    }
+                                                ]
+                                            ],
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "layout": "block",
+                                            "sub_fields": [
+                                                {
+                                                    "key": "field_69fdc43e50978",
+                                                    "label": "Image",
+                                                    "name": "image",
+                                                    "aria-label": "",
+                                                    "type": "image",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "return_format": "id",
+                                                    "library": "all",
+                                                    "min_width": "",
+                                                    "min_height": "",
+                                                    "min_size": "",
+                                                    "max_width": "",
+                                                    "max_height": "",
+                                                    "max_size": "",
+                                                    "mime_types": "",
+                                                    "allow_in_bindings": 0,
+                                                    "preview_size": "medium"
+                                                },
+                                                {
+                                                    "key": "field_69fdc46150979",
+                                                    "label": "Title",
+                                                    "name": "title",
+                                                    "aria-label": "",
+                                                    "type": "text",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "default_value": "Comerciales",
+                                                    "maxlength": "",
+                                                    "allow_in_bindings": 0,
+                                                    "placeholder": "",
+                                                    "prepend": "",
+                                                    "append": ""
+                                                },
+                                                {
+                                                    "key": "field_69fdc4745097a",
+                                                    "label": "Description",
+                                                    "name": "description",
+                                                    "aria-label": "",
+                                                    "type": "textarea",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "default_value": "Locales y oficinas con control total de contratos y pagos.",
+                                                    "maxlength": "",
+                                                    "allow_in_bindings": 0,
+                                                    "rows": "",
+                                                    "placeholder": "",
+                                                    "new_lines": ""
+                                                }
+                                            ],
+                                            "parent_repeater": "field_69fdc20882688"
+                                        },
+                                        {
+                                            "key": "field_69fdc4925097b",
+                                            "label": "Card light",
+                                            "name": "card_light",
+                                            "aria-label": "",
+                                            "type": "group",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_69fdc21a82689",
+                                                        "operator": "==",
+                                                        "value": "light"
+                                                    }
+                                                ]
+                                            ],
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "layout": "block",
+                                            "sub_fields": [
+                                                {
+                                                    "key": "field_69fdc4c05097c",
+                                                    "label": "Main image",
+                                                    "name": "main_image",
+                                                    "aria-label": "",
+                                                    "type": "image",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "return_format": "id",
+                                                    "library": "all",
+                                                    "min_width": "",
+                                                    "min_height": "",
+                                                    "min_size": "",
+                                                    "max_width": "",
+                                                    "max_height": "",
+                                                    "max_size": "",
+                                                    "mime_types": "",
+                                                    "allow_in_bindings": 0,
+                                                    "preview_size": "medium"
+                                                },
+                                                {
+                                                    "key": "field_69fdc4f05097d",
+                                                    "label": "Icon",
+                                                    "name": "icon",
+                                                    "aria-label": "",
+                                                    "type": "image",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "return_format": "id",
+                                                    "library": "all",
+                                                    "min_width": "",
+                                                    "min_height": "",
+                                                    "min_size": "",
+                                                    "max_width": "",
+                                                    "max_height": "",
+                                                    "max_size": "",
+                                                    "mime_types": "",
+                                                    "allow_in_bindings": 0,
+                                                    "preview_size": "medium"
+                                                },
+                                                {
+                                                    "key": "field_69fdc5055097e",
+                                                    "label": "Label",
+                                                    "name": "label",
+                                                    "aria-label": "",
+                                                    "type": "text",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "default_value": "CATEGORÍA",
+                                                    "maxlength": "",
+                                                    "allow_in_bindings": 0,
+                                                    "placeholder": "",
+                                                    "prepend": "",
+                                                    "append": ""
+                                                },
+                                                {
+                                                    "key": "field_69fdc50e5097f",
+                                                    "label": "Title",
+                                                    "name": "title",
+                                                    "aria-label": "",
+                                                    "type": "text",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "default_value": "Pool de Rentas",
+                                                    "maxlength": "",
+                                                    "allow_in_bindings": 0,
+                                                    "placeholder": "",
+                                                    "prepend": "",
+                                                    "append": ""
+                                                },
+                                                {
+                                                    "key": "field_69fdc53450980",
+                                                    "label": "Description",
+                                                    "name": "description",
+                                                    "aria-label": "",
+                                                    "type": "textarea",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "default_value": "",
+                                                    "maxlength": "",
+                                                    "allow_in_bindings": 0,
+                                                    "rows": 2,
+                                                    "placeholder": "",
+                                                    "new_lines": "br"
+                                                },
+                                                {
+                                                    "key": "field_69fdc55050981",
+                                                    "label": "Porcentaje",
+                                                    "name": "porcentaje",
+                                                    "aria-label": "",
+                                                    "type": "number",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "default_value": 30,
+                                                    "min": "",
+                                                    "max": "",
+                                                    "allow_in_bindings": 0,
+                                                    "placeholder": "",
+                                                    "step": "",
+                                                    "prepend": "",
+                                                    "append": ""
+                                                }
+                                            ],
+                                            "parent_repeater": "field_69fdc20882688"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -3843,5 +4251,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1778073402
+    "modified": 1778240684
 }

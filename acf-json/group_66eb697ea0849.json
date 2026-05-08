@@ -101,7 +101,10 @@
                     "default_value": "",
                     "enable_opacity": 0,
                     "return_format": "string",
-                    "parent_repeater": "field_66eb698e81614"
+                    "parent_repeater": "field_66eb698e81614",
+                    "custom_palette_source": "",
+                    "palette_colors": "",
+                    "show_color_wheel": true
                 },
                 {
                     "key": "field_67d8630f10eef",
@@ -289,7 +292,10 @@
                     "default_value": "",
                     "enable_opacity": 0,
                     "return_format": "string",
-                    "parent_repeater": "field_66eb698e81614"
+                    "parent_repeater": "field_66eb698e81614",
+                    "custom_palette_source": "",
+                    "palette_colors": "",
+                    "show_color_wheel": true
                 },
                 {
                     "key": "field_66eb8cf0a1c2a",
@@ -316,7 +322,10 @@
                     "default_value": "",
                     "enable_opacity": 0,
                     "return_format": "string",
-                    "parent_repeater": "field_66eb698e81614"
+                    "parent_repeater": "field_66eb698e81614",
+                    "custom_palette_source": "",
+                    "palette_colors": "",
+                    "show_color_wheel": true
                 }
             ]
         },
@@ -1150,7 +1159,10 @@
                             "default_value": "",
                             "enable_opacity": 0,
                             "return_format": "string",
-                            "parent_repeater": "field_66ef209475dba"
+                            "parent_repeater": "field_66ef209475dba",
+                            "custom_palette_source": "",
+                            "palette_colors": "",
+                            "show_color_wheel": true
                         },
                         {
                             "key": "field_66ef20df75dbe",
@@ -1289,7 +1301,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates/home-template.php"
+                "value": "templates\/home-template.php"
             }
         ]
     ],
@@ -1304,5 +1316,8 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1776970783
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1778240741
 }
