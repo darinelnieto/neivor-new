@@ -1,5 +1,12 @@
-   
 <?php
+$script_handle = 'gnp-banner-js';
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . '/js/partials/gnp-banner.js',
+    array('jquery'),
+    null,
+    true
+);
 /**
  * 
  * Partial Name: gnp-banner
@@ -76,16 +83,5 @@ $nav = $banner['nav'];
         </linearGradient>
         </defs>
     </svg>
-    <script>
-        $(()=>{
-            var cambio = false;
-            $('.nav-card-contain ul li a').each(function(index) {
-                if(this.href.trim() == window.location){
-                    $(this).addClass("active");
-                    cambio = true;
-                }
-            });
-        });
-    </script>
 </section>
                     

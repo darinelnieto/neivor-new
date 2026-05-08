@@ -1,5 +1,12 @@
-   
 <?php
+$script_handle = 'about-today-we-are-in-js';
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . '/js/partials/about-today-we-are-in.js',
+    array('jquery'),
+    null,
+    true
+);
 /**
  * 
  * Partial Name: today-we-are-in
@@ -51,26 +58,6 @@ $clients = get_sub_field('clients_list');
                                         <?php endforeach; ?>
                                     </div>
                                 </div>
-                                <script>
-                                    $('.logos-slide').owlCarousel({
-                                        autplay:false,
-                                        loop:false,
-                                        nav:false,
-                                        dots:false,
-                                        margin:20,
-                                        responsive:{
-                                            0:{
-                                                items:2
-                                            },
-                                            768:{
-                                                items:3
-                                            },
-                                            991:{
-                                                items:4
-                                            }
-                                        }
-                                    }).css({'opacity':1});
-                                </script>
                             <?php endif; ?>
                         </div>
                     </div>

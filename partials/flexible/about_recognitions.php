@@ -1,5 +1,12 @@
-   
 <?php
+$script_handle = 'about-recognitions-js';
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . '/js/partials/about-recognitions.js',
+    array('jquery'),
+    null,
+    true
+);
 /**
  * 
  * Partial Name: recognitions
@@ -53,27 +60,4 @@ if($recognitions['recognitions_list']):
         </svg>
     </div>
 </section>
-<script>
-    $('.recognitions-slide').owlCarousel({
-        autoplay:false,
-        loop:true,
-        nav:false,
-        dots:true,
-        margin:40,
-        responsive:{
-            0:{
-                items:1,
-                autoplay:true
-            },
-            768:{
-                items:2,
-                autoplay:true
-            },
-            991:{
-                items:3,
-                center:true
-            }
-        }
-    }).css({'opacity':1});
-</script>
 <?php endif; ?>      

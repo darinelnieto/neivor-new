@@ -1,5 +1,12 @@
-   
 <?php
+$script_handle = 'press-banner-js';
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . '/js/partials/press-banner.js',
+    array('jquery'),
+    null,
+    true
+);
 /**
  * 
  * Partial Name: banner
@@ -51,14 +58,4 @@ if($banner):
         <?php endforeach; ?>
     </div>
 </section>
-<script>
-    $('.banner-slide').owlCarousel({
-        autoplay:true,
-        loop:true,
-        nav:false,
-        dots:true,
-        margin:0,
-        items:1
-    }).css({'opacity':1});
-</script>
 <?php endif; ?>                 

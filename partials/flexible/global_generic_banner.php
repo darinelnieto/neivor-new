@@ -1,5 +1,12 @@
-   
 <?php
+$script_handle = 'global-generic-banner-js';
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . '/js/partials/global-generic-banner.js',
+    array('jquery'),
+    null,
+    true
+);
 /**
  * 
  * Partial Name: generic-banner
@@ -154,17 +161,6 @@ if(get_sub_field('custom_style_image_desktop') === true):
             </ul>
         </div>
     </div>
-    <script>
-        $(()=>{
-            var cambio = false;
-            $('.nav-contain  ul li a').each(function(index) {
-                if(this.href.trim() == window.location){
-                    $(this).addClass("active");
-                    cambio = true;
-                }
-            });
-        });
-    </script>
     <?php endif; if(get_sub_field('enable_video_after_banner') === true): ?>
         <div class="container">
             <div class="row justify-content-center">

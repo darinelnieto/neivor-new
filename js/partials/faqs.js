@@ -31,10 +31,10 @@ document.addEventListener('DOMContentLoaded', function () {
 				}
 
 				if (isMobile()) {
-					hideAnswer(answer);
-					item.classList.remove('is-open');
+					showAnswer(answer);
+					item.classList.add('is-open');
 					question.style.cursor = 'pointer';
-					question.setAttribute('aria-expanded', 'false');
+					question.setAttribute('aria-expanded', 'true');
 				} else {
 					showAnswer(answer);
 					item.classList.remove('is-open');

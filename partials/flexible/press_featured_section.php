@@ -1,5 +1,12 @@
-   
 <?php
+$script_handle = 'press-featured-section-js';
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . '/js/partials/press-featured-section.js',
+    array('jquery'),
+    null,
+    true
+);
 /**
  * 
  * Partial Name: featured-section
@@ -64,24 +71,4 @@ if($highlights):
         <?php endforeach; ?>
     </div>
 </section>
-<script>
-    $('.highlights-slide').owlCarousel({
-        autoplay:false,
-        loop:true,
-        margin:0,
-        dots:true,
-        nav:false,
-        responsive:{
-            0:{
-                items:1,
-                margin:10
-            },
-            768:{
-                items:1.3,
-                center:true
-            }
-        }
-
-    }).css({'opacity':1});
-</script>
 <?php endif; ?>        

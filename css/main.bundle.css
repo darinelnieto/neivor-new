@@ -397,6 +397,7 @@ section#footer-blue {
     transform: translateY(-50%);
   }
   .flexible-faqs-partial-ed7c1c .faqs .faq-item .faq-answer {
+    display: block;
     font-size: 12px;
     line-height: 16px;
     margin: 0;

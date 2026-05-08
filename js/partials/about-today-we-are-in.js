@@ -1,0 +1,20 @@
+$(document).ready(function () {
+    $('.logos-slide').owlCarousel({
+        autplay:false,
+        loop:false,
+        nav:false,
+        dots:false,
+        margin:20,
+        responsive:{
+            0:{
+                items:2
+            },
+            768:{
+                items:3
+            },
+            991:{
+                items:4
+            }
+        }
+    }).css({'opacity':1});
+});
