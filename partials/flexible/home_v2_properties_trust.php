@@ -28,7 +28,7 @@ if($properties['enable_trusting_properties'] === true):
                 <div class="<?php if($total % 2 !== 0 && $key === $total): ?>col-12<?php else: ?>col-6<?php endif; ?> col-lg-4 mb-4 mb-lg-0">
                     <div class="card-property">
                         <div class="icon">
-                            <?= wp_get_attachment_image( $item['icon'], 'large', false, array( 
+                            <?= wp_get_attachment_image( $item['icon']['ID'], 'large', false, array( 
                                 'class' => 'card-icon',
                                 'loading' => 'lazy', 
                                 'decoding' => 'async' 
