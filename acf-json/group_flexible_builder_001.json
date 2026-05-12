@@ -4223,6 +4223,565 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_6a01b6e63c846": {
+                    "key": "layout_6a01b6e63c846",
+                    "name": "blog_hero",
+                    "label": "blog_hero",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6a01b8c468388",
+                            "label": "Hero blog partial",
+                            "name": "hero_blog_partial",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_6a01b8d268389",
+                                    "label": "Main image",
+                                    "name": "main_image",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "id",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "allow_in_bindings": 0,
+                                    "preview_size": "medium"
+                                },
+                                {
+                                    "key": "field_6a01b8e26838a",
+                                    "label": "Label tag",
+                                    "name": "label_tag",
+                                    "aria-label": "",
+                                    "type": "group",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "block",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_6a01b8f96838b",
+                                            "label": "Bg color",
+                                            "name": "bg_color",
+                                            "aria-label": "",
+                                            "type": "color_picker",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "#7E66FC",
+                                            "enable_opacity": 1,
+                                            "return_format": "string",
+                                            "allow_in_bindings": 0,
+                                            "show_custom_palette": 0,
+                                            "show_color_wheel": 1,
+                                            "custom_palette_source": "",
+                                            "palette_colors": ""
+                                        },
+                                        {
+                                            "key": "field_6a01ba9c253d6",
+                                            "label": "Text color",
+                                            "name": "text_color",
+                                            "aria-label": "",
+                                            "type": "color_picker",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "#ffffff",
+                                            "enable_opacity": 0,
+                                            "return_format": "string",
+                                            "allow_in_bindings": 0,
+                                            "show_custom_palette": 0,
+                                            "show_color_wheel": 1,
+                                            "custom_palette_source": "",
+                                            "palette_colors": ""
+                                        },
+                                        {
+                                            "key": "field_6a01b92c6838c",
+                                            "label": "Text",
+                                            "name": "text",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "FEATURED STORY",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "key": "field_6a01b9976838d",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "El Futuro del Living:\r\nArquitectura\r\nEmocional en\r\nPreventas",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "rows": 4,
+                                    "placeholder": "",
+                                    "new_lines": "br"
+                                },
+                                {
+                                    "key": "field_6a01b9b16838e",
+                                    "label": "Description",
+                                    "name": "description",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "Descubre cómo las nuevas tendencias en condominios están\r\npriorizando el bienestar psicológico a través del diseño biofílico y\r\nespacios de conexión.",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "rows": 4,
+                                    "placeholder": "",
+                                    "new_lines": "br"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6a01c30545f75": {
+                    "key": "layout_6a01c30545f75",
+                    "name": "blog_category_cards",
+                    "label": "blog_category_cards",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6a01c30d45f77",
+                            "label": "Blog category cards",
+                            "name": "blog_category_cards",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_6a01c31b45f78",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "<strong>Explora<\/strong> por categoría.",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_6a01c33d45f79",
+                                    "label": "Cards grid",
+                                    "name": "cards_grid",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "block",
+                                    "pagination": 0,
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Agregar Fila",
+                                    "rows_per_page": 20,
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_6a01c34945f7a",
+                                            "label": "Category image",
+                                            "name": "category_image",
+                                            "aria-label": "",
+                                            "type": "image",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "id",
+                                            "library": "all",
+                                            "min_width": "",
+                                            "min_height": "",
+                                            "min_size": "",
+                                            "max_width": "",
+                                            "max_height": "",
+                                            "max_size": "",
+                                            "mime_types": "",
+                                            "allow_in_bindings": 0,
+                                            "preview_size": "medium",
+                                            "parent_repeater": "field_6a01c33d45f79"
+                                        },
+                                        {
+                                            "key": "field_6a01c35845f7b",
+                                            "label": "Name",
+                                            "name": "name",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "Rentas",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "parent_repeater": "field_6a01c33d45f79"
+                                        },
+                                        {
+                                            "key": "field_6a01c36945f7c",
+                                            "label": "Description",
+                                            "name": "description",
+                                            "aria-label": "",
+                                            "type": "textarea",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "340 ARTICULOS",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "rows": 3,
+                                            "placeholder": "",
+                                            "new_lines": "br",
+                                            "parent_repeater": "field_6a01c33d45f79"
+                                        },
+                                        {
+                                            "key": "field_6a01c38b45f7d",
+                                            "label": "Category page",
+                                            "name": "category_page",
+                                            "aria-label": "",
+                                            "type": "taxonomy",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "taxonomy": "blog_cat",
+                                            "add_term": 1,
+                                            "save_terms": 0,
+                                            "load_terms": 0,
+                                            "return_format": "id",
+                                            "field_type": "select",
+                                            "allow_null": 1,
+                                            "allow_in_bindings": 0,
+                                            "bidirectional": 0,
+                                            "multiple": 0,
+                                            "bidirectional_target": [],
+                                            "parent_repeater": "field_6a01c33d45f79"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6a01d65a8b4dd": {
+                    "key": "layout_6a01d65a8b4dd",
+                    "name": "blog_get_most_popular",
+                    "label": "blog_get_most_popular",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6a01d6608b4e0",
+                            "label": "Blog most popular",
+                            "name": "blog_most_popular",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_6a01d67f8b4e1",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "<strong>Más Populares<\/strong>",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_6a01d69b8b4e2",
+                                    "label": "Main post",
+                                    "name": "main_post",
+                                    "aria-label": "",
+                                    "type": "post_object",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "post_type": [
+                                        "blogs"
+                                    ],
+                                    "post_status": [
+                                        "publish"
+                                    ],
+                                    "taxonomy": "",
+                                    "return_format": "id",
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "allow_in_bindings": 0,
+                                    "bidirectional": 0,
+                                    "ui": 1,
+                                    "bidirectional_target": []
+                                },
+                                {
+                                    "key": "field_6a01d6ca8b4e3",
+                                    "label": "Secondaries",
+                                    "name": "secondaries",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "table",
+                                    "pagination": 0,
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Agregar Fila",
+                                    "rows_per_page": 20,
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_6a01d86b4c72b",
+                                            "label": "Select item",
+                                            "name": "item",
+                                            "aria-label": "",
+                                            "type": "post_object",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "post_type": [
+                                                "blogs"
+                                            ],
+                                            "post_status": [
+                                                "publish"
+                                            ],
+                                            "taxonomy": "",
+                                            "return_format": "id",
+                                            "multiple": 0,
+                                            "allow_null": 0,
+                                            "allow_in_bindings": 0,
+                                            "bidirectional": 0,
+                                            "ui": 1,
+                                            "bidirectional_target": [],
+                                            "parent_repeater": "field_6a01d6ca8b4e3"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6a028e8758b62": {
+                    "key": "layout_6a028e8758b62",
+                    "name": "blog_listing",
+                    "label": "blog_listing",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6a028e8c58b6c",
+                            "label": "Blog listing content",
+                            "name": "blog_listing_content",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_6a028efd58b6d",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "Últimas Historias",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_6a0290110fe36",
+                                    "label": "Blog catregory",
+                                    "name": "blog_catregory",
+                                    "aria-label": "",
+                                    "type": "taxonomy",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "taxonomy": "blog_cat",
+                                    "add_term": 1,
+                                    "save_terms": 0,
+                                    "load_terms": 0,
+                                    "return_format": "id",
+                                    "field_type": "select",
+                                    "allow_null": 1,
+                                    "allow_in_bindings": 0,
+                                    "bidirectional": 0,
+                                    "multiple": 0,
+                                    "bidirectional_target": []
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -4236,6 +4795,20 @@
                 "param": "page_template",
                 "operator": "==",
                 "value": "templates\/flexible-builder-template.php"
+            }
+        ],
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "blog_cat"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "blogs"
             }
         ]
     ],
@@ -4251,5 +4824,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1778240684
+    "modified": 1778559288
 }

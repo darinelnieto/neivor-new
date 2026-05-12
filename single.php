@@ -13,5 +13,9 @@ switch ($posttype){
 	case 'success_stories':
 		get_template_part('templates/single-success-stories-template');
 	break;
+	case 'blogs':
+		get_template_part('templates/flexible-builder-template');
+	break;
 }
+?>
 ?>

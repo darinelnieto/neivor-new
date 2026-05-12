@@ -41,4 +41,4 @@ if(!empty($faqs['faqs_list'])):
         </div>
     </div>
 </section>
-<?php endif; ?>
+<?php endif; ?> 

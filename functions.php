@@ -351,3 +351,131 @@ function success_historie_list_handler($request){
 
   return $the_success;
 }
+
+/*============== Blog Listing API ==============*/
+add_action( 'rest_api_init', function () {
+  register_rest_route( 'blog-listing', '/posts', array(
+      array(
+          'methods'               => WP_REST_Server::READABLE,
+          'callback'              => 'blog_listing_posts_handler',
+          'permission_callback'   => '__return_true',
+      )
+  ));
+  register_rest_route( 'blog-listing', '/change-view', array(
+      array(
+          'methods'               => WP_REST_Server::EDITABLE,
+          'callback'              => 'blog_listing_change_view_handler',
+          'permission_callback'   => '__return_true',
+      )
+  ));
+});
+
+/*============ Blog Posts Return ============*/
+function blog_listing_posts_handler($request){
+  $paged = intval($request['paged']) ?: 1;
+  $posts_per_page = intval($request['per_page']) ?: 6;
+  $blog_cat = intval($request['blog_cat']) ?: 0;
+
+  $args = [
+    'post_type'      => 'blogs',
+    'post_status'    => 'publish',
+    'posts_per_page' => $posts_per_page,
+    'paged'          => $paged,
+    'orderby'        => 'date',
+    'order'          => 'DESC',
+  ];
+
+  if(!empty($blog_cat)){
+    $args['tax_query'] = [
+      [
+        'taxonomy' => 'blog_cat',
+        'field'    => 'term_id',
+        'terms'    => $blog_cat
+      ]
+    ];
+  }
+
+  $blog_query = new WP_Query($args);
+  $posts = [];
+
+  if($blog_query->have_posts()){
+    while($blog_query->have_posts()){
+        $blog_query->the_post();
+        $thumbnail_id = get_post_thumbnail_id();
+        $featured_image_html = '';
+
+        if($thumbnail_id){
+          $featured_image_html = wp_get_attachment_image(
+            $thumbnail_id,
+            'large',
+            false,
+            array(
+              'class' => 'featured-image',
+              'loading' => 'lazy',
+              'decoding' => 'async'
+            )
+          );
+        }
+
+        $post_time = get_the_time('U');
+        $current_time = time();
+        $time_diff = $current_time - $post_time;
+
+        if ($time_diff < 60) {
+          $time_ago = 'hace poco';
+        } elseif ($time_diff < 3600) {
+          $minutes = floor($time_diff / 60);
+          $time_ago = 'hace ' . $minutes . ' ' . ($minutes == 1 ? 'minuto' : 'minutos');
+        } elseif ($time_diff < 86400) {
+          $hours = floor($time_diff / 3600);
+          $time_ago = 'hace ' . $hours . ' ' . ($hours == 1 ? 'hora' : 'horas');
+        } elseif ($time_diff < 604800) {
+          $days = floor($time_diff / 86400);
+          $time_ago = 'hace ' . $days . ' ' . ($days == 1 ? 'día' : 'días');
+        } elseif ($time_diff < 2592000) {
+          $weeks = floor($time_diff / 604800);
+          $time_ago = 'hace ' . $weeks . ' ' . ($weeks == 1 ? 'semana' : 'semanas');
+        } elseif ($time_diff < 31536000) {
+          $months = floor($time_diff / 2592000);
+          $time_ago = 'hace ' . $months . ' ' . ($months == 1 ? 'mes' : 'meses');
+        } else {
+          $years = floor($time_diff / 31536000);
+          $time_ago = 'hace ' . $years . ' ' . ($years == 1 ? 'año' : 'años');
+        }
+
+        $post_categories = get_the_terms(get_the_ID(), 'blog_cat');
+        $category_name = '';
+        if($post_categories && !is_wp_error($post_categories)){
+          $category_name = $post_categories[0]->name;
+        }
+
+        $posts[] = [
+            'id'              => get_the_ID(),
+            'title'           => get_the_title() ?: 'Sin título',
+            'excerpt'         => get_the_excerpt() ?: '',
+            'featured_image'  => $featured_image_html,
+            'permalink'       => get_permalink() ?: '#',
+            'category'        => $category_name,
+            'date'            => $time_ago,
+        ];
+    }
+    wp_reset_postdata();
+  }
+
+  return [
+    'posts' => $posts,
+    'total' => $blog_query->found_posts,
+    'pages' => $blog_query->max_num_pages,
+  ];
+}
+
+/*============ Blog Change View ============*/
+function blog_listing_change_view_handler($request){
+  $view_type = sanitize_text_field($request['view']);
+
+  if(!in_array($view_type, ['grid', 'column'])){
+    return new WP_Error('invalid_view', 'View type must be grid or column', array('status' => 400));
+  }
+
+  return ['view' => $view_type];
+}

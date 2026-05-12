@@ -8,16 +8,11 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-
-get_header();
+$posttype = get_queried_object();
+switch($posttype->taxonomy)
+{
+    case 'blog_cat':
+		get_template_part('templates/flexible-builder-template', null, ['term_id' => $posttype->term_id]);
+	break;
+}
 ?>
-
-<main id="ditto-archive">
-	<section>
-		<div class="container">
-			<p>[Default archive]</p>
-		</div>
-	</section>
-</main>
-
-<?php get_footer(); ?>
