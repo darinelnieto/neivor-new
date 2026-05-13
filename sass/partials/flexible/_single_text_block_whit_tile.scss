@@ -1,5 +1,11 @@
-.flexible-single-blog-text-content-partial-f223d3 {
-    background: #ffffff;
+.single-text-block-whit-tile-partial-80110f {
+    background: $white;
+    .title{
+        font-weight: 800;
+        font-size: 36px;
+        line-height: 43.2px;
+        letter-spacing: 0px;
+    }
     .intro-text{
         h1, h2, h3, h4, h5, h6{
             font-weight: 400;

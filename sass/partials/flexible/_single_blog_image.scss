@@ -1,1 +1,13 @@
-.flexible-single-blog-image-partial-e89f4e {}
+.flexible-single-blog-image-partial-e89f4e {
+    .img-fluid{
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        max-height: 500px;
+        object-fit: cover;
+        object-position: center;
+        @media(max-width: 768px){
+            max-height: auto;
+        }
+    }
+}

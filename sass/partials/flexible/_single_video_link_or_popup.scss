@@ -1,0 +1,87 @@
+.single-video-link-or-popup-partial-0b3133 {
+    background: #ffffff;
+    position: relative;
+    a{
+        display: flex;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        img{
+            width: 100%;
+            height: auto;
+            max-height: 405px;
+            object-fit: cover;
+            object-position: center;
+            transition: all 1.5s ease;
+        }
+        .play{
+            display: flex;
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 1px solid #FFFFFF4D;
+            background: #FFFFFF33;
+            justify-content: center;
+            align-items: center;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            transition: all .3s ease;
+            svg{
+                width: 22px;
+                height: auto;
+                object-fit: contain;
+            }
+        }
+        &:hover{
+            img{
+                filter: brightness(.5);
+                transform: scale(1.5);
+            }
+            .play{
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+        }
+    }
+    .popup-video{
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100vh;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        align-items: center;
+        justify-content: center;
+        .overly-close{
+            display: flex;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: auto;
+            background: rgba(0,0,0, .6);
+            cursor: pointer;
+        }
+        .popup-body{
+            width: 80%;
+            max-width: 720px;
+            height: 405px;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            border-radius: 12px;
+            iframe{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    .popup-video.show{
+        display: flex;
+    }
+}
