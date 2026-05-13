@@ -298,11 +298,11 @@
                     "preview_size": "medium"
                 },
                 {
-                    "key": "v2_field_69e4dfc05e6b3",
-                    "label": "Movil image",
-                    "name": "movil_image",
+                    "key": "field_6a04710e54698",
+                    "label": "Enable overly desktop",
+                    "name": "enable_overly_desktop",
                     "aria-label": "",
-                    "type": "image",
+                    "type": "true_false",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -311,17 +311,12 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "id",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "",
+                    "message": "",
+                    "default_value": 1,
                     "allow_in_bindings": 0,
-                    "preview_size": "medium"
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
                 },
                 {
                     "key": "v2_field_69e4dfd25e6b4",
@@ -331,7 +326,15 @@
                     "type": "group",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6a04710e54698",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -2254,6 +2257,29 @@
                         "id": ""
                     },
                     "return_format": "array"
+                },
+                {
+                    "key": "field_6a046f1ad198d",
+                    "label": "Background",
+                    "name": "background",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "#ffffff",
+                    "enable_opacity": 0,
+                    "return_format": "string",
+                    "allow_in_bindings": 0,
+                    "show_custom_palette": 0,
+                    "show_color_wheel": 1,
+                    "custom_palette_source": "",
+                    "palette_colors": ""
                 }
             ]
         }
@@ -2279,5 +2305,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1778251874
+    "modified": 1778676199
 }

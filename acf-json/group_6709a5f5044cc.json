@@ -38,6 +38,27 @@
             },
             "default_value": "",
             "placeholder": ""
+        },
+        {
+            "key": "field_6a04655b77830",
+            "label": "Tag",
+            "name": "tag",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "URBANISMO",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -58,5 +79,8 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731964353
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1778673089
 }

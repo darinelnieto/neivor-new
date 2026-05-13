@@ -21,8 +21,8 @@ if(!empty($faqs['faqs_list'])):
 ?>
 <section class="flexible-faqs-partial-ed7c1c" itemscope itemtype="https://schema.org/FAQPage">
     <div class="container">
-        <div class="row">
-            <div class="col-12 p-0">
+        <div class="row justify-content-center">
+            <div class="<?= $faqs['width'] ?? 'col-12' ?> p-0">
                 <h2 class="title"><?= $faqs['title'] ?? ''; ?></h2>
                 <ul class="faqs">
                     <?php foreach($faqs['faqs_list'] as $i => $faq): ?>

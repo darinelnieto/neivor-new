@@ -38,23 +38,21 @@ $banner = get_sub_field('add_banner');
             <div class="col-12 col-md-6">
                 <div class="image-contain">
                     <?= wp_get_attachment_image($banner['main_image'], 'full', false, array(
-                        'class' => 'hero-image d-none d-md-block',
+                        'class' => 'hero-image',
                         'fetchpriority' => 'high',
                     )) ?? ''; ?>
-                    <?= wp_get_attachment_image($banner['movil_image'], 'full', false, array(
-                        'class' => 'hero-image d-block d-md-none',
-                        'fetchpriority' => 'high',
-                    )) ?? ''; ?>
-                    <?php if(!empty($banner['overly_image'])): $overly = $banner['overly_image']; ?>
+                    <?php if(!empty($banner['overly_image']) && $banner['enable_overly_desktop']): $overly = $banner['overly_image']; ?>
                         <div class="overly">
                             <div class="desktop-content d-none d-md-flex">
                                 <div class="content">
+                                    <?php if(!empty($overly['icon'])): ?>
                                     <div class="icon">
                                         <?= wp_get_attachment_image($overly['icon'], 'full', false, array(
                                             'class' => 'overly-icon',
                                             'fetchpriority' => 'high',
                                         )) ?? ''; ?>
                                     </div>
+                                    <?php endif ?>
                                     <div class="texts">
                                         <p class="label"><?= $overly['subtitle'] ?? ''; ?></p>
                                         <p><?= $overly['description'] ?? ''; ?></p>

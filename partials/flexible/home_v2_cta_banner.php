@@ -13,7 +13,7 @@ $btn_url    = $cta['button']['url']    ?? '#';
 $btn_title  = $cta['button']['title']  ?? 'Solicitar asesoría personalizada';
 $btn_target = ! empty( $cta['button']['target'] ) ? 'target="' . esc_attr( $cta['button']['target'] ) . '"' : '';
 ?>
-<section class="new-cta-banner-partial-home">
+<section class="new-cta-banner-partial-home" style="background: <?= $cta['background'] ?? '#ffffff'; ?>">
     <div class="container">
         <div class="cta-banner__inner">
             <?php if ( ! empty( $cta['eyebrow'] ) ) : ?>
