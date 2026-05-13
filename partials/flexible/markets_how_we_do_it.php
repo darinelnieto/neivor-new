@@ -50,14 +50,20 @@ if ( ! defined( 'ABSPATH' ) ) {
                             )); ?>
                         </div>
                     <?php endif; ?>
-                    <?php if(!empty($item['know_more']['link'])): ?>
-                        <a href="<?= $item['know_more']['link']['url']; ?>" target="<?= $item['know_more']['link']['target'] ?? ''; ?>" class="cta-know-more">
-                            <span><?= $item['know_more']['text'] ?? ''; ?></span>
-                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.10208 5.25H0V4.08333H7.10208L3.83542 0.816667L4.66667 0L9.33333 4.66667L4.66667 9.33333L3.83542 8.51667L7.10208 5.25Z" fill="#7E66FC"/>
-                            </svg>
-                        </a>
-                    <?php endif; ?>
+                    <div class="links">
+                        <?php if(!empty($item['know_more']['link'])): ?>
+                            <a href="<?= $item['know_more']['link']['url']; ?>" target="<?= $item['know_more']['link']['target'] ?? ''; ?>" class="cta-know-more">
+                                <span><?= $item['know_more']['text'] ?? ''; ?></span>
+                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.10208 5.25H0V4.08333H7.10208L3.83542 0.816667L4.66667 0L9.33333 4.66667L4.66667 9.33333L3.83542 8.51667L7.10208 5.25Z" fill="#7E66FC"/>
+                                </svg>
+                            </a>
+                        <?php endif; if(!empty($item['secondary_link']['link'])): ?>
+                            <a href="<?= $item['secondary_link']['link']['url']; ?>" target="<?= $item['secondary_link']['link']['target'] ?? ''; ?>" class="cta-know-more mt-2">
+                                <span><?= $item['secondary_link']['text'] ?? ''; ?></span>
+                            </a>
+                        <?php endif; ?>
+                    </div>
                 </div>
                 <div class="col-12 col-md-<?= $item['image_colum_size_md']; ?> mb-4 mb-md-0">
                     <div class="step-text ps-0 d-block d-md-none">
