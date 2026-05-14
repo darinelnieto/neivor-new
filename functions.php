@@ -169,7 +169,7 @@ function blog_posts(){
     'label'  => 'Blog',
     'menu_icon' => 'dashicons-book',
     'supports' => ['title', 'editor', 'thumbnail'],
-    'taxonomies' => array('blog_cat')
+    'taxonomies' => array('blog_cat', 'autor')
   );
   /*============ Register post type ============*/
   register_post_type('blogs', $arg);
@@ -196,6 +196,31 @@ function blog_posts(){
     'show_admin_column' => true,
     'query_var' => true,
     'rewrite' => array('slug' => 'blog_cat'),
+  ));
+
+  /*============ Auton ============*/
+  $category = array(
+    'name' => _x('Autor', 'taxonomy general name'),
+    'singular_name' => _x('Autor', 'taxonomy singular name'),
+    'search_items' =>  __('Search Autor'),
+    'all_items' => __('All Autor'),
+    'parent_item' => __('Parent Autor'),
+    'parent_item_colon' => __('Parent Autor:'),
+    'edit_item' => __('Edit Autor'),
+    'update_item' => __('Update Autor'),
+    'add_new_item' => __('Add New Autor'),
+    'new_item_name' => __('New Autor Name'),
+    'menu_name' => __('Autor'),
+  );
+  /*========== Register taxonomy ==========*/
+  register_taxonomy('autor', array('blogs'), array(
+    'hierarchical' => true,
+    'labels' => $category,
+    'show_ui' => true,
+    'show_in_rest' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array('slug' => 'autor'),
   ));
 }
 add_action('init', 'blog_posts', 5);

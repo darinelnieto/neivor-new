@@ -5005,6 +5005,23 @@
                                     "preview_size": "medium"
                                 },
                                 {
+                                    "key": "field_6a05103ed0be6",
+                                    "label": "Add link",
+                                    "name": "add_link",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "allow_in_bindings": 0
+                                },
+                                {
                                     "key": "field_sbi_padding_top",
                                     "label": "Padding Top (px)",
                                     "name": "padding_top",
@@ -5777,6 +5794,13 @@
                 "operator": "==",
                 "value": "blogs"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "success_stories"
+            }
         ]
     ],
     "menu_order": 0,
@@ -5791,5 +5815,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1778676715
+    "modified": 1778717146
 }
