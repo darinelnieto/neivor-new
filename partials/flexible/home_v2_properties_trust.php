@@ -25,7 +25,7 @@ if($properties['enable_trusting_properties'] === true):
             $cards = $properties['trusting_properties']['cards'];
             $total = count($cards);
             if($cards): foreach($cards as $item): $key++; ?>
-                <div class="<?php if($total % 2 !== 0 && $key === $total): ?>col-12<?php else: ?>col-6<?php endif; ?> col-lg-4 mb-4 mb-lg-0">
+                <div class="<?php if($total % 2 !== 0 && $key === $total): ?>col-12<?php else: ?>col-6<?php endif; ?> col-lg-4 mb-4">
                     <div class="card-property">
                         <div class="icon">
                             <?= wp_get_attachment_image( $item['icon']['ID'], 'large', false, array( 
