@@ -27,20 +27,12 @@ wp_enqueue_script(
         </div>
         <div class="row" id="appearances-list">
             <?php 
-            foreach ( $list as $item ):
-            $post_id = isset( $item['item'] ) ? (int) $item['item'] : 0;
-            if ( ! $post_id ) {
-                continue;
-            }
-            $thumbnail_id = get_post_thumbnail_id( $post_id );
-            $post_time = get_the_time( 'U', $post_id );
-            $current_time = time();
-            $time_diff = $current_time - $post_time;
+            foreach ($list as $item ):
             ?>
             <div class="col-12 col-lg-4 item mb-0 mb-lg-5">
-                <a href="<?= get_permalink( $post_id ); ?>" target="_self" class="post-link">
+                <a href="<?= $item['link']['url'] ?? '#'; ?>" target="<?= $item['link']['target'] ?? '_self'; ?>" class="post-link">
                     <div class="post-image">
-                        <?= wp_get_attachment_image($thumbnail_id, 'large', false, array(
+                        <?= wp_get_attachment_image($item['main_image'], 'large', false, array(
                             'class' => 'featured-image',
                             'loading' => 'lazy',
                             'decoding' => 'async',
@@ -48,14 +40,11 @@ wp_enqueue_script(
                     </div>
                     <div class="post-content">
                         <div class="post-meta">
-                            <span class="category"><?php
-                                $terms = get_the_terms( $post_id, 'blog_cat' );
-                                echo ( ! empty( $terms ) && ! is_wp_error( $terms ) ) ? $terms[0]->name : '';
-                            ?></span>
+                            <span class="category"><?= $item['category'] ?? ''; ?></span>
                         </div>
-                        <h3 class="post-title"><?= get_the_title( $post_id ); ?></h3>
-                        <p class="post-excerpt"><?= get_field('short_description', $post_id ); ?></p>
-                        <span class="read-more">LEER MÁS</span>
+                        <h3 class="post-title"><?= $item['title'] ?? ''; ?></h3>
+                        <p class="post-excerpt"><?= $item['description'] ?? ''; ?></p>
+                        <span class="read-more"><?= $item['link']['title'] ?? 'LEER MÁS' ?></span>
                     </div>
                 </a>
             </div>

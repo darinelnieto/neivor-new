@@ -7,8 +7,8 @@
         margin-bottom: 32px;
     }
     .owl-carousel .owl-stage-outer{
-            overflow: inherit !important;
-        }
+        overflow: inherit !important;
+    }
     #appearances-list{
         .item{
             a{
@@ -80,6 +80,9 @@
                         letter-spacing: 1px;
                         text-transform: uppercase;
                         color: #7E66FC;
+                        border-bottom: 1px solid #7E66FC;
+                        display: flex;
+                        width: max-content;
                     }
                 }
             }
