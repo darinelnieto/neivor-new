@@ -32,8 +32,8 @@ if(!empty($author)):
     if ( $autor_query->have_posts() ) {
         $all_posts = $autor_query->posts;
         array_push( $main_post, $all_posts[0]->ID );
-        foreach ( array_slice( $all_posts, 1 ) as $post ) {
-            array_push( $secondary_posts, $post->ID );
+        foreach ( array_slice( $all_posts, 1 ) as $post_obj ) {
+            array_push( $secondary_posts, $post_obj->ID );
         }
     }
     wp_reset_postdata();

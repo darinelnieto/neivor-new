@@ -33,11 +33,11 @@ if(!empty($post_list)):
                     <?php endif; ?>
                 </div>
                 <div class="related-posts owl-carousel">
-                    <?php foreach($post_list as $post): $tag = get_field('tag'); ?>
+                    <?php foreach($post_list as $post_id): $tag = get_field('tag', $post_id); ?>
                         <div class="related-post-item">
-                            <a href="<?= get_the_permalink() ?>">
+                            <a href="<?= get_the_permalink($post_id) ?>">
                                 <div class="image-contain">
-                                    <?= get_the_post_thumbnail(get_the_id(), 'large', false, array(
+                                    <?= get_the_post_thumbnail($post_id, 'large', false, array(
                                         'class' => 'img-fluid',
                                         'loading' => 'lazy',
                                         'decoding' => 'async',
@@ -47,8 +47,8 @@ if(!empty($post_list)):
                                     <?php endif ?>
                                 </div>
                                 <div class="texts">
-                                    <h3 class="name"><?= get_the_title(); ?></h3>
-                                    <p class="description"><?= get_field('short_description'); ?></p>
+                                    <h3 class="name"><?= get_the_title($post_id); ?></h3>
+                                    <p class="description"><?= get_field('short_description', $post_id); ?></p>
                                 </div>
                             </a>
                         </div>
