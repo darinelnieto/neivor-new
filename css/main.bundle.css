@@ -1612,6 +1612,100 @@ section#footer-blue {
     line-height: 24px;
   }
 }
+.blog-hero-partial-f87f86 .container .author-tag {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  gap: 16px;
+}
+@media (max-width: 768px) {
+  .blog-hero-partial-f87f86 .container .author-tag {
+    gap: 10.59px;
+  }
+}
+.blog-hero-partial-f87f86 .container .author-tag .author-photo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+@media (max-width: 768px) {
+  .blog-hero-partial-f87f86 .container .author-tag .author-photo {
+    width: 42.35px;
+    height: 42.35px;
+  }
+}
+.blog-hero-partial-f87f86 .container .author-tag .texts-column {
+  display: flex;
+  flex-direction: column;
+}
+.blog-hero-partial-f87f86 .container .author-tag .texts-column .name {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+}
+.blog-hero-partial-f87f86 .container .author-tag .texts-column .label {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.6px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+.blog-hero-partial-f87f86 .container .author-tag .texts-flex {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .blog-hero-partial-f87f86 .container .author-tag .texts-flex {
+    gap: 13.8px;
+  }
+}
+.blog-hero-partial-f87f86 .container .author-tag .texts-flex .name {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+}
+@media (max-width: 768px) {
+  .blog-hero-partial-f87f86 .container .author-tag .texts-flex .name {
+    font-size: 15.88px;
+    line-height: 24.71px;
+  }
+}
+.blog-hero-partial-f87f86 .container .author-tag .texts-flex .separator {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #7E66FC;
+}
+@media (max-width: 768px) {
+  .blog-hero-partial-f87f86 .container .author-tag .texts-flex .separator {
+    width: 3.5px;
+    height: 3.5px;
+  }
+}
+.blog-hero-partial-f87f86 .container .author-tag .texts-flex .label {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0px;
+  color: #ffffff;
+}
+@media (max-width: 768px) {
+  .blog-hero-partial-f87f86 .container .author-tag .texts-flex .label {
+    font-size: 15.88px;
+    line-height: 24.71px;
+  }
+}
 
 .flexible-cards-whit-five-items-partial-2d40e4 {
   padding-top: 70px;

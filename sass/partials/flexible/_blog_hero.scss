@@ -65,5 +65,87 @@
                 line-height: 24px;
             }
         }
+        .author-tag{
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+            gap: 16px;
+            @media(max-width: 768px){
+                gap: 10.59px;
+            }
+            .author-photo{
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                object-fit: cover;
+                object-position: center;
+                border: 2px solid rgba(255, 255, 255, 0.2);
+                @media(max-width: 768px){
+                    width: 42.35px;
+                    height: 42.35px;
+                }
+            }
+            .texts-column{
+                display: flex;
+                flex-direction: column;
+                .name{
+                    font-weight: 700;
+                    font-size: 14px;
+                    line-height: 20px;
+                    letter-spacing: 0px;
+                    color: #FFFFFF;
+                }
+                .label{
+                    font-weight: 400;
+                    font-size: 12px;
+                    line-height: 16px;
+                    letter-spacing: -0.6px;
+                    text-transform: uppercase;
+                    color: rgba(255, 255, 255, 0.6);
+                }
+            }
+            .texts-flex{
+                display: flex;
+                gap: 24px;
+                align-items: center;
+                @media(max-width:768px){
+                    gap: 13.8px;
+                }
+                .name{
+                    font-weight: 600;
+                    font-size: 18px;
+                    line-height: 28px;
+                    letter-spacing: 0px;
+                    color: #FFFFFF;
+                    @media(max-width: 768px){
+                        font-size: 15.88px;
+                        line-height: 24.71px;
+                    }
+                }
+                .separator{
+                    display: block;
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background: #7E66FC;
+                    @media(max-width: 768px){
+                        width: 3.5px;
+                        height: 3.5px;
+                    }
+                }
+                .label{
+                    font-weight: 500;
+                    font-size: 18px;
+                    line-height: 28px;
+                    letter-spacing: 0px;
+                    color: #ffffff;
+                    @media(max-width: 768px){
+                        font-size: 15.88px;
+                        line-height: 24.71px;
+                    }
+                }
+            }
+        }
     }
 }
