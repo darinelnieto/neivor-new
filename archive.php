@@ -14,5 +14,8 @@ switch($posttype->taxonomy)
     case 'blog_cat':
 		get_template_part('templates/flexible-builder-template', null, ['term_id' => $posttype->term_id]);
 	break;
+	case 'autor':
+		get_template_part('templates/flexible-builder-template', null, ['term_id' => $posttype->term_id]);
+	break;
 }
 ?>

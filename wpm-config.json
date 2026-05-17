@@ -10,7 +10,8 @@
         "category":[],
         "size_cat":[],
         "segment_cat":[],
-        "zone_cat":[]
+        "zone_cat":[],
+        "autor":[]
     },
     "admin_pages":[
         "options-theme_page_acf-options-header",

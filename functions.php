@@ -5,26 +5,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Register Theme Scripts
+ * Register Theme Styles
+ * https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
+ */
+function ditto_styles() {
+  wp_enqueue_style( 'plus-jakarta-sans', 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap', array(), null );
+  wp_enqueue_style( 'core', get_template_directory_uri() . '/style.css' );
+  wp_enqueue_style( 'main-styles', get_template_directory_uri() . '/css/main.bundle.css' );
+  wp_enqueue_style( 'bootstrap.css', get_template_directory_uri() . '/css/bootstrap.min.css' );
+  wp_enqueue_style( 'owl-carousel.css', get_template_directory_uri() . '/css/owl.carousel.min.css' );
+}
+add_action( 'wp_enqueue_scripts', 'ditto_styles' );
+
+/**
+ * Register Theme Scripts in footer
  * https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
  */
 function ditto_scripts() {
-  wp_enqueue_style( 'plus-jakarta-sans', 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap', [], null );
-  wp_enqueue_style( 'core', get_template_directory_uri() . '/style.css' );
-  wp_enqueue_style( 'main-styles', get_template_directory_uri() . '/css/main.bundle.css' );
-  wp_enqueue_style('bootstrap.css', get_template_directory_uri() . '/css/bootstrap.min.css');
-  wp_enqueue_style('owl-carousel.css', get_template_directory_uri() . '/css/owl.carousel.min.css');
-
   wp_enqueue_script( 'main-scripts', get_template_directory_uri() . '/js/main.bundle.js', array( 'jquery' ), '', true );
-  wp_enqueue_script('jquery.js', get_template_directory_uri() . '/js/jquery-3.5.1.min.js', true);
-  wp_enqueue_script('bootstrap.js',  get_template_directory_uri() . '/js/bootstrap.min.js');
-  wp_enqueue_script('owl-carousel.js', get_template_directory_uri() . '/js/owl.carousel.min.js');
-  wp_enqueue_script('font-awesome.js', get_template_directory_uri() . '/js/font-awesome.js');
-  wp_register_script('custom.js', get_template_directory_uri() . '/js/custom.js', array('jquery'), '1', true);
-  wp_enqueue_script('custom.js');
-  wp_enqueue_script('new-nav', get_template_directory_uri() . '/js/partials/new-nav.js', array(), '1.0', true);
+  wp_enqueue_script( 'bootstrap.js', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), null, true );
+  wp_enqueue_script( 'owl-carousel.js', get_template_directory_uri() . '/js/owl.carousel.min.js', array( 'jquery' ), null, true );
+  wp_enqueue_script( 'font-awesome.js', get_template_directory_uri() . '/js/font-awesome.js', array(), null, true );
+  wp_enqueue_script( 'custom.js', get_template_directory_uri() . '/js/custom.js', array( 'jquery' ), '1', true );
+  wp_enqueue_script( 'new-nav', get_template_directory_uri() . '/js/partials/new-nav.js', array(), '1.0', true );
 }
-add_action( 'wp_enqueue_scripts', 'ditto_scripts');
+add_action( 'wp_enqueue_scripts', 'ditto_scripts' );
 
 /**
  * Register Navigation Menus
@@ -73,13 +78,18 @@ function ditto_login_styles() { ?>
 add_action( 'login_enqueue_scripts', 'ditto_login_styles' );
 
 /**
- * Install latest jQuery version 3.5.1
+ * Install latest jQuery version 3.5.1 in footer
  */
-if (!is_admin()) {
-	wp_deregister_script('jquery');
-	wp_register_script('jquery', ("https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"), false);
-	wp_enqueue_script('jquery');
+function ditto_register_jquery_in_footer() {
+  if ( is_admin() ) {
+    return;
+  }
+
+  wp_deregister_script( 'jquery' );
+  wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js', array(), null, true );
+  wp_enqueue_script( 'jquery' );
 }
+add_action( 'wp_enqueue_scripts', 'ditto_register_jquery_in_footer', 1 );
 
 /**
  * Disable Gutenberg
@@ -477,7 +487,7 @@ function blog_listing_posts_handler($request){
         $posts[] = [
             'id'              => get_the_ID(),
             'title'           => get_the_title() ?: 'Sin título',
-            'excerpt'         => get_the_excerpt() ?: '',
+            'excerpt'         => get_field('short_description') ?: '', 
             'featured_image'  => $featured_image_html,
             'permalink'       => get_permalink() ?: '#',
             'category'        => $category_name,
