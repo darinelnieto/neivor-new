@@ -64,17 +64,17 @@ if($related_post):
             <div class="col-12">
                 <h2><?= get_field('related_post_title'); ?></h2>
                 <div class="related-post row">
-                    <?php foreach($related_post as $post): if($id !== $post['id']): ?>
+                    <?php foreach($related_post as $post_item): if($id !== $post_item['id']): ?>
                         <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                            <a href="<?= $post['permalink']; ?>" class="post-item item-lg">
+                            <a href="<?= $post_item['permalink']; ?>" class="post-item item-lg">
                                 <div class="card-post">
-                                    <img src="<?= $post['feature_image']; ?>" alt="<?= $post['title']; ?>" class="feature-img">
-                                    <span class="color" style="background:linear-gradient(0deg, <?= $post['color'] ?> 0%, rgba(64,64,127,0) 100%)"></span>
+                                    <img src="<?= $post_item['feature_image']; ?>" alt="<?= $post_item['title']; ?>" class="feature-img">
+                                    <span class="color" style="background:linear-gradient(0deg, <?= $post_item['color'] ?> 0%, rgba(64,64,127,0) 100%)"></span>
                                     <div class="content">
-                                        <img src="<?= $post['logo']['url']; ?>" alt="<?= $post['logo']['title']; ?>" class="logo">
+                                        <img src="<?= $post_item['logo']['url']; ?>" alt="<?= $post_item['logo']['title']; ?>" class="logo">
                                         <div class="text-content">
-                                            <h3><?= $post['title']; ?></h3>
-                                            <p><?= $post['short_description']; ?></p>
+                                            <h3><?= $post_item['title']; ?></h3>
+                                            <p><?= $post_item['short_description']; ?></p>
                                         </div>
                                     </div>
                                 </div>

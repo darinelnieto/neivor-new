@@ -22,11 +22,11 @@ add_action( 'wp_enqueue_scripts', 'ditto_styles' );
  * https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
  */
 function ditto_scripts() {
-  wp_enqueue_script( 'main-scripts', get_template_directory_uri() . '/js/main.bundle.js', array( 'jquery' ), '', true );
   wp_enqueue_script( 'bootstrap.js', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), null, true );
   wp_enqueue_script( 'owl-carousel.js', get_template_directory_uri() . '/js/owl.carousel.min.js', array( 'jquery' ), null, true );
   wp_enqueue_script( 'font-awesome.js', get_template_directory_uri() . '/js/font-awesome.js', array(), null, true );
-  wp_enqueue_script( 'custom.js', get_template_directory_uri() . '/js/custom.js', array( 'jquery' ), '1', true );
+  wp_enqueue_script( 'main-scripts', get_template_directory_uri() . '/js/main.bundle.js', array( 'jquery', 'owl-carousel.js' ), '', true );
+  wp_enqueue_script( 'custom.js', get_template_directory_uri() . '/js/custom.js', array( 'jquery', 'owl-carousel.js' ), '1', true );
   wp_enqueue_script( 'new-nav', get_template_directory_uri() . '/js/partials/new-nav.js', array(), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'ditto_scripts' );

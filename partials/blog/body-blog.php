@@ -36,17 +36,17 @@ if($items):
     <div class="container" id="post-contain">
         <?php foreach($items as $item): $key = 0; $countItem = count($item); ?>
             <div class="row">
-                <?php foreach($item as $post): $key++; if($key < 2): ?>
+                <?php foreach($item as $post_item): $key++; if($key < 2): ?>
                     <div class="col-12 col-md-7 col-lg-8 mb-5 mb-md-4">
-                        <a href="<?= $post['permalink']; ?>" class="post-item item-lg">
+                        <a href="<?= $post_item['permalink']; ?>" class="post-item item-lg">
                             <div class="card-post">
-                                <img src="<?= $post['feature_image']; ?>" alt="<?= $post['title']; ?>" class="feature-img">
-                                <span class="color" style="background:linear-gradient(0deg, <?= $post['color'] ?> 0%, rgba(64,64,127,0) 100%)"></span>
+                                <img src="<?= $post_item['feature_image']; ?>" alt="<?= $post_item['title']; ?>" class="feature-img">
+                                <span class="color" style="background:linear-gradient(0deg, <?= $post_item['color'] ?> 0%, rgba(64,64,127,0) 100%)"></span>
                                 <div class="content">
-                                    <img src="<?= $post['logo']['url']; ?>" alt="<?= $post['logo']['title']; ?>" class="logo">
+                                    <img src="<?= $post_item['logo']['url']; ?>" alt="<?= $post_item['logo']['title']; ?>" class="logo">
                                     <div class="text-content">
-                                        <h3><?= $post['title']; ?></h3>
-                                        <p><?= $post['short_description']; ?></p>
+                                        <h3><?= $post_item['title']; ?></h3>
+                                        <p><?= $post_item['short_description']; ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -56,17 +56,17 @@ if($items):
                 if($countItem > 1): $key=0; ?>
                     <div class="col-12 col-md-5 col-lg-4">
                         <div class="row">
-                            <?php foreach($item as $post): $key++; if($key > 1): ?>
+                            <?php foreach($item as $post_item): $key++; if($key > 1): ?>
                                 <div class="col-12 mb-5 mb-md-4">
-                                    <a href="<?= $post['permalink']; ?>" class="post-item">
+                                    <a href="<?= $post_item['permalink']; ?>" class="post-item">
                                         <div class="card-post">
-                                            <img src="<?= $post['feature_image']; ?>" alt="<?= $post['title']; ?>" class="feature-img">
-                                            <span class="color" style="background:linear-gradient(0deg, <?= $post['color'] ?> 0%, rgba(64,64,127,0) 100%)"></span>
+                                            <img src="<?= $post_item['feature_image']; ?>" alt="<?= $post_item['title']; ?>" class="feature-img">
+                                            <span class="color" style="background:linear-gradient(0deg, <?= $post_item['color'] ?> 0%, rgba(64,64,127,0) 100%)"></span>
                                             <div class="content">
-                                                <img src="<?= $post['logo']['url']; ?>" alt="<?= $post['logo']['title']; ?>" class="logo">
+                                                <img src="<?= $post_item['logo']['url']; ?>" alt="<?= $post_item['logo']['title']; ?>" class="logo">
                                                 <div class="text-content">
-                                                    <h3><?= $post['title']; ?></h3>
-                                                    <p><?= $post['short_description']; ?></p>
+                                                    <h3><?= $post_item['title']; ?></h3>
+                                                    <p><?= $post_item['short_description']; ?></p>
                                                 </div>
                                             </div>
                                         </div>

@@ -106,3 +106,20 @@ $('.boost-slide').each(function() {
         }
     }).css({'opacity': 1});
 });
+// Slide voices by size
+$('.logos-slide-partial-f8ca70 .logos-slide').owlCarousel({
+    loop:true,
+    autoplay:true,
+    nav:false,
+    dots:false,
+    margin:10,
+    responsive:{
+        0:{
+            center:true,
+            items:2.4
+        },
+        768:{
+            items:4
+        }
+    }
+}).css({'opacity':1});
