@@ -7,7 +7,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-get_header('new');
+get_header();
 ?>
 <main id="home-v2-template-6c9394">
     <?php get_template_part('partials/home-v2/banner'); ?>
