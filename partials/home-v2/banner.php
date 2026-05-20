@@ -36,11 +36,7 @@ $banner = get_field('add_banner');
             <div class="col-12 col-md-6">
                 <div class="image-contain">
                     <?= wp_get_attachment_image($banner['main_image'], 'full', false, array(
-                        'class' => 'hero-image d-none d-md-block',
-                        'fetchpriority' => 'high',
-                    )) ?? ''; ?>
-                    <?= wp_get_attachment_image($banner['movil_image'], 'full', false, array(
-                        'class' => 'hero-image d-block d-md-none',
+                        'class' => 'hero-image',
                         'fetchpriority' => 'high',
                     )) ?? ''; ?>
                     <?php if(!empty($banner['overly_image'])): $overly = $banner['overly_image']; ?>

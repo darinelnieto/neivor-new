@@ -10953,7 +10953,6 @@ section#footer-blue {
 
 .new-properties-you-trust-partial-88f88c {
   padding: 5rem 24px;
-  background: #F6F9FC;
 }
 @media (max-width: 768px) {
   .new-properties-you-trust-partial-88f88c {
@@ -11005,8 +11004,6 @@ section#footer-blue {
 }
 .new-properties-you-trust-partial-88f88c .card-property img {
   margin: 0.7rem auto;
-  width: 64px !important;
-  height: 64px !important;
   object-fit: contain;
 }
 @media (max-width: 768px) {
@@ -11018,7 +11015,6 @@ section#footer-blue {
 .new-properties-you-trust-partial-88f88c .card-property .name {
   color: #23375E;
   text-align: center;
-  font-size: 40px !important;
   font-style: normal;
   font-weight: 700 !important;
   line-height: 150% !important;
@@ -11026,15 +11022,9 @@ section#footer-blue {
   align-self: stretch !important;
   margin: 0 !important;
 }
-@media (max-width: 768px) {
-  .new-properties-you-trust-partial-88f88c .card-property .name {
-    font-size: 19.33px !important;
-  }
-}
 .new-properties-you-trust-partial-88f88c .card-property p {
   color: #637281;
   text-align: center;
-  font-size: 20px !important;
   font-style: normal;
   font-weight: 500 !important;
   line-height: 150% !important;
@@ -11042,10 +11032,81 @@ section#footer-blue {
   align-self: stretch !important;
   margin: 0 !important;
 }
-@media (max-width: 768px) {
-  .new-properties-you-trust-partial-88f88c .card-property p {
-    font-size: 9.66px !important;
+.new-properties-you-trust-partial-88f88c .card-border-purple {
+  padding: 32px 48px;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  background: #EFF1F2;
+}
+@media (max-width: 767px) {
+  .new-properties-you-trust-partial-88f88c .card-border-purple {
+    background: transparent;
+    padding-left: 0;
+    padding-right: 0;
   }
+}
+.new-properties-you-trust-partial-88f88c .card-border-purple::before {
+  content: "";
+  display: block;
+  background: #7E66FC;
+  width: 8px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+@media (max-width: 767px) {
+  .new-properties-you-trust-partial-88f88c .card-border-purple::before {
+    display: none;
+  }
+}
+.new-properties-you-trust-partial-88f88c .card-border-purple .overly-purple {
+  position: absolute;
+  top: 5px;
+  left: 23px;
+  color: #7E66FC;
+  opacity: 20%;
+  font-size: 42px;
+  font-weight: 700;
+}
+@media (max-width: 767px) {
+  .new-properties-you-trust-partial-88f88c .card-border-purple .overly-purple {
+    position: relative;
+    left: inherit;
+    top: inherit;
+  }
+}
+.new-properties-you-trust-partial-88f88c .card-border-purple .description {
+  font-weight: 300;
+  line-height: 37.5px;
+  letter-spacing: 0px;
+  font-style: italic;
+}
+.new-properties-you-trust-partial-88f88c .card-border-purple .description strong {
+  font-weight: 400;
+  font-style: normal;
+}
+@media (max-width: 767px) {
+  .new-properties-you-trust-partial-88f88c .card-border-purple .description {
+    font-size: 26px;
+    line-height: 37.5px;
+  }
+  .new-properties-you-trust-partial-88f88c .card-border-purple .description br {
+    display: none;
+  }
+}
+.new-properties-you-trust-partial-88f88c .card-border-purple .call-to-action {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 17px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #7e66fc;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .new-boost-your-business-partial-ca6162 {
@@ -12527,7 +12588,6 @@ section#footer-blue {
   text-decoration-skip-ink: none;
   text-decoration-thickness: auto;
   text-underline-offset: auto;
-  text-underline-position: from-font;
 }
 .nav-menu-partial-00596a .sing-in:hover .drop-down {
   visibility: visible;
