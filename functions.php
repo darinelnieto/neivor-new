@@ -132,6 +132,11 @@ if (function_exists('acf_add_options_page')) {
     'menu_title'     => 'How to hire it',
     'parent_slug'   => 'theme-settings',
   ));
+  acf_add_options_sub_page(array(
+    'page_title'     => 'Suscription',
+    'menu_title'     => 'Suscription',
+    'parent_slug'   => 'theme-settings',
+  ));
 }
 /*=================== Comprehensive protection ===================*/
 add_theme_support('post-thumbnails');
