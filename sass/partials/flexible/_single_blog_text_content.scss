@@ -23,6 +23,9 @@
                 line-height: 25px;
             }
         }
+        a{
+            color: #7E66FC;
+        }
         ul {
             list-style: none;
             padding-left: 0;
@@ -30,6 +33,9 @@
                 display: flex;
                 align-items: flex-start;
                 gap: 10px;
+                a{
+                    color: #7E66FC;
+                }
                 &::before {
                     content: '';
                     display: inline-block;
@@ -45,6 +51,20 @@
                         height: 16px;
                         margin-top: 4px;
                     }
+                }
+            }
+        }
+        ol{
+            list-style: decimal;
+            list-style-position: outside;
+            li{
+                color: #595C5D;
+                a{
+                    color: #7E66FC;
+                }
+                &::marker {
+                    color: #7E66FC;
+                    font-weight: 700;
                 }
             }
         }

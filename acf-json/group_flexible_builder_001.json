@@ -5854,6 +5854,36 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_6a0dce10253a2": {
+                    "key": "layout_6a0dce10253a2",
+                    "name": "single_blog-suscription_form",
+                    "label": "single_blog-suscription_form",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6a0dce22253a4",
+                            "label": "Suscription group",
+                            "name": "suscription_group",
+                            "aria-label": "suscription_group",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": ["group_6a0dc9236b372"],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_6a045c6c8b178": {
                     "key": "layout_6a045c6c8b178",
                     "name": "single_related_post",
@@ -6569,5 +6599,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1779284268
+    "modified": 1779289710
 }

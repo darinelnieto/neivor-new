@@ -519,3 +519,96 @@ function blog_listing_change_view_handler($request){
 
   return ['view' => $view_type];
 }
+
+/*============== HubSpot Subscription API ==============*/
+add_action( 'rest_api_init', function () {
+  register_rest_route( 'neivor/v1', '/hubspot-subscribe', array(
+      array(
+          'methods'               => WP_REST_Server::CREATABLE,
+          'callback'              => 'neivor_hubspot_subscribe_handler',
+          'permission_callback'   => '__return_true',
+      )
+  ));
+});
+
+function neivor_hubspot_subscribe_handler($request){
+  $portal_id = sanitize_text_field($request['portalId']);
+  $form_id = sanitize_text_field($request['formId']);
+  $email = sanitize_email($request['email']);
+  $first_name = sanitize_text_field($request['firstname'] ?: $request['fullName']);
+  $content_preference = sanitize_text_field($request['contentPreference']);
+
+  if(empty($portal_id) || empty($form_id) || empty($email)){
+    return new WP_Error('missing_required_fields', 'portalId, formId y email son obligatorios', array('status' => 400));
+  }
+
+  if(!is_email($email)){
+    return new WP_Error('invalid_email', 'El email no es valido', array('status' => 400));
+  }
+
+  $fields = array(
+    array(
+      'name' => 'email',
+      'value' => $email,
+    ),
+    array(
+      'name' => 'firstname',
+      'value' => $first_name,
+    ),
+  );
+
+  if(!empty($content_preference)){
+    $fields[] = array(
+      'name' => 'por_que_te_interesa_este_contenido_',
+      'value' => $content_preference,
+    );
+  }
+
+  $payload = array(
+    'fields' => $fields,
+    'context' => array(
+      'pageUri' => esc_url_raw($request['pageUri'] ?: home_url('/')),
+      'pageName' => sanitize_text_field($request['pageName'] ?: get_bloginfo('name')),
+    ),
+  );
+
+  $hubspot_url = sprintf(
+    'https://api.hsforms.com/submissions/v3/integration/submit/%s/%s',
+    rawurlencode($portal_id),
+    rawurlencode($form_id)
+  );
+
+  $response = wp_remote_post(
+    $hubspot_url,
+    array(
+      'headers' => array(
+        'Content-Type' => 'application/json',
+      ),
+      'body' => wp_json_encode($payload),
+      'timeout' => 20,
+    )
+  );
+
+  if(is_wp_error($response)){
+    return new WP_Error('hubspot_request_error', $response->get_error_message(), array('status' => 500));
+  }
+
+  $status_code = wp_remote_retrieve_response_code($response);
+  $response_body = wp_remote_retrieve_body($response);
+
+  if($status_code < 200 || $status_code >= 300){
+    return new WP_Error(
+      'hubspot_submit_error',
+      'HubSpot rechazo la suscripcion',
+      array(
+        'status' => $status_code ?: 500,
+        'hubspot_response' => $response_body,
+      )
+    );
+  }
+
+  return array(
+    'success' => true,
+    'message' => 'Suscripcion enviada correctamente',
+  );
+}
