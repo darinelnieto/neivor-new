@@ -11245,6 +11245,7 @@ section#footer-blue {
 }
 .new-properties-you-trust-partial-88f88c .card-property img {
   margin: 0.7rem auto;
+  height: auto;
   object-fit: contain;
 }
 @media (max-width: 768px) {
