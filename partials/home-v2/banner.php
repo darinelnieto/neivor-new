@@ -16,7 +16,15 @@ $banner = get_field('add_banner');
             <!-- Hero Texts -->
             <div class="col-12 col-md-6">
                 <h1 class="title"><?= $banner['title'] ?? 'Neivor'; ?></h1>
-                <?php if(!empty($banner['statistics'])): ?>
+                <?php if($banner['enable_call_to_action'] == true): $cta = $banner['call_to_action']; ?>
+                    <a href="<?= $cta['link']['url'] ?? '#'; ?>" target="<?= $cta['link']['target'] ?? '_self' ?>" class="call-to-action">
+                        <?= wp_get_attachment_image($cta['cta_image'], 'medium', false, array(
+                            'class' => 'cta-image',
+                            'fetchpriority' => 'high',
+                            'loading' => 'eager',
+                        )); ?>
+                    </a>
+                <?php endif; if(!empty($banner['statistics'])): ?>
                     <div class="statistics d-none d-md-flex">
                         <?php foreach($banner['statistics'] as $stat): ?>
                             <div class="stat">

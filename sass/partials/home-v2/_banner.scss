@@ -43,7 +43,19 @@
             }
         }
     }
-
+    .call-to-action{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 195px;
+        height: auto;
+        img{
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+    }
     .statistics {
         border: 1px solid rgba(201, 196, 215, 0.2);
         background: rgba(253, 248, 255, 0.8);

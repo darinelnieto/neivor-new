@@ -26,7 +26,7 @@ $purple = $properties['card_with_purple_border'];
                 $total = count($cards);
                 if($cards): foreach($cards as $item): ?>
                     <div class="<?= $properties['trusting_properties']['column_width'] ?? 'col-12 md-4 col-lg-3'; ?> mb-4">
-                        <div class="card-property">
+                        <div class="card-property"> 
                             <div class="icon">
                                 <?= wp_get_attachment_image($item['icon']['ID'] ?? '', 'medium', false, array(
                                     'class' => 'card-icon',

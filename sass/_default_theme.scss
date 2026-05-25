@@ -10,10 +10,14 @@ $secondary_font: "Urbanist", sans-serif;
 }
 html{
     width: 100%;
-    overflow-x: hidden;
+    @media(max-width:768px){
+        overflow-x: hidden;
+    }
     body{
         width: 100%;
-        overflow-x: hidden;
+        @media(max-width:768px){
+            overflow-x: hidden;
+        }
     }
 }
 header{
@@ -137,6 +141,9 @@ section#footer-blue {
     }
     @media(max-width:991px){
         font-size: 25px;
+        br{
+            display: none;
+        }
     }
 }
 // p size
