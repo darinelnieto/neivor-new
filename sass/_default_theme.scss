@@ -156,3 +156,17 @@ section#footer-blue {
         font-size: 20px;
     }
 }
+@mixin p-size-18{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 29.25px;
+    letter-spacing: 0px;
+    color: #484555;
+}
+// h3 size
+@mixin h3-size{
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 1.2px;
+}

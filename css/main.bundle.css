@@ -139,6 +139,114 @@ section#footer-blue {
   top: inherit;
 }
 
+.functionality-tabs-partial-c16ffb {
+  background: #fff;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.functionality-tabs-partial-c16ffb .title {
+  font-size: 35px;
+  line-height: 150%;
+  font-weight: 400;
+  color: #0A2540;
+  margin-bottom: 30px;
+}
+.functionality-tabs-partial-c16ffb .title strong {
+  font-weight: 700;
+}
+@media (max-width: 991px) {
+  .functionality-tabs-partial-c16ffb .title {
+    font-size: 25px;
+  }
+  .functionality-tabs-partial-c16ffb .title br {
+    display: none;
+  }
+}
+.functionality-tabs-partial-c16ffb .tabs-content #myTab {
+  gap: 32px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ECE5FC;
+}
+@media (max-width: 991px) {
+  .functionality-tabs-partial-c16ffb .tabs-content #myTab {
+    gap: 16px;
+  }
+}
+.functionality-tabs-partial-c16ffb .tabs-content #myTab li button {
+  padding: 0;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: rgba(72, 69, 85, 0.7);
+  transition: all 0.2s ease;
+}
+.functionality-tabs-partial-c16ffb .tabs-content #myTab li button.active {
+  border-bottom: 2px solid #7E66FC;
+  color: #7E66FC;
+  font-weight: 700;
+}
+.functionality-tabs-partial-c16ffb .tabs-content #myTabContent .top-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.functionality-tabs-partial-c16ffb .tabs-content #myTabContent .top-content .info {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 29.25px;
+  letter-spacing: 0px;
+  color: #484555;
+}
+.functionality-tabs-partial-c16ffb .tabs-content #myTabContent .top-content .info p:last-child {
+  margin-bottom: 0;
+}
+.functionality-tabs-partial-c16ffb .tabs-content #myTabContent .top-content .subtitle {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 1.2px;
+  color: rgba(72, 69, 85, 0.6);
+  margin-bottom: 0px;
+  text-transform: uppercase;
+}
+.functionality-tabs-partial-c16ffb .tabs-content #myTabContent .top-content .links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.functionality-tabs-partial-c16ffb .tabs-content #myTabContent .top-content .links li a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  padding: 24px;
+  border: 1px solid #ECE5FC;
+  border-radius: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: #484555;
+}
+.functionality-tabs-partial-c16ffb .tabs-content #myTabContent .top-content .links li a strong {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0px;
+  color: #1C1929;
+}
+
 .benefits-left-image-and-text-right-partial-7219e8 {
   background: #ffffff;
   padding-top: 70px;

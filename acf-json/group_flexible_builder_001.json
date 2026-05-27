@@ -7509,6 +7509,394 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_6a16cb44c9baf": {
+                    "key": "layout_6a16cb44c9baf",
+                    "name": "functionality_tabs",
+                    "label": "functionality_tabs",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6a16cb4bc9bb1",
+                            "label": "Functionality tabs group",
+                            "name": "functionality_tabs_group",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_6a16cb5ec9bb2",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "<strongTrazabilidad total<\/strong> en cualquier modelo de negocio inmobiliario",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "rows": "",
+                                    "placeholder": "",
+                                    "new_lines": "br"
+                                },
+                                {
+                                    "key": "field_6a16cba6c9bb3",
+                                    "label": "Tabs",
+                                    "name": "tabs",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "block",
+                                    "pagination": 0,
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Agregar Fila",
+                                    "rows_per_page": 20,
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_6a16cbb2c9bb4",
+                                            "label": "Label",
+                                            "name": "label",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "🏗️ Preventas",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "parent_repeater": "field_6a16cba6c9bb3"
+                                        },
+                                        {
+                                            "key": "field_6a16cbd6c9bb5",
+                                            "label": "Info",
+                                            "name": "info",
+                                            "aria-label": "",
+                                            "type": "wysiwyg",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "La CLABE y el contrato nacen juntos. En el momento en que se genera la promesa de compraventa, Neivor asigna una CLABE exclusiva al comprador. Todos sus pagos durante el ciclo — enganche, mensualidades, depósito de garantía — llegan a esa cuenta y se concilian automáticamente.",
+                                            "allow_in_bindings": 0,
+                                            "tabs": "all",
+                                            "toolbar": "full",
+                                            "media_upload": 1,
+                                            "delay": 0,
+                                            "parent_repeater": "field_6a16cba6c9bb3"
+                                        },
+                                        {
+                                            "key": "field_6a16cc03c9bb6",
+                                            "label": "Label links",
+                                            "name": "label_links",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "Dónde lo verás en acción",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "parent_repeater": "field_6a16cba6c9bb3"
+                                        },
+                                        {
+                                            "key": "field_6a16cc1bc9bb7",
+                                            "label": "links",
+                                            "name": "links",
+                                            "aria-label": "",
+                                            "type": "repeater",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "layout": "block",
+                                            "pagination": 0,
+                                            "min": 0,
+                                            "max": 0,
+                                            "collapsed": "",
+                                            "button_label": "Agregar Fila",
+                                            "rows_per_page": 20,
+                                            "sub_fields": [
+                                                {
+                                                    "key": "field_6a16cc2cc9bb8",
+                                                    "label": "Link",
+                                                    "name": "link",
+                                                    "aria-label": "",
+                                                    "type": "link",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "return_format": "array",
+                                                    "allow_in_bindings": 0,
+                                                    "parent_repeater": "field_6a16cc1bc9bb7"
+                                                },
+                                                {
+                                                    "key": "field_6a16cc46c9bb9",
+                                                    "label": "Description link",
+                                                    "name": "description_link",
+                                                    "aria-label": "",
+                                                    "type": "textarea",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "default_value": "<strong>Cobros y plan de pagos<\/strong>\r\nConciliación automática y plan de pagos por comprador",
+                                                    "maxlength": "",
+                                                    "allow_in_bindings": 0,
+                                                    "rows": "",
+                                                    "placeholder": "",
+                                                    "new_lines": "br",
+                                                    "parent_repeater": "field_6a16cc1bc9bb7"
+                                                }
+                                            ],
+                                            "parent_repeater": "field_6a16cba6c9bb3"
+                                        },
+                                        {
+                                            "key": "field_6a16ccc0c9bbb",
+                                            "label": "left image and text right group",
+                                            "name": "left_image_and_text_right_group",
+                                            "aria-label": "",
+                                            "type": "group",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "layout": "block",
+                                            "sub_fields": [
+                                                {
+                                                    "key": "field_6a16ccc0c9bbc",
+                                                    "label": "Left",
+                                                    "name": "left",
+                                                    "aria-label": "",
+                                                    "type": "group",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "layout": "block",
+                                                    "sub_fields": [
+                                                        {
+                                                            "key": "field_6a16ccc0c9bbd",
+                                                            "label": "Main image",
+                                                            "name": "main_image",
+                                                            "aria-label": "",
+                                                            "type": "image",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "return_format": "id",
+                                                            "library": "all",
+                                                            "min_width": "",
+                                                            "min_height": "",
+                                                            "min_size": "",
+                                                            "max_width": "",
+                                                            "max_height": "",
+                                                            "max_size": "",
+                                                            "mime_types": "",
+                                                            "allow_in_bindings": 0,
+                                                            "preview_size": "medium"
+                                                        },
+                                                        {
+                                                            "key": "field_6a16ccc0c9bbe",
+                                                            "label": "Label",
+                                                            "name": "label",
+                                                            "aria-label": "",
+                                                            "type": "text",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "default_value": "+$2.4 MDP",
+                                                            "maxlength": "",
+                                                            "allow_in_bindings": 0,
+                                                            "placeholder": "",
+                                                            "prepend": "",
+                                                            "append": ""
+                                                        },
+                                                        {
+                                                            "key": "field_6a16ccc0c9bbf",
+                                                            "label": "Description",
+                                                            "name": "description",
+                                                            "aria-label": "",
+                                                            "type": "textarea",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "default_value": "Procesados con trazabilidad total\r\npor Atlas Desarrollos",
+                                                            "maxlength": "",
+                                                            "allow_in_bindings": 0,
+                                                            "rows": 2,
+                                                            "placeholder": "",
+                                                            "new_lines": "br"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "key": "field_6a16ccc0c9bc0",
+                                                    "label": "Right",
+                                                    "name": "right",
+                                                    "aria-label": "",
+                                                    "type": "group",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "layout": "block",
+                                                    "sub_fields": [
+                                                        {
+                                                            "key": "field_6a16ccc0c9bc1",
+                                                            "label": "Number",
+                                                            "name": "number",
+                                                            "aria-label": "",
+                                                            "type": "number",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "default_value": 99,
+                                                            "min": "",
+                                                            "max": "",
+                                                            "allow_in_bindings": 0,
+                                                            "placeholder": "",
+                                                            "step": "",
+                                                            "prepend": "",
+                                                            "append": ""
+                                                        },
+                                                        {
+                                                            "key": "field_6a16ccc0c9bc2",
+                                                            "label": "Description",
+                                                            "name": "description",
+                                                            "aria-label": "",
+                                                            "type": "textarea",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "default_value": "Cuentas CLABE únicas por comprador — sabemos exactamente quién pagó, cuándo y desde qué cuenta, alertando discrepancias antes de que el dinero toque la contabilidad.",
+                                                            "maxlength": "",
+                                                            "allow_in_bindings": 0,
+                                                            "rows": 5,
+                                                            "placeholder": "",
+                                                            "new_lines": "br"
+                                                        },
+                                                        {
+                                                            "key": "field_6a16ccc0c9bc3",
+                                                            "label": "Call to action",
+                                                            "name": "call_to_action",
+                                                            "aria-label": "",
+                                                            "type": "link",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "return_format": "array",
+                                                            "allow_in_bindings": 0
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "parent_repeater": "field_6a16cba6c9bb3"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -7558,5 +7946,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1779674144
+    "modified": 1779884488
 }
