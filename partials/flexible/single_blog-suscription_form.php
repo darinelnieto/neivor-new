@@ -14,7 +14,7 @@ wp_enqueue_script(
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
-$suscription = get_sub_field('suscription_group');
+$suscription = get_field('suscription_group', 'option');
 
 $hubspot_embed = isset($suscription['hubspot_form']) ? (string) $suscription['hubspot_form'] : '';
 $portal_id = '20854675';
@@ -30,7 +30,6 @@ if ( preg_match('/formId:\s*"([^"]+)"/', $hubspot_embed, $form_matches) ) {
 
 $rest_endpoint = rest_url('neivor/v1/hubspot-subscribe');
 $form_dom_id = wp_unique_id('suscription-form-');
-
 ?>
 <section class="single-blog-suscription-form-partial-a2128d">
     <div class="container">
@@ -39,9 +38,9 @@ $form_dom_id = wp_unique_id('suscription-form-');
                 <div class="card-form row align-items-center">
                     <div class="col-12 col-md-6 col-lg-7 mb-4 mb-md-0">
                         <?php if(!empty($suscription['title'])): ?>
-                            <h2 class="title"><?= esc_html($suscription['title']); ?></h2>
+                            <h2 class="title"><?= $suscription['title']; ?></h2>
                         <?php endif; if(!empty($suscription['description'])): ?>
-                            <p class="descrption"><?= wp_kses_post($suscription['description']); ?></p>
+                            <p class="descrption"><?= $suscription['description']; ?></p>
                         <?php endif ?>
                     </div>
                     <div class="col-12 col-md-6 col-lg-5 form-container">
