@@ -55,11 +55,11 @@ src="https://www.facebook.com/tr?id=197329169765507&ev=PageView&noscript=1"
   <header id="header-wrapper">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-2">
+        <div class="col-4 col-md-2">
           <?= get_custom_logo(); ?>
           <div class="close-submenu-movil"></div>
         </div>
-        <div class="col-10">
+        <div class="col-8 col-md-10">
           <div class="bar-menu">
             <span class="top"></span>
             <span class="center"></span>

@@ -96,6 +96,31 @@ add_action( 'wp_enqueue_scripts', 'ditto_register_jquery_in_footer', 1 );
  */
 add_filter('use_block_editor_for_post', '__return_false', 10);
 add_filter('use_block_editor_for_post_type', '__return_false', 10);
+
+/**
+ * Allow SVG uploads in Media Library.
+ */
+function ditto_allow_svg_uploads( $mimes ) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter( 'upload_mimes', 'ditto_allow_svg_uploads' );
+
+function ditto_fix_svg_filetype_check( $data, $file, $filename, $mimes ) {
+  $ext = isset( $data['ext'] ) ? $data['ext'] : '';
+
+  if ( ! $ext ) {
+    $wp_filetype = wp_check_filetype( $filename, $mimes );
+    if ( 'svg' === $wp_filetype['ext'] ) {
+      $data['ext'] = 'svg';
+      $data['type'] = 'image/svg+xml';
+      $data['proper_filename'] = $filename;
+    }
+  }
+
+  return $data;
+}
+add_filter( 'wp_check_filetype_and_ext', 'ditto_fix_svg_filetype_check', 10, 4 );
 /*
 *  Options
 */
