@@ -20,9 +20,6 @@ $sing_in = get_field('external_links', 'option');
 ?>
 <div class="nav-menu-movil-partial-ac8f67">
     <nav class="nav-menu-movil">
-        <a href="https://www.neivor.com/agenda-una-demo-asesoria" class="open-dorp-down" target="_self">
-            <?= get_field('see_demo_text', 'option'); ?>
-        </a>
         <ul>
             <?php foreach($menu as $item): ?>
                 <li class="nav-item">
@@ -33,6 +30,9 @@ $sing_in = get_field('external_links', 'option');
                 </li>
             <?php endforeach; ?>
         </ul>
+        <a href="https://www.neivor.com/agenda-una-demo-asesoria" class="open-dorp-down" target="_self">
+            <?= get_field('see_demo_text', 'option'); ?>
+        </a>
     </nav>
     <div class="submenu">
         <button class="close-submenu">
