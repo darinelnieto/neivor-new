@@ -66,8 +66,13 @@ src="https://www.facebook.com/tr?id=197329169765507&ev=PageView&noscript=1"
             <span class="bottom"></span>
           </div>
           <div class="nav-contain">
-            <?php get_template_part('partials/globals/nav-menu'); ?>
+              <?php get_template_part('partials/globals/nav-menu'); ?>
           </div>
+        </div>
+        <div class="col-12 d-block d-md-none">
+          <div class="nav-menu-movil">
+              <?php get_template_part('partials/globals/nav-menu-movil'); ?>
+            </div>
         </div>
       </div>
     </div>

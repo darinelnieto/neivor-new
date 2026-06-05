@@ -11,21 +11,6 @@ $nav = get_field('nav', 'options');
 if($nav):
 $sing_in = get_field('external_links', 'option');
 ?>
-<style>
-   .main-menu-name {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.caret-icon {
-  width: 12px;
-  height: 12px;
-  transition: transform 0.2s ease;
-  transform-origin: center;
-}
-
-</style>   
 <ul class="nav-menu-partial-00596a">
     <?php foreach($nav as $main_nav): ?>
         <li>
@@ -108,46 +93,3 @@ $sing_in = get_field('external_links', 'option');
     <?php endif; ?>
 </ul>
 <?php endif; ?>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  
-  // 1. Lógica original para los iconos (carets) del menú
-  const menuItems = document.querySelectorAll('.nav-menu-partial-00596a li');
-
-  menuItems.forEach(function(item) {
-    const caret = item.querySelector('.caret-icon');
-    const subMenu = item.querySelector('.sub-menu-pop-up');
-
-    if (caret && subMenu) {
-      item.addEventListener('mouseenter', () => {
-        caret.style.transform = 'rotate(180deg)';
-      });
-
-      item.addEventListener('mouseleave', () => {
-        caret.style.transform = 'rotate(0deg)';
-      });
-    }
-  });
-
-  // 2. Lógica nueva para el tracking de clics en Google Analytics
-  const trackingLinks = document.querySelectorAll('.track-ga-event');
-
-  trackingLinks.forEach(function(link) {
-    link.addEventListener('click', function(e) {
-        // Obtenemos el texto dinámico desde el atributo data-label (ej: "Condos", "Rentas")
-        const label = this.getAttribute('data-label');
-        
-        if (typeof gtag === 'function') {
-            gtag('event', 'neivor_customer', {
-                'event_category': 'sales',
-                'event_label': label.toLowerCase(), // Opcional: lo pasa a minúsculas
-                'value': 1.0
-            });
-        }
-    });
-  });
-
-});
-</script>
-
-</script>

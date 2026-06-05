@@ -27,7 +27,6 @@ function ditto_scripts() {
   wp_enqueue_script( 'font-awesome.js', get_template_directory_uri() . '/js/font-awesome.js', array(), null, true );
   wp_enqueue_script( 'main-scripts', get_template_directory_uri() . '/js/main.bundle.js', array( 'jquery', 'owl-carousel.js' ), '', true );
   wp_enqueue_script( 'custom.js', get_template_directory_uri() . '/js/custom.js', array( 'jquery', 'owl-carousel.js' ), '1', true );
-  wp_enqueue_script( 'new-nav', get_template_directory_uri() . '/js/partials/new-nav.js', array(), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'ditto_scripts' );
 
@@ -362,6 +361,14 @@ add_action( 'rest_api_init', function () {
           'permission_callback'   => '__return_true',          
       )
   ));
+  // Nav menu movil
+  register_rest_route( 'nav', '/movil', array(
+      array(
+          'methods'               => WP_REST_Server::READABLE,
+          'callback'              => 'nav_menu_movil_handler',
+          'permission_callback'   => '__return_true',          
+      )
+  ));
 });
 /*============ Historis return ============*/
 function success_historie_list_handler($request){
@@ -636,4 +643,84 @@ function neivor_hubspot_subscribe_handler($request){
     'success' => true,
     'message' => 'Suscripcion enviada correctamente',
   );
+}
+/*=========== Nav menu movil ==========*/
+function nav_menu_movil_handler($request){
+  $menu = get_field('nav', 'option');
+  $nav_menu = array();
+  $requested_menu = sanitize_text_field($request->get_param('menu'));
+
+  if(!is_array($menu)){
+    return $nav_menu;
+  }
+
+  foreach($menu as $items){
+    $menu_name = isset($items['name_menu']) ? $items['name_menu'] : '';
+
+    if($menu_name === ''){
+      continue;
+    }
+
+    if(!isset($nav_menu[$menu_name])){
+      $nav_menu[$menu_name] = array(
+        'menu' => $menu_name,
+        'sub_menu' => array(),
+      );
+    }
+
+    if(empty($items['sub_menu']) || !is_array($items['sub_menu'])){
+      continue;
+    }
+
+    foreach($items['sub_menu'] as $item){
+      $sub_menu_name = isset($item['sub_menu_name']) ? $item['sub_menu_name'] : '';
+      $icon = '';
+      $links = array();
+
+      if(!empty($item['sub_menu_icon']) && is_array($item['sub_menu_icon']) && !empty($item['sub_menu_icon']['ID'])){
+        $icon = wp_get_attachment_image((int) $item['sub_menu_icon']['ID'], 'medium', false, array(
+          'class' => 'nav-icon background-desktop',
+          'fetchpriority' => 'high',
+        ));
+      }
+
+      if(!empty($item['sub_menu_links']) && is_array($item['sub_menu_links'])){
+        foreach($item['sub_menu_links'] as $a){
+          $external_url = isset($a['external_url']) ? $a['external_url'] : '';
+
+          if(is_array($external_url)){
+            $url = isset($external_url['url']) ? $external_url['url'] : '';
+            $target = isset($external_url['target']) ? $external_url['target'] : '';
+            $text = isset($external_url['title']) ? $external_url['title'] : '';
+          } else {
+            $url = is_string($external_url) ? $external_url : '';
+            $target = '';
+            $text = '';
+          }
+
+          $links[] = array(
+            'url' => $url,
+            'target' => $target,
+            'text' => $text,
+          );
+        }
+      }
+
+      $nav_menu[$menu_name]['sub_menu'][] = array(
+        'name' => $sub_menu_name,
+        'icon' => $icon,
+        'nav' => $links,
+      );
+    }
+  }
+
+  $result = array_values($nav_menu);
+
+  if($requested_menu === ''){
+    return $result;
+  }
+
+  return array_values(array_filter($result, function($item) use ($requested_menu){
+    return isset($item['menu']) && $item['menu'] === $requested_menu;
+  }));
 }
