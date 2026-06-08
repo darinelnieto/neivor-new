@@ -39,6 +39,128 @@ function ditto_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'ditto_scripts' );
 
+function ditto_defer_theme_scripts( $tag, $handle, $src ) {
+  if ( is_admin() ) {
+    return $tag;
+  }
+
+  $defer_handles = array(
+    'jquery',
+    'bootstrap.js',
+    'owl-carousel.js',
+    'font-awesome.js',
+    'main-scripts',
+    'custom.js',
+  );
+
+  if ( ! in_array( $handle, $defer_handles, true ) ) {
+    return $tag;
+  }
+
+  if ( false !== strpos( $tag, ' defer' ) ) {
+    return $tag;
+  }
+
+  return str_replace( ' src=', ' defer src=', $tag );
+}
+add_filter( 'script_loader_tag', 'ditto_defer_theme_scripts', 10, 3 );
+
+function ditto_add_missing_image_dimensions( $html ) {
+  if ( is_admin() || wp_doing_ajax() || is_feed() ) {
+    return $html;
+  }
+
+  if ( false === stripos( $html, '<img' ) ) {
+    return $html;
+  }
+
+  if ( ! class_exists( 'DOMDocument' ) ) {
+    return $html;
+  }
+
+  $internal_errors = libxml_use_internal_errors( true );
+  $document = new DOMDocument();
+
+  if ( ! $document->loadHTML( '<?xml encoding="utf-8" ?>' . $html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD ) ) {
+    libxml_clear_errors();
+    libxml_use_internal_errors( $internal_errors );
+    return $html;
+  }
+
+  $upload = wp_get_upload_dir();
+  $baseurl = isset( $upload['baseurl'] ) ? $upload['baseurl'] : '';
+  $basedir = isset( $upload['basedir'] ) ? $upload['basedir'] : '';
+
+  foreach ( $document->getElementsByTagName( 'img' ) as $img ) {
+    $src = $img->getAttribute( 'src' );
+    if ( '' === $src ) {
+      continue;
+    }
+
+    if ( ! $img->hasAttribute( 'decoding' ) ) {
+      $img->setAttribute( 'decoding', 'async' );
+    }
+
+    if ( $img->hasAttribute( 'width' ) && $img->hasAttribute( 'height' ) ) {
+      continue;
+    }
+
+    $width = 0;
+    $height = 0;
+    $attachment_id = attachment_url_to_postid( $src );
+
+    if ( $attachment_id ) {
+      $metadata = wp_get_attachment_metadata( $attachment_id );
+      if ( is_array( $metadata ) ) {
+        $width = isset( $metadata['width'] ) ? (int) $metadata['width'] : 0;
+        $height = isset( $metadata['height'] ) ? (int) $metadata['height'] : 0;
+      }
+    }
+
+    if ( ( $width <= 0 || $height <= 0 ) && $baseurl && $basedir && false === strpos( $src, 'data:' ) ) {
+      $normalized_src = strtok( $src, '?' );
+      $normalized_baseurl = rtrim( $baseurl, '/' );
+
+      if ( 0 === strpos( $normalized_src, $normalized_baseurl ) ) {
+        $local_path = $basedir . str_replace( $normalized_baseurl, '', $normalized_src );
+        if ( is_readable( $local_path ) ) {
+          $image_size = @getimagesize( $local_path );
+          if ( is_array( $image_size ) ) {
+            $width = isset( $image_size[0] ) ? (int) $image_size[0] : 0;
+            $height = isset( $image_size[1] ) ? (int) $image_size[1] : 0;
+          }
+        }
+      }
+    }
+
+    if ( $width > 0 && $height > 0 ) {
+      if ( ! $img->hasAttribute( 'width' ) ) {
+        $img->setAttribute( 'width', (string) $width );
+      }
+      if ( ! $img->hasAttribute( 'height' ) ) {
+        $img->setAttribute( 'height', (string) $height );
+      }
+    }
+  }
+
+  $optimized_html = $document->saveHTML();
+  $optimized_html = preg_replace( '/^<\?xml[^>]*>/', '', $optimized_html );
+
+  libxml_clear_errors();
+  libxml_use_internal_errors( $internal_errors );
+
+  return null !== $optimized_html ? $optimized_html : $html;
+}
+
+function ditto_start_frontend_html_optimization() {
+  if ( is_admin() || wp_doing_ajax() || is_feed() || is_robots() || is_trackback() ) {
+    return;
+  }
+
+  ob_start( 'ditto_add_missing_image_dimensions' );
+}
+add_action( 'template_redirect', 'ditto_start_frontend_html_optimization', 0 );
+
 /**
  * Register Navigation Menus
  * https://developer.wordpress.org/reference/functions/register_nav_menus/
