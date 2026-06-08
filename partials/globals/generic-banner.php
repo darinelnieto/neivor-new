@@ -106,7 +106,7 @@ if(get_field('custom_style_image_desktop') === true):
                             <?= wp_get_attachment_image($movil_image['ID'] ?? '', 'large', false, array(
                                 'class' => 'd-block d-md-none img-movil',
                                 'fetchpriority' => 'high',
-                                'loading' => 'eager'
+                                'loading' => 'eager',
                             )); ?>
                         </div>
                     <?php else: ?>
