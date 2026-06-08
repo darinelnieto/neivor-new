@@ -20,23 +20,31 @@ if ( ! empty( $boost['cards'] ) ) {
         ?>
         <a href="<?= esc_url( $link_url ); ?>" <?= $link_target; ?> class="card-item">
             <?php if ( ! empty( $item['feature_image'] ) ) : ?>
-                <?= wp_get_attachment_image( $item['feature_image'], 'large', false, [ 'class' => 'feature-image' ] ); ?>
+                <?= wp_get_attachment_image( $item['feature_image'], 'large', false, array(
+                    'class' => 'feature-image',
+                    'loading' => 'lazy',
+                    'decoding' => 'async'
+                ) ); ?>
             <?php endif; ?>
             <div class="card-overlay"></div>
             <div class="card-content">
                 <?php if ( ! empty( $item['tag'] ) ) : 
                     $dot_color = ! empty( $item['tag_color'] ) ? esc_attr( $item['tag_color'] ) : '#7D65FE';
                 ?>
-                    <span class="card-tag" style="--dot-color: <?= $dot_color; ?>"><?= esc_html( $item['tag'] ); ?></span>
+                    <span class="card-tag" style="--dot-color: <?= $dot_color; ?>"><?= $item['tag']; ?></span>
                 <?php endif; ?>
                 <?php if ( ! empty( $item['logo'] ) ) : ?>
-                    <?= wp_get_attachment_image( $item['logo'], 'medium', false, [ 'class' => 'card-logo' ] ); ?>
+                    <?= wp_get_attachment_image( $item['logo'], 'medium', false, array(
+                        'class' => 'card-logo',
+                        'loading' => 'lazy',
+                        'decoding' => 'async'
+                    )); ?>
                 <?php endif; ?>
                 <?php if ( ! empty( $item['name'] ) ) : ?>
-                    <h3 class="card-name"><?= esc_html( $item['name'] ); ?></h3>
+                    <h3 class="card-name"><?= $item['name']; ?></h3>
                 <?php endif; ?>
                 <?php if ( ! empty( $item['stat'] ) ) : ?>
-                    <p class="card-stat"><?= esc_html( $item['stat'] ); ?></p>
+                    <p class="card-stat"><?= $item['stat']; ?></p>
                 <?php endif; ?>
                 <span class="card-cta">LEER CASO 
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -61,7 +69,7 @@ if ( ! empty( $boost['cards'] ) ) {
                 <?php if ( $cards_html ) : ?>
                     <!-- Desktop: inside container, aligned with title -->
                     <div class="boost-slide owl-carousel">
-                        <?php echo $cards_html; ?>
+                        <?= $cards_html; ?>
                     </div>
                 <?php endif; ?>
             </div>

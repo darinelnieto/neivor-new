@@ -23,7 +23,7 @@ $logos_slide = get_field('purple_background_logo_section', 'option');
                                 <div class="logos-slide owl-carousel">
                                     <?php foreach($item['logos'] as $img): ?>
                                         <div class="item">
-                                            <?= wp_get_attachment_image($img['image']['url'] ?? '', 'large', false, array(
+                                            <?= wp_get_attachment_image($img['image']['ID'] ?? '', 'large', false, array(
                                                 'class' => 'full-image',
                                                 'loading' => 'lazy',
                                                 'decoding' => 'async'

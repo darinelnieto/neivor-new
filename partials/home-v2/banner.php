@@ -46,6 +46,7 @@ $banner = get_field('add_banner');
                     <?= wp_get_attachment_image($banner['main_image'], 'full', false, array(
                         'class' => 'hero-image',
                         'fetchpriority' => 'high',
+                        'loading' => 'eager'
                     )) ?? ''; ?>
                     <?php if(!empty($banner['overly_image'])): $overly = $banner['overly_image']; ?>
                         <div class="overly">
@@ -55,6 +56,7 @@ $banner = get_field('add_banner');
                                         <?= wp_get_attachment_image($overly['icon'], 'full', false, array(
                                             'class' => 'overly-icon',
                                             'fetchpriority' => 'high',
+                                            'loading' => 'eager'
                                         )) ?? ''; ?>
                                     </div>
                                     <div class="texts">

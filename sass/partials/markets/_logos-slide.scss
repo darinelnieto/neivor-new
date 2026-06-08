@@ -73,6 +73,15 @@
                     margin-bottom: 2rem;
                     opacity: 0;
                     transition: 1s;
+                    .item{
+                        height:100px;
+                        overflow:hidden;
+                        img{
+                            width:100%;
+                            height: auto;
+                            object-fit:contain;
+                        }
+                    }
                 }
             }
         }

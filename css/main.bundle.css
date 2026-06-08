@@ -10745,6 +10745,15 @@ section#footer-blue {
   opacity: 0;
   transition: 1s;
 }
+.logos-slide-partial-f8ca70 .clip-path .col-12 .slide-contain .logos-slide .item {
+  height: 100px;
+  overflow: hidden;
+}
+.logos-slide-partial-f8ca70 .clip-path .col-12 .slide-contain .logos-slide .item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
 .logos-slide-partial-f8ca70 .clip-path .col-12:last-child .logos-slide {
   margin-bottom: 0;
 }

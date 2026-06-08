@@ -37,22 +37,26 @@ if ( $after_banner['enable_conten_after_banner'] === true ) :
                     <div class="abs-card">
                         <?php if ( ! empty( $card['image'] ) ) : ?>
                             <div class="abs-card__image">
-                                <?= wp_get_attachment_image( $card['image'], 'large', false, [ 'alt' => esc_attr( $card['card_title'] ?? '' ) ] ); ?>
+                                <?= wp_get_attachment_image( $card['image'], 'large', false, array(
+                                    'class' => 'full-image',
+                                    'loading' => 'lazy',
+                                    'decoding' => 'async'
+                                )); ?>
                             </div>
                         <?php endif; ?>
                         <div class="abs-card__body">
                             <?php if ( ! empty( $card['category'] ) ) : ?>
-                                <span class="abs-card__category"><?= esc_html( $card['category'] ); ?></span>
+                                <span class="abs-card__category"><?= $card['category']; ?></span>
                             <?php endif; ?>
                             <?php if ( ! empty( $card['card_title'] ) ) : ?>
-                                <h3><?= esc_html( $card['card_title'] ); ?></h3>
+                                <h3><?= $card['card_title'] ; ?></h3>
                             <?php endif; ?>
                             <?php if ( ! empty( $card['card_description'] ) ) : ?>
-                                <p><?= esc_html( $card['card_description'] ); ?></p>
+                                <p><?= $card['card_description']; ?></p>
                             <?php endif; ?>
                             <?php if ( ! empty( $card['link_url'] ) && ! empty( $card['link_text'] ) ) : ?>
-                                <a href="<?= esc_url( $card['link_url'] ); ?>" class="abs-card__link">
-                                    <?= esc_html( $card['link_text'] ); ?> 
+                                <a href="<?= $card['link_url']; ?>" class="abs-card__link">
+                                    <?= $card['link_text'] ; ?> 
                                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M7.10208 5.25H0V4.08333H7.10208L3.83542 0.816667L4.66667 0L9.33333 4.66667L4.66667 9.33333L3.83542 8.51667L7.10208 5.25Z" fill="#7E66FC"/>
                                     </svg>
