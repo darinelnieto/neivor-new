@@ -26,6 +26,58 @@ function ditto_async_google_fonts() {
 }
 add_action( 'wp_head', 'ditto_async_google_fonts', 1 );
 
+function neivor_preload_lcp_image() {
+  if ( is_admin() || is_feed() ) {
+    return;
+  }
+
+  $current_id = get_queried_object_id();
+  $preload_url = '';
+  $preload_media = '';
+
+  if ( is_front_page() ) {
+    $banner = get_field( 'add_banner', $current_id );
+
+    if ( ! empty( $banner ) && is_array( $banner ) ) {
+      $first_item = reset( $banner );
+
+      if ( ! empty( $first_item['main_image']['ID'] ) ) {
+        $preload_url = wp_get_attachment_image_url( $first_item['main_image']['ID'], 'full' );
+      } elseif ( ! empty( $first_item['main_image_movil']['ID'] ) ) {
+        $preload_url = wp_get_attachment_image_url( $first_item['main_image_movil']['ID'], 'full' );
+      }
+    }
+  } elseif ( is_page( array( 'condominios', 'preventas', 'rentas' ) ) ) {
+    $banner_section = get_field( 'banner_section', $current_id );
+
+    if ( is_array( $banner_section ) ) {
+      if ( ! empty( $banner_section['main_image']['ID'] ) ) {
+        $preload_url = wp_get_attachment_image_url( $banner_section['main_image']['ID'], 'full' );
+      } elseif ( ! empty( $banner_section['desktop_background']['ID'] ) ) {
+        $preload_url = wp_get_attachment_image_url( $banner_section['desktop_background']['ID'], 'full' );
+        $preload_media = '(min-width: 768px)';
+      } elseif ( ! empty( $banner_section['movil_background']['ID'] ) ) {
+        $preload_url = wp_get_attachment_image_url( $banner_section['movil_background']['ID'], 'full' );
+        $preload_media = '(max-width: 767px)';
+      }
+    }
+  }
+
+  if ( empty( $preload_url ) ) {
+    return;
+  }
+
+  echo '<link rel="preload" as="image" href="' . esc_url( $preload_url ) . '"';
+
+  if ( $preload_media !== '' ) {
+    echo ' media="' . esc_attr( $preload_media ) . '"';
+  }
+
+  echo ' fetchpriority="high">' . "\n";
+}
+
+add_action( 'wp_head', 'neivor_preload_lcp_image', 2 );
+
 /**
  * Register Theme Scripts in footer
  * https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
