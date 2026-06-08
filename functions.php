@@ -960,6 +960,7 @@ function ditto_webp_render_tools_page() {
     <p>
       <button class="button button-primary" id="ditto_webp_start">Convertir todo</button>
       <button class="button" id="ditto_webp_one">Convertir 1 bloque</button>
+      <button class="button" id="ditto_webp_reset">Revertir WebP (borrar por bloques)</button>
       <button class="button" id="ditto_webp_stop">Detener</button>
     </p>
 
@@ -998,6 +999,22 @@ function ditto_webp_render_tools_page() {
           var data = resp.data;
           log('Convertidas: ' + data.converted + ' | Omitidas: ' + data.skipped + ' | Errores: ' + data.errors + ' | Pendientes: ' + data.remaining);
 
+          if (data.engine_counts) {
+            log('Motores: wp_editor=' + (data.engine_counts.wp_editor || 0) + ' | cwebp=' + (data.engine_counts.cwebp || 0) + ' | gd=' + (data.engine_counts.gd || 0));
+          }
+
+          if (data.error_reasons) {
+            Object.keys(data.error_reasons).forEach(function(reason){
+              log('Error [' + reason + ']: ' + data.error_reasons[reason]);
+            });
+          }
+
+          if (data.error_samples && data.error_samples.length) {
+            data.error_samples.forEach(function(item){
+              log('Fallo: ' + item.file + ' -> ' + item.reason);
+            });
+          }
+
           if (keepRunning && running && data.remaining > 0) {
             runBatch(true);
           } else if (data.remaining <= 0) {
@@ -1006,6 +1023,43 @@ function ditto_webp_render_tools_page() {
           }
         }).fail(function(){
           log('Error de conexion con AJAX.');
+          running = false;
+        });
+      }
+
+      function runResetBatch(keepRunning) {
+        if (!running && keepRunning) return;
+
+        var batch = parseInt($('#ditto_webp_batch').val(), 10) || 250;
+
+        $.post(ajaxurl, {
+          action: 'ditto_webp_cleanup_batch',
+          nonce: nonce,
+          batch_size: batch
+        }).done(function(resp){
+          if (!resp || !resp.success) {
+            log('Error reset: ' + ((resp && resp.data && resp.data.message) ? resp.data.message : 'No response'));
+            running = false;
+            return;
+          }
+
+          var data = resp.data;
+          log('Reset WebP -> Borradas: ' + data.deleted + ' | Errores: ' + data.errors + ' | Pendientes: ' + data.remaining);
+
+          if (data.error_samples && data.error_samples.length) {
+            data.error_samples.forEach(function(item){
+              log('No se pudo borrar: ' + item.file);
+            });
+          }
+
+          if (keepRunning && running && data.remaining > 0) {
+            runResetBatch(true);
+          } else if (data.remaining <= 0) {
+            running = false;
+            log('Reset terminado. Ya puedes volver a convertir.');
+          }
+        }).fail(function(){
+          log('Error de conexion con AJAX (reset).');
           running = false;
         });
       }
@@ -1022,6 +1076,13 @@ function ditto_webp_render_tools_page() {
         runBatch(false);
       });
 
+      $('#ditto_webp_reset').on('click', function(){
+        if (running) return;
+        running = true;
+        log('Iniciando reset de WebP por bloques...');
+        runResetBatch(true);
+      });
+
       $('#ditto_webp_stop').on('click', function(){
         running = false;
         log('Proceso detenido por el usuario.');
@@ -1029,6 +1090,52 @@ function ditto_webp_render_tools_page() {
     })(jQuery);
   </script>
   <?php
+}
+
+function ditto_webp_is_valid_file($path) {
+  return is_string($path) && $path !== '' && is_file($path) && filesize($path) > 0;
+}
+
+function ditto_webp_get_existing_webp_files($limit = 0) {
+  $uploads = wp_get_upload_dir();
+  $base = isset($uploads['basedir']) ? $uploads['basedir'] : '';
+  $results = array();
+
+  if ($base === '' || !is_dir($base)) {
+    return $results;
+  }
+
+  $it = new RecursiveIteratorIterator(
+    new RecursiveDirectoryIterator($base, FilesystemIterator::SKIP_DOTS)
+  );
+
+  foreach ($it as $file) {
+    if (!$file->isFile()) {
+      continue;
+    }
+
+    $path = $file->getPathname();
+    if (strtolower(pathinfo($path, PATHINFO_EXTENSION)) !== 'webp') {
+      continue;
+    }
+
+    // Only include generated WebP files that have an original sibling source.
+    $jpgSource = preg_replace('/\.webp$/i', '.jpg', $path);
+    $jpegSource = preg_replace('/\.webp$/i', '.jpeg', $path);
+    $pngSource = preg_replace('/\.webp$/i', '.png', $path);
+
+    if (!is_file($jpgSource) && !is_file($jpegSource) && !is_file($pngSource)) {
+      continue;
+    }
+
+    $results[] = $path;
+
+    if ($limit > 0 && count($results) >= $limit) {
+      break;
+    }
+  }
+
+  return $results;
 }
 
 function ditto_webp_get_pending_files($limit = 0) {
@@ -1057,7 +1164,7 @@ function ditto_webp_get_pending_files($limit = 0) {
     }
 
     $webpPath = preg_replace('/\.(jpg|jpeg|png)$/i', '.webp', $path);
-    if (is_file($webpPath)) {
+    if (ditto_webp_is_valid_file($webpPath)) {
       continue;
     }
 
@@ -1071,29 +1178,88 @@ function ditto_webp_get_pending_files($limit = 0) {
   return $results;
 }
 
-function ditto_webp_convert_file($source, $quality = 82) {
+function ditto_webp_convert_file($source, $quality = 82, &$meta = null) {
+  $meta = array(
+    'ok' => false,
+    'engine' => 'none',
+    'reason' => 'unknown',
+  );
+
+  if (!is_string($source) || $source === '' || !is_file($source) || !is_readable($source)) {
+    $meta['reason'] = 'source_unreadable';
+    return false;
+  }
+
+  $quality = (int) $quality;
+  if ($quality < 1 || $quality > 100) {
+    $quality = 82;
+  }
+
   $target = preg_replace('/\.(jpg|jpeg|png)$/i', '.webp', $source);
   if (!$target) {
+    $meta['reason'] = 'target_path_invalid';
     return false;
   }
 
   if (is_file($target)) {
+    $meta['ok'] = true;
+    $meta['engine'] = 'existing';
+    $meta['reason'] = 'already_exists';
     return true;
   }
 
-  exec('command -v cwebp >/dev/null 2>&1', $noop, $hasCwebp);
-  if ($hasCwebp === 0) {
-    $cmd = sprintf(
-      'cwebp -quiet -q %d %s -o %s 2>/dev/null',
-      (int) $quality,
-      escapeshellarg($source),
-      escapeshellarg($target)
-    );
-    exec($cmd, $out, $status);
-    return $status === 0;
+  // Prefer WordPress image editor because it adapts to available server drivers.
+  if (function_exists('wp_get_image_editor')) {
+    $editor = wp_get_image_editor($source);
+
+    if (!is_wp_error($editor)) {
+      if (method_exists($editor, 'set_quality')) {
+        $editor->set_quality($quality);
+      }
+
+      $saved = $editor->save($target, 'image/webp');
+      if (!is_wp_error($saved) && is_file($target) && filesize($target) > 0) {
+        $meta['ok'] = true;
+        $meta['engine'] = 'wp_editor';
+        $meta['reason'] = 'ok';
+        return true;
+      }
+    }
+  }
+
+  $execEnabled = function_exists('exec');
+  if ($execEnabled) {
+    $disabledFunctions = (string) ini_get('disable_functions');
+    if ($disabledFunctions !== '') {
+      $disabled = array_map('trim', explode(',', strtolower($disabledFunctions)));
+      if (in_array('exec', $disabled, true)) {
+        $execEnabled = false;
+      }
+    }
+  }
+
+  if ($execEnabled) {
+    exec('command -v cwebp >/dev/null 2>&1', $noop, $hasCwebp);
+    if ($hasCwebp === 0) {
+      $cmd = sprintf(
+        'cwebp -quiet -q %d %s -o %s 2>/dev/null',
+        $quality,
+        escapeshellarg($source),
+        escapeshellarg($target)
+      );
+      exec($cmd, $out, $status);
+
+      if ($status === 0 && is_file($target) && filesize($target) > 0) {
+        $meta['ok'] = true;
+        $meta['engine'] = 'cwebp';
+        $meta['reason'] = 'ok';
+        return true;
+      }
+    }
   }
 
   if (!function_exists('imagewebp')) {
+    $meta['reason'] = 'imagewebp_unavailable';
     return false;
   }
 
@@ -1107,13 +1273,31 @@ function ditto_webp_convert_file($source, $quality = 82) {
   }
 
   if (!$img) {
+    $meta['reason'] = 'source_decode_failed';
     return false;
   }
 
-  $ok = imagewebp($img, $target, (int) $quality);
+  if ($ext === 'png') {
+    if (function_exists('imagepalettetotruecolor')) {
+      @imagepalettetotruecolor($img);
+    }
+    imagealphablending($img, false);
+    imagesavealpha($img, true);
+  }
+
+  $ok = imagewebp($img, $target, $quality);
   imagedestroy($img);
 
-  return (bool) $ok;
+  $written = (bool) $ok && is_file($target) && filesize($target) > 0;
+  if ($written) {
+    $meta['ok'] = true;
+    $meta['engine'] = 'gd';
+    $meta['reason'] = 'ok';
+    return true;
+  }
+
+  $meta['reason'] = 'gd_write_failed';
+  return false;
 }
 
 function ditto_webp_convert_batch_ajax() {
@@ -1140,19 +1324,50 @@ function ditto_webp_convert_batch_ajax() {
   $converted = 0;
   $skipped = 0;
   $errors = 0;
+  $engineCounts = array(
+    'wp_editor' => 0,
+    'cwebp' => 0,
+    'gd' => 0,
+  );
+  $errorReasons = array();
+  $errorSamples = array();
 
   foreach ($files as $source) {
     $target = preg_replace('/\.(jpg|jpeg|png)$/i', '.webp', $source);
 
-    if ($target && is_file($target)) {
+    if ($target && ditto_webp_is_valid_file($target)) {
       $skipped++;
       continue;
     }
 
-    if (ditto_webp_convert_file($source, $quality)) {
+    if ($target && is_file($target) && !ditto_webp_is_valid_file($target)) {
+      @unlink($target);
+    }
+
+    $meta = null;
+    if (ditto_webp_convert_file($source, $quality, $meta)) {
       $converted++;
+      if (is_array($meta) && !empty($meta['engine']) && isset($engineCounts[$meta['engine']])) {
+        $engineCounts[$meta['engine']]++;
+      }
     } else {
       $errors++;
+      $reason = 'conversion_failed';
+      if (is_array($meta) && !empty($meta['reason'])) {
+        $reason = (string) $meta['reason'];
+      }
+
+      if (!isset($errorReasons[$reason])) {
+        $errorReasons[$reason] = 0;
+      }
+      $errorReasons[$reason]++;
+
+      if (count($errorSamples) < 5) {
+        $errorSamples[] = array(
+          'file' => wp_basename($source),
+          'reason' => $reason,
+        );
+      }
     }
   }
 
@@ -1163,9 +1378,57 @@ function ditto_webp_convert_batch_ajax() {
     'skipped' => $skipped,
     'errors' => $errors,
     'remaining' => $remaining,
+    'engine_counts' => $engineCounts,
+    'error_reasons' => $errorReasons,
+    'error_samples' => $errorSamples,
   ));
 }
 add_action('wp_ajax_ditto_webp_convert_batch', 'ditto_webp_convert_batch_ajax');
+
+function ditto_webp_cleanup_batch_ajax() {
+  if (!current_user_can('edit_theme_options')) {
+    wp_send_json_error(array('message' => 'No autorizado.'), 403);
+  }
+
+  check_ajax_referer('ditto_webp_tools', 'nonce');
+
+  $batchSize = isset($_POST['batch_size']) ? (int) $_POST['batch_size'] : 250;
+  if ($batchSize < 1) {
+    $batchSize = 1;
+  }
+  if ($batchSize > 1000) {
+    $batchSize = 1000;
+  }
+
+  $files = ditto_webp_get_existing_webp_files($batchSize);
+  $deleted = 0;
+  $errors = 0;
+  $errorSamples = array();
+
+  foreach ($files as $path) {
+    if (@unlink($path)) {
+      $deleted++;
+      continue;
+    }
+
+    $errors++;
+    if (count($errorSamples) < 5) {
+      $errorSamples[] = array(
+        'file' => wp_basename($path),
+      );
+    }
+  }
+
+  $remaining = count(ditto_webp_get_existing_webp_files(0));
+
+  wp_send_json_success(array(
+    'deleted' => $deleted,
+    'errors' => $errors,
+    'remaining' => $remaining,
+    'error_samples' => $errorSamples,
+  ));
+}
+add_action('wp_ajax_ditto_webp_cleanup_batch', 'ditto_webp_cleanup_batch_ajax');
 
 function ditto_webp_replace_url_if_exists($url) {
   if (!is_string($url) || $url === '' || strpos($url, '.webp') !== false) {
@@ -1188,7 +1451,7 @@ function ditto_webp_replace_url_if_exists($url) {
   $sourcePath = $basedir . $relative;
   $webpPath = preg_replace('/\.(jpg|jpeg|png)$/i', '.webp', $sourcePath);
 
-  if ($webpPath && is_file($webpPath)) {
+  if ($webpPath && ditto_webp_is_valid_file($webpPath)) {
     return preg_replace('/\.(jpg|jpeg|png)$/i', '.webp', $url);
   }
 

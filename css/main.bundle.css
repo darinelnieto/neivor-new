@@ -11641,6 +11641,11 @@ section#footer-blue {
     margin-bottom: 8px;
   }
 }
+.banner-partial-4607af .banner-slide .owl-item .item .row .image-contain img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
 .banner-partial-4607af .banner-slide .owl-item .item .row .video {
   width: 100%;
   aspect-ratio: 16/9;
