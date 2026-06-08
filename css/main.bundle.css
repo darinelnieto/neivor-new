@@ -11352,6 +11352,8 @@ section#footer-blue {
 }
 .boost-your-business-partial-ca6162 .boost-slide .owl-item .card-item .content .logo {
   width: 154.636px;
+  height: auto;
+  object-fit: contain;
 }
 .boost-your-business-partial-ca6162 .boost-slide .owl-item .card-item .content .comment {
   color: #ffffff;
