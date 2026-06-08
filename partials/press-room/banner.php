@@ -10,6 +10,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 $banner = get_field('banner');
 if($banner):
+$script_handle = 'press-banner-js';
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . '/js/partials/press-banner.js',
+    array('jquery', 'owl-carousel.js'),
+    null,
+    true
+);
 ?>
 <section class="banner-partial-39c12f">
     <div class="container" id="svg-fixed">
@@ -27,8 +35,16 @@ if($banner):
     <div class="banner-slide owl-carousel">
         <?php foreach($banner as $item): ?>
             <div class="item">
-                <img src="<?= $item['image_desktop']['url']; ?>" alt="<?= $item['image_desktop']['title']; ?>" class="desktop">
-                <img src="<?= $item['image_movil']['url']; ?>" alt="<?= $item['image_movil']['title']; ?>" class="movil">
+                <?= wp_get_attachment_image($item['image_desktop']['ID'] ?? '', 'large', false, array(
+                    'class' => 'desktop',
+                    'fetchpriority' => 'high',
+                    'loading' => 'eager',
+                )); ?>
+                <?= wp_get_attachment_image($item['image_movil']['ID'] ?? '', 'large', false, array(
+                    'class' => 'movil',
+                    'fetchpriority' => 'high',
+                    'loading' => 'eager',
+                )); ?>
                 <div class="container">
                     <div class="row">
                         <div class="col-12 col-md-6">
@@ -43,14 +59,4 @@ if($banner):
         <?php endforeach; ?>
     </div>
 </section>
-<script>
-    $('.banner-slide').owlCarousel({
-        autoplay:true,
-        loop:true,
-        nav:false,
-        dots:true,
-        margin:0,
-        items:1
-    }).css({'opacity':1});
-</script>
 <?php endif; ?>                 
