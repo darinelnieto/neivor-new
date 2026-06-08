@@ -161,6 +161,65 @@ function ditto_start_frontend_html_optimization() {
 }
 add_action( 'template_redirect', 'ditto_start_frontend_html_optimization', 0 );
 
+function ditto_optimize_attachment_image_attributes( $attr, $attachment ) {
+  if ( is_admin() ) {
+    return $attr;
+  }
+
+  if ( ! isset( $attr['decoding'] ) ) {
+    $attr['decoding'] = 'async';
+  }
+
+  if ( empty( $attr['width'] ) || empty( $attr['height'] ) ) {
+    $meta = wp_get_attachment_metadata( $attachment->ID );
+    if ( is_array( $meta ) ) {
+      if ( empty( $attr['width'] ) && ! empty( $meta['width'] ) ) {
+        $attr['width'] = (string) (int) $meta['width'];
+      }
+      if ( empty( $attr['height'] ) && ! empty( $meta['height'] ) ) {
+        $attr['height'] = (string) (int) $meta['height'];
+      }
+    }
+  }
+
+  $class_name = isset( $attr['class'] ) ? (string) $attr['class'] : '';
+  $is_critical = false !== strpos( $class_name, 'custom-logo' ) || false !== strpos( $class_name, 'img-desktop' ) || false !== strpos( $class_name, 'img-movil' );
+
+  if ( $is_critical ) {
+    $attr['loading'] = 'eager';
+    $attr['fetchpriority'] = 'high';
+    $attr['data-no-lazy'] = '1';
+
+    if ( false === strpos( $class_name, 'skip-lazy' ) ) {
+      $attr['class'] = trim( $class_name . ' skip-lazy' );
+    }
+  }
+
+  return $attr;
+}
+add_filter( 'wp_get_attachment_image_attributes', 'ditto_optimize_attachment_image_attributes', 10, 2 );
+
+function ditto_optimize_custom_logo_html( $html ) {
+  if ( is_admin() || '' === trim( $html ) ) {
+    return $html;
+  }
+
+  if ( false === strpos( $html, 'custom-logo' ) ) {
+    return $html;
+  }
+
+  if ( false === strpos( $html, 'data-no-lazy=' ) ) {
+    $html = preg_replace( '/<img\b(?![^>]*\bdata-no-lazy=)/i', '<img data-no-lazy="1"', $html, 1 );
+  }
+
+  if ( false === strpos( $html, 'fetchpriority=' ) ) {
+    $html = preg_replace( '/<img\b(?![^>]*\bfetchpriority=)/i', '<img fetchpriority="high"', $html, 1 );
+  }
+
+  return $html;
+}
+add_filter( 'get_custom_logo', 'ditto_optimize_custom_logo_html' );
+
 /**
  * Register Navigation Menus
  * https://developer.wordpress.org/reference/functions/register_nav_menus/
