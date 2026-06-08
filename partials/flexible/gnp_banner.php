@@ -22,10 +22,12 @@ $nav = $banner['nav'];
     <?= wp_get_attachment_image( $banner['background_desktop']['ID'], 'full', false, array(
         'class' => 'background-desktop',
         'fetchpriority' => 'high',
+        'loading' => 'eager'
     )); ?>
     <?= wp_get_attachment_image( $banner['background_movil']['ID'], 'full', false, array(
         'class' => 'background-movil',
         'fetchpriority' => 'high',
+        'loading' => 'eager'
     )); ?>
     <div class="container" style="position:relative;">
         <div class="row">
@@ -45,10 +47,12 @@ $nav = $banner['nav'];
                                             <?= wp_get_attachment_image( $li['icon']['ID'], 'full', false, array(
                                                 'class' => 'normal',
                                                 'fetchpriority' => 'high',
+                                                'loading' => 'eager'
                                             )); ?>
                                             <?= wp_get_attachment_image( $li['icon_hover']['ID'], 'full', false, array(
                                                 'class' => 'hover',
                                                 'fetchpriority' => 'high',
+                                                'loading' => 'eager'
                                             )); ?>
                                             <span><?= $li['link_page']['title']; ?></span>
                                         </a>
@@ -65,10 +69,10 @@ $nav = $banner['nav'];
                 </div>
             </div>
             <div class="col-12 col-md-4 p-0 <?php if (!is_mobile()): ?>text-center<?php endif; ?>" style="position:relative;">
-                <!-- <img src="<?= $banner['main_image']['url']; ?>" alt="<?= $banner['main_image']['title']; ?>" class="main-image" style="<?php if (is_mobile()): echo 'max-width:'.$banner['max_width_movil']; ?>;position:absolute;right:<?= $banner['position_x']; ?>%;transform:translateY(<?php echo $banner['position_y'].'%);'; else: echo 'max-width:'.$banner['max_width_desktop'].';'; endif; ?>"> -->
                 <?= wp_get_attachment_image( $banner['main_image']['ID'], 'full', false, array(
                     'class' => 'main-image',
                     'fetchpriority' => 'high',
+                    'loading' => 'eager',
                     'style' => (is_mobile() ? 'max-width:' . $banner['max_width_movil'] . ';position:absolute;right:' . $banner['position_x'] . '%;transform:translateY(' . $banner['position_y'] . '%);' : 'max-width:' . $banner['max_width_desktop'] . ';'),
                 )); ?>
             </div>

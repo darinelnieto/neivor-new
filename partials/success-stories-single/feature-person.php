@@ -21,7 +21,11 @@ $feature = get_field('feature_person_group');
             <?php if($feature['feature_image']): ?>
                 <div class="col-12 col-md-5 mb-4 mb-md-0">
                     <div class="image-contain">
-                        <img src="<?= $feature['feature_image']['url']; ?>" alt="<?= $feature['feature_image']['title']; ?>" class="image">
+                        <?= wp_get_attachment_image($feature['feature_image']['ID'] ?? '', 'large', false, array(
+                            'class' => 'image',
+                            'loading' => 'lazy',
+                            'decoding' => 'async'
+                        )); ?>
                     </div>
                 </div>
             <?php endif; ?>

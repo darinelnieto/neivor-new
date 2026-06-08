@@ -1,3 +1,4 @@
+$(document).ready(function() {
 $('.ft-slide').owlCarousel({
     autoplay: false,
     loop: false,
@@ -17,3 +18,4 @@ $('.ft-slide').owlCarousel({
         }
     }
 }).css({'opacity': 1});
+});

@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('.slide-stories').owlCarousel({
         autoplay:false,
-        loop:false,
+        loop:false, 
         nav:false,
         navText:[
             `<svg xmlns="http://www.w3.org/2000/svg" width="52" height="57" viewBox="0 0 52 57" fill="none">

@@ -10,6 +10,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 $results = get_field('featured_results_group');
 if($results['results']):
+$script_handle = 'blog-js';
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . '/js/partials/blog.js',
+    array('jquery'),
+    null,
+    true
+);
 ?>
 <section class="featured-results-partial-83b742">
     <div class="container">
@@ -22,7 +30,11 @@ if($results['results']):
                     <div class="result-card">
                         <div class="top">
                             <?php if($item['icon']): ?>
-                                <img src="<?= $item['icon']['url']; ?>" alt="<?= $item['icon']['title']; ?>" class="icon">
+                                <?= wp_get_attachment_image($item['icon']['ID'] ?? '', 'large', false, array(
+                                    'class' => 'full-image',
+                                    'loading' => 'lazy',
+                                    'decoding' => 'async'
+                                )); ?>
                             <?php endif; if($item['name']): ?>
                                 <span class="text"><?= $item['name']; ?></span>
                             <?php endif; ?>
@@ -47,14 +59,4 @@ if($results['results']):
         </div>
     </div>
 </section>
-<script src="<?= get_template_directory_uri() ?>/js/blog.js"></script>
-<script>
-    $(window).on('scroll', function(){
-        var windowScrol = $(window).scrollTop();
-        var results = $('.featured-results-partial-83b742').offset().top - 200;
-        if(windowScrol >= results){
-            initCounter();
-        }
-    });
-</script>
 <?php endif; ?>

@@ -2,6 +2,9 @@
     padding: 8rem 0 4rem 0;
     position: relative;
     height: auto;
+    @media(max-width: 768px){
+        padding: 2rem 0 4rem;
+    }
     .svg{
         position: absolute;
         bottom: 2%;
@@ -68,6 +71,8 @@
                 margin: 0 auto;
                 width: 100%;
                 max-width: fit-content;
+                height: auto;
+                object-fit: contain;
             }
         }
         .cta{

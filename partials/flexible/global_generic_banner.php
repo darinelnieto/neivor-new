@@ -84,17 +84,13 @@ if(get_sub_field('custom_style_image_desktop') === true):
                             <p><?= get_sub_field('text_after_the_cta'); ?></p>
                         </div>
                     <?php endif; ?>
-
-
-    <?php if($enable_hsform === true):?>
-	        <div id="hsform" class="row">
-	            <div class="col-12 col-md-12">
-	                <?= $hsform; ?>
-	            </div>
-	        </div>
-     <?php endif; ?>
-
-			
+                <?php if($enable_hsform === true):?>
+                        <div id="hsform" class="row">
+                            <div class="col-12 col-md-12">
+                                <?= $hsform; ?>
+                            </div>
+                        </div>
+                <?php endif; ?>
                 </div>
                 <div class="col-12 col-md-6 image-contain">
                     <?php if(get_sub_field('enable_video') === false): ?>
@@ -131,13 +127,6 @@ if(get_sub_field('custom_style_image_desktop') === true):
             </div>
         </div>
     </div>
-
-
-
-	 
-    
-	 
-	
     <?php
         $nav = get_sub_field('nav');
         if(get_sub_field('add_nav') && $nav):
@@ -149,8 +138,16 @@ if(get_sub_field('custom_style_image_desktop') === true):
                 <?php foreach($nav as $item): ?>
                     <li class="col-12 col-md-6 col-lg-3">
                         <a href="<?= $item['cta_link']['url']; ?>">
-                            <img src="<?= $item['icon']['url']; ?>" alt="<?= $item['icon']['title']; ?>" class="icon normal">
-                            <img src="<?= $item['icon_hover']['url']; ?>" alt="<?= $item['icon_hover']['title']; ?>" class="icon hover">
+                            <?= wp_get_attachment_image($item['icon']['ID'] ?? '', 'large', false, array(
+                                'class' => 'icon normal',
+                                'fetchpriority' => 'high',
+                                'loading' => 'eager'
+                            )); ?>
+                            <?= wp_get_attachment_image($item['icon_hover']['ID'] ?? '', 'large', false, array(
+                                'class' => 'icon hover',
+                                'fetchpriority' => 'high',
+                                'loading' => 'eager'
+                            )); ?>
                             <span><?= $item['cta_link']['title']; ?></span>
                             <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8.43686 12.4428L11.4549 9.42478L8.43686 6.40674" stroke="#637281" stroke-width="1.6462" stroke-linecap="round" stroke-linejoin="round"/>

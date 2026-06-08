@@ -34,7 +34,11 @@ $properties = get_field('group_content_properties_that_trust_neivor');
                                 </filter>
                             </defs>
                         </svg>
-                        <img src="<?= $before_properties['icon']['url']; ?>" alt="<?= $before_properties['icon']['title']; ?>">
+                        <?= wp_get_attachment_image($before_properties['icon']['ID'] ?? '', 'large', false, array(
+                            'class' => 'full-image',
+                            'loading' => 'lazy', 
+                            'decoding' => 'async'
+                        )) ?>
                     </div>
                 </div>
                 <div class="col-12 col-md-10">
@@ -46,23 +50,27 @@ $properties = get_field('group_content_properties_that_trust_neivor');
             endif;
             if(get_field('enable_properties_that_trust_neivor')):
         ?>
-        <div class="row properties-that-trust-neivor">
-            <div class="col-12">
-                <h2 class="title"><?= $properties['title']; ?></h2>
-                <p class="intro-before-title"><?= $properties['description']; ?></p>
-            </div>
-            <?php if($properties['cards_items']): foreach($properties['cards_items'] as $item): ?>
-                <div class="col-6 col-lg-3 mb-4">
-                    <div class="card-property">
-                        <div class="icon">
-                            <img src="<?= $item['icon']['url']; ?>" alt="<?= $item['icon']['title']; ?>">
-                        </div>
-                        <h4 class="name"><?= $item['item_name']; ?></h4>
-                        <p class="description"><?= $item['description'] ?></p>
-                    </div>
+            <div class="row properties-that-trust-neivor">
+                <div class="col-12">
+                    <h2 class="title"><?= $properties['title']; ?></h2>
+                    <p class="intro-before-title"><?= $properties['description']; ?></p>
                 </div>
-            <?php endforeach; endif; ?>
-        </div>
+                <?php if($properties['cards_items']): foreach($properties['cards_items'] as $item): ?>
+                    <div class="col-6 col-lg-3 mb-4">
+                        <div class="card-property">
+                            <div class="icon">
+                                <?= wp_get_attachment_image($item['icon']['ID'] ?? '', 'large', false, array(
+                                    'class' => 'full-image',
+                                    'loading' => 'lazy',
+                                    'decoding' => 'async'
+                                )); ?>
+                            </div>
+                            <h4 class="name"><?= $item['item_name']; ?></h4>
+                            <p class="description"><?= $item['description'] ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; endif; ?>
+            </div>
         <?php endif; ?>
     </div>
 </section>

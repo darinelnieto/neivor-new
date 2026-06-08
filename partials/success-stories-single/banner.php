@@ -42,7 +42,7 @@ if($zone){
                                 <?php if($size): ?>
                                     <li>
                                         <div class="icon">
-                                            <img src="https://www.neivor.com/wp-content/uploads/2025/03/Group-2.png" alt="Edificio" class="icon">
+                                            <img src="https://www.neivor.com/wp-content/uploads/2025/03/Group-2.png" alt="Edificio" class="icon" loading="lazy" decoding="sync">
                                         </div>
                                         <div class="text">
                                             <span class="size"><?php if(get_bloginfo("language") == "en-US"): ?>Size<?php else: ?>Tamaño<?php endif; ?></span>
@@ -52,7 +52,11 @@ if($zone){
                                 <?php endif; if($segment): ?>
                                     <li>
                                         <div class="icon">
-                                            <img src="<?= $segment_icon['url']; ?>" alt="<?= $segment_icon['title']; ?>" class="icon">
+                                            <?= wp_get_attachment_image($segment_icon['ID'] ?? '', 'large', false, array(
+                                                'class' => 'icon',
+                                                'fetchpriority' => 'high',
+                                                'loading' => 'eager'
+                                            )) ?>
                                         </div>
                                         <div class="text">
                                             <span class="size"><?php if(get_bloginfo("language") == "en-US"): ?>Segment<?php else: ?>Segmento<?php endif; ?></span>
@@ -62,7 +66,11 @@ if($zone){
                                 <?php endif; if($zone): ?>
                                     <li>
                                         <div class="icon">
-                                            <img src="<?= $zone_icon['url']; ?>" alt="<?= $zone_icon['title']; ?>" class="icon">
+                                            <?= wp_get_attachment_image($zone_icon['ID'] ?? '', 'large', false, array(
+                                                'class' => 'icon',
+                                                'fetchpriority' => 'high',
+                                                'loading' => 'eager'
+                                            )) ?>
                                         </div>
                                         <div class="text">
                                             <span class="size"><?php if(get_bloginfo("language") == "en-US"): ?>Zone<?php else: ?>Zona<?php endif; ?></span>
@@ -83,9 +91,19 @@ if($zone){
                     <?php if($banner['enable_video_right_content'] === false): ?>
                     <div class="image-content">
                         <?php if($banner['desktop_image']): ?>
-                            <img src="<?= $banner['desktop_image']['url']; ?>" alt="<?= $banner['desktop_image']['title']; ?>" <?php if($banner['custom_style_image_desktop'] === true): ?>style="max-width:<?= $banner['max_width_desktop']; ?>; margin:<?= $banner['desktop_margin']; ?>;"<?php endif; ?> class="d-none d-md-block">
+                            <?= wp_get_attachment_image($banner['desktop_image']['ID'] ?? '', 'large', false, array(
+                                'class' => 'd-none d-md-block',
+                                'fetchpriority' => 'high',
+                                'loading' => 'eager',
+                                // 'style' => $banner['custom_style_image_desktop'] === true ? 'max-width:' . $banner['max_width_desktop'] . '; margin:' . $banner['desktop_margin'] . ';' : ''
+                            )) ?>
                         <?php endif; if($banner['movil_image']): ?>
-                            <img src="<?= $banner['movil_image']['url']; ?>" alt="<?= $banner['movil_image']['title']; ?>" <?php if($banner['custom_style_for_mobile_image'] === true): ?>style="max-width:<?= $banner['max_width_movil']; ?>; margin:<?= $banner['margin_movil']; ?>;"<?php endif; ?> class="d-block d-md-none">
+                            <?= wp_get_attachment_image($banner['movil_image']['ID'] ?? '', 'large', false, array(
+                                'class' => 'd-block d-md-none',
+                                'fetchpriority' => 'high',
+                                'loading' => 'eager',
+                                // 'style' => $banner['custom_style_image_desktop'] === true ? 'max-width:' . $banner['max_width_movil'] . '; margin:' . $banner['desktop_margin'] . ';' : ''
+                            )) ?>
                         <?php endif; ?>
                     </div>
                     <?php else: ?>
@@ -105,7 +123,11 @@ if($zone){
                                 <?php if($size): ?>
                                     <li>
                                         <div class="icon">
-                                            <img src="<?= $size_icon['url']; ?>" alt="<?= $size_icon['title']; ?>" class="icon">
+                                            <?= wp_get_attachment_image($size_icon['ID'] ?? '', 'large', false, array(
+                                                'class' => 'icon',
+                                                'fetchpriority' => 'high',
+                                                'loading' => 'eager'
+                                            )) ?>
                                         </div>
                                         <div class="text">
                                             <span class="size"><?php if(get_bloginfo("language") == "en-US"): ?>Size<?php else: ?>Tamaño<?php endif; ?></span>
@@ -115,7 +137,11 @@ if($zone){
                                 <?php endif; if($segment): ?>
                                     <li>
                                         <div class="icon">
-                                            <img src="<?= $segment_icon['url']; ?>" alt="<?= $segment_icon['title']; ?>" class="icon">
+                                            <?= wp_get_attachment_image($segment_icon['ID'] ?? '', 'large', false, array(
+                                                'class' => 'icon',
+                                                'fetchpriority' => 'high',
+                                                'loading' => 'eager'
+                                            )) ?>
                                         </div>
                                         <div class="text">
                                             <span class="size"><?php if(get_bloginfo("language") == "en-US"): ?>Segment<?php else: ?>Segmento<?php endif; ?></span>
@@ -125,7 +151,11 @@ if($zone){
                                 <?php endif; if($zone): ?>
                                     <li>
                                         <div class="icon">
-                                            <img src="<?= $zone_icon['url']; ?>" alt="<?= $zone_icon['title']; ?>" class="icon">
+                                            <?= wp_get_attachment_image($zone_icon['ID'] ?? '', 'large', false, array(
+                                                'class' => 'icon',
+                                                'fetchpriority' => 'high',
+                                                'loading' => 'eager'
+                                            )) ?>
                                         </div>
                                         <div class="text">
                                             <span class="size"><?php if(get_bloginfo("language") == "en-US"): ?>Zone<?php else: ?>Zona<?php endif; ?></span>

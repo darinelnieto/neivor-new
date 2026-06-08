@@ -14,6 +14,7 @@ $segment = get_terms(['taxonomy' => 'segment_cat']);
 $zone = get_terms(['taxonomy' => 'zone_cat']);
 ?>
 <section class="filter-blog-partial-0a1dca">
+    
     <div class="svg-top">
         <svg width="1440" height="148" viewBox="0 0 1440 148" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M180 11.1572C631.821 56.9782 976.136 74.0841 1261.01 67.8119C1545.89 61.5396 1563.72 134.768 1274.57 146.844C985.427 158.921 710.787 46.7969 177.663 61.6097C-355.461 76.4226 -271.822 -34.6639 180 11.1572Z" fill="url(#paint0_linear_3837_17083)" fill-opacity="0.2"/>
@@ -147,7 +148,7 @@ $zone = get_terms(['taxonomy' => 'zone_cat']);
                                 </div>
                             <?php endif; ?>
                             <div class="col-12 col-md-6 col-lg-3 offset-md-0 offset-lg-0">
-                                <button class="filter-init" onclick="apply_filter();">
+                                <button class="filter-init" type="button">
                                     <span class="text">
                                         <?php if(get_bloginfo("language") == "en-US"): ?>Search<?php else: ?>Buscar<?php endif; ?>
                                     </span>
@@ -160,10 +161,3 @@ $zone = get_terms(['taxonomy' => 'zone_cat']);
         </div>
     </div>
 </section>
-<script>
-    <?php if(get_bloginfo("language") == "en-US"): ?>
-        const rout = _dittoURL_ + "/en/wp-json/success-histories/list";
-    <?php else: ?>
-        const rout = _dittoURL_ + "/wp-json/success-histories/list";
-    <?php endif; ?>
-</script>        

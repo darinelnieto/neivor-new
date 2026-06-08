@@ -22,7 +22,11 @@ $challenge = get_field('challenge_group');
                 <div class="row challenge-list">
                     <div class="col-12 col-md-1">
                         <div class="icon-contain">
-                            <img src="<?= $item['icon']['url']; ?>" alt="<?= $item['icon']['title']; ?>">
+                            <?= wp_get_attachment_image($item['icon']['ID'] ?? '', 'large', false, array(
+                                'class' => 'full-image',
+                                'loading' => 'lazy',
+                                'decoding' => 'async'
+                            )); ?>
                         </div>
                     </div>
                     <div class="col-12 col-md-11">

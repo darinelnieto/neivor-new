@@ -77,7 +77,7 @@ function ditto_login_styles() { ?>
 add_action( 'login_enqueue_scripts', 'ditto_login_styles' );
 
 /**
- * Install latest jQuery version 3.5.1 in footer
+ * Install jQuery 3.5.1 from local theme file in footer.
  */
 function ditto_register_jquery_in_footer() {
   if ( is_admin() ) {
@@ -85,7 +85,7 @@ function ditto_register_jquery_in_footer() {
   }
 
   wp_deregister_script( 'jquery' );
-  wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js', array(), null, true );
+  wp_register_script( 'jquery', get_template_directory_uri() . '/js/jquery-3.5.1.min.js', array(), null, true );
   wp_enqueue_script( 'jquery' );
 }
 add_action( 'wp_enqueue_scripts', 'ditto_register_jquery_in_footer', 1 );
@@ -123,7 +123,11 @@ add_filter( 'wp_check_filetype_and_ext', 'ditto_fix_svg_filetype_check', 10, 4 )
 /*
 *  Options
 */
-if (function_exists('acf_add_options_page')) {
+function ditto_register_acf_options_pages() {
+  if ( ! function_exists( 'acf_add_options_page' ) ) {
+    return;
+  }
+
   acf_add_options_page(array(
 	  'page_title'    => 'Options theme',
 	  'menu_title'    => 'Options theme',
@@ -162,6 +166,7 @@ if (function_exists('acf_add_options_page')) {
     'parent_slug'   => 'theme-settings',
   ));
 }
+add_action( 'acf/init', 'ditto_register_acf_options_pages' );
 /*=================== Comprehensive protection ===================*/
 add_theme_support('post-thumbnails');
 add_post_type_support( 'comprehensive_protection', 'thumbnail' );
@@ -724,3 +729,310 @@ function nav_menu_movil_handler($request){
     return isset($item['menu']) && $item['menu'] === $requested_menu;
   }));
 }
+
+/*=========== WebP tools ==========*/
+function ditto_webp_add_tools_page() {
+  add_theme_page(
+    'WebP Tools',
+    'WebP Tools',
+    'edit_theme_options',
+    'ditto-webp-tools',
+    'ditto_webp_render_tools_page'
+  );
+}
+add_action('admin_menu', 'ditto_webp_add_tools_page');
+
+function ditto_webp_render_tools_page() {
+  if (!current_user_can('edit_theme_options')) {
+    return;
+  }
+
+  $uploads = wp_get_upload_dir();
+  ?>
+  <div class="wrap">
+    <h1>WebP Tools</h1>
+    <p>Convierte imagenes por bloques (JPG/JPEG/PNG) y omite automaticamente las que ya tienen .webp.</p>
+    <table class="form-table" role="presentation">
+      <tr>
+        <th scope="row"><label for="ditto_webp_quality">Calidad</label></th>
+        <td><input id="ditto_webp_quality" type="number" min="1" max="100" value="82" /></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="ditto_webp_batch">Tamano de bloque</label></th>
+        <td><input id="ditto_webp_batch" type="number" min="1" max="1000" value="250" /></td>
+      </tr>
+      <tr>
+        <th scope="row">Ruta uploads</th>
+        <td><code><?php echo esc_html($uploads['basedir']); ?></code></td>
+      </tr>
+    </table>
+
+    <p>
+      <button class="button button-primary" id="ditto_webp_start">Convertir todo</button>
+      <button class="button" id="ditto_webp_one">Convertir 1 bloque</button>
+      <button class="button" id="ditto_webp_stop">Detener</button>
+    </p>
+
+    <pre id="ditto_webp_log" style="background:#fff; border:1px solid #ccd0d4; padding:12px; max-height:360px; overflow:auto;"></pre>
+  </div>
+
+  <script>
+    (function($){
+      var running = false;
+      var nonce = '<?php echo esc_js(wp_create_nonce('ditto_webp_tools')); ?>';
+
+      function log(msg) {
+        var el = $('#ditto_webp_log');
+        el.append(msg + "\n");
+        el.scrollTop(el[0].scrollHeight);
+      }
+
+      function runBatch(keepRunning) {
+        if (!running && keepRunning) return;
+
+        var quality = parseInt($('#ditto_webp_quality').val(), 10) || 82;
+        var batch = parseInt($('#ditto_webp_batch').val(), 10) || 250;
+
+        $.post(ajaxurl, {
+          action: 'ditto_webp_convert_batch',
+          nonce: nonce,
+          quality: quality,
+          batch_size: batch
+        }).done(function(resp){
+          if (!resp || !resp.success) {
+            log('Error: ' + ((resp && resp.data && resp.data.message) ? resp.data.message : 'No response'));
+            running = false;
+            return;
+          }
+
+          var data = resp.data;
+          log('Convertidas: ' + data.converted + ' | Omitidas: ' + data.skipped + ' | Errores: ' + data.errors + ' | Pendientes: ' + data.remaining);
+
+          if (keepRunning && running && data.remaining > 0) {
+            runBatch(true);
+          } else if (data.remaining <= 0) {
+            running = false;
+            log('Proceso terminado.');
+          }
+        }).fail(function(){
+          log('Error de conexion con AJAX.');
+          running = false;
+        });
+      }
+
+      $('#ditto_webp_start').on('click', function(){
+        if (running) return;
+        running = true;
+        log('Iniciando conversion completa...');
+        runBatch(true);
+      });
+
+      $('#ditto_webp_one').on('click', function(){
+        log('Procesando 1 bloque...');
+        runBatch(false);
+      });
+
+      $('#ditto_webp_stop').on('click', function(){
+        running = false;
+        log('Proceso detenido por el usuario.');
+      });
+    })(jQuery);
+  </script>
+  <?php
+}
+
+function ditto_webp_get_pending_files($limit = 0) {
+  $uploads = wp_get_upload_dir();
+  $base = isset($uploads['basedir']) ? $uploads['basedir'] : '';
+  $results = array();
+
+  if ($base === '' || !is_dir($base)) {
+    return $results;
+  }
+
+  $it = new RecursiveIteratorIterator(
+    new RecursiveDirectoryIterator($base, FilesystemIterator::SKIP_DOTS)
+  );
+
+  foreach ($it as $file) {
+    if (!$file->isFile()) {
+      continue;
+    }
+
+    $path = $file->getPathname();
+    $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+
+    if (!in_array($ext, array('jpg', 'jpeg', 'png'), true)) {
+      continue;
+    }
+
+    $webpPath = preg_replace('/\.(jpg|jpeg|png)$/i', '.webp', $path);
+    if (is_file($webpPath)) {
+      continue;
+    }
+
+    $results[] = $path;
+
+    if ($limit > 0 && count($results) >= $limit) {
+      break;
+    }
+  }
+
+  return $results;
+}
+
+function ditto_webp_convert_file($source, $quality = 82) {
+  $target = preg_replace('/\.(jpg|jpeg|png)$/i', '.webp', $source);
+  if (!$target) {
+    return false;
+  }
+
+  if (is_file($target)) {
+    return true;
+  }
+
+  exec('command -v cwebp >/dev/null 2>&1', $noop, $hasCwebp);
+  if ($hasCwebp === 0) {
+    $cmd = sprintf(
+      'cwebp -quiet -q %d %s -o %s 2>/dev/null',
+      (int) $quality,
+      escapeshellarg($source),
+      escapeshellarg($target)
+    );
+    exec($cmd, $out, $status);
+    return $status === 0;
+  }
+
+  if (!function_exists('imagewebp')) {
+    return false;
+  }
+
+  $ext = strtolower(pathinfo($source, PATHINFO_EXTENSION));
+  $img = null;
+
+  if (($ext === 'jpg' || $ext === 'jpeg') && function_exists('imagecreatefromjpeg')) {
+    $img = @imagecreatefromjpeg($source);
+  } elseif ($ext === 'png' && function_exists('imagecreatefrompng')) {
+    $img = @imagecreatefrompng($source);
+  }
+
+  if (!$img) {
+    return false;
+  }
+
+  $ok = imagewebp($img, $target, (int) $quality);
+  imagedestroy($img);
+
+  return (bool) $ok;
+}
+
+function ditto_webp_convert_batch_ajax() {
+  if (!current_user_can('edit_theme_options')) {
+    wp_send_json_error(array('message' => 'No autorizado.'), 403);
+  }
+
+  check_ajax_referer('ditto_webp_tools', 'nonce');
+
+  $batchSize = isset($_POST['batch_size']) ? (int) $_POST['batch_size'] : 250;
+  $quality = isset($_POST['quality']) ? (int) $_POST['quality'] : 82;
+
+  if ($batchSize < 1) {
+    $batchSize = 1;
+  }
+  if ($batchSize > 1000) {
+    $batchSize = 1000;
+  }
+  if ($quality < 1 || $quality > 100) {
+    $quality = 82;
+  }
+
+  $files = ditto_webp_get_pending_files($batchSize);
+  $converted = 0;
+  $skipped = 0;
+  $errors = 0;
+
+  foreach ($files as $source) {
+    $target = preg_replace('/\.(jpg|jpeg|png)$/i', '.webp', $source);
+
+    if ($target && is_file($target)) {
+      $skipped++;
+      continue;
+    }
+
+    if (ditto_webp_convert_file($source, $quality)) {
+      $converted++;
+    } else {
+      $errors++;
+    }
+  }
+
+  $remaining = count(ditto_webp_get_pending_files(0));
+
+  wp_send_json_success(array(
+    'converted' => $converted,
+    'skipped' => $skipped,
+    'errors' => $errors,
+    'remaining' => $remaining,
+  ));
+}
+add_action('wp_ajax_ditto_webp_convert_batch', 'ditto_webp_convert_batch_ajax');
+
+function ditto_webp_replace_url_if_exists($url) {
+  if (!is_string($url) || $url === '' || strpos($url, '.webp') !== false) {
+    return $url;
+  }
+
+  $uploads = wp_get_upload_dir();
+  $baseurl = isset($uploads['baseurl']) ? $uploads['baseurl'] : '';
+  $basedir = isset($uploads['basedir']) ? $uploads['basedir'] : '';
+
+  if ($baseurl === '' || $basedir === '' || strpos($url, $baseurl) !== 0) {
+    return $url;
+  }
+
+  if (!preg_match('/\.(jpe?g|png)$/i', $url)) {
+    return $url;
+  }
+
+  $relative = substr($url, strlen($baseurl));
+  $sourcePath = $basedir . $relative;
+  $webpPath = preg_replace('/\.(jpg|jpeg|png)$/i', '.webp', $sourcePath);
+
+  if ($webpPath && is_file($webpPath)) {
+    return preg_replace('/\.(jpg|jpeg|png)$/i', '.webp', $url);
+  }
+
+  return $url;
+}
+
+function ditto_webp_filter_attachment_url($url) {
+  if (is_admin()) {
+    return $url;
+  }
+  return ditto_webp_replace_url_if_exists($url);
+}
+add_filter('wp_get_attachment_url', 'ditto_webp_filter_attachment_url', 20);
+
+function ditto_webp_filter_attachment_image_src($image) {
+  if (is_admin() || !is_array($image) || empty($image[0])) {
+    return $image;
+  }
+  $image[0] = ditto_webp_replace_url_if_exists($image[0]);
+  return $image;
+}
+add_filter('wp_get_attachment_image_src', 'ditto_webp_filter_attachment_image_src', 20);
+
+function ditto_webp_filter_srcset($sources) {
+  if (is_admin() || !is_array($sources)) {
+    return $sources;
+  }
+
+  foreach ($sources as $w => $item) {
+    if (!empty($item['url'])) {
+      $sources[$w]['url'] = ditto_webp_replace_url_if_exists($item['url']);
+    }
+  }
+
+  return $sources;
+}
+add_filter('wp_calculate_image_srcset', 'ditto_webp_filter_srcset', 20);

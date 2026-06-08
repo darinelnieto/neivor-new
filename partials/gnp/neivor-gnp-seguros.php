@@ -14,7 +14,11 @@ $seguros = get_field('neivor_and_gnp_seguros');
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <img src="<?= $seguros['logo']['url']; ?>" alt="<?= $seguros['logo']['title']; ?>">
+                <?= wp_get_attachment_image($seguros['logo']['ID'] ?? '', 'large', false, array(
+                    'class' => 'full-image',
+                    'loading' => 'lazy',
+                    'decoding' => 'async'
+                )); ?>
                 <h2><?= $seguros['title']; ?></h2>
                 <p><?= $seguros['description']; ?></p>
             </div>

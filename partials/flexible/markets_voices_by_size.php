@@ -42,8 +42,8 @@ $voices_by_size = get_sub_field('voices_by_size');
                                             ) ); ?>
                                         </div>
                                         <div class="texts">
-                                            <span class="name"><?= $tab['address']; ?></span>
-                                            <span class="units"><?= $tab['units']; ?></span>
+                                            <span class="name"><?= $tab['address'] ?? ''; ?></span>
+                                            <span class="units"><?= $tab['units'] ?? ''; ?></span>
                                         </div>
                                     </a>
                                 </li>
@@ -99,8 +99,8 @@ $voices_by_size = get_sub_field('voices_by_size');
                                         ) ); ?>
                                     </div>
                                     <div class="texts">
-                                        <span class="name"><?= $item['address']; ?></span>
-                                        <span class="units"><?= $item['units']; ?></span>
+                                        <span class="name"><?= $item['address'] ?? ''; ?></span>
+                                        <span class="units"><?= $item['units'] ?? ''; ?></span>
                                     </div>
                                 </div>
                                 <div class="body-item">
@@ -108,9 +108,11 @@ $voices_by_size = get_sub_field('voices_by_size');
                                         <h3><?= $item['address'] ?? '' ?></h3>
                                         <p class="description"><?= $item['descriptions']; ?></p>
                                         <div class="end-content">
-                                            <span class="name">
-                                                 <a style="color:#7D65FE" href="<?= $item['link']['url']; ?>" target="<?= $item['link']['target']; ?>"><?= $item['link']['title']; ?></a>   
-                                            </span>
+                                            <?php if(!empty($item['link'])): ?>
+                                                <span class="name">
+                                                    <a style="color:#7D65FE" href="<?= $item['link']['url']; ?>" target="<?= $item['link']['target']; ?>"><?= $item['link']['title']; ?></a>   
+                                                </span>
+                                            <?php endif; ?>
                                             <span><?= $item['units']; ?></span>
                                         </div>
                                     </div>
@@ -126,7 +128,7 @@ $voices_by_size = get_sub_field('voices_by_size');
                         <?php endforeach; ?>
                     </div>
                 </div>
-                <?php endif; if($voices_by_size['see_all']): ?>
+                <?php endif; if(!empty($voices_by_size['see_all'])): ?>
                     <a href="<?= $voices_by_size['see_all']['url']; ?>" target="<?= $voices_by_size['see_all']['target']; ?>" class="see-all-btn">
                         <?= $voices_by_size['see_all']['title']; ?>
                         <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">

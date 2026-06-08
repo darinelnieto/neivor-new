@@ -80,6 +80,7 @@
                 border-radius: 8px;
                 padding: 10px 11.272px;
                 background: #F2F2F2;
+                position: relative;
                 .open-filter{
                     display: flex;
                     width: 100%;
@@ -109,6 +110,14 @@
                 }
                 .options{
                     display: none;
+                    position: absolute;
+                    top: calc(100% + 8px);
+                    left: 0;
+                    width: 100%;
+                    z-index: 100;
+                    background: #F2F2F2;
+                    border-radius: 8px;
+                    padding: 8px 11.272px;
                     transition: .2s;
                     ul{
                         list-style: none;

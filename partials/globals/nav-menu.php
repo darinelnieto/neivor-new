@@ -31,7 +31,11 @@ $sing_in = get_field('external_links', 'option');
                                     <?php if($sub_menu['sub_menu_name']): ?>
                                         <span class="sub-menu-name">
                                             <?php if($sub_menu['sub_menu_icon']): ?>
-                                                <img src="<?= $sub_menu['sub_menu_icon']['url']; ?>" alt="<?= $sub_menu['sub_menu_icon']['title']; ?>">
+                                                <?= wp_get_attachment_image($sub_menu['sub_menu_icon']['ID'], 'large', false, array(
+                                                    'class' => 'icon-image',
+                                                    'fetchpriority' => 'high',
+                                                    'loading' => 'eager'
+                                                )); ?>
                                             <?php endif; ?>
                                             <?= $sub_menu['sub_menu_name']; ?>
                                         </span>
@@ -82,7 +86,11 @@ $sing_in = get_field('external_links', 'option');
                                target="_blank" 
                                class="external-link track-ga-event" 
                                data-label="<?= esc_attr($item['cta_text']); ?>">
-                                <img src="<?= $item['icon']['url']; ?>" alt="<?= $item['icon']['title']; ?>" class="icon">
+                                <?= wp_get_attachment_image($item['icon']['ID'] ?? '', 'large', false, array(
+                                    'class' => 'icon',
+                                    'fetchpriority' => 'high',
+                                    'loading' => 'eager'
+                                )); ?>
                                 <span class="text"><?= $item['cta_text']; ?></span>
                             </a>
                         </li>

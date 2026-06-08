@@ -46,7 +46,7 @@ if($related->have_posts()){
         $related->the_post();
         array_push($related_post, array(
             'id' => get_the_id(),
-            'feature_image' => get_the_post_thumbnail_url(),
+            'feature_image' => get_the_post_thumbnail(),
             'permalink' => get_permalink(),
             'title' => get_the_title(),
             'short_description' => get_field('short_description'),
@@ -68,7 +68,7 @@ if($related_post):
                         <div class="col-12 col-sm-6 col-lg-4 mb-4">
                             <a href="<?= $post_item['permalink']; ?>" class="post-item item-lg">
                                 <div class="card-post">
-                                    <img src="<?= $post_item['feature_image']; ?>" alt="<?= $post_item['title']; ?>" class="feature-img">
+                                    <?= $post_item['feature_image']; ?>
                                     <span class="color" style="background:linear-gradient(0deg, <?= $post_item['color'] ?> 0%, rgba(64,64,127,0) 100%)"></span>
                                     <div class="content">
                                         <img src="<?= $post_item['logo']['url']; ?>" alt="<?= $post_item['logo']['title']; ?>" class="logo">

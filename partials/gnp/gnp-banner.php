@@ -10,10 +10,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 $banner = get_field('banner_section');
 $nav = $banner['nav'];
+$script_handle = 'gnp-banner-js';
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . '/js/partials/gnp-banner.js',
+    array('jquery'),
+    null,
+    true
+);
 ?>
 <section class="gnp-banner-partial-3bdd98">
-    <img src="<?= $banner['background_desktop']['url']; ?>" alt="<?= $banner['background_desktop']['title']; ?>" class="background-desktop">
-    <img src="<?= $banner['background_movil']['url']; ?>" alt="<?= $banner['background_movil']['title']; ?>" class="background-movil">
+    <?= wp_get_attachment_image($banner['background_desktop']['ID'] ?? '', 'large', false, array(
+        'class' => 'background-desktop',
+        'fetchpriority' => 'high',
+        'loading' => 'eager'
+    )); ?>
+    <?= wp_get_attachment_image($banner['background_movil']['ID'] ?? '', 'large', false, array(
+        'class' => 'background-movil',
+        'fetchpriority' => 'high',
+        'loading' => 'eager'
+    )); ?>
     <div class="container" style="position:relative;">
         <div class="row">
             <div class="col-12 col-md-8 p-0">
@@ -29,8 +45,16 @@ $nav = $banner['nav'];
                                 <?php foreach($nav as $li): ?>
                                     <li>
                                         <a href="<?= $li['link_page']['url']; ?>">
-                                            <img src="<?= $li['icon']['url']; ?>" alt="<?= $li['icon']['title']; ?>" class="normal">
-                                            <img src="<?= $li['icon_hover']['url']; ?>" alt="<?= $li['icon_hover']['title']; ?>" class="hover">
+                                            <?= wp_get_attachment_image($li['icon']['ID'] ?? '', 'large', false, array(
+                                                'class' => 'normal',
+                                                'fetchpriority' => 'high',
+                                                'loading' => 'eager'
+                                            )); ?>
+                                            <?= wp_get_attachment_image($li['icon_hover']['ID'] ?? '', 'large', false, array(
+                                                'class' => 'hover',
+                                                'fetchpriority' => 'high',
+                                                'loading' => 'eager'
+                                            )); ?>
                                             <span><?= $li['link_page']['title']; ?></span>
                                         </a>
                                     </li>
@@ -46,7 +70,14 @@ $nav = $banner['nav'];
                 </div>
             </div>
             <div class="col-12 col-md-4 p-0 <?php if (!is_mobile()): ?>text-center<?php endif; ?>" style="position:relative;">
-                <img src="<?= $banner['main_image']['url']; ?>" alt="<?= $banner['main_image']['title']; ?>" class="main-image" style="<?php if (is_mobile()): echo 'max-width:'.$banner['max_width_movil']; ?>;position:absolute;right:<?= $banner['position_x']; ?>%;transform:translateY(<?php echo $banner['position_y'].'%);'; else: echo 'max-width:'.$banner['max_width_desktop'].';'; endif; ?>">
+                <?= wp_get_attachment_image($banner['main_image']['ID'] ?? '', 'large', false, array(
+                    'class' => 'main-image',
+                    'fetchpriority' => 'high',
+                    'loading' => 'eager',
+                    'style' => is_mobile()
+                        ? 'max-width:' . $banner['max_width_movil'] . ';position:absolute;right:' . $banner['position_x'] . '%;transform:translateY(' . $banner['position_y'] . '%);'
+                        : 'max-width:' . $banner['max_width_desktop'] . ';'
+                )); ?>
             </div>
         </div>
     </div>
@@ -59,16 +90,5 @@ $nav = $banner['nav'];
         </linearGradient>
         </defs>
     </svg>
-    <script>
-        $(()=>{
-            var cambio = false;
-            $('.nav-card-contain ul li a').each(function(index) {
-                if(this.href.trim() == window.location){
-                    $(this).addClass("active");
-                    cambio = true;
-                }
-            });
-        });
-    </script>
 </section>
                     
