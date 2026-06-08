@@ -9,13 +9,22 @@ if ( ! defined( 'ABSPATH' ) ) {
  * https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
  */
 function ditto_styles() {
-  wp_enqueue_style( 'plus-jakarta-sans', 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap', array(), null );
   wp_enqueue_style( 'core', get_template_directory_uri() . '/style.css' );
   wp_enqueue_style( 'main-styles', get_template_directory_uri() . '/css/main.bundle.css' );
   wp_enqueue_style( 'bootstrap.css', get_template_directory_uri() . '/css/bootstrap.min.css' );
   wp_enqueue_style( 'owl-carousel.css', get_template_directory_uri() . '/css/owl.carousel.min.css' );
 }
 add_action( 'wp_enqueue_scripts', 'ditto_styles' );
+
+function ditto_async_google_fonts() {
+  $google_fonts_url = 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap';
+
+  echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
+  echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
+  echo '<link rel="preload" as="style" href="' . esc_url( $google_fonts_url ) . '" onload="this.onload=null;this.rel=\'stylesheet\'">' . "\n";
+  echo '<noscript><link rel="stylesheet" href="' . esc_url( $google_fonts_url ) . '"></noscript>' . "\n";
+}
+add_action( 'wp_head', 'ditto_async_google_fonts', 1 );
 
 /**
  * Register Theme Scripts in footer
