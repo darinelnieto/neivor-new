@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap);
 /*============ Variables ============*/
 * {
   font-family: "Urbanist", sans-serif;
@@ -6816,7 +6817,7 @@ section#footer-blue {
 @media (max-width: 500px) {
   .success-stories-partial-2cc9fb h2 {
     font-size: 25px;
-    font-weight: 400;
+    font-weight: 700;
     margin-bottom: 34px;
   }
 }
@@ -6875,7 +6876,7 @@ section#footer-blue {
   color: #ffffff;
   font-size: 24px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 31.356px; /* 130.651% */
   margin: 17px 0;
   padding: 0 27.55px;
@@ -11604,9 +11605,12 @@ section#footer-blue {
     font-size: 18px;
   }
 }
+.banner-partial-4607af .banner-slide .owl-item .item .row .text-content .description h1, .banner-partial-4607af .banner-slide .owl-item .item .row .text-content .description h2, .banner-partial-4607af .banner-slide .owl-item .item .row .text-content .description h3, .banner-partial-4607af .banner-slide .owl-item .item .row .text-content .description h4, .banner-partial-4607af .banner-slide .owl-item .item .row .text-content .description h5, .banner-partial-4607af .banner-slide .owl-item .item .row .text-content .description h6 {
+  font-weight: 700;
+}
 .banner-partial-4607af .banner-slide .owl-item .item .row .text-content .description .big-text {
   font-size: 40px;
-  font-weight: 400;
+  font-weight: 600;
   font-style: normal;
   line-height: 150%;
   letter-spacing: 0.1px;
