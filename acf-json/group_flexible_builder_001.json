@@ -5118,11 +5118,11 @@
                                     "append": ""
                                 },
                                 {
-                                    "key": "field_6a0290110fe36",
-                                    "label": "Blog catregory",
-                                    "name": "blog_catregory",
+                                    "key": "field_6a16f001source",
+                                    "label": "Source type",
+                                    "name": "source_type",
                                     "aria-label": "",
-                                    "type": "taxonomy",
+                                    "type": "select",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
@@ -5131,7 +5131,235 @@
                                         "class": "",
                                         "id": ""
                                     },
+                                    "choices": {
+                                        "blogs": "Blog",
+                                        "success_stories": "Success Stories"
+                                    },
+                                    "default_value": "blogs",
+                                    "return_format": "value",
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "allow_in_bindings": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_6a0290110fe36",
+                                    "label": "Blog catregory",
+                                    "name": "blog_catregory",
+                                    "aria-label": "",
+                                    "type": "taxonomy",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_6a16f001source",
+                                                "operator": "==",
+                                                "value": "blogs"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
                                     "taxonomy": "blog_cat",
+                                    "add_term": 1,
+                                    "save_terms": 0,
+                                    "load_terms": 0,
+                                    "return_format": "id",
+                                    "field_type": "select",
+                                    "allow_null": 1,
+                                    "allow_in_bindings": 0,
+                                    "bidirectional": 0,
+                                    "multiple": 0,
+                                    "bidirectional_target": []
+                                },
+                                {
+                                    "key": "field_6a16f002suctax",
+                                    "label": "Success taxonomy",
+                                    "name": "success_taxonomy",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_6a16f001source",
+                                                "operator": "==",
+                                                "value": "success_stories"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "success_cat": "Success Category",
+                                        "size_cat": "Size",
+                                        "segment_cat": "Segment",
+                                        "zone_cat": "Zone"
+                                    },
+                                    "default_value": "success_cat",
+                                    "return_format": "value",
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "allow_in_bindings": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_6a16f003sucategory",
+                                    "label": "Success category",
+                                    "name": "success_catregory",
+                                    "aria-label": "",
+                                    "type": "taxonomy",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_6a16f001source",
+                                                "operator": "==",
+                                                "value": "success_stories"
+                                            },
+                                            {
+                                                "field": "field_6a16f002suctax",
+                                                "operator": "==",
+                                                "value": "success_cat"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "taxonomy": "success_cat",
+                                    "add_term": 1,
+                                    "save_terms": 0,
+                                    "load_terms": 0,
+                                    "return_format": "id",
+                                    "field_type": "select",
+                                    "allow_null": 1,
+                                    "allow_in_bindings": 0,
+                                    "bidirectional": 0,
+                                    "multiple": 0,
+                                    "bidirectional_target": []
+                                },
+                                {
+                                    "key": "field_6a16f004sizeterm",
+                                    "label": "Size",
+                                    "name": "size_catregory",
+                                    "aria-label": "",
+                                    "type": "taxonomy",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_6a16f001source",
+                                                "operator": "==",
+                                                "value": "success_stories"
+                                            },
+                                            {
+                                                "field": "field_6a16f002suctax",
+                                                "operator": "==",
+                                                "value": "size_cat"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "taxonomy": "size_cat",
+                                    "add_term": 1,
+                                    "save_terms": 0,
+                                    "load_terms": 0,
+                                    "return_format": "id",
+                                    "field_type": "select",
+                                    "allow_null": 1,
+                                    "allow_in_bindings": 0,
+                                    "bidirectional": 0,
+                                    "multiple": 0,
+                                    "bidirectional_target": []
+                                },
+                                {
+                                    "key": "field_6a16f005segment",
+                                    "label": "Segment",
+                                    "name": "segment_catregory",
+                                    "aria-label": "",
+                                    "type": "taxonomy",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_6a16f001source",
+                                                "operator": "==",
+                                                "value": "success_stories"
+                                            },
+                                            {
+                                                "field": "field_6a16f002suctax",
+                                                "operator": "==",
+                                                "value": "segment_cat"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "taxonomy": "segment_cat",
+                                    "add_term": 1,
+                                    "save_terms": 0,
+                                    "load_terms": 0,
+                                    "return_format": "id",
+                                    "field_type": "select",
+                                    "allow_null": 1,
+                                    "allow_in_bindings": 0,
+                                    "bidirectional": 0,
+                                    "multiple": 0,
+                                    "bidirectional_target": []
+                                },
+                                {
+                                    "key": "field_6a16f006zone",
+                                    "label": "Zone",
+                                    "name": "zone_catregory",
+                                    "aria-label": "",
+                                    "type": "taxonomy",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_6a16f001source",
+                                                "operator": "==",
+                                                "value": "success_stories"
+                                            },
+                                            {
+                                                "field": "field_6a16f002suctax",
+                                                "operator": "==",
+                                                "value": "zone_cat"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "taxonomy": "zone_cat",
                                     "add_term": 1,
                                     "save_terms": 0,
                                     "load_terms": 0,

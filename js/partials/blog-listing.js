@@ -1,14 +1,21 @@
 $(document).ready(function () {
+    const section = $('.blog-listing-partial-097a45').first();
+    if (!section.length) {
+        return;
+    }
+
     let currentPage = 1;
     let totalPages = 1;
     let currentView = 'grid';
     const isMobile = $(window).width() < 576;
     const postsPerPage = isMobile ? 3 : 6;
 
-    const blogCat = $('.blog-listing-partial-097a45').data('blog-cat') ? $('.blog-listing-partial-097a45').data('blog-cat') : 0;
-    const postsContainer = $('.blog-listing-partial-097a45 .posts-container');
-    const loadMoreBtn = $('.blog-listing-partial-097a45 .load-more-btn');
-    const viewButtons = $('.blog-listing-partial-097a45 .option button');
+    const postType = section.data('post-type') ? section.data('post-type') : 'blogs';
+    const taxonomy = section.data('taxonomy') ? section.data('taxonomy') : 'blog_cat';
+    const termId = section.data('term-id') ? parseInt(section.data('term-id'), 10) : 0;
+    const postsContainer = section.find('.posts-container');
+    const loadMoreBtn = section.find('.load-more-btn');
+    const viewButtons = section.find('.option button');
 
     // Initial load
     loadPosts(1);
@@ -42,7 +49,9 @@ $(document).ready(function () {
             data: {
                 paged: page,
                 per_page: postsPerPage,
-                blog_cat: blogCat
+                post_type: postType,
+                taxonomy: taxonomy,
+                term_id: termId
             },
             success: function (response) {
                 totalPages = response.pages;
@@ -68,11 +77,11 @@ $(document).ready(function () {
                     <div class="post-content">
                         <div class="post-meta">
                             ${post.category ? `<span class="category">${post.category}</span>` : ''}
-                            <span class="date">${post.date}</span>
+                            ${post.date ? `<span class="date">${post.date}</span>` : ''}
                         </div>
                         <h3 class="post-title">${post.title}</h3>
                         <p class="post-excerpt">${post.excerpt}</p>
-                        <span class="read-more">LEER MÁS</span>
+                        <span class="read-more">${post.read_more_label ? post.read_more_label : 'LEER MAS'}</span>
                     </div>
                 </a>
             </article>

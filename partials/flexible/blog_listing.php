@@ -14,9 +14,30 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 $blog_listing = get_sub_field('blog_listing_content');
-$blog_cat = $blog_listing['blog_catregory'] ?? '';
+$source_type = $blog_listing['source_type'] ?? 'blogs';
+$taxonomy = 'blog_cat';
+$term_id = intval($blog_listing['blog_catregory'] ?? 0);
+
+if ($source_type === 'success_stories') {
+    $taxonomy = $blog_listing['success_taxonomy'] ?? 'success_cat';
+    if ($taxonomy === 'size_cat') {
+        $term_id = intval($blog_listing['size_catregory'] ?? 0);
+    } elseif ($taxonomy === 'segment_cat') {
+        $term_id = intval($blog_listing['segment_catregory'] ?? 0);
+    } elseif ($taxonomy === 'zone_cat') {
+        $term_id = intval($blog_listing['zone_catregory'] ?? 0);
+    } else {
+        $taxonomy = 'success_cat';
+        $term_id = intval($blog_listing['success_catregory'] ?? 0);
+    }
+}
 ?>
-<section class="blog-listing-partial-097a45" data-blog-cat="<?= esc_attr($blog_cat); ?>">
+<section
+    class="blog-listing-partial-097a45"
+    data-post-type="<?= esc_attr($source_type); ?>"
+    data-taxonomy="<?= esc_attr($taxonomy); ?>"
+    data-term-id="<?= esc_attr($term_id); ?>"
+>
     <div class="container">
         <div class="row">
             <div class="blog-listing-decoration">
@@ -53,7 +74,7 @@ $blog_cat = $blog_listing['blog_catregory'] ?? '';
         </div>
         <div class="row">
             <div class="col-12 text-center">
-                <button class="load-more-btn btn btn-primary">Cargar Más Artículos</button>
+                <button class="load-more-btn btn btn-primary">Cargar Más</button>
             </div>
         </div>
     </div>

@@ -710,10 +710,26 @@ add_action( 'rest_api_init', function () {
 function blog_listing_posts_handler($request){
   $paged = intval($request['paged']) ?: 1;
   $posts_per_page = intval($request['per_page']) ?: 6;
-  $blog_cat = intval($request['blog_cat']) ?: 0;
+  $post_type = sanitize_key($request['post_type']) ?: 'blogs';
+  $taxonomy = sanitize_key($request['taxonomy']) ?: '';
+  $term_id = intval($request['term_id']) ?: 0;
+
+  $allowed_post_types = ['blogs', 'success_stories'];
+  if(!in_array($post_type, $allowed_post_types, true)){
+    $post_type = 'blogs';
+  }
+
+  $allowed_taxonomies = [
+    'blogs' => ['blog_cat'],
+    'success_stories' => ['success_cat', 'size_cat', 'segment_cat', 'zone_cat']
+  ];
+
+  if(empty($taxonomy) || !in_array($taxonomy, $allowed_taxonomies[$post_type], true)){
+    $taxonomy = $post_type === 'blogs' ? 'blog_cat' : 'success_cat';
+  }
 
   $args = [
-    'post_type'      => 'blogs',
+    'post_type'      => $post_type,
     'post_status'    => 'publish',
     'posts_per_page' => $posts_per_page,
     'paged'          => $paged,
@@ -721,12 +737,12 @@ function blog_listing_posts_handler($request){
     'order'          => 'DESC',
   ];
 
-  if(!empty($blog_cat)){
+  if(!empty($term_id)){
     $args['tax_query'] = [
       [
-        'taxonomy' => 'blog_cat',
+        'taxonomy' => $taxonomy,
         'field'    => 'term_id',
-        'terms'    => $blog_cat
+        'terms'    => $term_id
       ]
     ];
   }
@@ -753,46 +769,54 @@ function blog_listing_posts_handler($request){
           );
         }
 
-        $post_time = get_the_time('U');
-        $current_time = time();
-        $time_diff = $current_time - $post_time;
+        $time_ago = '';
+        if($post_type === 'blogs'){
+          $post_time = get_the_time('U');
+          $current_time = time();
+          $time_diff = $current_time - $post_time;
 
-        if ($time_diff < 60) {
-          $time_ago = 'hace poco';
-        } elseif ($time_diff < 3600) {
-          $minutes = floor($time_diff / 60);
-          $time_ago = 'hace ' . $minutes . ' ' . ($minutes == 1 ? 'minuto' : 'minutos');
-        } elseif ($time_diff < 86400) {
-          $hours = floor($time_diff / 3600);
-          $time_ago = 'hace ' . $hours . ' ' . ($hours == 1 ? 'hora' : 'horas');
-        } elseif ($time_diff < 604800) {
-          $days = floor($time_diff / 86400);
-          $time_ago = 'hace ' . $days . ' ' . ($days == 1 ? 'día' : 'días');
-        } elseif ($time_diff < 2592000) {
-          $weeks = floor($time_diff / 604800);
-          $time_ago = 'hace ' . $weeks . ' ' . ($weeks == 1 ? 'semana' : 'semanas');
-        } elseif ($time_diff < 31536000) {
-          $months = floor($time_diff / 2592000);
-          $time_ago = 'hace ' . $months . ' ' . ($months == 1 ? 'mes' : 'meses');
-        } else {
-          $years = floor($time_diff / 31536000);
-          $time_ago = 'hace ' . $years . ' ' . ($years == 1 ? 'año' : 'años');
+          if ($time_diff < 60) {
+            $time_ago = 'hace poco';
+          } elseif ($time_diff < 3600) {
+            $minutes = floor($time_diff / 60);
+            $time_ago = 'hace ' . $minutes . ' ' . ($minutes == 1 ? 'minuto' : 'minutos');
+          } elseif ($time_diff < 86400) {
+            $hours = floor($time_diff / 3600);
+            $time_ago = 'hace ' . $hours . ' ' . ($hours == 1 ? 'hora' : 'horas');
+          } elseif ($time_diff < 604800) {
+            $days = floor($time_diff / 86400);
+            $time_ago = 'hace ' . $days . ' ' . ($days == 1 ? 'día' : 'días');
+          } elseif ($time_diff < 2592000) {
+            $weeks = floor($time_diff / 604800);
+            $time_ago = 'hace ' . $weeks . ' ' . ($weeks == 1 ? 'semana' : 'semanas');
+          } elseif ($time_diff < 31536000) {
+            $months = floor($time_diff / 2592000);
+            $time_ago = 'hace ' . $months . ' ' . ($months == 1 ? 'mes' : 'meses');
+          } else {
+            $years = floor($time_diff / 31536000);
+            $time_ago = 'hace ' . $years . ' ' . ($years == 1 ? 'año' : 'años');
+          }
         }
 
-        $post_categories = get_the_terms(get_the_ID(), 'blog_cat');
+        $post_categories = get_the_terms(get_the_ID(), $taxonomy);
         $category_name = '';
         if($post_categories && !is_wp_error($post_categories)){
           $category_name = $post_categories[0]->name;
         }
 
+        $excerpt = get_field('short_description') ?: '';
+
+        $read_more_label = get_bloginfo('language') == 'en-US' ? 'READ MORE' : 'LEER MAS';
+
         $posts[] = [
             'id'              => get_the_ID(),
             'title'           => get_the_title() ?: 'Sin título',
-            'excerpt'         => get_field('short_description') ?: '', 
+            'excerpt'         => $excerpt,
             'featured_image'  => $featured_image_html,
             'permalink'       => get_permalink() ?: '#',
             'category'        => $category_name,
             'date'            => $time_ago,
+            'read_more_label' => $read_more_label,
         ];
     }
     wp_reset_postdata();
