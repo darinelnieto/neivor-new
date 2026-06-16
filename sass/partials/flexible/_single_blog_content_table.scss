@@ -1,0 +1,60 @@
+.single-blog-content-table-partial-b93a11 {
+    padding: 24px 0 8px;
+
+    .toc-card {
+        background: #f7f9fc;
+        border: 1px solid #e4e8ef;
+        border-radius: 12px;
+        padding: 20px;
+    }
+
+    .toc-title {
+        color: #1d2736;
+        font-size: 24px;
+        line-height: 1.2;
+        margin: 0 0 14px;
+    }
+
+    .toc-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        row-gap: 8px;
+    }
+
+    .toc-item {
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .toc-item-link {
+        color: #2c3f57;
+        text-decoration: none;
+        line-height: 1.35;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+
+        &:hover {
+            color: #0f6bd8;
+        }
+    }
+
+    .toc-item--h3 {
+        padding-left: 16px;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.6em;
+            width: 8px;
+            height: 1px;
+            background: #92a0b3;
+        }
+    }
+}

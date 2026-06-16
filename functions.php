@@ -514,7 +514,7 @@ function successStories(){
     'label'  => 'Success stories',
     'menu_icon' => 'dashicons-building',
     'supports' => ['title', 'editor', 'thumbnail'],
-    'taxonomies' => array('size_cat', 'segment_cat', 'zone_cat')
+    'taxonomies' => array('size_cat', 'segment_cat', 'zone_cat', 'success_cat')
   );
   /*============ Register post type ============*/
   register_post_type('success_stories', $arg);
@@ -589,6 +589,30 @@ function successStories(){
     'show_admin_column' => true,
     'query_var' => true,
     'rewrite' => array('slug' => 'zone_cat'),
+  ));
+  /*========= Category =========*/ 
+  $category = array(
+    'name' => _x('Category', 'taxonomy general name'),
+    'singular_name' => _x('Category', 'taxonomy singular name'),
+    'search_items' =>  __('Search Category'),
+    'all_items' => __('All Category'),
+    'parent_item' => __('Parent Category'),
+    'parent_item_colon' => __('Parent Category:'),
+    'edit_item' => __('Edit Category'),
+    'update_item' => __('Update Category'),
+    'add_new_item' => __('Add New Category'),
+    'new_item_name' => __('New Category Name'),
+    'menu_name' => __('Category'),
+  );
+  /*========== Register taxonomy ==========*/
+  register_taxonomy('success_cat', array('success_stories'), array(
+    'hierarchical' => true,
+    'labels' => $category,
+    'show_ui' => true,
+    'show_in_rest' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array('slug' => 'success_cat'),
   ));
 }
 add_action('init', 'successStories', 5);

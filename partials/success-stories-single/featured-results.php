@@ -8,7 +8,10 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
-$results = get_field('featured_results_group');
+$results = get_sub_field('featured_results_group');
+if ( ! $results ) {
+    $results = get_field('featured_results_group');
+}
 if($results['results']):
 $script_handle = 'blog-js';
 wp_enqueue_script(

@@ -8,7 +8,10 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
-$banner = get_field('banner_content');
+$banner = get_sub_field('banner_content');
+if ( ! $banner ) {
+    $banner = get_field('banner_content');
+}
 $size = wp_get_post_terms(get_the_ID(), 'size_cat');
 if($size){
     $size_icon = get_field('icon', 'size_cat_' . $size[0]->term_id);

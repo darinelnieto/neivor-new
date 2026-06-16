@@ -9,7 +9,12 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 if(get_field('enable_purple_background_logo_section', 'option')):
-$logos_slide = get_field('purple_background_logo_section', 'option');
+$global = get_sub_field('enable_manual');
+if($global === true):
+    $logos_slide = get_sub_field('purple_background_logo_section');
+else:
+    $logos_slide = get_field('purple_background_logo_section', 'option');
+endif;
 ?>
 <section class="logos-slide-partial-f8ca70" style="background:<?= get_field('secondary_background', 'option'); ?>">
     <div class="clip-path">

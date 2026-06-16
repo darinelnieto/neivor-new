@@ -169,3 +169,7 @@ section#footer-blue {
     line-height: 16px;
     letter-spacing: 1.2px;
 }
+// Titles
+h1{
+    font-size: clamp(40px, 5vw, 72px) !important;
+}

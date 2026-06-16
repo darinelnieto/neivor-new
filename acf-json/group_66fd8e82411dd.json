@@ -46,7 +46,10 @@
             },
             "default_value": "",
             "enable_opacity": 0,
-            "return_format": "string"
+            "return_format": "string",
+            "custom_palette_source": "",
+            "palette_colors": "",
+            "show_color_wheel": true
         },
         {
             "key": "field_66fd8ee606bdf",
@@ -171,5 +174,8 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1729020462
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1781539012
 }

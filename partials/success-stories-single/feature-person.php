@@ -8,7 +8,10 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
-$feature = get_field('feature_person_group');
+$feature = get_sub_field('feature_person_group');
+if ( ! $feature ) {
+    $feature = get_field('feature_person_group');
+}
 ?>
 <section class="feature-person-partial-497490">
     <div class="svg-right d-none d-md-block">

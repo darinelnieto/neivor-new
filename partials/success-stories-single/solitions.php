@@ -8,7 +8,10 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
-$solutions = get_field('solutions_group');
+$solutions = get_sub_field('solutions_group');
+if ( ! $solutions ) {
+    $solutions = get_field('solutions_group');
+}
 if($solutions['solutions_list']):
 ?>
 <section class="solitions-partial-49241b">

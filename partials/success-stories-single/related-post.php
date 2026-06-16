@@ -8,6 +8,10 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
+$related_post_title = get_sub_field('related_post_title');
+if ( ! $related_post_title ) {
+    $related_post_title = get_field('related_post_title');
+}
 $id = get_the_id();
 $size = wp_get_post_terms(get_the_ID(), 'size_cat');
 $segment = wp_get_post_terms(get_the_ID(), 'segment_cat');
@@ -62,7 +66,7 @@ if($related_post):
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2><?= get_field('related_post_title'); ?></h2>
+                <h2><?= $related_post_title; ?></h2>
                 <div class="related-post row">
                     <?php foreach($related_post as $post_item): if($id !== $post_item['id']): ?>
                         <div class="col-12 col-sm-6 col-lg-4 mb-4">

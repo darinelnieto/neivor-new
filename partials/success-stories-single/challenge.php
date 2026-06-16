@@ -8,7 +8,10 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
-$challenge = get_field('challenge_group');
+$challenge = get_sub_field('challenge_group');
+if ( ! $challenge ) {
+    $challenge = get_field('challenge_group');
+}
 ?>
 <section class="challenge-partial-681333">
     <div class="container">
