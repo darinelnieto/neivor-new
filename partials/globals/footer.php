@@ -43,7 +43,7 @@ $polices = get_field('polices', 'option');
             <div class="row justify-content-between menu-list">
                 <?php foreach($menu as $item): ?>
                     <div class="col-6 col-lg-3 mb-5 mb-md-4">
-                        <h2 class="label-menu"><?= $item['label'] ?? ''; ?></h2>
+                        <h2 class="label-menu h6"><?= $item['label'] ?? ''; ?></h2>
                         <?php if(!empty($item['menu'])): $list = $item['menu']; ?>
                             <nav class="nav-menu">
                                 <ul class="nav-list">

@@ -8,13 +8,14 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
+$link_class = sanitize_text_field( get_sub_field( 'link_class' ) ?? '' );
 ?>
-<section class="single-blog-content-table-partial-b93a11" aria-label="Tabla de contenido">
+<section class="single-blog-content-table-partial-b93a11" data-link-class="<?= esc_attr( $link_class ); ?>" aria-label="Tabla de contenido">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-lg-8">
                 <div class="toc-card">
-                    <h2 class="toc-title">Tabla de contenido</h2>
+                    <h2 class="toc-title h4">Tabla de contenido</h2>
                     <ul class="toc-list" data-toc-list></ul>
                 </div>
             </div>
@@ -33,6 +34,8 @@ if ( ! defined( 'ABSPATH' ) ) {
         if (!tocList) {
             return;
         }
+
+        var linkClass = (tocSection.dataset.linkClass || '').trim();
 
         var headingSelectors = [
             '#flexible-builder-template h2, #flexible-builder-template h3'
@@ -130,7 +133,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 li.className = 'toc-item toc-item--' + heading.tagName.toLowerCase();
 
                 var link = document.createElement('a');
-                link.className = 'toc-item-link';
+                link.className = linkClass ? 'toc-item-link ' + linkClass : 'toc-item-link';
                 link.href = '#' + headingId;
                 link.textContent = displayText;
                 link.title = text;

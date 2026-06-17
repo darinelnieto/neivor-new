@@ -50,8 +50,8 @@ $author = $author_group['autor_hero_group'];
                             <?php endforeach; ?>
                         </ul>
                     </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
-                    

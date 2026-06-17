@@ -6377,7 +6377,28 @@
                     "name": "single_blog_content_table",
                     "label": "single_blog_content_table",
                     "display": "block",
-                    "sub_fields": [],
+                    "sub_fields": [
+                        {
+                            "key": "field_toc_link_class",
+                            "label": "Link class",
+                            "name": "link_class",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Clases CSS para los enlaces de la tabla de contenido (separadas por espacio)",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "e.g. btn btn-link",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ],
                     "min": "",
                     "max": ""
                 },
