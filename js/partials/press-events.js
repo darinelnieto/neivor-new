@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function () { 
     $('.events-slide').owlCarousel({
         autoplay:false,
         loop:false,

@@ -5721,7 +5721,7 @@ table thead tr td, table thead tr th, table tbody tr td, table tbody tr th {
 }
 .events-partial-dce9fb .events-contain .events-slide {
   opacity: 0;
-  transition: 0.2s;
+  transition: opacity 0.2s ease;
   position: relative;
 }
 .events-partial-dce9fb .events-contain .events-slide .owl-stage-outer {
@@ -6060,6 +6060,10 @@ table thead tr td, table thead tr th, table tbody tr td, table tbody tr th {
 .featured-section-partial-e657e2 h2 strong {
   font-weight: 700;
 }
+.featured-section-partial-e657e2 .highlights-slide {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
 .featured-section-partial-e657e2 .highlights-slide .owl-stage {
   display: flex;
   align-items: center;
@@ -6079,6 +6083,8 @@ table thead tr td, table thead tr th, table tbody tr td, table tbody tr th {
 }
 .featured-section-partial-e657e2 .highlights-slide .owl-item .item .logo-contain img {
   width: 100%;
+  height: 40px;
+  object-fit: contain;
 }
 .featured-section-partial-e657e2 .highlights-slide .owl-item .item .card-content {
   display: flex;
@@ -6102,6 +6108,7 @@ table thead tr td, table thead tr th, table tbody tr td, table tbody tr th {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 .featured-section-partial-e657e2 .highlights-slide .owl-item .item .card-content .text-contain {
   width: 67%;

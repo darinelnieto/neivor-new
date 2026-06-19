@@ -13,7 +13,7 @@ if($events['events_list']):
 $script_handle = 'press-event-js';
 wp_enqueue_script(
     $script_handle,
-    get_template_directory_uri() . '/js/partials/press-event.js',
+    get_template_directory_uri() . '/js/partials/press-events.js',
     array('jquery', 'owl-carousel.js'),
     null,
     true
