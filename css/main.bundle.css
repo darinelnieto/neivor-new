@@ -6348,7 +6348,7 @@ table thead tr td, table thead tr th, table tbody tr td, table tbody tr th {
 }
 .banner-partial-39c12f .banner-slide {
   opacity: 0;
-  transition: 0.2s;
+  transition: opacity 0.2s ease;
 }
 .banner-partial-39c12f .banner-slide .item {
   height: 660px;
