@@ -23,4 +23,3 @@ wp_enqueue_script(
     <?php get_template_part('partials/blog/body-blog'); ?>
 </main>
 <?php get_footer(); ?>
-                    

@@ -138,31 +138,31 @@ section#footer-blue {
   top: inherit;
 }
 
-h1, .h1 {
+.h1 {
   font-size: clamp(40px, 5vw, 42px) !important;
 }
 
-h2, .h2 {
+.h2 {
   font-size: clamp(25px, 3vw, 35px) !important;
 }
 
-h3, .h3 {
+.h3 {
   font-size: clamp(20px, 2vw, 22px) !important;
 }
 
-h4, .h4 {
+.h4 {
   font-size: clamp(20px, 1.7vw, 20px) !important;
 }
 
-h5, .h5 {
+.h5 {
   font-size: clamp(18px, 1.4vw, 18px) !important;
 }
 
-h6, .h6 {
+.h6 {
   font-size: clamp(16px, 1.2vw, 16px) !important;
 }
 
-p, .p {
+.p {
   font-size: clamp(16px, 3vw, 16px) !important;
 }
 
@@ -12658,7 +12658,7 @@ table:not(.form-table) tbody tr:last-child td {
 }
 @media (max-width: 768px) {
   .new-banner-partial-4607af {
-    padding: 1.5rem 0 0.5rem;
+    padding: 2rem 0 0.5rem;
   }
 }
 .new-banner-partial-4607af::before {
@@ -12684,10 +12684,6 @@ table:not(.form-table) tbody tr:last-child td {
   margin-bottom: 1.5rem;
   position: relative;
   z-index: 1;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 .new-banner-partial-4607af h1.title span {
   font-style: italic;
