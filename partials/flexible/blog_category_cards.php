@@ -14,7 +14,7 @@ if(!empty($categoies['cards_grid'])):
     <div class="container">
         <div class="row">
             <div class="col-12 pb-4">
-                <h2 class="title"><?= $categoies['title'] ?? ''; ?></h2>
+                <h2 class="title h2"><?= $categoies['title'] ?? ''; ?></h2>
                 <div class="grid-cards row">
                     <?php foreach($categoies['cards_grid'] as $item): ?>
                         <a href="<?= get_term_link($item['category_page']); ?>" target="_self" class="category-link col-12 col-md-6 col-lg-4">

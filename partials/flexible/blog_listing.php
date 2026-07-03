@@ -47,7 +47,7 @@ if ($source_type === 'success_stories') {
             </div>
             <div class="col-12">
                 <div class="title-and-options-style">
-                    <h2 class="title"><?= $blog_listing['title'] ?? ''; ?></h2>
+                    <h2 class="title h2"><?= $blog_listing['title'] ?? ''; ?></h2>
                     <ul class="option">
                         <li>
                             <button class="view-btn active" data-view="grid" title="Vista grid">

@@ -15,7 +15,7 @@ $secondary_posts = $posts['secondaries'];
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 class="title text-md-center">
+                <h2 class="title text-md-center h2">
                     <?= $posts['title'] ?? ''; ?>
                 </h2>
             </div>

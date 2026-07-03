@@ -160,7 +160,7 @@ $pagination_links = paginate_links(array(
                                                 }
                                                 ?>
                                                 <div class="text-content">
-                                                    <h3><?= esc_html($post_item['title']); ?></h3>
+                                                    <h3 class="h3"><?= esc_html($post_item['title']); ?></h3>
                                                     <p><?= esc_html($post_item['short_description']); ?></p>
                                                 </div>
                                             </div>

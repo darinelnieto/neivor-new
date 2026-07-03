@@ -22,7 +22,7 @@ $author = $hero['author'];
                         <?= $tag['text'] ?>
                     </span>
                 <?php endif; ?>
-                <h1 class="title">
+                <h1 class="title h1">
                     <?= $hero['title'] ?? get_the_title(); ?>
                 </h1>
                 <?php if(!empty($hero['description'])): ?>
