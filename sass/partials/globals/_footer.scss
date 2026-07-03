@@ -1,0 +1,154 @@
+.footer-partial-709a7c {
+    background: #f5f8fa;
+    padding-bottom: 70px;
+    @media(max-width: 767px){
+        padding-bottom: 0px;
+    }
+    // Top content
+    .top-content{
+        padding: 40px 0px;
+        .custom-logo{
+            width: 100%;
+            max-width: 173px;
+            height: auto;
+            object-fit: contain;
+        }
+        .social-network{
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+            align-items: center;
+            gap: 15.9806547164917px;
+            position: relative;
+            border-radius: inherit;
+            padding: 0;
+            list-style: none;
+            li{   
+                width: 33.590450286865234px;
+                height: 33.590450286865234px;
+                a{
+                    color: #6150BD;
+                }
+            }
+            @media(max-width: 767px){
+                justify-content: left;
+                margin-bottom:0;
+            }
+        }
+    }
+    // Menu
+    .menu-list{
+        .label-menu{
+            white-space: pre-wrap;
+            line-height: 1.5;
+            font-size: 15px;
+            word-break: break-word;
+            font-weight: 600;
+            letter-spacing: .10000000149011612px;
+            font-variation-settings: normal;
+            color: #1a1727;
+            margin-bottom: 24px;
+            a{
+                text-decoration:none;
+                color:inherit;
+            }
+        }
+        .nav-menu{
+            ul{
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 16px;
+                position: relative;
+                border-radius: inherit;
+                padding: 0;
+                list-style: none;
+                padding:0;
+                margin: 0;
+                li{
+                    .nav-link{
+                        padding: 0;
+                        font-weight: 400;
+                        font-size: 15px;
+                        letter-spacing: .10000000149011612px;
+                        text-align: left;
+                        font-variation-settings: normal;
+                        color: #5d5c62;
+                        text-decoration: none;
+                        transition: all .2s ease;
+                        &:hover{
+                            color: #6150bd;
+                        }
+                        @media(max-width:640px){
+                            font-size:12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // Polices
+    .polices{
+        margin-bottom: 30px;
+        ul{
+            display: flex;
+            padding: 0;
+            margin:0;
+            list-style:none;
+            gap:24px;
+            li{
+                a{
+                    line-height: 1.5;
+                    font-size: 15px;
+                    word-break: break-word;
+                    font-weight: 600;
+                    letter-spacing: .10000000149011612px;
+                    font-variation-settings: normal;
+                    color: #1a1727;
+                    margin-bottom: 24px;
+                    text-decoration: none;
+                }
+            }
+            @media(max-width:768px){
+                flex-direction:column;
+                gap: 0;
+                li{
+                    a{
+                        margin:0;
+                    }
+                }
+            }
+        }
+    }
+    // addres
+    .adress{
+        font-variation-settings: normal;
+        color: #5d5c62;
+        white-space: pre-wrap;
+        line-height: 1.5;
+        font-size: 13px;
+        word-break: break-word;
+        font-weight: 400;
+        letter-spacing: .10000000149011612px;
+    }
+    .copiright{
+        white-space: pre;
+        line-height: 1.5;
+        font-size: 15px;
+        word-break: break-word;
+        font-weight: 400;
+        letter-spacing: .10000000149011612px;
+        font-variation-settings: normal;
+        color: #5d5c62;
+        text-align: right;
+        strong{
+            font-weight: 700;
+        }
+        @media(max-width:768px){
+            text-align:left;
+        }
+    }
+}
