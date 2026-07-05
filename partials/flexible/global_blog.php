@@ -28,8 +28,8 @@ if($blog->have_posts()):
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 class="title"><?= get_field('blog_partial_title', 'option'); ?></h2>
-                <p class="description"><?= get_field('blog_description', 'option'); ?></p>
+                <h2 class="title h2"><?= get_field('blog_partial_title', 'option'); ?></h2>
+                <p class="description p"><?= get_field('blog_description', 'option'); ?></p>
                 <div class="blog-slide owl-carousel">
                     <?php while($blog->have_posts()): $blog->the_post(); ?>
                         <div class="item">
@@ -38,8 +38,8 @@ if($blog->have_posts()):
                                     <?= get_the_post_thumbnail($blog->ID, 'full', array('class' => 'card-post-image', 'loading' => 'lazy', 'decoding' => 'async')); ?>
                                 </div>
                                 <div class="body-card">
-                                    <h4 class="post-name"><?= the_title($blog->ID); ?></h4>
-                                    <p class="short-description"><?= get_field('short_description', $blog->ID); ?></p>
+                                    <h4 class="post-name h4"><?= the_title($blog->ID); ?></h4>
+                                    <p class="short-description p"><?= get_field('short_description', $blog->ID); ?></p>
                                     <a href="<?= get_field('hubspot_link', $blog->ID); ?>" class="cta-card" target="_blank">
                                         <span><?php if(get_bloginfo("language") == "en-US"): ?>See more<?php else: ?>Ver más<?php endif; ?></span>
                                         <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
