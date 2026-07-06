@@ -12658,7 +12658,7 @@ table:not(.form-table) tbody tr:last-child td {
 }
 @media (max-width: 768px) {
   .new-banner-partial-4607af {
-    padding: 2rem 0 0.5rem;
+    padding: 5rem 0 0.5rem;
   }
 }
 .new-banner-partial-4607af::before {
@@ -12888,6 +12888,7 @@ table:not(.form-table) tbody tr:last-child td {
     height: 423px;
     max-height: 423px;
     max-width: 100%;
+    object-fit: cover;
   }
 }
 .new-banner-partial-4607af .image-contain .overly {

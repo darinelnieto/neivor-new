@@ -4,7 +4,7 @@
     padding: 7.5rem 0 3rem;
     overflow: hidden;
     @media(max-width: 768px) {
-        padding: 2rem 0 .5rem;
+        padding: 5rem 0 .5rem;
     }
     &::before {
         content: "";
@@ -228,6 +228,7 @@
                 height: 423px;
                 max-height: 423px;
                 max-width: 100%;
+                object-fit:cover;
             }
         }
 
