@@ -12869,8 +12869,8 @@ table:not(.form-table) tbody tr:last-child td {
 }
 .new-banner-partial-4607af .image-contain {
   position: relative;
-  height: 100%;
-  max-height: 558px;
+  height: auto;
+  max-height: 670px;
   z-index: 1;
 }
 .new-banner-partial-4607af .image-contain .hero-image {
@@ -12878,7 +12878,7 @@ table:not(.form-table) tbody tr:last-child td {
   height: 100%;
   max-height: 900px;
   border-radius: 16px 0 0 16px;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   object-position: center top;
 }
@@ -12888,7 +12888,6 @@ table:not(.form-table) tbody tr:last-child td {
     height: 423px;
     max-height: 423px;
     max-width: 100%;
-    object-fit: cover;
   }
 }
 .new-banner-partial-4607af .image-contain .overly {

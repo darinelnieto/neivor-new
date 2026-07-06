@@ -16,7 +16,9 @@ wp_enqueue_script(
     null,
     true
 );
-$banner = get_field('add_banner');
+$banner = isset($args['banner']) ? $args['banner'] : get_field('add_banner');
+$enable_video = isset($args['enable_video']) ? $args['enable_video'] : get_field('enable_video');
+$video = isset($args['video']) ? $args['video'] : get_field('video');
 if($banner):
 $key = 0;
 ?>
@@ -66,12 +68,12 @@ $key = 0;
             </div>
         <?php endforeach; ?>
     </div>
-    <?php if(get_field('enable_video') === true): ?>
+    <?php if($enable_video === true): ?>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-11 col-lg-10">
                     <div class="video">
-                        <?= get_field('video'); ?>
+                        <?= $video; ?>
                     </div>
                 </div>
             </div>

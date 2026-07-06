@@ -49,6 +49,82 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_home_banner": {
+                    "key": "layout_home_banner",
+                    "name": "home_banner",
+                    "label": "Home - Banner (Template Home)",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_flex_clone_home_banner_0",
+                            "label": "Add Banner",
+                            "name": "add_banner",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_66eb698e81614"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_flex_clone_home_banner_1",
+                            "label": "Enable video",
+                            "name": "enable_video",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_67d86ae0aefa6"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_flex_clone_home_banner_2",
+                            "label": "Video",
+                            "name": "video",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_67d86af9aefa7"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_home_v2_after_banner": {
                     "key": "layout_home_v2_after_banner",
                     "name": "home_v2_after_banner",
