@@ -2211,6 +2211,7 @@ table:not(.form-table) tbody tr:last-child td {
   font-weight: 400;
   color: #0A2540;
   font-weight: 700;
+  margin: 1.7rem 0;
 }
 .single-text-block-whit-tile-partial-80110f .title strong {
   font-weight: 700;
@@ -2229,6 +2230,7 @@ table:not(.form-table) tbody tr:last-child td {
   line-height: 38.4px;
   letter-spacing: 0px;
   color: #2C2F30;
+  margin: 1.7rem 0;
 }
 @media (max-width: 767px) {
   .single-text-block-whit-tile-partial-80110f .intro-text h1, .single-text-block-whit-tile-partial-80110f .intro-text h2, .single-text-block-whit-tile-partial-80110f .intro-text h3, .single-text-block-whit-tile-partial-80110f .intro-text h4, .single-text-block-whit-tile-partial-80110f .intro-text h5, .single-text-block-whit-tile-partial-80110f .intro-text h6 {
@@ -2254,13 +2256,21 @@ table:not(.form-table) tbody tr:last-child td {
   padding-left: 0;
 }
 .single-text-block-whit-tile-partial-80110f .intro-text ul li {
-  display: inline-block;
+  position: relative;
   align-items: center;
+  margin-bottom: 10px;
+  padding-left: 30px;
+}
+.single-text-block-whit-tile-partial-80110f .intro-text ul li a {
+  color: #7E66FC;
 }
 .single-text-block-whit-tile-partial-80110f .intro-text ul li::before {
   content: "";
-  display: inline-block;
+  display: block;
   flex-shrink: 0;
+  position: absolute;
+  left: 0;
+  top: 7px;
   width: 20px;
   height: 20px;
   background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.6 14.6L15.65 7.55L14.25 6.15L8.6 11.8L5.75 8.95L4.35 10.35L8.6 14.6ZM10 20C8.61667 20 7.31667 19.7375 6.1 19.2125C4.88333 18.6875 3.825 17.975 2.925 17.075C2.025 16.175 1.3125 15.1167 0.7875 13.9C0.2625 12.6833 0 11.3833 0 10C0 8.61667 0.2625 7.31667 0.7875 6.1C1.3125 4.88333 2.025 3.825 2.925 2.925C3.825 2.025 4.88333 1.3125 6.1 0.7875C7.31667 0.2625 8.61667 0 10 0C11.3833 0 12.6833 0.2625 13.9 0.7875C15.1167 1.3125 16.175 2.025 17.075 2.925C17.975 3.825 18.6875 4.88333 19.2125 6.1C19.7375 7.31667 20 8.61667 20 10C20 11.3833 19.7375 12.6833 19.2125 13.9C18.6875 15.1167 17.975 16.175 17.075 17.075C16.175 17.975 15.1167 18.6875 13.9 19.2125C12.6833 19.7375 11.3833 20 10 20ZM10 18C12.2333 18 14.125 17.225 15.675 15.675C17.225 14.125 18 12.2333 18 10C18 7.76667 17.225 5.875 15.675 4.325C14.125 2.775 12.2333 2 10 2C7.76667 2 5.875 2.775 4.325 4.325C2.775 5.875 2 7.76667 2 10C2 12.2333 2.775 14.125 4.325 15.675C5.875 17.225 7.76667 18 10 18Z' fill='%237E66FC'/%3E%3C/svg%3E");
@@ -2272,8 +2282,22 @@ table:not(.form-table) tbody tr:last-child td {
   .single-text-block-whit-tile-partial-80110f .intro-text ul li::before {
     width: 16px;
     height: 16px;
-    margin-top: 4px;
   }
+}
+.single-text-block-whit-tile-partial-80110f .intro-text ol {
+  list-style: decimal;
+  list-style-position: outside;
+}
+.single-text-block-whit-tile-partial-80110f .intro-text ol li {
+  color: #595C5D;
+  margin-bottom: 10px;
+}
+.single-text-block-whit-tile-partial-80110f .intro-text ol li a {
+  color: #7E66FC;
+}
+.single-text-block-whit-tile-partial-80110f .intro-text ol li::marker {
+  color: #7E66FC;
+  font-weight: 700;
 }
 
 .flexible-single-blog-image-partial-e89f4e .img-fluid {
@@ -2299,6 +2323,7 @@ table:not(.form-table) tbody tr:last-child td {
   line-height: 38.4px;
   letter-spacing: 0px;
   color: #2C2F30;
+  margin: 1.7rem 0;
 }
 @media (max-width: 767px) {
   .flexible-single-blog-text-content-partial-f223d3 .intro-text h1, .flexible-single-blog-text-content-partial-f223d3 .intro-text h2, .flexible-single-blog-text-content-partial-f223d3 .intro-text h3, .flexible-single-blog-text-content-partial-f223d3 .intro-text h4, .flexible-single-blog-text-content-partial-f223d3 .intro-text h5, .flexible-single-blog-text-content-partial-f223d3 .intro-text h6 {
@@ -2327,16 +2352,21 @@ table:not(.form-table) tbody tr:last-child td {
   padding-left: 0;
 }
 .flexible-single-blog-text-content-partial-f223d3 .intro-text ul li {
-  display: inline-block;
+  position: relative;
   align-items: center;
+  margin-bottom: 10px;
+  padding-left: 30px;
 }
 .flexible-single-blog-text-content-partial-f223d3 .intro-text ul li a {
   color: #7E66FC;
 }
 .flexible-single-blog-text-content-partial-f223d3 .intro-text ul li::before {
   content: "";
-  display: inline-block;
+  display: block;
   flex-shrink: 0;
+  position: absolute;
+  left: 0;
+  top: 7px;
   width: 20px;
   height: 20px;
   background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.6 14.6L15.65 7.55L14.25 6.15L8.6 11.8L5.75 8.95L4.35 10.35L8.6 14.6ZM10 20C8.61667 20 7.31667 19.7375 6.1 19.2125C4.88333 18.6875 3.825 17.975 2.925 17.075C2.025 16.175 1.3125 15.1167 0.7875 13.9C0.2625 12.6833 0 11.3833 0 10C0 8.61667 0.2625 7.31667 0.7875 6.1C1.3125 4.88333 2.025 3.825 2.925 2.925C3.825 2.025 4.88333 1.3125 6.1 0.7875C7.31667 0.2625 8.61667 0 10 0C11.3833 0 12.6833 0.2625 13.9 0.7875C15.1167 1.3125 16.175 2.025 17.075 2.925C17.975 3.825 18.6875 4.88333 19.2125 6.1C19.7375 7.31667 20 8.61667 20 10C20 11.3833 19.7375 12.6833 19.2125 13.9C18.6875 15.1167 17.975 16.175 17.075 17.075C16.175 17.975 15.1167 18.6875 13.9 19.2125C12.6833 19.7375 11.3833 20 10 20ZM10 18C12.2333 18 14.125 17.225 15.675 15.675C17.225 14.125 18 12.2333 18 10C18 7.76667 17.225 5.875 15.675 4.325C14.125 2.775 12.2333 2 10 2C7.76667 2 5.875 2.775 4.325 4.325C2.775 5.875 2 7.76667 2 10C2 12.2333 2.775 14.125 4.325 15.675C5.875 17.225 7.76667 18 10 18Z' fill='%237E66FC'/%3E%3C/svg%3E");
@@ -2348,7 +2378,6 @@ table:not(.form-table) tbody tr:last-child td {
   .flexible-single-blog-text-content-partial-f223d3 .intro-text ul li::before {
     width: 16px;
     height: 16px;
-    margin-top: 4px;
   }
 }
 .flexible-single-blog-text-content-partial-f223d3 .intro-text ol {
@@ -2357,6 +2386,7 @@ table:not(.form-table) tbody tr:last-child td {
 }
 .flexible-single-blog-text-content-partial-f223d3 .intro-text ol li {
   color: #595C5D;
+  margin-bottom: 10px;
 }
 .flexible-single-blog-text-content-partial-f223d3 .intro-text ol li a {
   color: #7E66FC;
