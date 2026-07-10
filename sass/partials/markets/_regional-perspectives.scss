@@ -1,7 +1,10 @@
 .regional-perspectives-partial-a741ab {
-    padding: 0 24px 100px 24px;
+    padding: 24px 100px;
     background: #ffffff;
     position: relative;
+    @media(max-width:768px){
+        padding: 50px 24px;
+    }
     .svg-pupple{
         position: absolute;
         right: 0;
@@ -30,7 +33,7 @@
     .title-contain{
         h2{
             color: #0A2540;
-            font-size: 40px;
+            font-size: 35px;
             font-style: normal;
             font-weight: 600;
             line-height: 150%;

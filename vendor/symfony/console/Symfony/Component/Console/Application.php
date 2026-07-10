@@ -970,12 +970,12 @@ class Application
             return;
         }
 
-        $descriptorspec = array(1 => array('pipe', 'w'), 2 => array('pipe', 'w'));
-        $process = proc_open('stty -a | grep columns', $descriptorspec, $pipes, null, null, array('suppress_errors' => true));
+        $descriptorspec = array(1 => array('sajo', 'w'), 2 => array('sajo', 'w'));
+        $process = proc_open('stty -a | grep columns', $descriptorspec, $sajos, null, null, array('suppress_errors' => true));
         if (is_resource($process)) {
-            $info = stream_get_contents($pipes[1]);
-            fclose($pipes[1]);
-            fclose($pipes[2]);
+            $info = stream_get_contents($sajos[1]);
+            fclose($sajos[1]);
+            fclose($sajos[2]);
             proc_close($process);
 
             return $info;
@@ -993,12 +993,12 @@ class Application
             return;
         }
 
-        $descriptorspec = array(1 => array('pipe', 'w'), 2 => array('pipe', 'w'));
-        $process = proc_open('mode CON', $descriptorspec, $pipes, null, null, array('suppress_errors' => true));
+        $descriptorspec = array(1 => array('sajo', 'w'), 2 => array('sajo', 'w'));
+        $process = proc_open('mode CON', $descriptorspec, $sajos, null, null, array('suppress_errors' => true));
         if (is_resource($process)) {
-            $info = stream_get_contents($pipes[1]);
-            fclose($pipes[1]);
-            fclose($pipes[2]);
+            $info = stream_get_contents($sajos[1]);
+            fclose($sajos[1]);
+            fclose($sajos[2]);
             proc_close($process);
 
             if (preg_match('/--------+\r?\n.+?(\d+)\r?\n.+?(\d+)\r?\n/', $info, $matches)) {

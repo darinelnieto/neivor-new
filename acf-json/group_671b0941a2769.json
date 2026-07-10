@@ -166,7 +166,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/financial-services-template.php"
+                "value": "templates/financial-services-template.php"
             }
         ]
     ],

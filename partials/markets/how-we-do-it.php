@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "markets-how-we-do-it-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/markets-how-we-do-it.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 
@@ -30,7 +40,11 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <div class="col-12 col-md-5">
                     <h2 class="title d-block d-md-none"><?= $how_we_do_it['title']; ?></h2>
                     <div class="image-contain mb-4 mb-md-0">
-                        <img src="<?= $how_we_do_it['image']['url']; ?>" alt="<?= $how_we_do_it['image']['title']; ?>">
+                        <?= wp_get_attachment_image($how_we_do_it['image']['ID'] ?? '', 'large', false, array(
+                            'class' => 'full-image',
+                            'loading' => 'lazy',
+                            'decoding' => 'async'
+                        )) ?>
                     </div>
                 </div>
             </div>
@@ -47,7 +61,11 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <?php if($item['step_by_step']): foreach($item['step_by_step'] as $step): ?>
                     <div class="row step p-0">
                         <div class="col-12 col-md-<?= $step['image_colum_size_md']; ?> mb-4 mb-md-0">
-                            <img src="<?= $step['image']['url']; ?>" alt="<?= $step['image']['title']; ?>">
+                            <?= wp_get_attachment_image($step['image']['ID'] ?? '', 'large', false, array(
+                                'class' => 'full-image',
+                                'loading' => 'lazy',
+                                'decoding' => 'async'
+                            )); ?>
                         </div>
                         <div class="col-12 col-md-<?= $step['text_colum_size_md']; ?>">
                             <?php if($step['before_title']): ?>

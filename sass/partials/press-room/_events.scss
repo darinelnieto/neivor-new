@@ -28,7 +28,7 @@
     .events-contain{
         .events-slide{
             opacity: 0;
-            transition: .2s;
+            transition: opacity .2s ease;
             position: relative;
             .owl-stage-outer{
                 position: relative;

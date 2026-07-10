@@ -20,4 +20,3 @@ get_header();
     <?php get_template_part('partials/globals/blog'); ?>
 </main>
 <?php get_footer(); ?>
-                    

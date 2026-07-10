@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "financial-services-benefits-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/financial-services-benefits.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 
@@ -33,7 +43,11 @@ if(get_field('enable_benefits')):
             <div class="row benefit">
                 <div class="col-12 col-md-1">
                     <div class="icon-contain">
-                        <img src="<?= $item['icon']['url']; ?>" alt="<?= $item['icon']['title']; ?>">
+                        <?= wp_get_attachment_image($item['icon']['ID'] ?? '', 'large', false, array(
+                            'class' => 'full-image',
+                            'loading' => 'lazy',
+                            'decoding' => 'async'
+                        )) ?>
                     </div>
                 </div>
                 <div class="col-12 col-md-11">

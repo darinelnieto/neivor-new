@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "blog-filter-blog-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/blog-filter-blog.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 
@@ -12,8 +22,25 @@ $filter = get_field('filter_group');
 $size = get_terms(['taxonomy' => 'size_cat']);
 $segment = get_terms(['taxonomy' => 'segment_cat']);
 $zone = get_terms(['taxonomy' => 'zone_cat']);
+$current_size_label = get_bloginfo("language") == "en-US" ? 'Size' : 'Tamano';
+$current_segment_label = get_bloginfo("language") == "en-US" ? 'Product/Segment' : 'Producto/Segmento';
+$current_zone_label = get_bloginfo("language") == "en-US" ? 'Zone' : 'Zona';
+
+$queried_object = get_queried_object();
+if ($queried_object instanceof WP_Term) {
+    if ($queried_object->taxonomy === 'size_cat') {
+        $current_size_label = $queried_object->name;
+    }
+    if ($queried_object->taxonomy === 'segment_cat') {
+        $current_segment_label = $queried_object->name;
+    }
+    if ($queried_object->taxonomy === 'zone_cat') {
+        $current_zone_label = $queried_object->name;
+    }
+}
 ?>
 <section class="filter-blog-partial-0a1dca">
+    
     <div class="svg-top">
         <svg width="1440" height="148" viewBox="0 0 1440 148" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M180 11.1572C631.821 56.9782 976.136 74.0841 1261.01 67.8119C1545.89 61.5396 1563.72 134.768 1274.57 146.844C985.427 158.921 710.787 46.7969 177.663 61.6097C-355.461 76.4226 -271.822 -34.6639 180 11.1572Z" fill="url(#paint0_linear_3837_17083)" fill-opacity="0.2"/>
@@ -45,13 +72,13 @@ $zone = get_terms(['taxonomy' => 'zone_cat']);
                         <p><?= $filter['text_before_filter']; ?></p>
                     <?php endif; ?>
                     <div class="filter">
-                        <div class="row">
+                        <div class="row justify-content-center">
                             <?php if($size): ?>
-                                <div class="col-12 col-md-4 col-lg-3 mb-3 mb-lg-0">
+                                <div class="col-12 col-md-4 mb-3 mb-lg-0">
                                     <div class="size filter-item">
                                         <div class="open-filter">
                                             <span class="text">
-                                                <?php if(get_bloginfo("language") == "en-US"): ?>Size<?php else: ?>Tamaño<?php endif; ?>
+                                                <?= esc_html($current_size_label); ?>
                                             </span>
                                             <span class="svg">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -62,7 +89,7 @@ $zone = get_terms(['taxonomy' => 'zone_cat']);
                                         <div class="options">
                                             <ul>
                                                 <li>
-                                                    <a href="" class="this-option">
+                                                    <a href="#" class="this-option this-option--noop">
                                                         <span class="name">
                                                             <?php if(get_bloginfo("language") == "en-US"): ?>Size<?php else: ?>Tamaño<?php endif; ?>
                                                         </span>
@@ -70,7 +97,7 @@ $zone = get_terms(['taxonomy' => 'zone_cat']);
                                                 </li>
                                                 <?php foreach($size as $item): ?>
                                                     <li>
-                                                        <a href="<?= $item->slug; ?>" class="this-option">
+                                                        <a href="<?= esc_url(get_term_link($item)); ?>" class="this-option">
                                                             <span class="name"><?= $item->name; ?></span>
                                                         </a>
                                                     </li>
@@ -80,11 +107,11 @@ $zone = get_terms(['taxonomy' => 'zone_cat']);
                                     </div>
                                 </div>
                             <?php endif; if($segment): ?>
-                                <div class="col-12 col-md-4 col-lg-3 mb-3 mb-lg-0">
+                                <div class="col-12 col-md-4 mb-3 mb-lg-0">
                                     <div class="segment filter-item">
                                         <div class="open-filter">
                                             <span class="text">
-                                                <?php if(get_bloginfo("language") == "en-US"): ?>Product/Segment<?php else: ?>Producto/Segmento<?php endif; ?>
+                                                <?= esc_html($current_segment_label); ?>
                                             </span>
                                             <span class="svg">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -95,7 +122,7 @@ $zone = get_terms(['taxonomy' => 'zone_cat']);
                                         <div class="options">
                                             <ul>
                                                 <li>
-                                                    <a href="" class="this-option">
+                                                    <a href="#" class="this-option this-option--noop">
                                                         <span class="name">
                                                             <?php if(get_bloginfo("language") == "en-US"): ?>Product/Segment<?php else: ?>Producto/Segmento<?php endif; ?>
                                                         </span>
@@ -103,7 +130,7 @@ $zone = get_terms(['taxonomy' => 'zone_cat']);
                                                 </li>
                                                 <?php foreach($segment as $item): ?>
                                                     <li>
-                                                        <a href="<?= $item->slug; ?>" class="this-option">
+                                                        <a href="<?= esc_url(get_term_link($item)); ?>" class="this-option">
                                                             <span class="name"><?= $item->name; ?></span>
                                                         </a>
                                                     </li>
@@ -113,11 +140,11 @@ $zone = get_terms(['taxonomy' => 'zone_cat']);
                                     </div>
                                 </div>
                             <?php endif; if($zone): ?>
-                                <div class="col-12 col-md-4 col-lg-3 mb-3 mb-lg-0">
+                                <div class="col-12 col-md-4 mb-3 mb-lg-0">
                                     <div class="zone filter-item">
                                         <div class="open-filter">
                                             <span class="text">
-                                                <?php if(get_bloginfo("language") == "en-US"): ?>Zone<?php else: ?>Zona<?php endif; ?>
+                                                <?= esc_html($current_zone_label); ?>
                                             </span>
                                             <span class="svg">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -128,7 +155,7 @@ $zone = get_terms(['taxonomy' => 'zone_cat']);
                                         <div class="options">
                                             <ul>
                                                 <li>
-                                                    <a href="" class="this-option">
+                                                    <a href="#" class="this-option this-option--noop">
                                                         <span class="name">
                                                             <?php if(get_bloginfo("language") == "en-US"): ?>Zone<?php else: ?>Zona<?php endif; ?>
                                                         </span>
@@ -136,7 +163,7 @@ $zone = get_terms(['taxonomy' => 'zone_cat']);
                                                 </li>
                                                 <?php foreach($zone as $item): ?>
                                                     <li>
-                                                        <a href="<?= $item->slug; ?>" class="this-option">
+                                                        <a href="<?= esc_url(get_term_link($item)); ?>" class="this-option">
                                                             <span class="name"><?= $item->name; ?></span>
                                                         </a>
                                                     </li>
@@ -146,13 +173,6 @@ $zone = get_terms(['taxonomy' => 'zone_cat']);
                                     </div>
                                 </div>
                             <?php endif; ?>
-                            <div class="col-12 col-md-6 col-lg-3 offset-md-0 offset-lg-0">
-                                <button class="filter-init" onclick="apply_filter();">
-                                    <span class="text">
-                                        <?php if(get_bloginfo("language") == "en-US"): ?>Search<?php else: ?>Buscar<?php endif; ?>
-                                    </span>
-                                </button>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -160,10 +180,3 @@ $zone = get_terms(['taxonomy' => 'zone_cat']);
         </div>
     </div>
 </section>
-<script>
-    <?php if(get_bloginfo("language") == "en-US"): ?>
-        const rout = _dittoURL_ + "/en/wp-json/success-histories/list";
-    <?php else: ?>
-        const rout = _dittoURL_ + "/wp-json/success-histories/list";
-    <?php endif; ?>
-</script>        

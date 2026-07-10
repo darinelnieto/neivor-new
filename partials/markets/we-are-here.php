@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "markets-we-are-here-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/markets-we-are-here.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 
@@ -21,8 +31,16 @@ if(get_field('enable_we_are_here')):
                 <?php if($we_are_here['items']): foreach($we_are_here['items'] as $item): ?>
                     <div class="row item">
                         <div class="col-12 col-md-<?= $item['image_colum_size_md']; ?> mb-4 mb-md-0">
-                            <img src="<?= $item['image']['url']; ?>" alt="<?= $item['image']['title']; ?>" class="d-none d-md-block image">
-                            <img src="<?= $item['icon_movil']['url']; ?>" alt="<?= $item['icon_movil']['title']; ?>" class="d-block d-md-none icon">
+                            <?= wp_get_attachment_image($item['image']['ID'] ?? '', 'large', false, array(
+                                'class' => 'd-none d-md-block image',
+                                'loading' => 'lazy',
+                                'decoding' => 'async'
+                            )); ?>
+                            <?= wp_get_attachment_image($item['icon_movil']['ID'] ?? '', 'large', false, array(
+                                'class' => 'd-block d-md-none icon',
+                                'loading' => 'lazy',
+                                'decoding' => 'async'
+                            )); ?>
                         </div>
                         <div class="col-12 col-md-<?= $item['text_colum_size_md']; ?>">
                             <h4><?= $item['name']; ?></h4>

@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "about-recognitions-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/about-recognitions.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 
@@ -28,7 +38,11 @@ if($recognitions['recognitions_list']):
                     <?php foreach($recognitions['recognitions_list'] as $item): ?>
                         <div class="item">
                             <a href="<?= $item['link']['url']; ?>" target="<?= $item['link']['target']; ?>">
-                                <img src="<?= $item['image']['url']; ?>" alt="<?= $item['image']['title']; ?>">
+                                <?= wp_get_attachment_image($item['image']['ID'] ?? '', 'large', false, array(
+                                    'class' => 'full-image',
+                                    'loading' => 'lazy',
+                                    'decoding' => 'async'
+                                )) ?>
                                 <span><?= $item['link']['title']; ?></span>
                             </a>
                         </div>
@@ -49,27 +63,4 @@ if($recognitions['recognitions_list']):
         </svg>
     </div>
 </section>
-<script>
-    $('.recognitions-slide').owlCarousel({
-        autoplay:false,
-        loop:true,
-        nav:false,
-        dots:true,
-        margin:40,
-        responsive:{
-            0:{
-                items:1,
-                autoplay:true
-            },
-            768:{
-                items:2,
-                autoplay:true
-            },
-            991:{
-                items:3,
-                center:true
-            }
-        }
-    }).css({'opacity':1});
-</script>
 <?php endif; ?>      

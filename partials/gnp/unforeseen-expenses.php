@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "gnp-unforeseen-expenses-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/gnp-unforeseen-expenses.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 
@@ -33,14 +43,22 @@ if($items['items']):
             <div class="row item align-items-center">
                 <div class="col-12 col-md-6">
                     <h3 class="d-block d-md-none"><?= $item['title']; ?></h3>
-                    <img src="<?= $item['image']['url']; ?>" alt="<?= $item['image']['title']; ?>" class="feature-image">
+                    <?= wp_get_attachment_image($item['image']['ID'] ?? '', 'large', false, array(
+                        'class' => 'feature-image',
+                        'loading' => 'lazy',
+                        'decoding' => 'async'
+                    )); ?>
                 </div>
                 <div class="col-12 col-md-6">
                     <h3 class="d-none d-md-block"><?= $item['title']; ?></h3>
                     <?php if($item['content']): foreach($item['content']as $content): ?>
                     <div class="row align-items-center">
                             <div class="col-3 col-md-2">
-                                <img src="<?= $content['icon']['url']; ?>" alt="<?= $content['icon']['title']; ?>" class="icon">
+                                <?= wp_get_attachment_image($content['icon']['ID'] ?? '', 'large', false, array(
+                                    'class' => 'icon',
+                                    'loading' => 'lazy',
+                                    'decoding' => 'async'
+                                )); ?>
                             </div>
                             <div class="texts col-9 col-md-10">
                                 <h4><?= $content['name']; ?></h4>

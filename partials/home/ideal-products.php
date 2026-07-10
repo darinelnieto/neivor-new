@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "home-ideal-products-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/home-ideal-products.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 
@@ -21,11 +31,19 @@ if($ideal_product['enable_ideal_product'] === true):
                 <div class="col-12 col-md-6 col-lg-4 mb-4">
                     <div class="product-card">
                         <div class="image-contain">
-                            <img src="<?= $item['image']['url']; ?>" alt="<?= $item['image']['title']; ?>">
+                            <?= wp_get_attachment_image($item['image']['ID'] ?? '', 'large', false, array(
+                                'class' => 'full-image',
+                                'loading' => 'lazy',
+                                'decoding' => 'async'
+                            )); ?>
                         </div>
                         <div class="body-card">
                             <div class="title">
-                                <img src="<?= $item['icon']['url']; ?>" alt="<?= $item['icon']['title']; ?>">
+                                <?= wp_get_attachment_image($item['icon']['ID'] ?? '', 'large', false, array(
+                                    'class' => 'full-image',
+                                    'loading' => 'lazy',
+                                    'decoding' => 'async'
+                                )); ?>
                                 <h3><?= $item['name']; ?></h3>
                             </div>
                             <?php if($item['items']): ?>

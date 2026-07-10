@@ -1,19 +1,46 @@
-Ditto v1.0
-=====
+# Sajo Theme
 
-> Wordpress theme for developers with composer, nodejs and webpack pre configured.
+## Available Commands
 
-## Getting Started
+### Create Templates and Partials
 
-* Run php ditto theme:name to rename theme.
-* Add NMP packages and Composer packages to start your project.
-* Run npm run prod (for production), npm run dev (for development) or npm run watch (for watch mode) to start compile.
-* Run php ditto for more shortcuts.
+Create a new template:
+```bash
+php sajo make:template template_name
+```
+This creates:
+- `templates/template-name-template.php`
+- `sass/templates/_template-name-template.scss`
+- Imports in `sass/main.scss` using `@import`
 
-----
+Create a new partial:
+```bash
+php sajo make:partial partial_name
+```
+This creates:
+- `partials/partial_name.php` (with enqueued JS)
+- `js/partials/partial_name.js` (source file)
+- `js/partials-min/partial_name.min.js` (minified file)
+- `sass/partials/_partial_name.scss`
+- Imports in `sass/main.scss` using `@import`
 
-Ditto is released under the [MIT License](https://opensource.org/licenses/MIT).
+### Build Partial JavaScript
 
-A [PIPE:CODE](https://pipe-code.github.io/) Theme.
+Build a specific partial's JavaScript into minified version:
+```bash
+php sajo build:partial-js partial_name
+```
 
-© Ditto 2020
+Build all partials' JavaScript files:
+```bash
+php sajo build:partial-js
+```
+
+This compiles `.js` files from `js/partials/` into `.min.js` files in `js/partials-min/`.
+
+### Theme Commands
+
+Display theme name:
+```bash
+php sajo theme:name
+```

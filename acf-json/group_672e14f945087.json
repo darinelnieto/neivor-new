@@ -107,7 +107,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "<span class=\"purple\"><\/span>\r\n<span class=\"orange\"><\/span>",
+                    "default_value": "<span class=\"purple\"></span>\r\n<span class=\"orange\"></span>",
                     "maxlength": "",
                     "rows": 4,
                     "placeholder": "",
@@ -739,7 +739,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "<strong><\/strong>",
+                            "default_value": "<strong></strong>",
                             "maxlength": "",
                             "placeholder": "",
                             "prepend": "",
@@ -936,7 +936,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/press-room-template.php"
+                "value": "templates/press-room-template.php"
             }
         ]
     ],

@@ -1,9 +1,9 @@
 .generic-banner-partial-ec8c2e {
-    padding:100px 0 1rem 0;
+    padding:50px 0 1rem 0;
     position: relative;
     height: auto;
     @media(max-width:768px){
-        padding: 5rem 24px 4rem 24px;
+        padding: 1rem 0;
     }
     .svg{
         position: absolute;
@@ -133,11 +133,13 @@
                 .img-desktop{
                     max-width: 480px;
                     width: 100%;
+                    height: auto;
                     margin: 0 0 0 auto;
                 }
                 .img-movil{
                     max-width: 312px;
                     width: 100%;
+                    height: auto;
                     margin: 0;
                 }
             }

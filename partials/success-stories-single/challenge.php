@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "success-stories-single-challenge-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/success-stories-single-challenge.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 
@@ -8,7 +18,10 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
-$challenge = get_field('challenge_group');
+$challenge = get_sub_field('challenge_group');
+if ( ! $challenge ) {
+    $challenge = get_field('challenge_group');
+}
 ?>
 <section class="challenge-partial-681333">
     <div class="container">
@@ -22,7 +35,11 @@ $challenge = get_field('challenge_group');
                 <div class="row challenge-list">
                     <div class="col-12 col-md-1">
                         <div class="icon-contain">
-                            <img src="<?= $item['icon']['url']; ?>" alt="<?= $item['icon']['title']; ?>">
+                            <?= wp_get_attachment_image($item['icon']['ID'] ?? '', 'large', false, array(
+                                'class' => 'full-image',
+                                'loading' => 'lazy',
+                                'decoding' => 'async'
+                            )); ?>
                         </div>
                     </div>
                     <div class="col-12 col-md-11">

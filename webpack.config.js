@@ -11,15 +11,22 @@ module.exports = {
         rules: [
             {
                 test: /\.scss$/,
-                loader: [
-                    {loader: MiniCssExtractPlugin.loader},
-                    {loader: 'css-loader'},
-                    {loader: 'sass-loader'}
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader'
                 ]
             },
             {
                 test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
-                loader: 'url-loader?limit=100000'
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 100000
+                        }
+                    }
+                ]
             }
         ]
     },
@@ -29,4 +36,4 @@ module.exports = {
             filename: '../css/main.bundle.css'
         })
     ]
-}
+};

@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^php remigrate-via-sajo\\.php$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

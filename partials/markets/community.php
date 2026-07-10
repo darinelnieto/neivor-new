@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "markets-community-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/markets-community.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 
@@ -22,7 +32,11 @@ if(get_field('enable_community')):
                             <div class="col-12 col-md-6 col-lg-4 mb-4">
                                 <div class="community-card">
                                     <div class="image-contain">
-                                        <img src="<?= $item['image']['url']; ?>" alt="<?= $item['image']['title']; ?>">
+                                        <?= wp_get_attachment_image($item['image']['ID'] ?? '', 'large', false, array(
+                                            'class' => 'full-image',
+                                            'loading' => 'lazy',
+                                            'decoding' => 'async'
+                                        )) ?>
                                     </div>
                                     <div class="body-item">
                                         <div class="description">

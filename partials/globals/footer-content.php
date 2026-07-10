@@ -1,4 +1,15 @@
 <?php
+$script_handle = "globals-footer-content-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/globals-footer-content.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
+<?php
 /**
  *
  * Partial Name: footer-content

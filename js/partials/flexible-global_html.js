@@ -1,0 +1,1 @@
+// JS for partial: flexible-global_html\n

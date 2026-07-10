@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "financial-services-how-to-hire-it-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/financial-services-how-to-hire-it.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 

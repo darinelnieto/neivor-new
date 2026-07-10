@@ -1,0 +1,1 @@
+// JS for partial: flexible-autor_hero\n

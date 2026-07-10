@@ -1,8 +1,37 @@
 @import 'default_theme';
 
-// Ditto include zone (don't delete anything below)
-// #DittoPartials
-@import "./partials/globals/new-nav";
+// sajo include zone (don't delete anything below)
+// #SajoPartials
+@import "./partials/flexible/migas_de_pan";
+@import "./partials/flexible/single_blog_content_table";
+@import "./partials/globals/nav-menu-movil";
+@import "./partials/globals/footer";
+@import "./partials/flexible/functionality_tabs";
+@import "./partials/flexible/benefits_left_image_and_text_right";
+@import "./partials/flexible/benefits_list_two_column";
+@import "./partials/flexible/benefits_two_column";
+@import "./partials/flexible/benefits_time_line";
+@import "./partials/flexible/single_blog-suscription_form";
+@import "./partials/flexible/single_blog-author_card";
+@import "./partials/flexible/autor_appearances";
+@import "./partials/flexible/autor_related_post";
+@import "./partials/flexible/autor_hero";
+@import "./partials/flexible/single_related_post";
+@import "./partials/flexible/single_video_link_or_popup";
+@import "./partials/flexible/flexible_card_border_left_purple";
+@import "./partials/flexible/single_text_block_whit_tile";
+@import "./partials/flexible/single_blog_image";
+@import "./partials/flexible/single_blog_text_content";
+@import "./partials/flexible/blog-listing";
+@import "./partials/flexible/blog_get_most_popular";
+@import "./partials/flexible/blog_category_cards";
+@import "./partials/flexible/blog_hero";
+@import "./partials/flexible/flexible_cards_whit_five_items";
+@import "./partials/flexible/flexible_faqs";
+@import "./partials/flexible/markets_voices-by-size";
+@import "./partials/flexible/slide-cards-with-gradient";
+@import "./partials/flexible/how-we-do-it";
+@import "./partials/flexible/flexible_three_col_cards";
 @import "./partials/success-stories-single/custom-part";
 @import "./partials/success-stories-single/related-post";
 @import "./partials/success-stories-single/feature-person";

@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "home-after-banner-section-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/home-after-banner-section.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 
@@ -33,7 +43,11 @@ if($after_banner['enable_conten_after_banner'] === true):
                             </filter>
                         </defs>
                     </svg>
-                    <img src="<?= $after_banner['icon']['url']; ?>" alt="<?= $after_banner['icon']['title']; ?>">
+                    <?= wp_get_attachment_image($after_banner['icon']['ID'] ?? '', 'large', false, array(
+                        'class' => 'full-image',
+                        'loading' => 'lazy',
+                        'decoding' => 'async' 
+                    )); ?>
                 </div>
             </div>
             <div class="col-12 col-md-10">

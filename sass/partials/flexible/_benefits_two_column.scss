@@ -1,0 +1,42 @@
+.benefits-two-column-partial-24fbab {
+    background: #ffffff;
+    padding: 50px 0;
+    .title{
+        @include h2-size;
+        margin: 0;
+    }
+    .benefit{
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+        img{
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+        .texts{
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            h3{
+                font-weight: 600;
+                font-size: 25px;
+                line-height: 150%;
+                letter-spacing: 0.1px;
+                color: #000000;
+                margin: 0;
+                span{
+                    color: #7D65FE;
+                }
+            }
+            p{
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 150%;
+                letter-spacing: 0.1px;
+                color: #637281;
+                margin: 0;
+            }
+        }
+    }
+}

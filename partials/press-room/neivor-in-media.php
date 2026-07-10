@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "press-room-neivor-in-media-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/press-room-neivor-in-media.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 
@@ -34,7 +44,11 @@ if($content['logos']):
                     <?php foreach($content['logos'] as $logo): ?>
                         <div class="col-6 col-md-4 col-lg-3">
                             <div class="img-contain">
-                                <img src="<?= $logo['logo']['url']; ?>" alt="<?= $logo['logo']['title']; ?>">
+                                <?= wp_get_attachment_image($logo['logo']['ID'] ?? '', 'large', false, array(
+                                    'class' => 'full-image',
+                                    'loading' => 'lazy',
+                                    'decoding' => 'async'
+                                )); ?>
                             </div>
                         </div>
                     <?php endforeach; ?>

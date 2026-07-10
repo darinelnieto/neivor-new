@@ -1,4 +1,15 @@
 <?php
+$script_handle = "about-about-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/about-about.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
+<?php
 /**
  * 
  * Partial Name: about
@@ -21,7 +32,11 @@ if($about['title'] && $about['description']):
             </div>
             <div class="col-12 col-md-5">
                 <div class="image-contain">
-                    <img src="<?= $about['image']['url']; ?>" alt="<?= $about['image']['title']; ?>">
+                    <?= wp_get_attachment_image($about['image']['ID'] ?? '', 'large', false, array(
+                        'class' => 'full-image',
+                        'loading' => 'lazy',
+                        'decoding' => 'async'
+                    )); ?>
                 </div>
             </div>
         </div>

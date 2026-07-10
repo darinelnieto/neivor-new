@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "markets-protect-your-condo-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/markets-protect-your-condo.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 

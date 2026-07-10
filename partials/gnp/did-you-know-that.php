@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "gnp-did-you-know-that-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/gnp-did-you-know-that.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 
@@ -32,7 +42,11 @@ if($know_that['items']):
                 <div class="col-12 col-sm-6 col-lg-4 mb-4">
                     <div class="card-content">
                         <div class="image-contain">
-                            <img src="<?= $item['icon']['url']; ?>" alt="<?= $item['icon']['url']; ?>">
+                            <?= wp_get_attachment_image($item['icon']['ID'] ?? '', 'large', false, array(
+                                'class' => 'icon-image',
+                                'loading' => 'lazy',
+                                'decoding' => 'async'
+                            )); ?>
                         </div>
                         <div class="text-contain">
                             <h4><?= $item['title']; ?></h4>

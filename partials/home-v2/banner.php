@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "home-v2-banner-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/home-v2-banner.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 
@@ -9,14 +19,26 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 $banner = get_field('add_banner');
+$show_breadcrumbs = ! empty($banner['show_breadcrumbs']);
 ?>
 <section class="new-banner-partial-4607af">
     <div class="container">
         <div class="row">
             <!-- Hero Texts -->
             <div class="col-12 col-md-6">
+                <?php if($show_breadcrumbs && function_exists('sajo_render_banner_breadcrumbs')): ?>
+                    <?php sajo_render_banner_breadcrumbs(); ?>
+                <?php endif; ?>
                 <h1 class="title"><?= $banner['title'] ?? 'Neivor'; ?></h1>
-                <?php if(!empty($banner['statistics'])): ?>
+                <?php if($banner['enable_call_to_action'] == true): $cta = $banner['call_to_action']; ?>
+                    <a href="<?= $cta['link']['url'] ?? '#'; ?>" target="<?= $cta['link']['target'] ?? '_self' ?>" class="call-to-action">
+                        <?= wp_get_attachment_image($cta['cta_image'], 'medium', false, array(
+                            'class' => 'cta-image',
+                            'fetchpriority' => 'high',
+                            'loading' => 'eager',
+                        )); ?>
+                    </a>
+                <?php endif; if(!empty($banner['statistics'])): ?>
                     <div class="statistics d-none d-md-flex">
                         <?php foreach($banner['statistics'] as $stat): ?>
                             <div class="stat">
@@ -36,12 +58,9 @@ $banner = get_field('add_banner');
             <div class="col-12 col-md-6">
                 <div class="image-contain">
                     <?= wp_get_attachment_image($banner['main_image'], 'full', false, array(
-                        'class' => 'hero-image d-none d-md-block',
+                        'class' => 'hero-image',
                         'fetchpriority' => 'high',
-                    )) ?? ''; ?>
-                    <?= wp_get_attachment_image($banner['movil_image'], 'full', false, array(
-                        'class' => 'hero-image d-block d-md-none',
-                        'fetchpriority' => 'high',
+                        'loading' => 'eager'
                     )) ?? ''; ?>
                     <?php if(!empty($banner['overly_image'])): $overly = $banner['overly_image']; ?>
                         <div class="overly">
@@ -51,6 +70,7 @@ $banner = get_field('add_banner');
                                         <?= wp_get_attachment_image($overly['icon'], 'full', false, array(
                                             'class' => 'overly-icon',
                                             'fetchpriority' => 'high',
+                                            'loading' => 'eager'
                                         )) ?? ''; ?>
                                     </div>
                                     <div class="texts">

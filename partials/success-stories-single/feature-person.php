@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "success-stories-single-feature-person-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/success-stories-single-feature-person.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 
@@ -8,7 +18,10 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
-$feature = get_field('feature_person_group');
+$feature = get_sub_field('feature_person_group');
+if ( ! $feature ) {
+    $feature = get_field('feature_person_group');
+}
 ?>
 <section class="feature-person-partial-497490">
     <div class="svg-right d-none d-md-block">
@@ -21,7 +34,11 @@ $feature = get_field('feature_person_group');
             <?php if($feature['feature_image']): ?>
                 <div class="col-12 col-md-5 mb-4 mb-md-0">
                     <div class="image-contain">
-                        <img src="<?= $feature['feature_image']['url']; ?>" alt="<?= $feature['feature_image']['title']; ?>" class="image">
+                        <?= wp_get_attachment_image($feature['feature_image']['ID'] ?? '', 'large', false, array(
+                            'class' => 'image',
+                            'loading' => 'lazy',
+                            'decoding' => 'async'
+                        )); ?>
                     </div>
                 </div>
             <?php endif; ?>

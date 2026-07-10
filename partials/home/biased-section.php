@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "home-biased-section-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/home-biased-section.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 

@@ -5,9 +5,9 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-use Ditto\Functions;
+use Sajo\Functions;
 
-require_once('ditto-functions.php');
+require_once('sajo-functions.php');
 
 class ThemeNameCommand extends Command {
     protected $commandName = 'theme:name';

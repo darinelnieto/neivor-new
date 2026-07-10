@@ -10,13 +10,15 @@
         "category":[],
         "size_cat":[],
         "segment_cat":[],
-        "zone_cat":[]
+        "zone_cat":[],
+        "autor":[]
     },
     "admin_pages":[
         "options-theme_page_acf-options-header",
         "toplevel_page_acf-options-footer",
         "options-theme_page_acf-options-news",
         "options-theme_page_acf-options-allies",
-        "options-theme_page_acf-options-how-to-hire-it"
+        "options-theme_page_acf-options-how-to-hire-it",
+        "options-theme_page_acf-options-suscription"
     ]
 }

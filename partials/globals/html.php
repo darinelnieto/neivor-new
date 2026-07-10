@@ -1,4 +1,15 @@
 <?php
+$script_handle = "globals-html-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/globals-html.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
+<?php
 /**
  *
  * Partial Name: html-partial

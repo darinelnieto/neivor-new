@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "home-allies-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/home-allies.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 
@@ -19,7 +29,11 @@ if($allies):
             </div>
             <?php if($allies['allies_list']): foreach($allies['allies_list'] as $item): ?>
                 <div class="col-6 col-md-3 mb-4 text-center">
-                    <img src="<?= $item['logo']['url']; ?>" alt="<?= $item['logo']['title']; ?>">
+                    <?= wp_get_attachment_image($item['logo']['ID'] ?? '', 'large', false, array(
+                        'class' => 'full-image',
+                        'loading' => 'lazy',
+                        'decoding' => 'async'
+                    )) ?>
                 </div>
             <?php endforeach; endif; ?>
         </div>

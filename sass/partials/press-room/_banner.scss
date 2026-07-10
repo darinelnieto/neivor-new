@@ -12,7 +12,7 @@
     }
     .banner-slide{
         opacity: 0;
-        transition: .2s;
+        transition: opacity .2s ease;
         .item{
             height: 660px;
             img{

@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "about-we-are-the-ally-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/about-we-are-the-ally.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 
@@ -20,7 +30,11 @@ if($allies['allies_list']):
                     <?php foreach($allies['allies_list'] as $item): ?>
                         <div class="ally">
                             <div class="logo">
-                                <img src="<?= $item['logo']['url']; ?>" alt="<?= $item['logo']['title']; ?>">
+                                <?= wp_get_attachment_image($item['logo']['ID'] ?? '', 'large', false, array(
+                                    'class' => 'full-image',
+                                    'loading' => 'lazy',
+                                    'decoding' => 'async'
+                                )) ?>
                             </div>
                             <div class="description-contain">
                                 <p><?= $item['description']; ?></p>

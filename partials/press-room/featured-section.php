@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "press-room-featured-section-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/press-room-featured-section.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 
@@ -23,11 +33,19 @@ if($highlights):
         <?php foreach($highlights as $item): ?>
             <div class="item">
                 <div class="logo-contain">
-                    <img src="<?= $item['logo']['url']; ?>" alt="<?= $item['logo']['title']; ?>">
+                    <?= wp_get_attachment_image($item['logo']['ID'] ?? '', 'large', false, array(
+                        'class' => 'full-image',
+                        'loading' => 'lazy',
+                        'decoding' => 'async'
+                    )); ?>
                 </div>
                 <div class="card-content">
                     <div class="image-contain">
-                        <img src="<?= $item['feature_image']['url']; ?>" alt="<?= $item['feature_image']['title']; ?>">
+                        <?= wp_get_attachment_image($item['feature_image']['ID'] ?? '', 'large', false, array(
+                            'class' => 'full-image',
+                            'loading' => 'lazy',
+                            'decoding' => 'async'
+                        )); ?>
                     </div>
                     <div class="text-contain">
                         <div class="description-content">
@@ -56,24 +74,4 @@ if($highlights):
         <?php endforeach; ?>
     </div>
 </section>
-<script>
-    $('.highlights-slide').owlCarousel({
-        autoplay:false,
-        loop:true,
-        margin:0,
-        dots:true,
-        nav:false,
-        responsive:{
-            0:{
-                items:1,
-                margin:10
-            },
-            768:{
-                items:1.3,
-                center:true
-            }
-        }
-
-    }).css({'opacity':1});
-</script>
 <?php endif; ?>        

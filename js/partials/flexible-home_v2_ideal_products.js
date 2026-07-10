@@ -1,0 +1,1 @@
+// JS for partial: flexible-home_v2_ideal_products\n

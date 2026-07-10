@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "financial-services-hs-form-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/financial-services-hs-form.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 

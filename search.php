@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 
-<main id="ditto-search">
+<main id="sajo-search">
 	<section>
 		<div class="container">
             <p>[Default search page]</p>

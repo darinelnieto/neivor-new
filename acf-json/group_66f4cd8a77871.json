@@ -519,6 +519,26 @@
             "new_lines": "br"
         },
         {
+            "key": "field_6a515619946f4",
+            "label": "Mostrar migas de pan",
+            "name": "show_breadcrumbs",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_66f61aa4019fb",
             "label": "Complement text color movil",
             "name": "complement_text_color_movil",
@@ -550,7 +570,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "<span><\/span>",
+            "default_value": "<span></span>",
             "maxlength": "",
             "rows": "",
             "placeholder": "",
@@ -694,7 +714,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "<a href=\"#\"> <i class=\"fa-solid fa-chevron-right\"><\/i><\/a>",
+            "default_value": "<a href=\"#\"> <i class=\"fa-solid fa-chevron-right\"></i></a>",
             "maxlength": "",
             "rows": 3,
             "placeholder": "",
@@ -906,14 +926,14 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/markets-template.php"
+                "value": "templates/markets-template.php"
             }
         ],
         [
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/financial-services-template.php"
+                "value": "templates/financial-services-template.php"
             }
         ]
     ],

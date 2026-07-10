@@ -366,7 +366,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "<strong><\/strong>",
+                    "default_value": "<strong></strong>",
                     "maxlength": "",
                     "placeholder": "",
                     "prepend": "",
@@ -420,7 +420,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/blog-template.php"
+                "value": "templates/blog-template.php"
             }
         ]
     ],

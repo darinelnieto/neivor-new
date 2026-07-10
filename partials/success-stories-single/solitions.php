@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "success-stories-single-solitions-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/success-stories-single-solitions.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 
@@ -8,7 +18,10 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
-$solutions = get_field('solutions_group');
+$solutions = get_sub_field('solutions_group');
+if ( ! $solutions ) {
+    $solutions = get_field('solutions_group');
+}
 if($solutions['solutions_list']):
 ?>
 <section class="solitions-partial-49241b">
@@ -22,7 +35,11 @@ if($solutions['solutions_list']):
             <div class="row">
                 <div class="col-12 col-md-6">
                     <div class="solution-image">
-                        <img src="<?= $solution['image']['url']; ?>" alt="<?= $solution['image']['title']; ?>">
+                        <?= wp_get_attachment_image($solution['image']['ID'] ?? '', 'large', false, array(
+                            'class' => 'full-image',
+                            'loading' => 'lazy',
+                            'decoding' => 'async'
+                        )); ?>
                     </div>
                 </div>
                 <?php if($solution['list']): ?>
@@ -31,7 +48,11 @@ if($solutions['solutions_list']):
                             <div class="row challenge-list">
                                 <div class="col-12 col-md-2">
                                     <div class="icon-contain">
-                                        <img src="<?= $item['icon']['url']; ?>" alt="<?= $item['icon']['title']; ?>">
+                                        <?= wp_get_attachment_image($item['icon']['ID'] ?? '', 'large', false, array(
+                                            'class' => 'icon-image',
+                                            'loading' => 'lazy',
+                                            'decoding' => 'async'
+                                        )); ?>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-10">

@@ -1,0 +1,24 @@
+$(document).ready(function () {
+    $('.blog-slide').owlCarousel({
+        autoplay:false,
+        loop:false,
+        nav:false,
+        dots:false,
+        margin:50,
+        responsive:{
+            0:{
+                items:1.2,
+                dots:true,
+                center:true,
+                margin:20
+            },
+            768:{
+                items:2,
+                margin:20
+            },
+            991:{
+                items:3
+            }
+        }
+    }).css({'opacity':1});
+});

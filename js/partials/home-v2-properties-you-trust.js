@@ -1,0 +1,1 @@
+// JS for partial: home-v2-properties-you-trust\n

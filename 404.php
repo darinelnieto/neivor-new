@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 
-<main id="ditto_404_error">
+<main id="sajo_404_error">
 	<section>
 		<div class="container">
 			<p>[404 Error]</p>

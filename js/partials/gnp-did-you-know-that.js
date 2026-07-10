@@ -1,0 +1,1 @@
+// JS for partial: gnp-did-you-know-that\n

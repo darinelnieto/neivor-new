@@ -1,0 +1,1 @@
+// JS for partial: flexible-functionality_tabs\n

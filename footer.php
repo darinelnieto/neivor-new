@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <footer id="footer-wrapper">
-    <?php get_template_part('partials/globals/footer-content'); ?>
+    <?php get_template_part('partials/globals/footer'); ?>
 </footer>
 
-</div> <!-- -Page container -->
+</div>
 
-<?php wp_footer(); ?> 
+<?php wp_footer(); ?>
 </body>
 </html>

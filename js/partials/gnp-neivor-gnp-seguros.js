@@ -1,0 +1,1 @@
+// JS for partial: gnp-neivor-gnp-seguros\n

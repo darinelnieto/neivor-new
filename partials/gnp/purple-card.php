@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "gnp-purple-card-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/gnp-purple-card.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 

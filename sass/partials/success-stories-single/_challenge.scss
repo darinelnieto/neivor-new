@@ -2,6 +2,10 @@
     background: rgba(246, 249, 252, 0.70);
     position: relative;
     padding: 60px 24px;
+    @media(max-width:768px){
+        padding-left: 0;
+        padding-right:0;
+    }
     h2{
         color: #0A2540;
         font-size: 40px;
@@ -23,6 +27,7 @@
             height: 66.045px;
             img{
                 width: 100%;
+                height: auto;
             }
             @media(max-width:500px){
                 width: 54px;

@@ -1,0 +1,94 @@
+.functionality-tabs-partial-c16ffb {
+    background: #fff;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    .title{
+        @include h2-size;
+        margin-bottom: 30px;
+    }
+    .tabs-content{
+        #myTab{
+            gap: 32px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ECE5FC;
+            @media(max-width:991px){
+                gap: 16px;
+            }
+            li{
+                button{
+                    padding: 0;
+                    padding-bottom: 20px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    justify-content: center;
+                    outline: none;
+                    border: none;
+                    background: transparent;
+                    font-weight:500;
+                    font-size: 16px;
+                    line-height: 24px;
+                    letter-spacing: 0px;
+                    color: rgba(72, 69, 85, 0.7);
+                    transition: all .2s ease;
+                }
+                button.active{
+                    border-bottom: 2px solid #7E66FC;
+                    color: #7E66FC;
+                    font-weight:700;
+                }
+            }
+        }
+        // Body
+        #myTabContent{
+            .top-content{
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                .info{
+                    @include p-size-18;
+                    p:last-child{
+                        margin-bottom: 0;
+                    }
+                }
+                .subtitle{
+                    @include h3-size;
+                    color: rgba(72, 69, 85, 0.6);
+                    margin-bottom: 0px;
+                    text-transform: uppercase;
+                }
+                .links{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                    padding: 0;
+                    margin: 0;
+                    list-style: none;
+                    li{
+                        a{
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            text-decoration: none;
+                            padding: 24px;
+                            border: 1px solid #ECE5FC;
+                            border-radius: 16px;
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 24px;
+                            letter-spacing: 0px;
+                            color: #484555;
+                            strong{
+                                font-weight: 700;
+                                font-size: 20px;
+                                line-height: 28px;
+                                letter-spacing: 0px;
+                                color: #1C1929;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

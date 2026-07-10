@@ -1,3 +1,13 @@
+<?php
+$script_handle = "home-v2-free-tools-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/home-v2-free-tools.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
 
 <?php
 /**
@@ -22,18 +32,22 @@ if ( ! empty( $ft['cards'] ) ) {
         <div class="ft-card">
             <?php if ( ! empty( $card['image'] ) ) : ?>
                 <div class="ft-card__image">
-                    <?= wp_get_attachment_image( $card['image'], 'medium_large', false, [ 'class' => 'ft-img' ] ); ?>
+                    <?= wp_get_attachment_image( $card['image'], 'medium_large', false, array(
+                        'class' => 'ft-img',
+                        'loading' => 'lazy',
+                        'decoding' => 'async'
+                    )); ?>
                 </div>
             <?php endif; ?>
             <div class="ft-card__body">
                 <?php if ( ! empty( $card['card_title'] ) ) : ?>
-                    <h3 class="ft-card__title"><?= esc_html( $card['card_title'] ); ?></h3>
+                    <h3 class="ft-card__title"><?= $card['card_title']; ?></h3>
                 <?php endif; ?>
                 <?php if ( ! empty( $card['card_description'] ) ) : ?>
-                    <p class="ft-card__desc"><?= esc_html( $card['card_description'] ); ?></p>
+                    <p class="ft-card__desc"><?= $card['card_description']; ?></p>
                 <?php endif; ?>
                 <a href="<?= esc_url( $link_url ); ?>" <?= $link_target; ?> class="ft-card__cta">
-                    <?= esc_html( $link_title ); ?>
+                    <?= $link_title; ?>
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7.10208 5.25H0V4.08333H7.10208L3.83542 0.816667L4.66667 0L9.33333 4.66667L4.66667 9.33333L3.83542 8.51667L7.10208 5.25Z" fill="#7E66FC"/>
                     </svg>
@@ -52,7 +66,7 @@ if ( ! empty( $ft['cards'] ) ) {
                 <div class="ft-header">
                     <h2><?= $ft['title']; ?></h2>
                     <?php if ( ! empty( $ft['subtitle'] ) ) : ?>
-                        <p class="ft-subtitle"><?= esc_html( $ft['subtitle'] ); ?></p>
+                        <p class="ft-subtitle"><?= $ft['subtitle']; ?></p>
                     <?php endif; ?>
                 </div>
             </div>
@@ -66,10 +80,3 @@ if ( ! empty( $ft['cards'] ) ) {
     </div>
 </section>
 <?php
-wp_enqueue_script(
-    'free-tools',
-    get_template_directory_uri() . '/js/partials/free-tools.js',
-    [ 'jquery', 'owl-carousel.js' ],
-    '1.0',
-    true
-);

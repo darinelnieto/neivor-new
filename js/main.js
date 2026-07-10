@@ -1,7 +1,7 @@
 import '../sass/main.scss'
 import $ from 'jquery';
 
-window.ditto = {
+window.sajo = {
     menu: (el) => {
         $(el).toggleClass('open');
     }

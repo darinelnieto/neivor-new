@@ -16,6 +16,7 @@
     .solution-image{
         img{
             width: 100%;
+            height: auto;
         }
         @media(max-width:768px){
             margin-bottom: 46px;
@@ -28,6 +29,7 @@
             height: 66.045px;
             img{
                 width: 100%;
+                height: auto;
             }
             @media(max-width:500px){
                 width: 54px;

@@ -12,8 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 
-<main id="ditto-index">
-	 
+<main id="sajo-index">
+	
 </main>
 
 <?php get_footer(); ?>

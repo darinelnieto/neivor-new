@@ -1,4 +1,15 @@
 <?php
+$script_handle = "home-v2-cta-banner-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/home-v2-cta-banner.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
+<?php
 /**
  * Partial Name: cta-banner
  */
@@ -15,17 +26,17 @@ $btn_target = ! empty( $cta['button']['target'] ) ? 'target="' . esc_attr( $cta[
     <div class="container">
         <div class="cta-banner__inner">
             <?php if ( ! empty( $cta['eyebrow'] ) ) : ?>
-                <p class="cta-banner__eyebrow"><?= esc_html( $cta['eyebrow'] ); ?></p>
+                <p class="cta-banner__eyebrow"><?= $cta['eyebrow']; ?></p>
             <?php endif; ?>
             <?php if ( ! empty( $cta['title'] ) ) : ?>
-                <h2 class="cta-banner__title"><?= wp_kses_post( $cta['title'] ); ?></h2>
+                <h2 class="cta-banner__title"><?= $cta['title'] ; ?></h2>
             <?php endif; ?>
             <?php if ( ! empty( $cta['subtitle'] ) ) : ?>
-                <p class="cta-banner__subtitle"><?= esc_html( $cta['subtitle'] ); ?></p>
+                <p class="cta-banner__subtitle"><?= $cta['subtitle']; ?></p>
             <?php endif; ?>
             <?php if ( ! empty( $cta['button'] ) ) : ?>
-                <a href="<?= esc_url( $btn_url ); ?>" <?= $btn_target; ?> class="cta-banner__btn">
-                    <?= esc_html( $btn_title ); ?>
+                <a href="<?= $btn_url; ?>" <?= $btn_target; ?> class="cta-banner__btn">
+                    <?= $btn_title; ?>
                 </a>
             <?php endif; ?>
         </div>

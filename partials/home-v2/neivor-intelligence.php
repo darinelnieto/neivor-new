@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "home-v2-neivor-intelligence-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/home-v2-neivor-intelligence.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  *
@@ -21,32 +31,34 @@ if ( empty( $ni ) || empty( $ni['enable'] ) ) return;
         <div class="ni-inner">
             <div class="ni-content">
                 <?php if ( ! empty( $ni['label'] ) ) : ?>
-                    <span class="ni-label"><?= esc_html( $ni['label'] ); ?></span>
+                    <span class="ni-label"><?= $ni['label']; ?></span>
                 <?php endif; ?>
 
                 <?php if ( ! empty( $ni['title_bold'] ) || ! empty( $ni['title_regular'] ) ) : ?>
                     <h2>
-                        <?php if ( ! empty( $ni['title_bold'] ) ) : ?><strong><?= esc_html( $ni['title_bold'] ); ?></strong><?php endif; ?>
-                        <?php if ( ! empty( $ni['title_regular'] ) ) : ?> <?= esc_html( $ni['title_regular'] ); ?><?php endif; ?>
+                        <?php if ( ! empty( $ni['title_bold'] ) ) : ?><strong><?= $ni['title_bold']; ?></strong><?php endif; ?>
+                        <?php if ( ! empty( $ni['title_regular'] ) ) : ?> <?= $ni['title_regular']; ?><?php endif; ?>
                     </h2>
                 <?php endif; ?>
 
                 <?php if ( ! empty( $ni['description'] ) ) : ?>
-                    <p><?= esc_html( $ni['description'] ); ?></p>
+                    <p><?= $ni['description']; ?></p>
                 <?php endif; ?>
 
                 <?php if ( ! empty( $ni['cta_link']['url'] ) ) : ?>
-                    <a href="<?= esc_url( $ni['cta_link']['url'] ); ?>"
-                       class="ni-cta"
-                       <?= ! empty( $ni['cta_link']['target'] ) ? 'target="' . esc_attr( $ni['cta_link']['target'] ) . '"' : ''; ?>>
-                        <?= esc_html( $ni['cta_link']['title'] ); ?> &rsaquo;
+                    <a href="<?= $ni['cta_link']['url']; ?>" class="ni-cta" target="<?= $ni['cta_link']['target'] ?? '_self' ?>">
+                        <?= $ni['cta_link']['title']; ?> &rsaquo;
                     </a>
                 <?php endif; ?>
             </div>
 
             <?php if ( ! empty( $ni['image'] ) ) : ?>
                 <div class="ni-media">
-                    <?= wp_get_attachment_image( $ni['image'], 'large', false, [ 'alt' => esc_attr( $ni['title_bold'] ?? '' ) ] ); ?>
+                    <?= wp_get_attachment_image( $ni['image'], 'large', false, array(
+                        'class' => 'full-image',
+                        'loading' => 'lazy',
+                        'decoding' => 'async'
+                    )); ?>
 
                     <?php if ( ! empty( $ni['pill_text_regular'] ) || ! empty( $ni['pill_text_colored'] ) ) :
                         $pill_link = $ni['pill_link'] ?? [];
@@ -56,15 +68,19 @@ if ( empty( $ni ) || empty( $ni['enable'] ) ) return;
                                class="ni-pill"
                                <?= ! empty( $pill_link['target'] ) ? 'target="' . esc_attr( $pill_link['target'] ) . '"' : ''; ?>>
                                 <?php if ( ! empty( $ni['pill_text_regular'] ) ) : ?>
-                                    <span class="ni-pill__regular"><?= esc_html( $ni['pill_text_regular'] ); ?></span>
+                                    <span class="ni-pill__regular"><?= $ni['pill_text_regular']; ?></span>
                                 <?php endif; ?>
                                 <?php if ( ! empty( $ni['pill_text_colored'] ) ) : ?>
-                                    <span class="ni-pill__colored"><?= esc_html( $ni['pill_text_colored'] ); ?></span>
+                                    <span class="ni-pill__colored"><?= $ni['pill_text_colored']; ?></span>
                                 <?php endif; ?>
                             </a>
                             <?php if ( ! empty( $ni['pill_icon'] ) ) : ?>
                                 <span class="ni-pill__icon">
-                                    <?= wp_get_attachment_image( $ni['pill_icon'], 'thumbnail', false, [ 'alt' => '' ] ); ?>
+                                    <?= wp_get_attachment_image( $ni['pill_icon'], 'thumbnail', false, array(
+                                        'class' => 'full-image',
+                                        'loading' => 'lazy',
+                                        'decoding' => 'async'
+                                    )); ?>
                                 </span>
                             <?php endif; ?>
                         </div>

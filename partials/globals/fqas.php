@@ -1,4 +1,15 @@
 <?php
+$script_handle = "globals-fqas-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/globals-fqas.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
+<?php
 /**
  * 
  * Partial Name: fqas

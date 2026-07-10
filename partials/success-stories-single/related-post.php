@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "success-stories-single-related-post-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/success-stories-single-related-post.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 
@@ -8,6 +18,10 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
+$related_post_title = get_field('related_post_title');
+if ( ! $related_post_title ) {
+    $related_post_title = get_sub_field('related_post_title');
+}
 $id = get_the_id();
 $size = wp_get_post_terms(get_the_ID(), 'size_cat');
 $segment = wp_get_post_terms(get_the_ID(), 'segment_cat');
@@ -16,7 +30,9 @@ $args = [
     'post_type' => 'success_stories',
     'post_status' => 'publish',
     'posts_per_page' => 3,
-    'orderby' => 'rand'
+    'orderby' => 'rand',
+    'post__not_in' => [$id],
+    'tax_query' => ['relation' => 'OR'],
 ];
 if(!empty($size)){
     $args['tax_query'][] = [
@@ -39,6 +55,9 @@ if(!empty($zone)){
         'terms'    => $zone[0]->slug
     ];
 }
+if(count($args['tax_query']) === 1){
+    unset($args['tax_query']);
+}
 $related = new WP_Query($args);
 $related_post = [];
 if($related->have_posts()){
@@ -46,7 +65,7 @@ if($related->have_posts()){
         $related->the_post();
         array_push($related_post, array(
             'id' => get_the_id(),
-            'feature_image' => get_the_post_thumbnail_url(),
+            'feature_image' => get_the_post_thumbnail(),
             'permalink' => get_permalink(),
             'title' => get_the_title(),
             'short_description' => get_field('short_description'),
@@ -56,31 +75,31 @@ if($related->have_posts()){
     }
     wp_reset_postdata();
 }
-if($related_post):
+if(!empty($related_post)):
 ?>
 <section class="related-post-partial-af8a02">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2><?= get_field('related_post_title'); ?></h2>
+                <h2><?= $related_post_title ?? ''; ?></h2>
                 <div class="related-post row">
-                    <?php foreach($related_post as $post): if($id !== $post['id']): ?>
+                    <?php foreach($related_post as $post_item): ?>
                         <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                            <a href="<?= $post['permalink']; ?>" class="post-item item-lg">
+                            <a href="<?= $post_item['permalink']; ?>" class="post-item item-lg">
                                 <div class="card-post">
-                                    <img src="<?= $post['feature_image']; ?>" alt="<?= $post['title']; ?>" class="feature-img">
-                                    <span class="color" style="background:linear-gradient(0deg, <?= $post['color'] ?> 0%, rgba(64,64,127,0) 100%)"></span>
+                                    <?= $post_item['feature_image']; ?>
+                                    <span class="color" style="background:linear-gradient(0deg, <?= $post_item['color'] ?> 0%, rgba(64,64,127,0) 100%)"></span>
                                     <div class="content">
-                                        <img src="<?= $post['logo']['url']; ?>" alt="<?= $post['logo']['title']; ?>" class="logo">
+                                        <img src="<?= $post_item['logo']['url']; ?>" alt="<?= $post_item['logo']['title']; ?>" class="logo">
                                         <div class="text-content">
-                                            <h3><?= $post['title']; ?></h3>
-                                            <p><?= $post['short_description']; ?></p>
+                                            <h3><?= $post_item['title']; ?></h3>
+                                            <p><?= $post_item['short_description']; ?></p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </div>
-                    <?php endif; endforeach; ?>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>

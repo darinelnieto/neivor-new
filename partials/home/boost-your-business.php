@@ -1,4 +1,14 @@
-   
+<?php
+$script_handle = "home-boost-your-business-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/home-boost-your-business.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
 <?php
 /**
  * 
@@ -23,9 +33,17 @@ if($boost):
                     <div class="boost-slide owl-carousel d-none d-md-block">
                         <?php foreach($boost['cards'] as $item): ?>
                             <div class="card-item" style="height: 300px;">
-                                <img src="<?= $item['feature_image']['url']; ?>" alt="<?= $item['feature_image']['title']; ?>" class="feature-image">
+                                <?= wp_get_attachment_image($item['feature_image']['ID'] ?? '', 'large', false, array(
+                                    'class' => 'feature-image',
+                                    'loading' => 'lazy',
+                                    'decoding' => 'async'
+                                )); ?>
                                 <div class="content" style="background: linear-gradient(180deg, rgba(191, 162, 24, 0.00) 26.56%, <?= $item['color']; ?> 91.99%);">
-                                    <img src="<?= $item['logo']['url']; ?>" alt="<?= $item['logo']['title']; ?>" class="logo">
+                                    <?= wp_get_attachment_image($item['logo']['ID'] ?? '', 'large', false, array(
+                                        'class' => 'logo',
+                                        'loading' => 'lazy',
+                                        'decoding' => 'async'
+                                    )); ?>
                                     <p class="comment"><?= $item['comment']; ?></p>
                                 </div>
                             </div>
@@ -40,9 +58,17 @@ if($boost):
             <div class="boost-slide owl-carousel">
                 <?php foreach($boost['cards'] as $item): ?>
                     <div class="card-item" style="height: 300px;">
-                        <img src="<?= $item['feature_image']['url']; ?>" alt="<?= $item['feature_image']['title']; ?>" class="feature-image">
+                        <?= wp_get_attachment_image($item['feature_image']['ID'] ?? '', 'large', false, array(
+                            'class' => 'feature-image',
+                            'loading' => 'lazy',
+                            'decoding' => 'async'
+                        )); ?>
                         <div class="content" style="background: linear-gradient(180deg, rgba(191, 162, 24, 0.00) 26.56%, <?= $item['color']; ?> 91.99%);">
-                            <img src="<?= $item['logo']['url']; ?>" alt="<?= $item['logo']['title']; ?>" class="logo">
+                            <?= wp_get_attachment_image($item['logo']['ID'] ?? '', 'large', false, array(
+                                'class' => 'logo',
+                                'loading' => 'lazy',
+                                'decoding' => 'async'
+                            )); ?>
                             <p class="comment"><?= $item['comment']; ?></p>
                         </div>
                     </div>
@@ -51,29 +77,4 @@ if($boost):
         </div>
     <?php endif; ?>
 </section>
-<script>
-    $('.boost-slide').owlCarousel({
-        autoplay:false,
-        loop:true,
-        nav:false,touchDrag: true,
-        mouseDrag: true,
-        responsive:{
-            0:{
-                items:1.1,
-                center:true,
-                autoplay:true,
-                margin:10,
-            },
-            640:{
-                items:2,
-                autoplay:true,
-                margin:40,
-            },
-            991:{
-                items:3,
-                margin:80
-            }
-        }
-    }).css({'opacity':1});
-</script>
 <?php endif; ?>
