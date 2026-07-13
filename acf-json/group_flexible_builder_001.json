@@ -125,6 +125,106 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_migas_de_pan": {
+                    "key": "layout_migas_de_pan",
+                    "name": "migas_de_pan",
+                    "label": "Global - Migas de pan",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_flex_migas_de_pan_0",
+                            "label": "Migas",
+                            "name": "migas",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_flex_migas_de_pan_0_padding_top",
+                                    "label": "Padding top",
+                                    "name": "padding_top",
+                                    "aria-label": "",
+                                    "type": "number",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "33",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": 20,
+                                    "min": 0,
+                                    "max": "",
+                                    "allow_in_bindings": 0,
+                                    "step": 1,
+                                    "prepend": "",
+                                    "append": "px"
+                                },
+                                {
+                                    "key": "field_flex_migas_de_pan_0_padding_bottom",
+                                    "label": "Padding bottom",
+                                    "name": "padding_bottom",
+                                    "aria-label": "",
+                                    "type": "number",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "33",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": 20,
+                                    "min": 0,
+                                    "max": "",
+                                    "allow_in_bindings": 0,
+                                    "step": 1,
+                                    "prepend": "",
+                                    "append": "px"
+                                },
+                                {
+                                    "key": "field_flex_migas_de_pan_0_width",
+                                    "label": "Width",
+                                    "name": "width",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "34",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "col-12": "col-12",
+                                        "col-12 col-md-10 col-lg-8": "col-12 col-md-10 col-lg-8",
+                                        "col-12 col-md-8 col-lg-6": "col-12 col-md-8 col-lg-6"
+                                    },
+                                    "default_value": "col-12 col-md-10 col-lg-8",
+                                    "return_format": "value",
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "allow_in_bindings": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_home_v2_after_banner": {
                     "key": "layout_home_v2_after_banner",
                     "name": "home_v2_after_banner",
