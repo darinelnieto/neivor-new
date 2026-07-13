@@ -123,7 +123,7 @@ if(get_sub_field('custom_style_image_desktop') === true):
                     <?php endif; ?>
                     <div class="text-content d-block d-md-none">
                         <?php if(get_sub_field('add_cta_link') === true && $cta): ?>
-                            <a href="<?= $cta['url']; ?>" class="cta d-flex d-md-none" target="<?= $cta['target']; ?>" style="color:<?= get_sub_field('text_color_cta'); ?>; background:<?= get_sub_field('background_cta'); ?>">
+                            <a href="<?= $cta['url']; ?>" class="cta d-flex d-md-none my-5" target="<?= $cta['target']; ?>" style="color:<?= get_sub_field('text_color_cta'); ?>; background:<?= get_sub_field('background_cta'); ?>">
                                 <?= $cta['title']; ?>
                             </a>
                         <?php 
@@ -171,7 +171,7 @@ if(get_sub_field('custom_style_image_desktop') === true):
         </div>
     </div>
     <?php endif; if(get_sub_field('enable_video_after_banner') === true): ?>
-        <div class="container">
+        <div class="container mt-5">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-11 col-lg-10 mb-5">
                     <div class="video">
