@@ -19,6 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $data           = get_sub_field('single_blog_text_content_data');
 $intro_text     = $data['intro_text'] ?? '';
+$intro_font_size = isset($data['intro_font_size']) && $data['intro_font_size'] !== '' ? (int) $data['intro_font_size'] : null;
 $padding_top     = $data['padding_top'] ?? 40;
 $padding_bottom  = $data['padding_bottom'] ?? 40;
 ?>
@@ -28,7 +29,7 @@ $padding_bottom  = $data['padding_bottom'] ?? 40;
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-lg-8">
                 <?php if (!empty($intro_text)): ?>
-                    <div class="intro-text" style="font-size: <?= $intro_font_size; ?>px;">
+                    <div class="intro-text" >
                         <?= $intro_text; ?>
                     </div>
                 <?php endif; ?>

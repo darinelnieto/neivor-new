@@ -25,7 +25,7 @@ $texts = get_sub_field('text_block_whith_titlle');
         <div class="row justify-content-center">
             <div class="<?= $texts['width'] ?? 'col-12 col-md-10 col-lg-8' ?>">
                 <h<?= $texts['headding_type'] ?? 2; ?> class="title"><?= $texts['title'] ?? ''; ?></h<?= $texts['headding_type'] ?? 2; ?>>
-                <div class="intro-text" style="font-size: <?= $intro_font_size; ?>px;">
+                <div class="intro-text">
                     <?= $texts['description']; ?>
                 </div>
             </div>
