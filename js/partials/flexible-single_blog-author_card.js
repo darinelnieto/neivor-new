@@ -1,0 +1,1 @@
+// JS for partial: flexible-single_blog-author_card\n

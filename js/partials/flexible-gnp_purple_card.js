@@ -1,0 +1,1 @@
+// JS for partial: flexible-gnp_purple_card\n

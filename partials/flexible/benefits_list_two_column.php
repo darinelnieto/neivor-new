@@ -1,0 +1,85 @@
+<?php
+$script_handle = "flexible-benefits_list_two_column-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/flexible-benefits_list_two_column.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
+<?php
+/**
+ * 
+ * Partial Name: benefits_list_two_column
+ * 
+ */
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly.
+}
+$contenido = get_sub_field('benefits_list_two_column_group');
+$whitout = $contenido['without_neivor'];
+$with = $contenido['with_neivor'];
+?>
+<section class="benefits-list-two-column-partial-5598e4">
+   <?php if(!empty($contenido['title'])): ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="title"><?= $contenido['title']; ?></h2>
+            </div>
+        </div>
+    </div>
+   <?php endif; ?>
+   <div class="comparison">
+    <div class="container">
+        <div class="row">
+            <?php if(!empty($whitout['list'])): ?>
+                <div class="col-12 col-md-6 mb-4 mb-md-0">
+                    <div class="card-bg-white">
+                        <h3 class="subtitle">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 15C10.2833 15 10.5208 14.9042 10.7125 14.7125C10.9042 14.5208 11 14.2833 11 14C11 13.7167 10.9042 13.4792 10.7125 13.2875C10.5208 13.0958 10.2833 13 10 13C9.71667 13 9.47917 13.0958 9.2875 13.2875C9.09583 13.4792 9 13.7167 9 14C9 14.2833 9.09583 14.5208 9.2875 14.7125C9.47917 14.9042 9.71667 15 10 15ZM9 11H11V5H9V11ZM10 20C8.61667 20 7.31667 19.7375 6.1 19.2125C4.88333 18.6875 3.825 17.975 2.925 17.075C2.025 16.175 1.3125 15.1167 0.7875 13.9C0.2625 12.6833 0 11.3833 0 10C0 8.61667 0.2625 7.31667 0.7875 6.1C1.3125 4.88333 2.025 3.825 2.925 2.925C3.825 2.025 4.88333 1.3125 6.1 0.7875C7.31667 0.2625 8.61667 0 10 0C11.3833 0 12.6833 0.2625 13.9 0.7875C15.1167 1.3125 16.175 2.025 17.075 2.925C17.975 3.825 18.6875 4.88333 19.2125 6.1C19.7375 7.31667 20 8.61667 20 10C20 11.3833 19.7375 12.6833 19.2125 13.9C18.6875 15.1167 17.975 16.175 17.075 17.075C16.175 17.975 15.1167 18.6875 13.9 19.2125C12.6833 19.7375 11.3833 20 10 20ZM10 18C12.2333 18 14.125 17.225 15.675 15.675C17.225 14.125 18 12.2333 18 10C18 7.76667 17.225 5.875 15.675 4.325C14.125 2.775 12.2333 2 10 2C7.76667 2 5.875 2.775 4.325 4.325C2.775 5.875 2 7.76667 2 10C2 12.2333 2.775 14.125 4.325 15.675C5.875 17.225 7.76667 18 10 18Z" fill="#BA1A1A"/>
+                            </svg>
+                            <?= $whitout['subtitle']; ?>
+                        </h3>
+                        <ul class="list">
+                            <?php foreach($whitout['list'] as $item): ?>
+                                <li>
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z" fill="#BA1A1A" fill-opacity="0.4"/>
+                                    </svg>
+                                    <?= $item['item']; ?>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                </div>
+            <?php endif; if(!empty($with['list'])): ?>
+                <div class="col-12 col-md-6">
+                    <div class="card-bg-green">
+                        <h3 class="subtitle">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.6 14.6L15.65 7.55L14.25 6.15L8.6 11.8L5.75 8.95L4.35 10.35L8.6 14.6ZM10 20C8.61667 20 7.31667 19.7375 6.1 19.2125C4.88333 18.6875 3.825 17.975 2.925 17.075C2.025 16.175 1.3125 15.1167 0.7875 13.9C0.2625 12.6833 0 11.3833 0 10C0 8.61667 0.2625 7.31667 0.7875 6.1C1.3125 4.88333 2.025 3.825 2.925 2.925C3.825 2.025 4.88333 1.3125 6.1 0.7875C7.31667 0.2625 8.61667 0 10 0C11.3833 0 12.6833 0.2625 13.9 0.7875C15.1167 1.3125 16.175 2.025 17.075 2.925C17.975 3.825 18.6875 4.88333 19.2125 6.1C19.7375 7.31667 20 8.61667 20 10C20 11.3833 19.7375 12.6833 19.2125 13.9C18.6875 15.1167 17.975 16.175 17.075 17.075C16.175 17.975 15.1167 18.6875 13.9 19.2125C12.6833 19.7375 11.3833 20 10 20ZM10 18C12.2333 18 14.125 17.225 15.675 15.675C17.225 14.125 18 12.2333 18 10C18 7.76667 17.225 5.875 15.675 4.325C14.125 2.775 12.2333 2 10 2C7.76667 2 5.875 2.775 4.325 4.325C2.775 5.875 2 7.76667 2 10C2 12.2333 2.775 14.125 4.325 15.675C5.875 17.225 7.76667 18 10 18Z" fill="#059669"/>
+                            </svg>
+                            <?= $with['subtitle']; ?>
+                        </h3>
+                        <ul class="list">
+                            <?php foreach($with['list'] as $item): ?>
+                                <li>
+                                    <svg width="22" height="13" viewBox="0 0 22 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.65 12.025L0 6.375L1.425 4.975L5.675 9.225L7.075 10.625L5.65 12.025ZM11.3 12.025L5.65 6.375L7.05 4.95L11.3 9.2L20.5 0L21.9 1.425L11.3 12.025ZM11.3 6.375L9.875 4.975L14.825 0.025L16.25 1.425L11.3 6.375Z" fill="#10B981" fill-opacity="0.6"/>
+                                    </svg>
+                                    <?= $item['item']; ?>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+   </div>
+</section>
+                    

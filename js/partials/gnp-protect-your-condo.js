@@ -1,0 +1,1 @@
+// JS for partial: gnp-protect-your-condo\n

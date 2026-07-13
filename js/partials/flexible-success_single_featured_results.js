@@ -1,0 +1,1 @@
+// JS for partial: flexible-success_single_featured_results\n

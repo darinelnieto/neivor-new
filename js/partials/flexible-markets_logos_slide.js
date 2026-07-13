@@ -1,0 +1,1 @@
+// JS for partial: flexible-markets_logos_slide\n

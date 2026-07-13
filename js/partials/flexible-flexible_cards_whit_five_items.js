@@ -1,0 +1,1 @@
+// JS for partial: flexible-flexible_cards_whit_five_items\n

@@ -1,0 +1,1 @@
+// JS for partial: about-we-are-the-ally\n

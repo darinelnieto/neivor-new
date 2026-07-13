@@ -1,0 +1,1 @@
+// JS for partial: markets-protect-your-condo\n

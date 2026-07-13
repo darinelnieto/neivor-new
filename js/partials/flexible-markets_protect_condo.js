@@ -1,0 +1,1 @@
+// JS for partial: flexible-markets_protect_condo\n

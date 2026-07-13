@@ -1,0 +1,1 @@
+// JS for partial: flexible-flexible_card_border_left_purple\n

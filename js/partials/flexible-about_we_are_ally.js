@@ -1,0 +1,1 @@
+// JS for partial: flexible-about_we_are_ally\n

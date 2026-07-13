@@ -1,0 +1,103 @@
+<?php
+$script_handle = "blog-body-blog-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/blog-body-blog.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
+<?php
+/**
+ * 
+ * Partial Name: body-blog
+ * 
+ */
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly.
+}
+$success = new WP_Query([
+    'post_type' => 'success_stories',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'order' => 'DESC'
+]);
+$the_success = [];
+if($success->have_posts()){
+    while($success->have_posts()){
+        $success->the_post();
+        array_push($the_success, array(
+            'feature_image' => get_the_post_thumbnail(get_the_ID(), 'large', array(
+                'class' => 'feature-img',
+                'loading' => 'lazy',
+                'decoding' => 'async'
+            )),
+            'permalink' => get_permalink(),
+            'title' => get_the_title(),
+            'short_description' => get_field('short_description'),
+            'logo' => get_field('logo'),
+            'color' => get_field('primary_color_for_gradient'),
+        ));
+    }
+    wp_reset_postdata();
+}
+$items = array_chunk($the_success, 3, true);
+if($items):
+?>
+<section class="body-blog-partial-73d001">
+    <div class="container" id="post-contain">
+        <?php foreach($items as $item): $key = 0; $countItem = count($item); ?>
+            <div class="row">
+                <?php foreach($item as $post_item): $key++; if($key < 2): ?>
+                    <div class="col-12 col-md-7 col-lg-8 mb-5 mb-md-4">
+                        <a href="<?= $post_item['permalink']; ?>" class="post-item item-lg">
+                            <div class="card-post">
+                                <?= $post_item['feature_image']; ?>
+                                <span class="color" style="background:linear-gradient(0deg, <?= $post_item['color'] ?> 0%, rgba(64,64,127,0) 100%)"></span>
+                                <div class="content">
+                                    <?= wp_get_attachment_image($post_item['logo']['ID'], 'large', false, array(
+                                        'class' => 'logo',
+                                        'loading' => 'lazy',
+                                        'decoding' => 'async'
+                                    )); ?>
+                                    <div class="text-content">
+                                        <h3><?= $post_item['title']; ?></h3>
+                                        <p><?= $post_item['short_description']; ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <?php endif; endforeach; 
+                if($countItem > 1): $key=0; ?>
+                    <div class="col-12 col-md-5 col-lg-4 mb-5 mb-md-4">
+                        <div class="posts">
+                            <?php foreach($item as $post_item): $key++; if($key > 1): ?>
+                                <a href="<?= $post_item['permalink']; ?>" class="post-item">
+                                    <div class="card-post">
+                                        <?= $post_item['feature_image']; ?>
+                                        <span class="color" style="background:linear-gradient(0deg, <?= $post_item['color'] ?> 0%, rgba(64,64,127,0) 100%)"></span>
+                                        <div class="content">
+                                            <?= wp_get_attachment_image($post_item['logo']['ID'], 'large', false, array(
+                                                'class' => 'logo',
+                                                'loading' => 'lazy',
+                                                'decoding' => 'async'
+                                            )); ?>
+                                            <div class="text-content">
+                                                <h3><?= $post_item['title']; ?></h3>
+                                                <p><?= $post_item['short_description']; ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            <?php endif; endforeach; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</section>
+<?php endif; ?>

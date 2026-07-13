@@ -1,0 +1,1 @@
+// JS for partial: flexible-flexible_three_col_cards\n

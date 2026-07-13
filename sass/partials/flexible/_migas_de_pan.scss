@@ -1,0 +1,41 @@
+.migas-de-pan-partial-ea8700 {
+    .migas-de-pan {
+        color: #7b8190;
+        font-size: 12px;
+        line-height: 1.4;
+        ol{
+            display:flex;
+            align-items:center;
+            list-style:none;
+            padding:0;
+            margin:0;
+            gap: 8px;
+            .migas-de-pan__item{
+                display: flex;
+                gap: 8px;
+                align-items:center;
+                &::after{
+                    content: '/';
+                    display:block;
+                }
+            }
+            .is-current{
+                &::after{
+                    display:none;
+                }
+            }
+            .migas-de-pan__link{
+                color: #595c5d;
+                text-decoration:none;
+                transition: color .2s ease;
+                &:hover{
+                    color: #7d65fe;
+                }
+            }
+            .migas-de-pan__current{
+                font-weight: 700;
+                color: #0a2540;
+            }
+        }
+    }
+}

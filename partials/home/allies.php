@@ -1,0 +1,42 @@
+<?php
+$script_handle = "home-allies-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/home-allies.min.js",
+    array("jquery"),
+    null,
+    true
+);
+?>
+
+<?php
+/**
+ * 
+ * Partial Name: allies
+ * 
+ */
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly.
+}
+$allies = get_field('allies_content');
+if($allies):
+?>
+<section class="allies-partial-c9ecc6">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-12">
+                <h2 class="title"><?= $allies['title']; ?></h2>
+            </div>
+            <?php if($allies['allies_list']): foreach($allies['allies_list'] as $item): ?>
+                <div class="col-6 col-md-3 mb-4 text-center">
+                    <?= wp_get_attachment_image($item['logo']['ID'] ?? '', 'large', false, array(
+                        'class' => 'full-image',
+                        'loading' => 'lazy',
+                        'decoding' => 'async'
+                    )) ?>
+                </div>
+            <?php endforeach; endif; ?>
+        </div>
+    </div>
+</section>
+<?php endif; ?> 

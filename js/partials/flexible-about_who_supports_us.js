@@ -1,0 +1,1 @@
+// JS for partial: flexible-about_who_supports_us\n

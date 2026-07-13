@@ -1,0 +1,1 @@
+// JS for partial: globals-footer-content\n

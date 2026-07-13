@@ -1,0 +1,1 @@
+// JS for partial: markets-properties-that-trust-neivor\n
