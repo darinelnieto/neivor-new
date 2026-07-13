@@ -159,7 +159,7 @@ if ( is_front_page() ) {
     );
 }
 ?>
-<section class="migas-de-pan-partial-ea8700">
+<section class="migas-de-pan-partial-ea8700" style="padding-top: <?= $padding_top; ?>px; padding-bottom: <?= $padding_bottom; ?>px;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="<?= esc_attr( $width_class ); ?>">

@@ -28,7 +28,7 @@
                 color: #595c5d;
                 text-decoration:none;
                 transition: color .2s ease;
-                font-size: 14px;
+                font-size: 14px !important;
                 &:hover{
                     color: #7d65fe;
                 }
@@ -36,6 +36,7 @@
             .migas-de-pan__current{
                 font-weight: 700;
                 color: #0a2540;
+                font-size: 13px !important;
             }
         }
     }
