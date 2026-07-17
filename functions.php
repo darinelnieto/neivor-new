@@ -415,8 +415,24 @@ function sajo_get_banner_breadcrumb_items() {
   }
 
   if (is_singular()) {
+    $current_id = get_queried_object_id();
+
+    if (is_page()) {
+      $ancestor_ids = get_post_ancestors($current_id);
+      if (!empty($ancestor_ids)) {
+        $ancestor_ids = array_reverse($ancestor_ids);
+
+        foreach ($ancestor_ids as $ancestor_id) {
+          $items[] = array(
+            'title' => get_the_title($ancestor_id),
+            'url' => get_permalink($ancestor_id),
+          );
+        }
+      }
+    }
+
     $items[] = array(
-      'title' => get_the_title(get_queried_object_id()),
+      'title' => get_the_title($current_id),
       'url' => '',
     );
     return $items;
