@@ -15,7 +15,8 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        // justify-content: space-between;
+        gap: 3rem;
         .open-dorp-down{
             display: flex;
             background: linear-gradient(90deg, #FFB300 0%, #FFD700 100%);
