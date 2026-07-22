@@ -8245,6 +8245,28 @@
                                     "append": ""
                                 },
                                 {
+                                    "key": "field_6a139462400da1",
+                                    "label": "Descripttion",
+                                    "name": "description",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "Olvídate del tour aburrido por botones que nunca usarás. Nuestra asesoría es un diálogo estratégico diseñado para tu éxito.",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "rows": 2,
+                                    "placeholder": "",
+                                    "new_lines": "br"
+
+                                },
+                                {
                                     "key": "field_6a139482400db",
                                     "label": "Without neivor",
                                     "name": "without_neivor",

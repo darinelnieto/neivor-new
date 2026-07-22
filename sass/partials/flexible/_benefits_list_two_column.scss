@@ -1,5 +1,5 @@
 .benefits-list-two-column-partial-5598e4 {
-    background: #ffffff;
+    background: #F6F9FC;
     padding-top: 50px;
     @media(max-width: 767px) {
         padding-top: 30px;
@@ -8,8 +8,11 @@
         @include h2-size;
         margin-bottom: 24px;
     }
+    .description{
+        @include p-size;
+        color: #464554;
+    }
     .comparison{
-        background: #F6F9FC;
         padding: 50px 0;
         .list{
             display: flex;

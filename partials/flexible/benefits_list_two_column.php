@@ -23,11 +23,14 @@ $whitout = $contenido['without_neivor'];
 $with = $contenido['with_neivor'];
 ?>
 <section class="benefits-list-two-column-partial-5598e4">
-   <?php if(!empty($contenido['title'])): ?>
+   <?php if(!empty($contenido['title']) || !empty($contenido['description'])): ?>
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <h2 class="title"><?= $contenido['title']; ?></h2>
+                <?php if(!empty($contenido['description'])): ?>
+                    <p class="description"><?= $contenido['description']; ?></p>
+                <?php endif; ?>
             </div>
         </div>
     </div>
