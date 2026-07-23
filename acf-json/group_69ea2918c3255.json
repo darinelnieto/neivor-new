@@ -1304,7 +1304,7 @@
                     "conditional_logic": [
                         [
                             {
-                                "field": "field_ni_enable",
+                                "field": "v2_field_69e4d149f4946",
                                 "operator": "==",
                                 "value": "1"
                             }
@@ -1317,6 +1317,7 @@
                     },
                     "default_value": "",
                     "maxlength": "",
+                    "allow_in_bindings": 0,
                     "rows": 4,
                     "placeholder": "",
                     "new_lines": "br"
@@ -2753,5 +2754,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1779450188
+    "modified": 1784816056
 }

@@ -33,25 +33,25 @@ if ( empty( $ni ) || empty( $ni['enable'] ) ) return;
         <div class="ni-inner">
             <div class="ni-content">
                 <?php if ( ! empty( $ni['label'] ) ) : ?>
-                    <span class="ni-label"><?= esc_html( $ni['label'] ); ?></span>
+                    <span class="ni-label"><?= $ni['label']; ?></span>
                 <?php endif; ?>
 
                 <?php if ( ! empty( $ni['title_bold'] ) || ! empty( $ni['title_regular'] ) ) : ?>
                     <h2>
-                        <?php if ( ! empty( $ni['title_bold'] ) ) : ?><strong><?= esc_html( $ni['title_bold'] ); ?></strong><?php endif; ?>
-                        <?php if ( ! empty( $ni['title_regular'] ) ) : ?> <?= esc_html( $ni['title_regular'] ); ?><?php endif; ?>
+                        <?php if ( ! empty( $ni['title_bold'] ) ) : ?><strong><?= $ni['title_bold']; ?></strong><?php endif; ?>
+                        <?php if ( ! empty( $ni['title_regular'] ) ) : ?> <?= $ni['title_regular']; ?><?php endif; ?>
                     </h2>
                 <?php endif; ?>
 
                 <?php if ( ! empty( $ni['description'] ) ) : ?>
-                    <p><?= esc_html( $ni['description'] ); ?></p>
+                    <p><?= $ni['description']; ?></p>
                 <?php endif; ?>
 
                 <?php if ( ! empty( $ni['cta_link']['url'] ) ) : ?>
-                    <a href="<?= esc_url( $ni['cta_link']['url'] ); ?>"
+                    <a href="<?= $ni['cta_link']['url']; ?>"
                        class="ni-cta"
                        <?= ! empty( $ni['cta_link']['target'] ) ? 'target="' . esc_attr( $ni['cta_link']['target'] ) . '"' : ''; ?>>
-                        <?= esc_html( $ni['cta_link']['title'] ); ?> &rsaquo;
+                        <?= $ni['cta_link']['title']; ?> &rsaquo;
                     </a>
                 <?php endif; ?>
             </div>
