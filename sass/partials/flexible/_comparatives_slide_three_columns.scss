@@ -1,0 +1,130 @@
+.comparatives-slide-three-columns-partial-89038a {
+    .top-content{
+        margin-bottom: 79.99px;
+    }
+    .comparative-slide{
+        opacity: 0;
+        transition: opacity .2s ease;
+        .owl-stage{
+            display:flex;
+        }
+        .item{
+            // Header card
+            background: $white;
+            border: 1px solid #E0D9FF;
+            height: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            .header_item{
+                padding: 32px;
+                display:flex;
+                align-items:center;
+                border-bottom:1px solid #E0D9FF;
+                background: #F7F1FF;
+                gap: 24px;
+                min-height:142px;
+                .icon-image{
+                    width: 52px;
+                    height: 59px;
+                    object-fit: contain;
+                }
+                .texts-content{
+                    .label{
+                        font-weight: 700;
+                        font-size: 12px;
+                        line-height: 16px;
+                        letter-spacing: 1.2px;
+                        vertical-align: middle;
+                        text-transform: uppercase;
+                        color: #7A7290;
+                    }
+                    h3{
+                        margin:0;
+                        font-weight: 700;
+                        font-size: 22px;
+                        line-height: 27.5px;
+                        letter-spacing: -0.22px;
+                        vertical-align: middle;
+                        color: #1C1A27;
+                    }
+                }
+            }
+            .content{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 82%;
+            }
+            .body_item{
+                padding: 32px;
+                .h4.violeta{
+                    font-weight: 700;
+                    font-size: 14px !important;
+                    line-height: 16.5px;
+                    letter-spacing: 0.22px;
+                }
+                p{
+                    font-weight: 400;
+                    font-size: 14px !important;
+                    line-height: 20px;
+                    letter-spacing: 0px;
+                    color: #3D3654;
+                }
+                h4.h4{
+                    font-weight: 700;
+                    font-size: 12px !important;
+                    line-height: 16px;
+                    letter-spacing: -0.6px;
+                    text-transform: uppercase;
+                    color: #1C1A27;
+                }
+                .danger-bullet{
+                    padding: 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 7.5px;
+                    list-style:none;
+                    li{
+                        display:flex;
+                        align-items:center;
+                        gap: 8px;
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 20px;
+                        letter-spacing: 0px;
+                        color: #3D3654;
+                        &::before{
+                            content: '\2715';
+                            color: #BA1A1A;
+                        }
+                    }
+                }
+            }
+            .footer_item{
+                padding: 32px;
+                .card-footer-violeta{
+                    background: #F0EDFF;
+                    border: 1px solid #7D65FE33;
+                    gap: 8px;
+                    border-radius: 8px;
+                    padding: 24px;
+                    min-height: 124px;
+                    .subtitle{
+                        font-weight: 700;
+                        font-size: 12px;
+                        line-height: 16px;
+                        margin-bottom: 8px;
+                    }
+                    .description{
+                        font-weight: 400;
+                        font-style: Italic;
+                        font-size: 12px;
+                        line-height: 16.5px;
+                        letter-spacing: 0px;
+                        margin-bottom:0
+                    }
+                }
+            }
+        }
+    }
+}

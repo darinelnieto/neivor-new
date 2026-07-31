@@ -32,16 +32,35 @@ function sajo_styles() {
 add_action('wp_enqueue_scripts', 'sajo_styles');
 
 /**
+ * Load jQuery first with highest priority (HEAD, NO DEFER!)
+ */
+function sajo_load_jquery_first() {
+  if (!is_admin()) {
+    wp_deregister_script('jquery');
+    wp_register_script('jquery', get_template_directory_uri() . '/js/jquery-3.5.1.min.js', array(), sajo_asset_version('/js/jquery-3.5.1.min.js'), false);
+    wp_enqueue_script('jquery');
+    // FORCE - remove any defer that might be added
+    wp_script_add_data('jquery', 'strategy', false);
+  }
+}
+add_action('wp_enqueue_scripts', 'sajo_load_jquery_first', 0);
+
+/**
+ * Remove defer from jQuery specifically
+ */
+function sajo_remove_defer_from_jquery($tag, $handle) {
+  if ('jquery' === $handle) {
+    return str_replace(' defer', '', $tag);
+  }
+  return $tag;
+}
+add_filter('script_loader_tag', 'sajo_remove_defer_from_jquery', 10, 2);
+
+/**
  * Register Theme Scripts
  * https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
  */
 function sajo_scripts() {
-  if (!is_admin()) {
-    wp_deregister_script('jquery');
-    wp_register_script('jquery', get_template_directory_uri() . '/js/jquery-3.5.1.min.js', array(), sajo_asset_version('/js/jquery-3.5.1.min.js'), true);
-  }
-
-  wp_enqueue_script('jquery');
   wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), sajo_asset_version('/js/bootstrap.min.js'), true);
   wp_enqueue_script('owl-carousel-js', get_template_directory_uri() . '/js/owl.carousel.min.js', array('jquery'), sajo_asset_version('/js/owl.carousel.min.js'), true);
   wp_enqueue_script('main-scripts', get_template_directory_uri() . '/js/main.bundle.js', array('jquery', 'owl-carousel-js'), sajo_asset_version('/js/main.bundle.js'), true);
@@ -176,8 +195,12 @@ function sajo_defer_theme_scripts($tag, $handle, $src) {
     return $tag;
   }
 
+  // NEVER add defer to jQuery
+  if ('jquery' === $handle) {
+    return str_replace(' defer', '', $tag);
+  }
+
   $defer_handles = array(
-    'jquery',
     'bootstrap-js',
     'owl-carousel-js',
     'main-scripts',

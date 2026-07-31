@@ -1,5 +1,5 @@
 // JS for partial: markets-logos-slide\n
-$('.logos-slide-partial-f8ca70 .logos-slide').owlCarousel({
+$('.logos-slide').owlCarousel({
     loop:true,
     autoplay:true,
     nav:false,

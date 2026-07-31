@@ -1,0 +1,63 @@
+.comparatives-success-story-partial-273956 {
+    background: $white;
+    .main-image{
+        width:100%;
+        max-width: 359px;
+        height: 448px;
+        object-fit:cover;
+        object-position: cover;
+        border-radius: 8px;
+    }
+    .description{
+        font-weight: 300;
+        font-size: clamp(18px, 3vw, 28px) !important;
+        line-height: 150%;
+        letter-spacing: 0.1px;
+        color: #484554;
+        margin-bottom: 40px;
+    }
+    .case{
+        display: flex;
+        gap: 15px;
+        align-items:center;
+        margin-bottom: 40px;
+        .initials{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #7D65FE;
+            color: $white;
+        }
+        .case-texts{
+            .label{
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 24px;
+                letter-spacing: 0px;
+                color: #1C1A27;
+                margin:0;
+            }
+            .name{
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                letter-spacing: 0px;
+                color:#7A7290;
+                margin:0;
+            }
+        }
+    }
+    .learn-more{
+        font-weight: 700;
+        font-size: 17px;
+        line-height: 16px;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        color: #7E66FC;
+        text-decoration:none;
+        font-size: clamp(16px, 3vw, 17px);
+    }
+}

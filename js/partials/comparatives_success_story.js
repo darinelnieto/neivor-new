@@ -1,0 +1,1 @@
+// JS for partial: comparatives_success_story\n
