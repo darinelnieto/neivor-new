@@ -10,14 +10,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 $c_content = get_sub_field('comparative_slide');
 $c_list = $c_content['list'];
 if(!empty($c_list)):
-$script_handle = 'comparatives_slide_three_columns-js';
-wp_enqueue_script(
-    $script_handle,
-    get_template_directory_uri() . '/js/partials-min/comparatives_slide_three_columns.min.js',
-    array('jquery'),
-    null,
-    true
-);
+// $script_handle = 'comparatives_slide_three_columns-js';
+// wp_enqueue_script(
+//     $script_handle,
+//     get_template_directory_uri() . '/js/partials-min/comparatives_slide_three_columns.min.js',
+//     array('jquery'),
+//     null,
+//     true
+// );
 ?>
 <section class="comparatives-slide-three-columns-partial-89038a" style="background: <?= $c_content['bg_color'] ?? '#F0F2F8'; ?>; padding-top: <?= $c_content['padding_top'] ?? '80'; ?>px; padding-bottom: <?= $c_content['padding_bottom'] ?? '80'; ?>px; ">
     <div class="container">
@@ -32,39 +32,41 @@ wp_enqueue_script(
                         <?php endif; ?>
                     </div>
                 <?php endif; ?>
-                <div class="comparative-slide owl-carousel">
+                <div class="comparative-slide row">
                     <?php foreach($c_list as $item): $header = $item['header_content']; $footer = $item['footer']; ?>
-                        <div class="item">
-                            <div class="header_item">
-                                <?= wp_get_attachment_image($header['icon'] ?? '', 'large', false, array(
-                                    'class' => 'icon-image',
-                                    'loading' => 'lazy',
-                                    'decoding' => 'async'
-                                )) ?>
-                                <div class="texts-content">
-                                    <?php if(!empty($header['label'])): ?>
-                                        <span class="label"><?= $header['label']; ?></span>
-                                    <?php endif; if(!empty($header['title'])): ?>
-                                        <h3 class="card-title"><?= $header['title']; ?></h3>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="item">
+                                <div class="header_item">
+                                    <?= wp_get_attachment_image($header['icon'] ?? '', 'large', false, array(
+                                        'class' => 'icon-image',
+                                        'loading' => 'lazy',
+                                        'decoding' => 'async'
+                                    )) ?>
+                                    <div class="texts-content">
+                                        <?php if(!empty($header['label'])): ?>
+                                            <span class="label"><?= $header['label']; ?></span>
+                                        <?php endif; if(!empty($header['title'])): ?>
+                                            <h3 class="card-title"><?= $header['title']; ?></h3>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <?php if(!empty($item['description'])): ?>
+                                        <div class="body_item">
+                                            <?= $item['description']; ?>
+                                        </div>
+                                    <?php endif; if(!empty($footer['subtitle']) || !empty($footer['description'])): ?>
+                                        <div class="footer_item">
+                                            <div class="card-footer-violeta">
+                                                <?php if(!empty($footer['subtitle'])): ?>
+                                                    <p class="subtitle violeta"><strong><?= $footer['subtitle']; ?></strong></p>
+                                                <?php endif; if(!empty($footer['description'])): ?>
+                                                    <p class="description"><?= $footer['description']; ?></p>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
                                     <?php endif; ?>
                                 </div>
-                            </div>
-                            <div class="content">
-                                <?php if(!empty($item['description'])): ?>
-                                    <div class="body_item">
-                                        <?= $item['description']; ?>
-                                    </div>
-                                <?php endif; if(!empty($footer['subtitle']) || !empty($footer['description'])): ?>
-                                    <div class="footer_item">
-                                        <div class="card-footer-violeta">
-                                            <?php if(!empty($footer['subtitle'])): ?>
-                                                <p class="subtitle violeta"><strong><?= $footer['subtitle']; ?></strong></p>
-                                            <?php endif; if(!empty($footer['description'])): ?>
-                                                <p class="description"><?= $footer['description']; ?></p>
-                                            <?php endif; ?>
-                                        </div>
-                                    </div>
-                                <?php endif; ?>
                             </div>
                         </div>
                     <?php endforeach; ?>

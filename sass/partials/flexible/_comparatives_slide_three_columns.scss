@@ -3,13 +3,7 @@
         margin-bottom: 79.99px;
     }
     .comparative-slide{
-        opacity: 0;
-        transition: opacity .2s ease;
-        .owl-stage{
-            display:flex;
-        }
         .item{
-            // Header card
             background: $white;
             border: 1px solid #E0D9FF;
             height: 100%;
@@ -124,6 +118,11 @@
                         margin-bottom:0
                     }
                 }
+            }
+        }
+        @media(max-width:768px){
+            .col-12:last-child{
+                margin-bottom: 0 !important;
             }
         }
     }

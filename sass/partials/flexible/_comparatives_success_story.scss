@@ -15,12 +15,21 @@
         letter-spacing: 0.1px;
         color: #484554;
         margin-bottom: 40px;
+        @media(max-width:768px){
+            margin-bottom:20px;
+            br{
+                display: none;
+            }
+        }
     }
     .case{
         display: flex;
         gap: 15px;
         align-items:center;
         margin-bottom: 40px;
+        @media(max-width:768px){
+            margin-bottom:20px;
+        }
         .initials{
             display:flex;
             align-items:center;

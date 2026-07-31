@@ -22,6 +22,12 @@
         border: 1px solid #E0D9FF;
         box-shadow: 0px 8px 10px -6px #0000001A;
         box-shadow: 0px 20px 25px -5px #0000001A;
+        @media(max-width: 767px){
+            width: 100% !important;
+            max-width: 100%;
+            table-layout: fixed;
+            overflow-x: auto;
+        }
         thead{
             border-bottom: 1px solid #E0D9FF;
             tr{
@@ -34,6 +40,15 @@
                     letter-spacing: normal;
                     font-size: 16px !important;
                     line-height:24px;
+                    @media(max-width: 767px){
+                        padding-left: 12px;
+                        padding-right: 12px;
+                        white-space: normal;
+                        overflow-wrap: anywhere;
+                        word-break: break-word;
+                        font-size: 14px !important;
+                        line-height:1;
+                    }
                 }
             }
         }
@@ -47,6 +62,15 @@
                 td{
                     padding-top:32px;
                     padding-bottom: 32px;
+                    @media(max-width: 767px){
+                        padding-left: 12px;
+                        padding-right: 12px;
+                        white-space: normal;
+                        overflow-wrap: anywhere;
+                        word-break: break-word;
+                        font-size: 14px !important;
+                        line-height:1;
+                    }
                 }
             }
         }
@@ -83,12 +107,10 @@
             margin: 0;
             font-weight: 400;
             font-style: Italic;
-            font-size: 16px;
+            font-size: 16px !important;
             line-height: 24px;
             letter-spacing: 0px;
             @media(max-width: 767px){
-                font-size: 26px;
-                line-height: 37.5px;
                 br{
                     display: none;
                 }
