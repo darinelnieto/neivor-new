@@ -1,0 +1,1 @@
+// JS for partial: intelligence-grid-three-columns\n

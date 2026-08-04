@@ -1,0 +1,79 @@
+.intelligence-team-grid-four-column-partial-f92794 {
+    background: $white;
+    padding: 4rem 0;
+    .title{
+        font-weight: 800;
+        font-size: 40px;
+        line-height: 44px;
+        letter-spacing: -0.4px;
+        text-align: center;
+        vertical-align: middle;
+        margin-bottom: 1.5rem;
+        color: #1C1A27;
+    }
+    .subtitle{
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 28px;
+        letter-spacing: 0px;
+        text-align: center;
+        vertical-align: middle;
+        color: #7A7290;
+    }
+    .member-card{
+        height: 100%;
+        .photo-contain{
+            display: flex;
+            align-items:center;
+            justify-content:center;
+            margin: 0 auto;
+            width: 180px;
+            height: 120.54px;
+            position:relative;
+            img{
+                width: 100%;
+                height: auto;
+                position: absolute;
+                top: 20%;
+                z-index: 1;
+            }
+        }
+        .texts{
+            min-height: 262px;
+            max-width: 283px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            border-radius: 24px;
+            padding: 0 30px 30px;
+            .name{
+                font-weight: 900;
+                color: #1C1A27;
+                font-size: 24px;
+                line-height: 32px;
+                letter-spacing: 0px;
+                vertical-align: middle;
+                margin: 0;
+            }
+            .rol{
+                font-weight: 700;
+                font-size: 12px;
+                line-height: 16px;
+                letter-spacing: 1.2px;
+                vertical-align: middle;
+                text-transform: uppercase;
+                color: #5A3ED9;
+            }
+            .description{
+                padding-top: 20px;
+                font-weight: 500;
+                font-size: 13px;
+                line-height: 21.13px;
+                letter-spacing: 0.39px;
+                color: #7A7290;
+                margin-bottom: 0;
+            }
+        }
+    }
+}

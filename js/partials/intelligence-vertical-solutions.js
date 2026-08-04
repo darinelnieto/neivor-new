@@ -1,0 +1,1 @@
+// JS for partial: intelligence-vertical-solutions\n

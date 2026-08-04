@@ -1,0 +1,62 @@
+.intelligence-videos-grid-three-column-partial-53c7ec {
+    background: #F0F2F8;
+    padding: 4rem 0;
+    .title{
+        font-weight: 800;
+        font-size: 40px;
+        line-height: 44px;
+        letter-spacing: -0.4px;
+        text-align: center;
+        vertical-align: middle;
+        margin-bottom: 1.5rem;
+        color: #1C1A27;
+    }
+    .subtitle{
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 28px;
+        letter-spacing: 0px;
+        text-align: center;
+        vertical-align: middle;
+        color: #7A7290;
+    }
+    .item{
+        width:100%;
+        border: 1px solid #E0D9FF80;
+        border-radius: 32px;
+        background: $white;
+        padding: 17px;
+        height: 100%;
+        max-width: 373px;
+        margin: 0 auto;
+        .video{
+            display: flex;
+            align-items:center;
+            justify-content:center;
+            border-radius: 22.84px;
+            overflow: hidden;
+            iframe{
+                width: 100%;
+            }
+        }
+        .texts{
+            padding: 7.5px 20.5px;
+            .label{
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 31.2px;
+                letter-spacing: -0.24px;
+                vertical-align: middle;
+                color: #1C1A27;
+            }
+            .description{
+                color: #7A7290;
+                @media(max-width: 768px){
+                    br{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

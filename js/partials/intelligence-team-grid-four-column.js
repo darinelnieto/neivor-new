@@ -1,0 +1,1 @@
+// JS for partial: intelligence-team-grid-four-column\n
