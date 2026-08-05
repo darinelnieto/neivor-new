@@ -24,7 +24,7 @@ if(!empty($team['team'])):
             <?php if(!empty($team['title']) || !empty($team['intro'])): ?>
                 <div class="col-12 text-center mb-4">
                     <?php if(!empty($team['title'])): ?>
-                        <h2 class="title"><?= $team['title']; ?></h2>
+                        <h2 class="title h2"><?= $team['title']; ?></h2>
                     <?php endif; if(!empty($team['intro'])): ?>
                         <p class="subtitle p"><?= $team['intro']; ?></p>
                     <?php endif; ?>
