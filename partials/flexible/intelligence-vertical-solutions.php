@@ -59,10 +59,10 @@ $key_contoller = 0;
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
-                                    <?php endif; if(!empty($item['main_image'])): ?>
+                                    <?php endif; if(!empty($item_b['main_image'])): ?>
                                         <div class="col-12 col-md-6">
                                             <div class="image-contain">
-                                                <?= wp_get_attachment_image($item['main_image'], 'large', false, array(
+                                                <?= wp_get_attachment_image($item_b['main_image'], 'large', false, array(
                                                     'class' => 'main-image',
                                                     'loading' => 'lazy',
                                                     'decoding' => 'async'
