@@ -67,7 +67,7 @@ $show_breadcrumbs = ! empty($banner['show_breadcrumbs']) || ($migas === true);
                         'loading' => 'eager',
                     )) ?? ''; ?>
                     <?php else: ?>
-                        <video id="customVideo" autoplay muted loop playsinline preload="auto" style="width: 100%; height: auto; object-fit: cover;">
+                        <video id="customVideo" autoplay muted loop playsinline preload="metadata" fetchpriority="low" poster="<?= wp_get_attachment_image_url($banner['main_image'] ?? null, 'full') ?: ''; ?>" style="width: 100%; height: auto; object-fit: cover;">
                             <source src="<?= $banner['video']; ?>" type="video/mp4">
                             Tu navegador no soporta video HTML5.
                         </video>

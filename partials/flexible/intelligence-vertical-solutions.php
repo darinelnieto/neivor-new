@@ -42,11 +42,11 @@ $key_contoller = 0;
                                 <p class="description p"><?= $item_b['introduction'] ?? ''; ?></p>
                                 <div class="row align-items-center justify-content-between">
                                     <?php if(!empty($item_b['agentes'])): ?>
-                                    <div class="col-12 col-md-6 row">
+                                    <div class="col-12 col-md-6 col-lg-5 row">
                                         <?php foreach($item_b['agentes'] as $agent): ?>
                                             <div class="col-12 col-md-6 mb-5">
                                                 <div class="agent">
-                                                    <div class="texts" style="box-shadow: 0px 0px 10px 0px <?= $agent['color'] ?? '#0088FF33' ?>;">
+                                                    <div class="texts" style="box-shadow: 0px 0px 10px -4px <?= $agent['color'] ?? '#0088FF33' ?>;">
                                                         <p class="name"><?= $agent['name'] ?? ''; ?></p>
                                                         <p class="rol"><?= $agent['rol'] ?? ''; ?></p>
                                                     </div>
@@ -60,7 +60,7 @@ $key_contoller = 0;
                                         <?php endforeach; ?>
                                     </div>
                                     <?php endif; if(!empty($item_b['main_image'])): ?>
-                                        <div class="col-12 col-md-6">
+                                        <div class="col-12 col-md-6 col-lg-7">
                                             <div class="image-contain">
                                                 <?= wp_get_attachment_image($item_b['main_image'], 'large', false, array(
                                                     'class' => 'main-image',
