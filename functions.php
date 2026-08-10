@@ -136,6 +136,11 @@ function sajo_register_acf_options_pages() {
     'menu_title'     => 'Suscription',
     'parent_slug'   => 'theme-settings',
   ));
+  acf_add_options_sub_page(array(
+    'page_title'     => 'Error Page',
+    'menu_title'     => 'Error Page',
+    'parent_slug'   => 'theme-settings',
+  ));
 }
 add_action('acf/init', 'sajo_register_acf_options_pages');
 
