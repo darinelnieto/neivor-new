@@ -61,11 +61,11 @@ $show_breadcrumbs = ! empty($banner['show_breadcrumbs']) || ($migas === true);
             <div class="col-12 col-md-6">
                 <div class="image-contain">
                     <?php if($banner['enable_video'] === false): ?>
-                    <?= wp_get_attachment_image($banner['main_image'], 'full', false, array(
-                        'class' => 'hero-image',
-                        'fetchpriority' => 'high',
-                        'loading' => 'eager',
-                    )) ?? ''; ?>
+                        <?= wp_get_attachment_image($banner['main_image'], 'full', false, array(
+                            'class' => 'hero-image',
+                            'fetchpriority' => 'high',
+                            'loading' => 'eager',
+                        )) ?? ''; ?>
                     <?php else: ?>
                         <video id="customVideo" autoplay muted loop playsinline preload="metadata" fetchpriority="high" poster="<?= wp_get_attachment_image_url($banner['main_image'] ?? null, 'full') ?: ''; ?>" style="width: 100%; height: auto; object-fit: cover;">
                             <source src="<?= $banner['video']; ?>" type="video/mp4">

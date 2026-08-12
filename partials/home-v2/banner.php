@@ -57,12 +57,18 @@ $show_breadcrumbs = ! empty($banner['show_breadcrumbs']);
             </div>
             <div class="col-12 col-md-6">
                 <div class="image-contain">
-                    <?= wp_get_attachment_image($banner['main_image'], 'full', false, array(
-                        'class' => 'hero-image',
-                        'fetchpriority' => 'high',
-                        'loading' => 'eager'
-                    )) ?? ''; ?>
-                    <?php if(!empty($banner['overly_image'])): $overly = $banner['overly_image']; ?>
+                    <?php if(empty($banner['enable_video'])): ?>
+                        <?= wp_get_attachment_image($banner['main_image'], 'full', false, array(
+                            'class' => 'hero-image',
+                            'fetchpriority' => 'high',
+                            'loading' => 'eager',
+                        )) ?? ''; ?>
+                    <?php else: ?>
+                        <video id="customVideo" autoplay muted loop playsinline preload="metadata" fetchpriority="high" poster="<?= wp_get_attachment_image_url($banner['main_image'] ?? null, 'full') ?: ''; ?>" style="width: 100%; height: auto; object-fit: cover;">
+                            <source src="<?= $banner['video']; ?>" type="video/mp4">
+                            Tu navegador no soporta video HTML5.
+                        </video>
+                    <?php endif; if(!empty($banner['overly_image'])): $overly = $banner['overly_image']; ?>
                         <div class="overly">
                             <div class="desktop-content d-none d-md-flex">
                                 <div class="content">

@@ -75,13 +75,12 @@
     }
     .submenu{
         position: absolute;
-        background: #ffffff;
         max-width: 100%;
         width: 100%;
         height: 100vh;
         right: -100%;
         top: 0;
-        z-index: 3;
+        z-index: 0;
         transition: all .2s ease;
         padding: 0.5rem 1.5rem 3rem;
         display: flex;
@@ -154,6 +153,8 @@
     }
     .submenu.active{
         right: 0%;
+        z-index: 1;
+        background: #ffffff;
         .submenu-content{
             .label{
                 &::after{
