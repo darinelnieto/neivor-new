@@ -25,15 +25,25 @@ $sing_in = get_field('external_links', 'option');
 <ul class="nav-menu-partial-00596a">
     <?php foreach($nav as $main_nav): ?>
         <li>
-            <span class="main-menu-name">
-                <?= $main_nav['name_menu']; ?> 
-                <?php if($main_nav['sub_menu']): ?>
-                    <svg class="caret-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                <?php endif; ?>
-            </span>
-            <?php if($main_nav['sub_menu']): ?>
+            <?php if($main_nav['enable_link'] === false): ?>
+                <span class="main-menu-name">
+                    <?= $main_nav['name_menu']; ?> 
+                    <?php if($main_nav['sub_menu']): ?>
+                        <svg class="caret-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    <?php endif; ?>
+                </span>
+            <?php else: ?>
+                <a href="<?= $main_nav['link']['url'] ?? '#'; ?>" class="main-menu-name">
+                    <?= $main_nav['name_menu']; ?> 
+                    <?php if($main_nav['sub_menu']): ?>
+                        <svg class="caret-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    <?php endif; ?>
+                </a>
+            <?php endif; if($main_nav['sub_menu']): ?>
                 <div class="sub-menu-pop-up" style="<?php if($main_nav['nav_max_width']): ?>min-width:<?= $main_nav['nav_max_width']; ?><?php else: ?>min-width:564px;<?php endif; ?>">
                     <div class="row">
                         <?php foreach($main_nav['sub_menu'] as $sub_menu): ?>

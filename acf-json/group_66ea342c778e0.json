@@ -17,7 +17,8 @@
                 "id": ""
             },
             "placement": "left",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_66ea34484b68e",
@@ -63,6 +64,54 @@
                     "parent_repeater": "field_66ea34484b68e"
                 },
                 {
+                    "key": "field_6a7cc1697bad3",
+                    "label": "Enable link",
+                    "name": "enable_link",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "parent_repeater": "field_66ea34484b68e"
+                },
+                {
+                    "key": "field_6a7cc1837bad4",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6a7cc1697bad3",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "allow_in_bindings": 0,
+                    "parent_repeater": "field_66ea34484b68e"
+                },
+                {
                     "key": "field_67a9f6824f7a3",
                     "label": "nav max width",
                     "name": "nav_max_width",
@@ -104,6 +153,7 @@
                     "collapsed": "",
                     "button_label": "Agregar Fila",
                     "rows_per_page": 20,
+                    "parent_repeater": "field_66ea34484b68e",
                     "sub_fields": [
                         {
                             "key": "field_66ea35dd4b691",
@@ -131,7 +181,9 @@
                             "ui": 0,
                             "ajax": 0,
                             "placeholder": "",
-                            "parent_repeater": "field_66ea35b04b690"
+                            "parent_repeater": "field_66ea35b04b690",
+                            "create_options": 0,
+                            "save_options": 0
                         },
                         {
                             "key": "field_66ea36124b692",
@@ -201,6 +253,7 @@
                             "collapsed": "",
                             "button_label": "Agregar Fila",
                             "rows_per_page": 20,
+                            "parent_repeater": "field_66ea35b04b690",
                             "sub_fields": [
                                 {
                                     "key": "field_66ea36b34b697",
@@ -219,11 +272,9 @@
                                     "return_format": "array",
                                     "parent_repeater": "field_66ea363e4b694"
                                 }
-                            ],
-                            "parent_repeater": "field_66ea35b04b690"
+                            ]
                         }
-                    ],
-                    "parent_repeater": "field_66ea34484b68e"
+                    ]
                 }
             ]
         },
@@ -231,6 +282,26 @@
             "key": "field_673237bee7c12",
             "label": "Sing in cta text",
             "name": "sing_in_cta_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_673237bee7c16",
+            "label": "See demo text",
+            "name": "see_demo_text",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -355,6 +426,95 @@
                     "parent_repeater": "field_67c24400ae564"
                 }
             ]
+        },
+        {
+            "key": "field_67c24400ae564",
+            "label": "External links",
+            "name": "external_links",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Agregar Fila",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_67c2445eae565",
+                    "label": "Icon",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_67c24400ae564"
+                },
+                {
+                    "key": "field_67c2446bae566",
+                    "label": "Url",
+                    "name": "url",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_67c24400ae564"
+                },
+                {
+                    "key": "field_67c2447dae567",
+                    "label": "Cta text",
+                    "name": "cta_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_67c24400ae564"
+                }
+            ]
         }
     ],
     "location": [
@@ -375,5 +535,8 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1740785652
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1786561544
 }
