@@ -32,11 +32,17 @@ if(!empty($videos['list'])):
             <?php endif; foreach($videos['list'] as $item): ?>
                 <div class="col-12 col-md-6 col-lg-4 mb-4">
                     <div class="item">
-                        <?php if(!empty($item['video'])): ?>
-                            <div class="video">
+                        <div class="video">
+                            <?php if(!empty($item['enable_video'] === true)): ?>
                                 <?= $item['video']; ?>
-                            </div>
-                        <?php endif; ?>
+                            <?php else: ?>
+                                <?= wp_get_attachment_image($item['image'], 'large', false, array(
+                                    'class' => 'full-image',
+                                    'loading' => 'lazy',
+                                    'decoding' => 'async'
+                                )); ?>
+                            <?php  endif; ?>
+                        </div>
                         <div class="texts">
                             <?php if(!empty($item['label'])): ?>
                                 <p class="label"><?= $item['label']; ?></p>

@@ -35,8 +35,15 @@
             justify-content:center;
             border-radius: 22.84px;
             overflow: hidden;
+            max-height: 186.06646728515625px;
             iframe{
                 width: 100%;
+            }
+            img{
+                width: 100%;
+                height:100%;
+                object-fit:cover;
+                object-position:center;
             }
         }
         .texts{

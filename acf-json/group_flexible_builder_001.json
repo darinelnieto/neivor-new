@@ -9923,11 +9923,11 @@
                                     "rows_per_page": 20,
                                     "sub_fields": [
                                         {
-                                            "key": "field_6a70e97e1393f",
-                                            "label": "Video",
-                                            "name": "video",
+                                            "key": "field_6a7f31634596b",
+                                            "label": "Enable video",
+                                            "name": "enable_video",
                                             "aria-label": "",
-                                            "type": "oembed",
+                                            "type": "true_false",
                                             "instructions": "",
                                             "required": 0,
                                             "conditional_logic": 0,
@@ -9936,9 +9936,74 @@
                                                 "class": "",
                                                 "id": ""
                                             },
+                                            "message": "",
+                                            "default_value": 1,
+                                            "allow_in_bindings": 0,
+                                            "ui": 0,
+                                            "ui_on_text": "",
+                                            "ui_off_text": "",
+                                            "parent_repeater": "field_6a70e9711393e"
+                                        },
+                                        {
+                                            "key": "field_6a70e97e1393f",
+                                            "label": "Video",
+                                            "name": "video",
+                                            "aria-label": "",
+                                            "type": "oembed",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_6a7f31634596b",
+                                                        "operator": "==",
+                                                        "value": "1"
+                                                    }
+                                                ]
+                                            ],
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
                                             "width": 338,
                                             "height": "186.62",
                                             "allow_in_bindings": 0,
+                                            "parent_repeater": "field_6a70e9711393e"
+                                        },
+                                        {
+                                            "key": "field_6a7f31a44596c",
+                                            "label": "Image",
+                                            "name": "image",
+                                            "aria-label": "",
+                                            "type": "image",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_6a7f31634596b",
+                                                        "operator": "!=",
+                                                        "value": "1"
+                                                    }
+                                                ]
+                                            ],
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "id",
+                                            "library": "all",
+                                            "min_width": "",
+                                            "min_height": "",
+                                            "min_size": "",
+                                            "max_width": "",
+                                            "max_height": "",
+                                            "max_size": "",
+                                            "mime_types": "",
+                                            "allow_in_bindings": 0,
+                                            "preview_size": "medium",
                                             "parent_repeater": "field_6a70e9711393e"
                                         },
                                         {
@@ -10879,5 +10944,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1786041767
+    "modified": 1786721022
 }

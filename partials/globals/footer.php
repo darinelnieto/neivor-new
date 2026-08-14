@@ -1,15 +1,12 @@
 <?php
-$script_handle = "globals-footer-js";
-wp_enqueue_script(
-    $script_handle,
-    get_template_directory_uri() . "/js/partials-min/globals-footer.min.js",
-    array("jquery"),
-    null,
-    true
-);
-?>
-
-<?php
+// $script_handle = "globals-footer-js";
+// wp_enqueue_script(
+//     $script_handle,
+//     get_template_directory_uri() . "/js/partials-min/globals-footer.min.js",
+//     array("jquery"),
+//     null,
+//     true
+// );
 /**
  * 
  * Partial Name: footer
@@ -31,7 +28,7 @@ $polices = get_field('polices', 'option');
                 <?= wp_get_attachment_image($logo ?? '', 'large', false, array(
                     'class' => 'custom-logo',
                     'loading' => 'lazy',
-                    'decoding' => 'async',
+                    'decoding' => 'async', 
                 )) ?>
             </div>
             <?php if(!empty($social_networks)): ?>
@@ -40,7 +37,11 @@ $polices = get_field('polices', 'option');
                         <?php foreach($social_networks as $item): ?>
                             <li class="social-item">
                                 <a href="<?= $item['url'] ?>" target="_blank" rel="noopener" class="social-link">
-                                    <?= $item['fontawesome_icon'] ?? '<i class="fa-brands fa-facebook"></i>'; ?>
+                                    <?= wp_get_attachment_image($item['icon'] ?? '', 'large', false, array(
+                                        'class' => 'sn-icon',
+                                        'loading' => 'lazy',
+                                        'decoding' => 'async'
+                                    )); ?>
                                 </a>
                             </li>
                         <?php endforeach; ?>
