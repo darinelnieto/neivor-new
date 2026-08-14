@@ -32,6 +32,31 @@ function sajo_styles() {
 add_action('wp_enqueue_scripts', 'sajo_styles');
 
 /**
+ * Force Google Fonts to use display=swap to reduce FOIT and Lighthouse warnings.
+ */
+function sajo_force_google_fonts_display_swap($src) {
+  if (!is_string($src) || '' === $src) {
+    return $src;
+  }
+
+  if (false === strpos($src, 'fonts.googleapis.com/css')) {
+    return $src;
+  }
+
+  if (false !== strpos($src, 'display=swap') || false !== strpos($src, 'display=optional')) {
+    return $src;
+  }
+
+  if (preg_match('/([?&])display=[^&]*/', $src)) {
+    return (string) preg_replace('/([?&])display=[^&]*/', '${1}display=swap', $src, 1);
+  }
+
+  $separator = false === strpos($src, '?') ? '?' : '&';
+  return $src . $separator . 'display=swap';
+}
+add_filter('style_loader_src', 'sajo_force_google_fonts_display_swap', 20);
+
+/**
  * Load jQuery first with highest priority (HEAD, NO DEFER!)
  */
 function sajo_load_jquery_first() {

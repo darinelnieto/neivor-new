@@ -225,14 +225,14 @@ $social_networks = get_field("social_networks", "options");
                 
                 font-style: normal;
                 src: url("_woff/v1/Urbanist_wght__2/Urbanist_wght__2.woff2");
-                font-display: block
+                font-display: swap
             }
 
             @font-face {
                 
                 font-style: normal;
                 src: url("_woff/v1/Urbanist_wght__2/Urbanist_wght__2-english.woff2");
-                font-display: block;
+                font-display: swap;
                 unicode-range: U+0000-00A0,U+00A2-00A9,U+00AC-00AE,U+00B0-00B7,U+00B9-00BA,U+00BC-00BE,U+00D7,U+00F7,U+2000-206F,U+2074,U+20AC,U+2122,U+2190-21BB,U+2212,U+2215,U+F8FF,U+FEFF,U+FFFD
             }
 
@@ -240,7 +240,7 @@ $social_networks = get_field("social_networks", "options");
                 
                 font-style: normal;
                 src: url("_woff/v1/Urbanist_wght__2/Urbanist_wght__2-rest-latin.woff2");
-                font-display: block;
+                font-display: swap;
                 unicode-range: U+00A1,U+00AA-00AB,U+00AF,U+00B8,U+00BB,U+00BF-00D6,U+00D8-00F6,U+00F8-00FF,U+0131,U+0152-0153,U+02B0-02FF
             }
 
@@ -248,7 +248,7 @@ $social_networks = get_field("social_networks", "options");
                 
                 font-style: normal;
                 src: url("_woff/v1/Urbanist_wght__2/Urbanist_wght__2-latin-extended-a.woff2");
-                font-display: block;
+                font-display: swap;
                 unicode-range: U+0100-0130,U+0132-0151,U+0154-017F
             }
 
@@ -256,7 +256,7 @@ $social_networks = get_field("social_networks", "options");
                 
                 font-style: normal;
                 src: url("_woff/v1/Urbanist_wght__2/Urbanist_wght__2-latin-extended-b.woff2");
-                font-display: block;
+                font-display: swap;
                 unicode-range: U+0180-024F
             }
 
@@ -264,7 +264,7 @@ $social_networks = get_field("social_networks", "options");
                 
                 font-style: normal;
                 src: url("_woff/v1/Urbanist_wght__2/Urbanist_wght__2-latin-extended-additional.woff2");
-                font-display: block;
+                font-display: swap;
                 unicode-range: U+1E00-1EFF
             }
 
@@ -272,7 +272,7 @@ $social_networks = get_field("social_networks", "options");
                 
                 font-style: normal;
                 src: url("_woff/v1/Urbanist_wght__2/Urbanist_wght__2-rest.woff2");
-                font-display: block;
+                font-display: swap;
                 unicode-range: U+0259,U+0300-03C0,U+2070-2073,U+2075-20AB,U+20AD-2121,U+2123-218F,U+21BC-2211,U+2213-2214,U+2216-F8FE,U+FB01-FB02
             }
 
@@ -280,14 +280,14 @@ $social_networks = get_field("social_networks", "options");
                 
                 font-style: normal;
                 src: url("_woff/v1/Urbanist_wght__2/Urbanist_wght__2.woff2");
-                font-display: block
+                font-display: swap
             }
 
             @font-face {
                 
                 font-style: normal;
                 src: url("_woff/v1/Urbanist_wght__2/Urbanist_wght__2-english.woff2");
-                font-display: block;
+                font-display: swap;
                 unicode-range: U+0000-00A0,U+00A2-00A9,U+00AC-00AE,U+00B0-00B7,U+00B9-00BA,U+00BC-00BE,U+00D7,U+00F7,U+2000-206F,U+2074,U+20AC,U+2122,U+2190-21BB,U+2212,U+2215,U+F8FF,U+FEFF,U+FFFD
             }
 
@@ -295,7 +295,7 @@ $social_networks = get_field("social_networks", "options");
                 
                 font-style: normal;
                 src: url("_woff/v1/Urbanist_wght__2/Urbanist_wght__2-rest-latin.woff2");
-                font-display: block;
+                font-display: swap;
                 unicode-range: U+00A1,U+00AA-00AB,U+00AF,U+00B8,U+00BB,U+00BF-00D6,U+00D8-00F6,U+00F8-00FF,U+0131,U+0152-0153,U+02B0-02FF
             }
 
@@ -303,7 +303,7 @@ $social_networks = get_field("social_networks", "options");
                 
                 font-style: normal;
                 src: url("_woff/v1/Urbanist_wght__2/Urbanist_wght__2-latin-extended-a.woff2");
-                font-display: block;
+                font-display: swap;
                 unicode-range: U+0100-0130,U+0132-0151,U+0154-017F
             }
 
@@ -311,7 +311,7 @@ $social_networks = get_field("social_networks", "options");
                 
                 font-style: normal;
                 src: url("_woff/v1/Urbanist_wght__2/Urbanist_wght__2-latin-extended-b.woff2");
-                font-display: block;
+                font-display: swap;
                 unicode-range: U+0180-024F
             }
 
@@ -319,7 +319,7 @@ $social_networks = get_field("social_networks", "options");
                 
                 font-style: normal;
                 src: url("_woff/v1/Urbanist_wght__2/Urbanist_wght__2-latin-extended-additional.woff2");
-                font-display: block;
+                font-display: swap;
                 unicode-range: U+1E00-1EFF
             }
 
@@ -327,7 +327,7 @@ $social_networks = get_field("social_networks", "options");
                 
                 font-style: normal;
                 src: url("_woff/v1/Urbanist_wght__2/Urbanist_wght__2-rest.woff2");
-                font-display: block;
+                font-display: swap;
                 unicode-range: U+0259,U+0300-03C0,U+2070-2073,U+2075-20AB,U+20AD-2121,U+2123-218F,U+21BC-2211,U+2213-2214,U+2216-F8FE,U+FB01-FB02
             }
         </style>
