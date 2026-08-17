@@ -1,15 +1,12 @@
 <?php
-$script_handle = "flexible-blog_get_most_popular-js";
-wp_enqueue_script(
-    $script_handle,
-    get_template_directory_uri() . "/js/partials-min/flexible-blog_get_most_popular.min.js",
-    array("jquery"),
-    null,
-    true
-);
-?>
-
-<?php
+// $script_handle = "flexible-blog_get_most_popular-js";
+// wp_enqueue_script(
+//     $script_handle,
+//     get_template_directory_uri() . "/js/partials-min/flexible-blog_get_most_popular.min.js",
+//     array("jquery"),
+//     null,
+//     true
+// );
 /**
  * 
  * Partial Name: blog_get_most_popular

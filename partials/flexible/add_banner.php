@@ -1,15 +1,12 @@
 <?php
-$script_handle = "flexible-add_banner-js";
-wp_enqueue_script(
-    $script_handle,
-    get_template_directory_uri() . "/js/partials-min/flexible-add_banner.min.js",
-    array("jquery"),
-    null,
-    true
-);
-?>
-
-<?php
+// $script_handle = "flexible-add_banner-js";
+// wp_enqueue_script(
+//     $script_handle,
+//     get_template_directory_uri() . "/js/partials-min/flexible-add_banner.min.js",
+//     array("jquery"),
+//     null,
+//     true
+// );
 /**
  * Partial Name: add_banner (Flexible Builder)
  * Layout: add_banner

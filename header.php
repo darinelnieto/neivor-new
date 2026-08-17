@@ -46,6 +46,17 @@ if ( ! defined( 'ABSPATH' ) ) {
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=197329169765507&ev=PageView&noscript=1"
   /></noscript>
+  <!-- Aquí -->
+  <?php 
+    $h_scripts = get_field('heads_scripts');
+    if(!empty($h_scripts)){
+      foreach ( $h_scripts as $item ) {
+          if ( ! empty( $item['scripts'] ) ) {
+            echo $item['scripts'] . "\n";
+          };
+      };
+    };
+  ?>
 </head>
 
 <body <?php body_class(); ?>>

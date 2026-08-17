@@ -1,15 +1,12 @@
 <?php
-$script_handle = "flexible-fs_how_to_hire-js";
-wp_enqueue_script(
-    $script_handle,
-    get_template_directory_uri() . "/js/partials-min/flexible-fs_how_to_hire.min.js",
-    array("jquery"),
-    null,
-    true
-);
-?>
-
-<?php
+// $script_handle = "flexible-fs_how_to_hire-js";
+// wp_enqueue_script(
+//     $script_handle,
+//     get_template_directory_uri() . "/js/partials-min/flexible-fs_how_to_hire.min.js",
+//     array("jquery"),
+//     null,
+//     true
+// );
 /**
  * 
  * Partial Name: how-to-hire-it

@@ -1,15 +1,12 @@
 <?php
-$script_handle = "flexible-flexible_cards_whit_five_items-js";
-wp_enqueue_script(
-    $script_handle,
-    get_template_directory_uri() . "/js/partials-min/flexible-flexible_cards_whit_five_items.min.js",
-    array("jquery"),
-    null,
-    true
-);
-?>
-
-<?php
+// $script_handle = "flexible-flexible_cards_whit_five_items-js";
+// wp_enqueue_script(
+//     $script_handle,
+//     get_template_directory_uri() . "/js/partials-min/flexible-flexible_cards_whit_five_items.min.js",
+//     array("jquery"),
+//     null,
+//     true
+// );
 /**
  * 
  * Partial Name: flexible_cards_whit_five_items

@@ -1,15 +1,12 @@
 <?php
-$script_handle = "flexible-body_blog-js";
-wp_enqueue_script(
-    $script_handle,
-    get_template_directory_uri() . "/js/partials-min/flexible-body_blog.min.js",
-    array("jquery"),
-    null,
-    true
-);
-?>
-
-<?php
+// $script_handle = "flexible-body_blog-js";
+// wp_enqueue_script(
+//     $script_handle,
+//     get_template_directory_uri() . "/js/partials-min/flexible-body_blog.min.js",
+//     array("jquery"),
+//     null,
+//     true
+// );
 /**
  *
  * Partial Name: body_blog (Flexible Builder)

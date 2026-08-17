@@ -1,0 +1,1 @@
+// JS for partial: add-script-to-the-head\n

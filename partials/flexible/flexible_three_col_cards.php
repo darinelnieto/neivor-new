@@ -1,15 +1,12 @@
 <?php
-$script_handle = "flexible-flexible_three_col_cards-js";
-wp_enqueue_script(
-    $script_handle,
-    get_template_directory_uri() . "/js/partials-min/flexible-flexible_three_col_cards.min.js",
-    array("jquery"),
-    null,
-    true
-);
-?>
-
-<?php
+// $script_handle = "flexible-flexible_three_col_cards-js";
+// wp_enqueue_script(
+//     $script_handle,
+//     get_template_directory_uri() . "/js/partials-min/flexible-flexible_three_col_cards.min.js",
+//     array("jquery"),
+//     null,
+//     true
+// );
 /**
  * Flexible Builder  Three Columns Cardwrapper 
  * Layout: flexible_three_col_cards

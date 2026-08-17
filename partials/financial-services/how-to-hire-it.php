@@ -7,9 +7,6 @@ wp_enqueue_script(
     null,
     true
 );
-?>
-
-<?php
 /**
  * 
  * Partial Name: how-to-hire-it
@@ -42,4 +39,3 @@ if($manual === true){
         </div>
     </div>
 </section>
-                    

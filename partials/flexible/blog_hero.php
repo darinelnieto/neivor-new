@@ -1,15 +1,12 @@
 <?php
-$script_handle = "flexible-blog_hero-js";
-wp_enqueue_script(
-    $script_handle,
-    get_template_directory_uri() . "/js/partials-min/flexible-blog_hero.min.js",
-    array("jquery"),
-    null,
-    true
-);
-?>
-
-<?php
+// $script_handle = "flexible-blog_hero-js";
+// wp_enqueue_script(
+//     $script_handle,
+//     get_template_directory_uri() . "/js/partials-min/flexible-blog_hero.min.js",
+//     array("jquery"),
+//     null,
+//     true
+// );
 /**
  * 
  * Partial Name: blog_hero

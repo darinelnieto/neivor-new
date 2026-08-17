@@ -1,15 +1,12 @@
 <?php
-$script_handle = "flexible-benefits_left_image_and_text_right-js";
-wp_enqueue_script(
-    $script_handle,
-    get_template_directory_uri() . "/js/partials-min/flexible-benefits_left_image_and_text_right.min.js",
-    array("jquery"),
-    null,
-    true
-);
-?>
-
-<?php
+// $script_handle = "flexible-benefits_left_image_and_text_right-js";
+// wp_enqueue_script(
+//     $script_handle,
+//     get_template_directory_uri() . "/js/partials-min/flexible-benefits_left_image_and_text_right.min.js",
+//     array("jquery"),
+//     null,
+//     true
+// );
 /**
  * 
  * Partial Name: benefits_left_image_and_text_right
