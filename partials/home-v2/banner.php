@@ -71,7 +71,7 @@ $show_breadcrumbs = ! empty($banner['show_breadcrumbs']);
             </div>
             <div class="col-12 col-md-6">
                 <div class="image-contain">
-                    <?php if(empty($banner['enable_video'])): ?>
+                    <?php if($banner['enable_video'] === false): ?>
                         <?= wp_get_attachment_image($banner['main_image'], 'full', false, array(
                             'class' => 'hero-image',
                             'fetchpriority' => 'high',
