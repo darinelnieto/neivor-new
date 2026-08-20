@@ -202,6 +202,9 @@
     .form-new{
         position:relative;
         margin-top: 1rem;
+        @media(max-width:768px){
+            margin-bottom: 2rem;
+        }
         label{
             font-weight: 400;
             font-size: 19px;
@@ -209,6 +212,9 @@
             letter-spacing: 0.1px;
             text-transform: capitalize;
             color: #000000;
+            @media(max-width:768px){
+                font-size: 17px;
+            }
         }
         input[type="text"], input[type="email"], input[type="tel"], select{
             height: 49px;
@@ -220,6 +226,11 @@
             box-shadow: none;
             outline:none;
             padding: 0 20px;
+            font-size: 17px;
+            @media(max-width:768px){
+                height: 36px;
+                max-width: 311px;
+            }
         }
         .hubspot-privacy-policy{
             p{
@@ -229,6 +240,9 @@
                 line-height: 135%;
                 letter-spacing: 0.1px;
                 color: #000000;
+                @media(max-width:768px){
+                    font-size: 12px;
+                }
                 a{
                     color: #7D65FE;
                     font-weight: 600;
@@ -260,6 +274,9 @@
             &:hover{
                 color: #38BD6D;
                 background: transparent;
+            }
+            @media(max-width:768px){
+                font-size: 17px;
             }
         }
     }
