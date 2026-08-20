@@ -3,13 +3,10 @@ $script_handle = "home-v2-boost-your-business-js";
 wp_enqueue_script(
     $script_handle,
     get_template_directory_uri() . "/js/partials-min/home-v2-boost-your-business.min.js",
-    array("jquery"),
+    array("jquery", "owl-carousel-js"),
     null,
     true
 );
-?>
-
-<?php
 /**
  * 
  * Partial Name: boost-your-business

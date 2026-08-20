@@ -344,6 +344,27 @@
                     "new_lines": ""
                 },
                 {
+                    "key": "field_6a87034568f1a",
+                    "label": "Embeed form",
+                    "name": "embeed_form",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 1,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
                     "key": "v2_field_69e4f5242f5de",
                     "label": "HS form",
                     "name": "hs_form",
@@ -351,7 +372,15 @@
                     "type": "textarea",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6a87034568f1a",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -363,6 +392,137 @@
                     "rows": "",
                     "placeholder": "",
                     "new_lines": ""
+                },
+                {
+                    "key": "field_6a87038e68f1b",
+                    "label": "HS form new",
+                    "name": "hs_form_new",
+                    "aria-label": "",
+                    "type": "group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6a87034568f1a",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6a8703a268f1c",
+                            "label": "portalId",
+                            "name": "portalid",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "20854675",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_6a8703c168f1d",
+                            "label": "formId",
+                            "name": "formid",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "725fe76c-bca3-4fe8-b2d9-06032fa38048",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_6a8703d168f1e",
+                            "label": "region",
+                            "name": "region",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "na1",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_6a8709acea74b",
+                            "label": "Text buttom submit",
+                            "name": "text_buttom_submit",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "Hablar por WhatsApp",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_6a8706d768f21",
+                            "label": "Submit scripts",
+                            "name": "submit_scripts",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "const email = $form.find('input[name=\"email\"]').val();\r\n      if (email) {\r\n        \/\/ 1. Seguimiento para Facebook Pixel\r\n        fbq('track', 'Contact');\r\n\r\n        \/\/ 2. Seguimiento para Google Analytics 4\r\n        if (typeof gtag === 'function') {\r\n          gtag('event', 'generate_lead', {\r\n            'event_category': 'sales',\r\n            'event_label': 'whatsapp_demo_condos_administrador',\r\n            'page_location': window.location.href,\r\n            'value': 1.0\r\n          });\r\n        }\r\n\r\n        \/\/ 3. Redirección a WhatsApp\r\n        const message = \"Hola, mi correo es \" + encodeURIComponent(email) + \" vi información sobre Neivor y me interesa conocer más sobre sus servicios.\";\r\n        const whatsappURL = \"https:\/\/api.whatsapp.com\/send?phone=5215610456659&text=\" + message;\r\n        window.open(whatsappURL, '_blank');\r\n      }\r\n    }",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "rows": 6,
+                            "placeholder": "",
+                            "new_lines": ""
+                        }
+                    ]
                 },
                 {
                     "key": "v2_field_69e4dfae5e6b2",
@@ -383,27 +543,6 @@
                     "selected": 0
                 },
                 {
-                    "key": "field_6a73606749972",
-                    "label": "Enable video",
-                    "name": "enable_video",
-                    "aria-label": "",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "default_value": 0,
-                    "allow_in_bindings": 0,
-                    "ui": 0,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
-                },
-                {
                     "key": "v2_field_69e4d3902fefb",
                     "label": "Main image",
                     "name": "main_image",
@@ -411,15 +550,7 @@
                     "type": "image",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_6a73606749972",
-                                "operator": "!=",
-                                "value": "1"
-                            }
-                        ]
-                    ],
+                    "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -436,35 +567,6 @@
                     "mime_types": "",
                     "allow_in_bindings": 0,
                     "preview_size": "medium"
-                },
-                {
-                    "key": "field_6a73608449973",
-                    "label": "Video",
-                    "name": "video",
-                    "aria-label": "",
-                    "type": "file",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_6a73606749972",
-                                "operator": "==",
-                                "value": "1"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "url",
-                    "library": "all",
-                    "min_size": "",
-                    "max_size": "",
-                    "mime_types": "",
-                    "allow_in_bindings": 0
                 },
                 {
                     "key": "field_6a04710e54698",
@@ -1362,7 +1464,7 @@
                     "conditional_logic": [
                         [
                             {
-                                "field": "field_ni_enable",
+                                "field": "v2_field_69e4d149f4946",
                                 "operator": "==",
                                 "value": "1"
                             }
@@ -1375,6 +1477,7 @@
                     },
                     "default_value": "",
                     "maxlength": "",
+                    "allow_in_bindings": 0,
                     "rows": 4,
                     "placeholder": "",
                     "new_lines": "br"
@@ -2811,5 +2914,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1786570684
+    "modified": 1787234776
 }

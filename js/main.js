@@ -1,5 +1,6 @@
 import '../sass/main.scss'
-import $ from 'jquery';
+
+const $ = window.jQuery;
 
 window.sajo = {
     menu: (el) => {

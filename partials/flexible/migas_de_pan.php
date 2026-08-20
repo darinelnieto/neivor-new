@@ -106,7 +106,7 @@ if ( is_front_page() ) {
     if ( ! empty( $post_type ) ) {
         $taxonomies = get_object_taxonomies( $post_type, 'names' );
         foreach ( $taxonomies as $taxonomy_name ) {
-            if ( 'post_format' === $taxonomy_name ) {
+            if ( in_array( $taxonomy_name, array( 'post_format', 'autor' ), true ) ) {
                 continue;
             }
 

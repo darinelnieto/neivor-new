@@ -1,15 +1,12 @@
 <?php
-$script_handle = "flexible-home_v2_banner-js";
-wp_enqueue_script(
-    $script_handle,
-    get_template_directory_uri() . "/js/partials-min/flexible-home_v2_banner.min.js",
-    array("jquery"),
-    null,
-    true
-);
-?>
-
-<?php
+// $script_handle = "flexible-home_v2_banner-js";
+// wp_enqueue_script(
+//     $script_handle,
+//     get_template_directory_uri() . "/js/partials-min/flexible-home_v2_banner.min.js",
+//     array("jquery"),
+//     null,
+//     true
+// );
 // Flexible Builder wrapper. Original: partials/home-v2/banner.php
 
 /**
@@ -52,10 +49,35 @@ $show_breadcrumbs = ! empty($banner['show_breadcrumbs']) || ($migas === true);
                     </div>
                 <?php endif; ?>
                 <p class="description d-none d-md-block"><?= $banner['description'] ?? ''; ?></p>
-                <?php if(!empty($banner['hs_form'])): ?>
-                <div class="form-content">
-                    <?= $banner['hs_form']; ?>
-                </div>
+                <?php if($banner['embeed_form'] === true): ?>
+                    <div class="form-content">
+                        <?= $banner['hs_form']; ?>
+                    </div>
+                <?php else:
+                    $form = $banner['hs_form_new'];
+                    $form_dom_id = wp_unique_id('home-v2-form-');
+                    $form_endpoint = rest_url('neivor/v1/hubspot-form/' . rawurlencode($form['portalid'] ?? '') . '/' . rawurlencode($form['formid'] ?? '') . '?region=' . rawurlencode($form['region'] ?? 'na1'));
+                    $submit_endpoint = rest_url('neivor/v1/hubspot-subscribe');
+                    $script_handle = "home-v2-banner-js";
+                    wp_enqueue_script(
+                        $script_handle,
+                        get_template_directory_uri() . "/js/partials-min/home-v2-banner.min.js",
+                        array(),
+                        null,
+                        true
+                    );
+                ?>
+                    <div
+                        id="<?= esc_attr($form_dom_id); ?>"
+                        class="form-new"
+                        data-form-endpoint="<?= esc_url($form_endpoint); ?>"
+                        data-submit-endpoint="<?= $submit_endpoint; ?>"
+                        data-portal-id="<?= $form['portalid'] ?? ''; ?>"
+                        data-form-id="<?= $form['formid'] ?? ''; ?>"
+                        data-region="<?= $form['region'] ?? 'na1'; ?>"
+                        data-submit-label="<?= $form['text_buttom_submit'] ?? 'Enviar'; ?>"
+                        data-submit-script="<?= esc_attr($form['submit_scripts'] ?? ''); ?>"
+                    ></div>
                 <?php endif; ?>
             </div>
             <div class="col-12 col-md-6">

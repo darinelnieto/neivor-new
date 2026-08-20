@@ -198,7 +198,71 @@
             margin-bottom: 2rem;
         }
     }
-
+    // New form
+    .form-new{
+        position:relative;
+        margin-top: 1rem;
+        label{
+            font-weight: 400;
+            font-size: 19px;
+            line-height: 135%;
+            letter-spacing: 0.1px;
+            text-transform: capitalize;
+            color: #000000;
+        }
+        input[type="text"], input[type="email"], input[type="tel"], select{
+            height: 49px;
+            width: 100%;
+            max-width: 567px;
+            border: 1px solid #D8D8D8;
+            border-radius: 40px;
+            background: $white;
+            box-shadow: none;
+            outline:none;
+            padding: 0 20px;
+        }
+        .hubspot-privacy-policy{
+            p{
+                margin-bottom: 1.5rem;
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 135%;
+                letter-spacing: 0.1px;
+                color: #000000;
+                a{
+                    color: #7D65FE;
+                    font-weight: 600;
+                }
+            }
+        }
+        .submit-button {
+            display:flex;
+            align-items: center;
+            border:none;
+            border-radius: 15px;
+            padding: 10px 20px;
+            gap: 10px;
+            background: #38BD6D;
+            border: 1px solid #38BD6D;
+            color: $white;
+            // font
+            font-weight: 600;
+            font-size: 19px;
+            line-height: 135%;
+            letter-spacing: 0.1px;
+            vertical-align: middle;
+            text-transform: capitalize;
+            transition: all .2s ease;
+            svg{
+                width:20px;
+                height: auto;
+            }
+            &:hover{
+                color: #38BD6D;
+                background: transparent;
+            }
+        }
+    }
     p.description {
         margin-top: .7rem;
         font-weight: 400;

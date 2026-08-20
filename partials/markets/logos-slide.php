@@ -3,7 +3,7 @@ $script_handle = "markets-logos-slide-js";
 wp_enqueue_script(
     $script_handle,
     get_template_directory_uri() . "/js/partials-min/markets-logos-slide.min.js",
-    array("jquery"),
+    array("jquery", "owl-carousel-js"),
     null,
     true
 );

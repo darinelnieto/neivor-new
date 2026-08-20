@@ -92,7 +92,6 @@ function sajo_scripts() {
 
   // Defer non-critical JS while keeping it in footer.
   wp_script_add_data('bootstrap-js', 'strategy', 'defer');
-  wp_script_add_data('owl-carousel-js', 'strategy', 'defer');
   wp_script_add_data('main-scripts', 'strategy', 'defer');
 
   $inline_js = 'const _sajoURI_ = "' . esc_js(get_template_directory_uri()) . '", _sajoURL_ = "' . esc_js(get_site_url()) . '";';
@@ -232,7 +231,6 @@ function sajo_defer_theme_scripts($tag, $handle, $src) {
 
   $defer_handles = array(
     'bootstrap-js',
-    'owl-carousel-js',
     'main-scripts',
   );
 
@@ -944,6 +942,22 @@ function blog_listing_change_view_handler($request) {
 }
 
 add_action('rest_api_init', function () {
+  register_rest_route('neivor/v1', '/hubspot-form/(?P<portal_id>[0-9]+)/(?P<form_id>[a-zA-Z0-9-]+)', array(
+    array(
+      'methods' => WP_REST_Server::READABLE,
+      'callback' => 'neivor_hubspot_form_handler',
+      'permission_callback' => '__return_true',
+    )
+  ));
+
+  register_rest_route('neivor/v1', '/hubspot-submit', array(
+    array(
+      'methods' => WP_REST_Server::CREATABLE,
+      'callback' => 'neivor_hubspot_submit_handler',
+      'permission_callback' => '__return_true',
+    )
+  ));
+
   register_rest_route('neivor/v1', '/hubspot-subscribe', array(
     array(
       'methods' => WP_REST_Server::CREATABLE,
@@ -953,37 +967,191 @@ add_action('rest_api_init', function () {
   ));
 });
 
-function neivor_hubspot_subscribe_handler($request) {
+function neivor_hubspot_form_handler($request) {
+  $portal_id = sanitize_text_field($request['portal_id']);
+  $form_id = sanitize_text_field($request['form_id']);
+  $region = sanitize_key($request->get_param('region') ?: 'na1');
+  $host = 'na1' === $region ? 'forms.hsforms.com' : 'forms-' . $region . '.hsforms.com';
+
+  $response = wp_remote_get(
+    sprintf(
+      'https://%s/embed/v3/form/%s/%s/json',
+      $host,
+      rawurlencode($portal_id),
+      rawurlencode($form_id)
+    ),
+    array(
+      'timeout' => 20,
+    )
+  );
+
+  if (is_wp_error($response)) {
+    return new WP_Error('hubspot_form_request_error', $response->get_error_message(), array('status' => 502));
+  }
+
+  $status_code = wp_remote_retrieve_response_code($response);
+  $response_body = wp_remote_retrieve_body($response);
+  $body = json_decode($response_body, true);
+
+  if ($status_code < 200 || $status_code >= 300 || !is_array($body)) {
+    $hubspot_message = is_array($body) && !empty($body['message']) ? sanitize_text_field($body['message']) : 'Respuesta invalida de HubSpot.';
+    return new WP_Error('hubspot_form_error', 'HubSpot no pudo leer el formulario: ' . $hubspot_message, array('status' => $status_code ?: 502));
+  }
+
+  $fields = array();
+  foreach ($body['form']['formFieldGroups'] ?? array() as $group) {
+    foreach ($group['fields'] ?? array() as $field) {
+      $fields[] = $field;
+    }
+  }
+
+  $privacy_policy_text = '';
+  foreach ($body['form']['metaData'] ?? array() as $metadata) {
+    if (($metadata['name'] ?? '') !== 'legalConsentOptions') {
+      continue;
+    }
+
+    $legal_consent = json_decode($metadata['value'] ?? '', true);
+    $privacy_policy_text = wp_kses_post($legal_consent['privacyPolicyText'] ?? '');
+    break;
+  }
+
+  return array(
+    'fields' => $fields,
+    'submitText' => $body['form']['submitText'] ?? '',
+    'privacyPolicyText' => $privacy_policy_text,
+  );
+}
+
+function neivor_hubspot_submit_handler($request) {
   $portal_id = sanitize_text_field($request['portalId']);
   $form_id = sanitize_text_field($request['formId']);
-  $email = sanitize_email($request['email']);
-  $first_name = sanitize_text_field($request['firstname'] ?: $request['fullName']);
-  $content_preference = sanitize_text_field($request['contentPreference']);
+  $request_fields = $request['fields'];
 
-  if (empty($portal_id) || empty($form_id) || empty($email)) {
+  if (empty($portal_id) || empty($form_id) || !is_array($request_fields)) {
+    return new WP_Error('missing_required_fields', 'portalId, formId y fields son obligatorios', array('status' => 400));
+  }
+
+  $fields = array();
+  foreach ($request_fields as $name => $value) {
+    $name = sanitize_text_field($name);
+    if ($name === '') {
+      continue;
+    }
+
+    $fields[] = array(
+      'name' => $name,
+      'value' => is_array($value) ? implode(';', array_map('sanitize_text_field', $value)) : sanitize_text_field($value),
+    );
+  }
+
+  if (empty($fields)) {
+    return new WP_Error('empty_fields', 'El formulario no contiene datos.', array('status' => 400));
+  }
+
+  $response = wp_remote_post(
+    sprintf('https://api.hsforms.com/submissions/v3/integration/submit/%s/%s', rawurlencode($portal_id), rawurlencode($form_id)),
+    array(
+      'headers' => array('Content-Type' => 'application/json'),
+      'body' => wp_json_encode(array(
+        'fields' => $fields,
+        'context' => array(
+      'pageUri' => esc_url_raw($params['pageUri'] ?? home_url('/')),
+      'pageName' => sanitize_text_field($params['pageName'] ?? get_bloginfo('name')),
+        ),
+      )),
+      'timeout' => 20,
+    )
+  );
+
+  if (is_wp_error($response)) {
+    return new WP_Error('hubspot_request_error', $response->get_error_message(), array('status' => 502));
+  }
+
+  $status_code = wp_remote_retrieve_response_code($response);
+  $response_body = wp_remote_retrieve_body($response);
+  if ($status_code < 200 || $status_code >= 300) {
+    $hubspot_body = json_decode($response_body, true);
+    $hubspot_message = is_array($hubspot_body) && !empty($hubspot_body['message'])
+      ? sanitize_text_field($hubspot_body['message'])
+      : 'Respuesta invalida de HubSpot.';
+
+    return new WP_Error(
+      'hubspot_submit_error',
+      'HubSpot rechazo el formulario: ' . $hubspot_message,
+      array('status' => $status_code ?: 502, 'hubspot_response' => $response_body)
+    );
+  }
+
+  return array(
+    'success' => true,
+    'hubspot_response' => json_decode($response_body, true),
+  );
+}
+
+function neivor_hubspot_subscribe_handler($request) {
+  $json_params = $request->get_json_params();
+  $params = is_array($json_params) ? $json_params : $request->get_params();
+  $portal_id = sanitize_text_field($params['portalId'] ?? '');
+  $form_id = sanitize_text_field($params['formId'] ?? '');
+  $request_fields = $params['fields'] ?? null;
+  $is_dynamic_form = is_array($request_fields);
+  $email = sanitize_email($params['email'] ?? '');
+  $first_name = sanitize_text_field($params['firstname'] ?? ($params['fullName'] ?? ''));
+  $content_preference = sanitize_text_field($params['contentPreference'] ?? '');
+
+  if (is_array($request_fields)) {
+    $fields = array();
+
+    foreach ($request_fields as $name => $value) {
+      $name = sanitize_text_field($name);
+      if ($name === '') {
+        continue;
+      }
+
+      $value = is_array($value)
+        ? implode(';', array_map('sanitize_text_field', $value))
+        : sanitize_text_field($value);
+
+      if ($name === 'email') {
+        $email = sanitize_email($value);
+      }
+
+      $fields[] = array(
+        'name' => $name,
+        'value' => $value,
+      );
+    }
+  } else {
+    $fields = array(
+      array(
+        'name' => 'email',
+        'value' => $email,
+      ),
+      array(
+        'name' => 'firstname',
+        'value' => $first_name,
+      ),
+    );
+
+    if (!empty($content_preference)) {
+      $fields[] = array(
+        'name' => 'por_que_te_interesa_este_contenido_',
+        'value' => $content_preference,
+      );
+    }
+  }
+
+  if (empty($portal_id) || empty($form_id) || empty($fields)) {
+    return new WP_Error('missing_required_fields', 'portalId, formId y fields son obligatorios', array('status' => 400));
+  }
+
+  if (!$is_dynamic_form && empty($email)) {
     return new WP_Error('missing_required_fields', 'portalId, formId y email son obligatorios', array('status' => 400));
   }
 
-  if (!is_email($email)) {
+  if (!$is_dynamic_form && !is_email($email)) {
     return new WP_Error('invalid_email', 'El email no es valido', array('status' => 400));
-  }
-
-  $fields = array(
-    array(
-      'name' => 'email',
-      'value' => $email,
-    ),
-    array(
-      'name' => 'firstname',
-      'value' => $first_name,
-    ),
-  );
-
-  if (!empty($content_preference)) {
-    $fields[] = array(
-      'name' => 'por_que_te_interesa_este_contenido_',
-      'value' => $content_preference,
-    );
   }
 
   $payload = array(
@@ -1032,6 +1200,7 @@ function neivor_hubspot_subscribe_handler($request) {
   return array(
     'success' => true,
     'message' => 'Suscripcion enviada correctamente',
+    'submitted_fields' => $fields,
   );
 }
 
