@@ -515,7 +515,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "const email = $form.find('input[name=\"email\"]').val();\r\n      if (email) {\r\n        \/\/ 1. Seguimiento para Facebook Pixel\r\n        fbq('track', 'Contact');\r\n\r\n        \/\/ 2. Seguimiento para Google Analytics 4\r\n        if (typeof gtag === 'function') {\r\n          gtag('event', 'generate_lead', {\r\n            'event_category': 'sales',\r\n            'event_label': 'whatsapp_demo_condos_administrador',\r\n            'page_location': window.location.href,\r\n            'value': 1.0\r\n          });\r\n        }\r\n\r\n        \/\/ 3. Redirección a WhatsApp\r\n        const message = \"Hola, mi correo es \" + encodeURIComponent(email) + \" vi información sobre Neivor y me interesa conocer más sobre sus servicios.\";\r\n        const whatsappURL = \"https:\/\/api.whatsapp.com\/send?phone=5215610456659&text=\" + message;\r\n        window.open(whatsappURL, '_blank');\r\n      }\r\n    }",
+                            "default_value": "var email = '';\r\nif ($form && typeof $form.find === 'function') {\r\n    email = $form.find('input[name=\"email\"]').val() || '';\r\n} else if ($form && $form.querySelector) {\r\n    var emailInput = $form.querySelector('input[name=\"email\"]');\r\n    email = emailInput ? emailInput.value : '';\r\n}\r\n\r\nif (email) {\r\n    if (typeof fbq === 'function') {\r\n        fbq('track', 'Contact');\r\n    }\r\n\r\n    if (typeof gtag === 'function') {\r\n        gtag('event', 'generate_lead', {\r\n            event_category: 'sales',\r\n            event_label: 'whatsapp_demo_condos_administrador',\r\n            page_location: window.location.href,\r\n            value: 1.0\r\n        });\r\n    }\r\n\r\n    var message = \"Hola, mi correo es \" + email + \" vi información sobre Neivor y me interesa conocer más sobre sus servicios.\";\r\n    var whatsappURL = \"https:\/\/api.whatsapp.com\/send?phone=5215610456659&text=\" + encodeURIComponent(message);\r\n\r\n    \/\/ Safari: evitar popup bloqueado post-async\r\n    var isSafari = \/^((?!chrome|android).)*safari\/i.test(navigator.userAgent);\r\n    if (isSafari) {\r\n        window.location.href = whatsappURL;\r\n    } else {\r\n        window.open(whatsappURL, '_blank', 'noopener,noreferrer');\r\n    }\r\n}",
                             "maxlength": "",
                             "allow_in_bindings": 0,
                             "rows": 6,
@@ -2964,5 +2964,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1787248899
+    "modified": 1787341093
 }
