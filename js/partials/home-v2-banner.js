@@ -155,7 +155,20 @@
     function init() {
         document.querySelectorAll('.form-new[data-form-endpoint]').forEach(async function (container) {
             try {
-                var response = await fetch(container.dataset.formEndpoint);
+                var formEndpoint = container.dataset.formEndpoint || '';
+                var hasPortalParams = formEndpoint.indexOf('portalId=') !== -1 && formEndpoint.indexOf('formId=') !== -1;
+                var formUrl = formEndpoint;
+
+                if (!hasPortalParams) {
+                    var params = new URLSearchParams({
+                        portalId: container.dataset.portalId || '',
+                        formId: container.dataset.formId || '',
+                        region: container.dataset.region || 'na1'
+                    });
+                    formUrl = formEndpoint + '?' + params.toString();
+                }
+
+                var response = await fetch(formUrl);
                 var definition = await response.json();
                 if (!response.ok) {
                     throw new Error(definition && definition.message ? definition.message : 'No se pudo cargar el formulario.');

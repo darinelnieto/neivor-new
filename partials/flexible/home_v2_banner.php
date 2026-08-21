@@ -55,7 +55,14 @@ $show_breadcrumbs = ! empty($banner['show_breadcrumbs']) || ($migas === true);
                 <?php else:
                     $form = $banner['hs_form_new'];
                     $form_dom_id = wp_unique_id('home-v2-form-');
-                    $form_endpoint = rest_url('neivor/v1/hubspot-form/' . rawurlencode($form['portalid'] ?? '') . '/' . rawurlencode($form['formid'] ?? '') . '?region=' . rawurlencode($form['region'] ?? 'na1'));
+                    $form_endpoint = add_query_arg(
+                        array(
+                            'portalId' => $form['portalid'] ?? '',
+                            'formId' => $form['formid'] ?? '',
+                            'region' => $form['region'] ?? 'na1',
+                        ),
+                        rest_url('neivor/v1/hubspot-subscribe')
+                    );
                     $submit_endpoint = rest_url('neivor/v1/hubspot-subscribe');
                     $script_handle = "home-v2-banner-js";
                     wp_enqueue_script(
@@ -70,11 +77,11 @@ $show_breadcrumbs = ! empty($banner['show_breadcrumbs']) || ($migas === true);
                         id="<?= esc_attr($form_dom_id); ?>"
                         class="form-new"
                         data-form-endpoint="<?= esc_url($form_endpoint); ?>"
-                        data-submit-endpoint="<?= $submit_endpoint; ?>"
-                        data-portal-id="<?= $form['portalid'] ?? ''; ?>"
-                        data-form-id="<?= $form['formid'] ?? ''; ?>"
-                        data-region="<?= $form['region'] ?? 'na1'; ?>"
-                        data-submit-label="<?= $form['text_buttom_submit'] ?? 'Enviar'; ?>"
+                        data-submit-endpoint="<?= esc_url($submit_endpoint); ?>"
+                        data-portal-id="<?= esc_attr($form['portalid'] ?? ''); ?>"
+                        data-form-id="<?= esc_attr($form['formid'] ?? ''); ?>"
+                        data-region="<?= esc_attr($form['region'] ?? 'na1'); ?>"
+                        data-submit-label="<?= esc_attr($form['text_buttom_submit'] ?? 'Enviar'); ?>"
                         data-submit-script="<?= esc_attr($form['submit_scripts'] ?? ''); ?>"
                     ></div>
                 <?php endif; ?>

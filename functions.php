@@ -960,12 +960,78 @@ add_action('rest_api_init', function () {
 
   register_rest_route('neivor/v1', '/hubspot-subscribe', array(
     array(
+      'methods' => WP_REST_Server::READABLE,
+      'callback' => 'neivor_hubspot_subscribe_form_handler',
+      'permission_callback' => '__return_true',
+    ),
+    array(
       'methods' => WP_REST_Server::CREATABLE,
       'callback' => 'neivor_hubspot_subscribe_handler',
       'permission_callback' => '__return_true',
     )
   ));
 });
+
+function neivor_hubspot_subscribe_form_handler($request) {
+  $portal_id = sanitize_text_field($request->get_param('portalId'));
+  $form_id = sanitize_text_field($request->get_param('formId'));
+  $region = sanitize_key($request->get_param('region') ?: 'na1');
+
+  if (empty($portal_id) || empty($form_id)) {
+    return new WP_Error('missing_required_fields', 'portalId y formId son obligatorios', array('status' => 400));
+  }
+
+  $host = 'na1' === $region ? 'forms.hsforms.com' : 'forms-' . $region . '.hsforms.com';
+
+  $response = wp_remote_get(
+    sprintf(
+      'https://%s/embed/v3/form/%s/%s/json',
+      $host,
+      rawurlencode($portal_id),
+      rawurlencode($form_id)
+    ),
+    array(
+      'timeout' => 20,
+    )
+  );
+
+  if (is_wp_error($response)) {
+    return new WP_Error('hubspot_form_request_error', $response->get_error_message(), array('status' => 502));
+  }
+
+  $status_code = wp_remote_retrieve_response_code($response);
+  $response_body = wp_remote_retrieve_body($response);
+  $body = json_decode($response_body, true);
+
+  if ($status_code < 200 || $status_code >= 300 || !is_array($body)) {
+    $hubspot_message = is_array($body) && !empty($body['message']) ? sanitize_text_field($body['message']) : 'Respuesta invalida de HubSpot.';
+    return new WP_Error('hubspot_form_error', 'HubSpot no pudo leer el formulario: ' . $hubspot_message, array('status' => $status_code ?: 502));
+  }
+
+  $fields = array();
+  foreach ($body['form']['formFieldGroups'] ?? array() as $group) {
+    foreach ($group['fields'] ?? array() as $field) {
+      $fields[] = $field;
+    }
+  }
+
+  $privacy_policy_text = '';
+  foreach ($body['form']['metaData'] ?? array() as $metadata) {
+    if (($metadata['name'] ?? '') !== 'legalConsentOptions') {
+      continue;
+    }
+
+    $legal_consent = json_decode($metadata['value'] ?? '', true);
+    $privacy_policy_text = wp_kses_post($legal_consent['privacyPolicyText'] ?? '');
+    break;
+  }
+
+  return array(
+    'fields' => $fields,
+    'submitText' => $body['form']['submitText'] ?? '',
+    'privacyPolicyText' => $privacy_policy_text,
+  );
+}
 
 function neivor_hubspot_form_handler($request) {
   $portal_id = sanitize_text_field($request['portal_id']);

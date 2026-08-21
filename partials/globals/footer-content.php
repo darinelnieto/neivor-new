@@ -1605,6 +1605,8 @@ $social_networks = get_field("social_networks", "options");
                 </div>
             </div>
         </div>
+<?php if (defined('NEIVOR_ENABLE_HUBSPOT_EMBED') && NEIVOR_ENABLE_HUBSPOT_EMBED): ?>
 <!-- Start of HubSpot Embed Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/20854675.js"></script>
 <!-- End of HubSpot Embed Code -->
+<?php endif; ?>
