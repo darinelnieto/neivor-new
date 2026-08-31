@@ -10867,6 +10867,305 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_6a95985e38928": {
+                    "key": "layout_6a95985e38928",
+                    "name": "contact-grid-content",
+                    "label": "contact-grid-content",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6a95986c3892a",
+                            "label": "Contact section",
+                            "name": "contact_section",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Agregar Fila",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_6a9598dc3892c",
+                                    "label": "Content",
+                                    "name": "",
+                                    "aria-label": "",
+                                    "type": "tab",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "placement": "top",
+                                    "endpoint": 0,
+                                    "selected": 0,
+                                    "parent_repeater": "field_6a95986c3892a"
+                                },
+                                {
+                                    "key": "field_6a9598fa3892d",
+                                    "label": "Main image",
+                                    "name": "main_image",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "id",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "allow_in_bindings": 0,
+                                    "preview_size": "medium",
+                                    "parent_repeater": "field_6a95986c3892a"
+                                },
+                                {
+                                    "key": "field_6a9599c03892e",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "¿Buscas una solución para tu operación inmobiliaria?",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_6a95986c3892a"
+                                },
+                                {
+                                    "key": "field_6a9599cf3892f",
+                                    "label": "Description",
+                                    "name": "description",
+                                    "aria-label": "",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "Conoce cómo Neivor puede ayudarte a administrar, cobrar y operar proyectos de\r\ncondominios, rentas o preventas desde una sola plataforma.",
+                                    "allow_in_bindings": 0,
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 1,
+                                    "delay": 0,
+                                    "parent_repeater": "field_6a95986c3892a"
+                                },
+                                {
+                                    "key": "field_6a9599eb38930",
+                                    "label": "Cta",
+                                    "name": "cta",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "allow_in_bindings": 0,
+                                    "parent_repeater": "field_6a95986c3892a"
+                                },
+                                {
+                                    "key": "field_6a959a0a38931",
+                                    "label": "Style",
+                                    "name": "",
+                                    "aria-label": "",
+                                    "type": "tab",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "placement": "top",
+                                    "endpoint": 0,
+                                    "selected": 0,
+                                    "parent_repeater": "field_6a95986c3892a"
+                                },
+                                {
+                                    "key": "field_6a959a2338932",
+                                    "label": "Width",
+                                    "name": "width",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "col-12 col-md-6 col-g-6",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_6a95986c3892a"
+                                },
+                                {
+                                    "key": "field_6a959a4038933",
+                                    "label": "Background",
+                                    "name": "background",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "purple": "purple",
+                                        "white": "white"
+                                    },
+                                    "default_value": false,
+                                    "return_format": "value",
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "allow_in_bindings": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "placeholder": "",
+                                    "create_options": 0,
+                                    "save_options": 0,
+                                    "parent_repeater": "field_6a95986c3892a"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6a95d1bc15b45": {
+                    "key": "layout_6a95d1bc15b45",
+                    "name": "contact-cta-band",
+                    "label": "contact-cta-band",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6a95d1c115b47",
+                            "label": "Contact cta band group",
+                            "name": "contact_cta_band_group",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_6a95d1d715b48",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "¿No sabes cuál elegir?",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_6a95d1e715b49",
+                                    "label": "Description",
+                                    "name": "description",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "rows": 3,
+                                    "placeholder": "",
+                                    "new_lines": "br"
+                                },
+                                {
+                                    "key": "field_6a95d1f715b4a",
+                                    "label": "Cta",
+                                    "name": "cta",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "allow_in_bindings": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -10944,5 +11243,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1786987265
+    "modified": 1788203530
 }

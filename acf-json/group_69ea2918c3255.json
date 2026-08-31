@@ -571,15 +571,7 @@
                     "type": "image",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_6a874098a9e69",
-                                "operator": "==",
-                                "value": "1"
-                            }
-                        ]
-                    ],
+                    "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -605,7 +597,15 @@
                     "type": "file",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6a874098a9e69",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -2964,5 +2964,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1787341093
+    "modified": 1788190645
 }

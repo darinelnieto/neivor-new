@@ -50,7 +50,7 @@ $show_breadcrumbs = ! empty($banner['show_breadcrumbs']) || ($migas === true);
                 <p class="description d-none d-md-block"><?= $banner['description'] ?? ''; ?></p>
                 <?php if($banner['embeed_form'] === true): ?>
                     <div class="form-content">
-                        <?= $banner['hs_form']; ?>
+                        <?= $banner['hs_form'] ?? ''; ?>
                     </div>
                 <?php else:
                     $form = $banner['hs_form_new'];
