@@ -31,7 +31,7 @@ $author = $author_group['autor_hero_group'];
 <section class="single-blog-author-card-partial-d88356" style="background: <?= $bg ?? '#ffffff'; ?>; padding-top: <?= $pt ?? '40' ?>px; padding-bottom: <?= $pb ?? '40' ?>px;">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="<?= $width ?? 'col-12 col-md-10 col-lg-8' ?> card-col">
+            <div class="col-12 card-col">
                 <div class="single-blog-author-card">
                     <div class="author-image">
                         <?= wp_get_attachment_image($author['authors_photo'] ?? '', 'medium', false, array(

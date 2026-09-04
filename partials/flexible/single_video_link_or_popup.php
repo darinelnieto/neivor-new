@@ -25,7 +25,7 @@ if(empty($video['enable_link'])) {
 <section class="single-video-link-or-popup-partial-0b3133">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-lg-8">
+            <div class="col-12">
                 <?php if(!empty($video['enable_link'])): ?>
                     <a href="<?= $video['link']['url']; ?>" targe="<?= $video['link']['target']; ?>" class="is-link">
                         <?= wp_get_attachment_image($video['video_image'] ?? '', 'full', false, array(

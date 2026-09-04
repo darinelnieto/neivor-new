@@ -11,7 +11,7 @@
 
 	var linkClass = (tocSection.dataset.linkClass || '').trim();
 	var headingSelectors = [
-		'#flexible-builder-template h2, #flexible-builder-template h3, #flexible-builder-template h4'
+		'#flexible-builder-template h2'
 	];
 	var maxAttempts = 12;
 	var retryDelay = 150;

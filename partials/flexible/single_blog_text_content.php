@@ -27,7 +27,7 @@ $padding_bottom  = $data['padding_bottom'] ?? 40;
     style="padding-top: <?= $padding_top; ?>px; padding-bottom: <?= $padding_bottom; ?>px;">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-lg-8">
+            <div class="col-12">
                 <?php if (!empty($intro_text)): ?>
                     <div class="intro-text" >
                         <?= $intro_text; ?>

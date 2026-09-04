@@ -7,9 +7,6 @@ wp_enqueue_script(
     null,
     true
 );
-?>
-
-<?php
 /**
  * 
  * Partial Name: single_related_post

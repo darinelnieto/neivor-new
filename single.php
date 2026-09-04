@@ -16,7 +16,8 @@ switch ($posttype){
 		get_template_part('templates/single-success-stories-template');
 	break;
 	case 'blogs':
-		get_template_part('templates/flexible-builder-template');
+		// get_template_part('templates/flexible-builder-template');
+		get_template_part('templates/flexible-single-blog-template');
 	break;
 }
 ?>

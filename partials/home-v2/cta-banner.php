@@ -1,15 +1,12 @@
 <?php
-$script_handle = "home-v2-cta-banner-js";
-wp_enqueue_script(
-    $script_handle,
-    get_template_directory_uri() . "/js/partials-min/home-v2-cta-banner.min.js",
-    array("jquery"),
-    null,
-    true
-);
-?>
-
-<?php
+// $script_handle = "home-v2-cta-banner-js";
+// wp_enqueue_script(
+//     $script_handle,
+//     get_template_directory_uri() . "/js/partials-min/home-v2-cta-banner.min.js",
+//     array("jquery"),
+//     null,
+//     true
+// );
 /**
  * Partial Name: cta-banner
  */

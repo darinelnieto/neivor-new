@@ -1,15 +1,12 @@
 <?php
-$script_handle = "flexible-home_v2_cta_banner-js";
-wp_enqueue_script(
-    $script_handle,
-    get_template_directory_uri() . "/js/partials-min/flexible-home_v2_cta_banner.min.js",
-    array("jquery"),
-    null,
-    true
-);
-?>
-
-<?php
+// $script_handle = "flexible-home_v2_cta_banner-js";
+// wp_enqueue_script(
+//     $script_handle,
+//     get_template_directory_uri() . "/js/partials-min/flexible-home_v2_cta_banner.min.js",
+//     array("jquery"),
+//     null,
+//     true
+// );
 // Flexible Builder wrapper. Original: partials/home-v2/cta-banner.php
 
 /**
