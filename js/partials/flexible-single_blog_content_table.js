@@ -134,7 +134,6 @@
 
 			return sublist;
 		}
-
 		headings.forEach(function (heading) {
 			var text = getHeadingText(heading);
 			var displayText = truncateText(text, 80);

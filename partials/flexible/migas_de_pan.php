@@ -161,8 +161,8 @@ if ( is_front_page() ) {
 ?>
 <section class="migas-de-pan-partial-ea8700" style="padding-top: <?= $padding_top; ?>px; padding-bottom: <?= $padding_bottom; ?>px;">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="<?= esc_attr( $width_class ); ?>">
+        <div class="row">
+            <div class="col-12">
                 <?php if ( ! empty( $breadcrumbs ) ) : ?>
                     <nav class="migas-de-pan" aria-label="Migas de pan">
                         <ol class="migas-de-pan__list">

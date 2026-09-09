@@ -71,6 +71,7 @@
             text-decoration: none;
             color: inherit;
             gap: 16px;
+            width: max-content;
             @media(max-width: 768px){
                 gap: 10.59px;
             }
@@ -147,5 +148,74 @@
                 }
             }
         }
+    }
+}
+.blog-hero-partial-f87f86.body-blog{
+    background: transparent;
+    min-height: auto;
+    .container{
+        .label-tag{
+            color: #7E66FC;
+        }
+        .title{
+            color: #0C0F10;
+            text-shadow: none;
+            font-weight: 700;
+            font-size: 72px;
+            line-height: 1.1;
+            letter-spacing: -3.6px;
+            vertical-align: middle;
+        }
+        .description{
+            color: #595C5D;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 28px;
+            letter-spacing: 0px;
+            vertical-align: middle;
+        }
+        .author-tag{
+            .texts-column{
+                .name{
+                    color: rgba(24, 18, 18, 0.9);
+                }
+                .label{
+                    color: rgba(17, 17, 17, 0.9);
+                }
+            }
+            .texts-flex{
+                .name{
+                    color: rgba(24, 18, 18, 0.9);
+                }
+                .label{
+                    color: rgba(17, 17, 17, 0.9);
+                }
+            }
+        }
+    }
+}
+.blog-hero-partial-f87f86.hero-blog{
+    background: transparent;
+    padding-top: 5rem;
+    padding-bottom: 1.5rem;
+    min-height: auto;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 605px;
+        background: linear-gradient(180deg, #7D65FE 0%, #B3A5FE 25.5%, #C4BAFF 35%, #DAD3FF 50%, #ECE8FF 65%, #F3F1FF 80%, #FFFFFF 100%);
+        z-index: 0;
+        @media(max-width: 768px) {
+            height: 305px;
+        }
+    }
+    .hero-image{
+        position: relative;
+        top: inherit;
+        left: inherit;
+        max-height: 518px;
     }
 }
