@@ -27,7 +27,7 @@ $prefix = $term_id ? 'term_' . $term_id : '';
             endwhile;
         endif;
     ?>
-   <div class="container py-4">
+   <div class="container py-4" id="body-post">
         <div class="row justify-content-between">
             <div class="col-12 col-md-8 body-content">
                 <?php
