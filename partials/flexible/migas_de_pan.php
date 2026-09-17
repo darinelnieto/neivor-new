@@ -33,9 +33,24 @@ $add_post_type_archive_breadcrumb = static function ( &$items, $post_type ) {
         return;
     }
 
+    $archive_title = $post_type_object->labels->name;
+    $archive_url = get_post_type_archive_link( $post_type );
+
+    if ( 'blogs' === $post_type ) {
+        $archive_title = 'Blog';
+        $posts_page_id = (int) get_option( 'page_for_posts' );
+        $posts_page_slug = $posts_page_id > 0
+            ? get_post_field( 'post_name', $posts_page_id )
+            : '';
+
+        if ( ! empty( $posts_page_slug ) ) {
+            $archive_url = home_url( user_trailingslashit( $posts_page_slug ) );
+        }
+    }
+
     $items[] = array(
-        'title' => $post_type_object->labels->name,
-        'url'   => get_post_type_archive_link( $post_type ),
+        'title' => $archive_title,
+        'url'   => $archive_url,
     );
 };
 
