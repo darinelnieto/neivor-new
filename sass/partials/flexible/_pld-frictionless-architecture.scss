@@ -1,0 +1,43 @@
+.pld-frictionless-architecture-partial-abbfa7 {
+    padding-top: 81px;
+    padding-bottom: 81px;
+    .info-tag{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content:center;
+        gap: 12px;
+        .item-tag{
+            display: flex;
+            align-items:center;
+            justify-content:center;
+            border-radius: 16px;
+            border: 1px solid;
+            height: 46px;
+            width: max-content;
+            padding: 0 18px;
+            gap: 10px;
+            .item-icon{
+                width: 12.69px;
+                height: auto;
+                object-fit: contain;
+            }
+            &.light{
+                background: $white;
+                border-color: #E0D9FF;
+                color: #0F0D1A;
+            }
+            &.violeta-dark{
+                background: #7E66FC;
+                border-color: #7E66FC;
+                color: #ffffff;
+            }
+        }
+        .more-icon{
+            width: 10px;
+            &:last-child{
+                display: none;
+            }
+        }
+    }
+}

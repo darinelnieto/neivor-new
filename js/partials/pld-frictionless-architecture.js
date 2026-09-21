@@ -1,0 +1,1 @@
+// JS for partial: pld-frictionless-architecture\n

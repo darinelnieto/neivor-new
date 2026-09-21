@@ -1,0 +1,1 @@
+// JS for partial: pld_arquitectura_integral\n

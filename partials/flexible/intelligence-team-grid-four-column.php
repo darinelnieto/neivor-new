@@ -20,7 +20,7 @@ if(!empty($team['team'])):
 ?>
 <section class="intelligence-team-grid-four-column-partial-f92794">
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <?php if(!empty($team['title']) || !empty($team['intro'])): ?>
                 <div class="col-12 text-center mb-4">
                     <?php if(!empty($team['title'])): ?>
@@ -30,7 +30,7 @@ if(!empty($team['team'])):
                     <?php endif; ?>
                 </div>
             <?php endif; foreach($team['team'] as $item): ?>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="<?= $team['grid_col'] ?? 'col-12 col-sm-6 col-md-4 col-lg-3 mb-4' ?>">
                     <div class="member-card">
                         <?php if(!empty($item['photo'])): ?>
                             <div class="photo-contain">

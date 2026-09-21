@@ -25,6 +25,9 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="container">
             <div class="row">
                 <div class="col-12 mb-md-5">
+                    <?php if(!empty($how_we_do_it['label'])): ?>
+                        <div class="violeta fw-700 t-size-12"><?= $how_we_do_it['label']; ?></div>
+                    <?php endif; ?>
                     <h2 class="title"><?= $how_we_do_it['title'] ?? ''; ?></h2>
                     <p class="description"><?= $how_we_do_it['description'] ?? ''; ?></p>
                 </div>
