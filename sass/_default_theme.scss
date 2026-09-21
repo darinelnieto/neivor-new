@@ -378,11 +378,16 @@ section#footer-blue {
 
 table:not(.form-table){
     width: 100%;
+    max-width: 100%;
+    height: auto !important;
+    display: block;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
     border-collapse: separate;
     border-spacing: 0;
     border: 1px solid #e7e8ee;
     border-radius: 16px;
-    overflow: hidden;
     background: #ffffff;
     box-shadow: 0 10px 30px rgba(21, 23, 40, 0.04);
 
@@ -410,6 +415,7 @@ table:not(.form-table){
 
     tbody th,
     tbody td{
+        white-space: nowrap;
         font-size: clamp(14px, 3vw, 16px) !important;
         line-height: 1.5;
         color: #80859a;
