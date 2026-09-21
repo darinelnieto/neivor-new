@@ -341,6 +341,7 @@ section#footer-blue {
     z-index: 1;
     .migas-de-pan__list{
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         list-style: none;
         padding: 0;
