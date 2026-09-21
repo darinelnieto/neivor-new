@@ -391,6 +391,26 @@ table:not(.form-table){
     background: #ffffff;
     box-shadow: 0 10px 30px rgba(21, 23, 40, 0.04);
 
+    thead,
+    tbody{
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    @media(max-width: 991px){
+        thead,
+        tbody{
+            // width: 1060px;
+            min-width: 1060px;
+        }
+
+        th,
+        td{
+            white-space: nowrap;
+        }
+    }
+
     thead th{
         background: #f6f6fb;
         color: #7f8394;
@@ -415,7 +435,6 @@ table:not(.form-table){
 
     tbody th,
     tbody td{
-        white-space: nowrap;
         font-size: clamp(14px, 3vw, 16px) !important;
         line-height: 1.5;
         color: #80859a;

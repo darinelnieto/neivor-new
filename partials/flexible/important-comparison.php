@@ -32,27 +32,29 @@ if(!empty($table) || !empty($p_card)):
                             <p class="p"><?= $imp_comp['subtitle']; ?></p>
                         <?php endif; ?>
                     </div>
-                    <table class="table">
-                        <?php if(!empty($table['thead'])): ?>
-                            <thead>
-                                <tr>
-                                    <?php foreach($table['thead'] as $th): ?>
-                                        <th class="<?php if($th['text_center'] === true): ?>text-center<?php endif; ?> w-25"><?= $th['th']; ?></th>
-                                    <?php endforeach; ?>
-                                </tr>
-                            </thead>
-                        <?php endif; if(!empty($table['tbody'])): ?>
-                            <tbody>
-                                <?php foreach($table['tbody'] as $tr): ?>
+                    <div class="table-scroll-wrapper">
+                        <table class="table">
+                            <?php if(!empty($table['thead'])): ?>
+                                <thead>
                                     <tr>
-                                        <?php foreach($tr['tr'] as $td): ?>
-                                            <td class="<?php if($td['text_center'] === true): ?>text-center<?php endif; ?> w-25"><?= $td['td']; ?></td>
+                                        <?php foreach($table['thead'] as $th): ?>
+                                            <th class="<?php if($th['text_center'] === true): ?>text-center<?php endif; ?> w-25"><?= $th['th']; ?></th>
                                         <?php endforeach; ?>
                                     </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        <?php endif; ?>
-                    </table>
+                                </thead>
+                            <?php endif; if(!empty($table['tbody'])): ?>
+                                <tbody>
+                                    <?php foreach($table['tbody'] as $tr): ?>
+                                        <tr>
+                                            <?php foreach($tr['tr'] as $td): ?>
+                                                <td class="<?php if($td['text_center'] === true): ?>text-center<?php endif; ?> w-25"><?= $td['td']; ?></td>
+                                            <?php endforeach; ?>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            <?php endif; ?>
+                        </table>
+                    </div>
                 </div>
             <?php endif; if(!empty($p_card['overly_number']) || !empty($p_card['description'])): ?>
                 <div class="<?= $p_card['width'] ?? 'col-12 col-md-8 col-lg-6'; ?>">
