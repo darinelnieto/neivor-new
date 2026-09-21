@@ -101,7 +101,7 @@ $show_breadcrumbs = ! empty($banner['show_breadcrumbs']) || ($migas === true);
                         </video>
                     <?php endif; if(!empty($banner['overly_image']) && $banner['enable_overly_desktop']): $overly = $banner['overly_image']; ?>
                         <div class="overly">
-                            <div class="desktop-content d-none d-md-flex">
+                            <div class="desktop-content">
                                 <div class="content">
                                     <?php if(!empty($overly['icon'])): ?>
                                     <div class="icon">
@@ -120,7 +120,6 @@ $show_breadcrumbs = ! empty($banner['show_breadcrumbs']) || ($migas === true);
                                     <span class="progress" style="width: <?= $overly['percent_bar'] ?? '0'; ?>%"></span>
                                 </span>
                             </div>
-                            <p class="description d-block d-md-none"><?= $banner['description'] ?? ''; ?></p>
                         </div>
                     <?php endif; ?>
                 </div>
