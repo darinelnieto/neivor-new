@@ -47,7 +47,7 @@ $grid = $a_integral['grid_content'];
     </div>
     <?php if(!empty($grid)): ?>
         <div class="container" id="pld-arquitectura-integral-grid">
-            <div class="row">
+            <div class="row g-4">
                 <?php foreach($grid as $item): ?>
                     <div class="col-12 col-md-6">
                         <div class="card-item">
