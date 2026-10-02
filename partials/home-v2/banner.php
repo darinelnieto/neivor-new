@@ -37,7 +37,7 @@ $show_breadcrumbs = ! empty($banner['show_breadcrumbs']);
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
-                <p class="description"><?= $banner['description'] ?? ''; ?></p>
+                <p class="description mv-p-size-16"><?= $banner['description'] ?? ''; ?></p>
                 <?php if($banner['embeed_form'] === true): ?>
                     <div class="form-content">
                         <?= $banner['hs_form'] ?? ''; ?>
