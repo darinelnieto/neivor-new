@@ -4,14 +4,16 @@
         "fqas_post": [],
         "blogs": [],
         "protection_post":[],
-        "success_stories":[]
+        "success_stories":[],
+        "resources":[]
     },
     "taxonomies": {
         "category":[],
         "size_cat":[],
         "segment_cat":[],
         "zone_cat":[],
-        "autor":[]
+        "autor":[],
+        "resources_cat":[]
     },
     "admin_pages":[
         "options-theme_page_acf-options-header",

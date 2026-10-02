@@ -5,7 +5,7 @@
  * 
  */
 if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly.
+    exit; // Exit if accessed directly. 
 }
 $banner = get_field('add_banner');
 $show_breadcrumbs = ! empty($banner['show_breadcrumbs']);
@@ -37,7 +37,7 @@ $show_breadcrumbs = ! empty($banner['show_breadcrumbs']);
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
-                <p class="description d-none d-md-block"><?= $banner['description'] ?? ''; ?></p>
+                <p class="description"><?= $banner['description'] ?? ''; ?></p>
                 <?php if($banner['embeed_form'] === true): ?>
                     <div class="form-content">
                         <?= $banner['hs_form'] ?? ''; ?>
@@ -91,7 +91,7 @@ $show_breadcrumbs = ! empty($banner['show_breadcrumbs']);
                         </video>
                     <?php endif; if(!empty($banner['overly_image'])): $overly = $banner['overly_image']; ?>
                         <div class="overly">
-                            <div class="desktop-content d-none d-md-flex">
+                            <div class="desktop-content">
                                 <div class="content">
                                     <div class="icon">
                                         <?= wp_get_attachment_image($overly['icon'], 'full', false, array(
@@ -109,7 +109,6 @@ $show_breadcrumbs = ! empty($banner['show_breadcrumbs']);
                                     <span class="progress" style="width: <?= $overly['percent_bar'] ?? '0'; ?>%"></span>
                                 </span>
                             </div>
-                            <p class="description d-block d-md-none"><?= $banner['description'] ?? ''; ?></p>
                         </div>
                     <?php endif; ?>
                 </div>

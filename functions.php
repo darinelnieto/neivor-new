@@ -1916,3 +1916,112 @@ function ditto_webp_filter_srcset($sources) {
   return $sources;
 }
 add_filter('wp_calculate_image_srcset', 'ditto_webp_filter_srcset', 20);
+// 
+function resources_posts(){
+  $arg = array(
+    'public' => true,
+    'has_archive' => true,
+    'label' => 'Resources',
+    'menu_icon' => 'dashicons-welcome-widgets-menus',
+    'supports' => array('title', 'editor', 'thumbnail'),
+    'taxonomies' => array('resources_cat')
+  );
+  register_post_type('resources', $arg);
+
+  $category = array(
+    'name' => _x('Taxonomy', 'taxonomy general name'),
+    'singular_name' => _x('Taxonomy', 'taxonomy singular name'),
+    'search_items' => __('Search Taxonomy'),
+    'all_items' => __('All Taxonomy'),
+    'parent_item' => __('Parent Taxonomy'),
+    'parent_item_colon' => __('Parent Taxonomy:'),
+    'edit_item' => __('Edit Taxonomy'),
+    'update_item' => __('Update Taxonomy'),
+    'add_new_item' => __('Add New Taxonomy'),
+    'new_item_name' => __('New Taxonomy Name'),
+    'menu_name' => __('Taxonomy'),
+  );
+
+  register_taxonomy('resources_cat', array('resources'), array(
+    'hierarchical' => true,
+    'labels' => $category,
+    'show_ui' => true,
+    'show_in_rest' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array('slug' => 'resources_cat'),
+  ));
+}
+add_action('init', 'resources_posts', 6);
+// Api get resouce
+add_action('rest_api_init', function () {
+  register_rest_route('resources', '/list', array(
+    array(
+      'methods' => WP_REST_Server::READABLE,
+      'callback' => 'resources_filter_handler',
+      'permission_callback' => '__return_true',
+    )
+  ));
+});
+
+function resources_filter_handler($request){
+  $page = max(1, absint($request['page'] ?? 1));
+  $per_page = max(1, absint($request['per_page'] ?? 9));
+
+  $args = array(
+    'post_type' => 'resources',
+    'post_status' => 'publish',
+    'tax_query' => array(array('relation' => 'AND')),
+    'meta_query' => array(),
+    'posts_per_page' => $per_page,
+    'paged' => $page,
+    'orderby' => 'title',
+    'order' => 'ASC',
+  );
+
+  if ($request['category'] != '') {
+    $args['tax_query'][] = array(
+      'taxonomy' => 'resources_cat',
+      'field' => 'slug',
+      'terms' => $request['category']
+    );
+  }
+
+  $resources_list = new WP_Query($args);
+  $the_resources = array();
+
+  if ($resources_list->have_posts()) {
+    while ($resources_list->have_posts()) {
+      $resources_list->the_post();
+
+      $img_id = get_post_thumbnail_id(get_the_ID());
+      $feature_image = $img_id
+        ? wp_get_attachment_image($img_id, 'medium', false, array(
+            'class' => 'feature-image',
+            'loading' => 'lazy',
+            'decoding' => 'async',
+            'alt' => get_the_title() ?: 'Sin titulo',
+          ))
+        : '';
+
+      $the_resources[] = array(
+        'feature_image' => $feature_image,
+        'permalink' => get_the_permalink(),
+        'title' => get_the_title() ?: 'Sin titulo',
+        'label' => get_field('label', get_the_ID()) ?? '',
+        'download_label' => get_field('download_label', get_the_ID())
+      );
+    }
+    wp_reset_postdata();
+  }
+
+  return array(
+    'items' => $the_resources,
+    'current_page' => $page,
+    'per_page' => $per_page,
+    'total_items' => (int) $resources_list->found_posts,
+    'total_pages' => (int) $resources_list->max_num_pages,
+    'has_next_page' => $page < (int) $resources_list->max_num_pages,
+    'has_prev_page' => $page > 1,
+  );
+}

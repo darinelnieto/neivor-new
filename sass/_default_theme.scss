@@ -2,6 +2,8 @@
 /*============ Variables ============*/
 $white: #ffffff;
 $gray: #F6F9FC;
+$violeta_dark:#3D3654;
+$violeta: #5A3ED9;
 
 $secondary_font: var(--wp--preset--font-family--Urbanist, 'Urbanist', sans-serif);
 *{
@@ -249,28 +251,34 @@ section#footer-blue {
     letter-spacing: 0px;
     vertical-align: middle;
 }
+.t-size-11{
+    font-size: 11px;
+    line-height: 15px;
+    letter-spacing: 0px;
+    vertical-align: middle;
+}
 .t-size-30{
     font-size: 30px;
     line-height: 150%;
     letter-spacing: 0.1px;
 }
 .fw-400{
-    font-weight: 400;
+    font-weight: 400 !important;
 }
 .fw-500{
-    font-weight: 500;
+    font-weight: 500 !important;
 }
 .fw-600{
-    font-weight: 600;
+    font-weight: 600 !important;
 }
 .fw-700{
-    font-weight: 700;
+    font-weight: 700 !important;
 }
 .fw-800{
-    font-weight: 800;
+    font-weight: 800 !important;
 }
 .fw-900{
-    font-weight: 900;
+    font-weight: 900 !important;
 }
 // Colors
 .red-dark{
@@ -293,6 +301,9 @@ section#footer-blue {
 }
 .violeta-color{
     color: #7E66FC;
+}
+.purple-light{
+    color: #7A7290;
 }
 .bg-white{
     background: $white;
