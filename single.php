@@ -19,5 +19,8 @@ switch ($posttype){
 		// get_template_part('templates/flexible-builder-template');
 		get_template_part('templates/flexible-single-blog-template');
 	break;
+	case 'resources':
+		get_template_part('templates/resources-template');
+	break;
 }
 ?>

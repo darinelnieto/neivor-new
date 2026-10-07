@@ -1,7 +1,7 @@
 // JS for partial: resources-list\n
 var tax_name = '';
 var currentPage = 1;
-var perPage = 1;
+var perPage = 9;
 var url = _sajoURL_ + '/wp-json/resources/list';
 
 var $root = $('.resources-list-partial-c4f913');
@@ -15,7 +15,6 @@ $('.resources-list-partial-c4f913 .taxonomy-list').on('click', 'button', functio
     }
     currentPage = 1;
     $('.resources-list-partial-c4f913 .taxonomy-btn').removeClass('active');
-    $('.taxonomy-list button').removeClass('active');
     $(this).addClass('active');
     get_resurces();
 });
@@ -42,9 +41,9 @@ function render_resources(items) {
         return '<article class="col-12 col-md-6 col-lg-4">' +
                     '<a href="' + item.permalink + '" class="resource-link">' +
                         '<div class="resource-thumb">' + thumb + '</div>' +
-                        '<div class="resorce-texts p-4">'+
+                        '<div class="resorce-texts">'+
                             '<span class="t-size-11 fw-700 purple-light">' + item.label + '</span>' +
-                            '<h3 class="p-size-16 fw-700 purple-light">' + item.title + '</h3>' +
+                            '<h3 class="p-size-16 fw-700 dark-color">' + item.title + '</h3>' +
                             '<div class="row align-items-center bt-1-solid">' +
                                 '<span class="col-6 purple-light fw-700 t-size-11">' + item.download_label + '</span>' +
                                 '<span class="col-6 ml-auto violeta-color p-size-16 fw-700">Descargar <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.10208 5.25H0V4.08333H7.10208L3.83542 0.816667L4.66667 0L9.33333 4.66667L4.66667 9.33333L3.83542 8.51667L7.10208 5.25Z" fill="#5A3ED9"/></svg></span>' +

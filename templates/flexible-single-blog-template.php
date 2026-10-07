@@ -1,5 +1,13 @@
    
 <?php
+$script_handle = "globals-footer-js";
+wp_enqueue_script(
+    $script_handle,
+    get_template_directory_uri() . "/js/partials-min/globals-footer.min.js",
+    array("jquery"),
+    null,
+    true
+);
 /**
  * 
  * Template Name: flexible-single-blog

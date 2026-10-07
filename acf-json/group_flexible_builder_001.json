@@ -12706,6 +12706,13 @@
                 "operator": "==",
                 "value": "segment_cat"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "resources"
+            }
         ]
     ],
     "menu_order": 0,
@@ -12713,12 +12720,14 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content"
+    ],
     "active": true,
     "description": "Constructor de paginas: cada seccion tiene su propio contenido independiente por pagina.",
     "show_in_rest": 0,
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1790949953
+    "modified": 1791330392
 }
