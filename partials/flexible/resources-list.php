@@ -42,7 +42,7 @@ if(empty($taxonomies)){
                         <?php endforeach; ?>
                     </ul>
                 </nav>
-                <div class="resources-results row mb-5 gap-4"></div>
+                <div class="resources-results row mb-5"></div>
                 <div class="resources-pagination"></div>
             </div>
         </div>
