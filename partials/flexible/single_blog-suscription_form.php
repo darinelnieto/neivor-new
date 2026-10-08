@@ -7,15 +7,12 @@ wp_enqueue_script(
     null,
     true
 );
-?>
-
-<?php
 /**
  * 
  * Partial Name: single_blog-suscription_form
  * 
  */
-if ( ! defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) { 
     exit; // Exit if accessed directly.
 }
 $suscription = get_field('suscription_group', 'option');

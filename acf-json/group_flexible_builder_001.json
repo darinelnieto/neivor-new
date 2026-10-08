@@ -12643,6 +12643,423 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_6ac67a97c15df": {
+                    "key": "layout_6ac67a97c15df",
+                    "name": "video-iframe",
+                    "label": "video-iframe",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6ac67a9dc15e2",
+                            "label": "V group",
+                            "name": "v_group",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_6ac67ab2c15e3",
+                                    "label": "Video",
+                                    "name": "video",
+                                    "aria-label": "",
+                                    "type": "oembed",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "width": "",
+                                    "height": "",
+                                    "allow_in_bindings": 0
+                                },
+                                {
+                                    "key": "field_6ac67ac4c15e4",
+                                    "label": "Col class",
+                                    "name": "col_class",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "col-12",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6ac6a853c37b7": {
+                    "key": "layout_6ac6a853c37b7",
+                    "name": "resuorces-texts-flexible-width-cards",
+                    "label": "resuorces-texts-flexible-width-cards",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6ac6a858c37b9",
+                            "label": "Resuorces texts",
+                            "name": "resuorces_texts",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_6ac7bf2f66d6f",
+                                    "label": "Content",
+                                    "name": "",
+                                    "aria-label": "",
+                                    "type": "tab",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "placement": "top",
+                                    "endpoint": 0,
+                                    "selected": 0
+                                },
+                                {
+                                    "key": "field_6ac6a873c37ba",
+                                    "label": "Title content",
+                                    "name": "title_content",
+                                    "aria-label": "",
+                                    "type": "group",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "block",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_6ac6a8a8c37bb",
+                                            "label": "Icon",
+                                            "name": "icon",
+                                            "aria-label": "",
+                                            "type": "image",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "id",
+                                            "library": "all",
+                                            "min_width": "",
+                                            "min_height": "",
+                                            "min_size": "",
+                                            "max_width": "",
+                                            "max_height": "",
+                                            "max_size": "",
+                                            "mime_types": "",
+                                            "allow_in_bindings": 0,
+                                            "preview_size": "medium"
+                                        },
+                                        {
+                                            "key": "field_6ac6a8bac37bc",
+                                            "label": "Title",
+                                            "name": "title",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "1. ¿Qué es este recurso?",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "key": "field_6ac6d35bf5a5d",
+                                    "label": "Text",
+                                    "name": "text",
+                                    "aria-label": "",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "Un kit operativo descargable de nivel profesional acompañado de una masterclass en video de 14\r\nminutos. Diseñado para automatizar la auditoría de cobranza, conciliar pagos bancarios vía SPEI en\r\ntiempo real y eliminar para siempre la revisión manual de capturas de pantalla de transferencias.",
+                                    "allow_in_bindings": 0,
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 1,
+                                    "delay": 0
+                                },
+                                {
+                                    "key": "field_6ac6a8cec37bd",
+                                    "label": "Card grid",
+                                    "name": "card_grid",
+                                    "aria-label": "",
+                                    "type": "true_false",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "",
+                                    "default_value": 0,
+                                    "allow_in_bindings": 0,
+                                    "ui": 0,
+                                    "ui_on_text": "",
+                                    "ui_off_text": ""
+                                },
+                                {
+                                    "key": "field_6ac6a901c37be",
+                                    "label": "Grid",
+                                    "name": "grid",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_6ac6a8cec37bd",
+                                                "operator": "==",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "table",
+                                    "pagination": 0,
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Agregar Fila",
+                                    "rows_per_page": 20,
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_6ac6aa93c37c1",
+                                            "label": "Icon",
+                                            "name": "icon",
+                                            "aria-label": "",
+                                            "type": "image",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "id",
+                                            "library": "all",
+                                            "min_width": "",
+                                            "min_height": "",
+                                            "min_size": "",
+                                            "max_width": "",
+                                            "max_height": "",
+                                            "max_size": "",
+                                            "mime_types": "",
+                                            "allow_in_bindings": 0,
+                                            "preview_size": "medium",
+                                            "parent_repeater": "field_6ac6a901c37be"
+                                        },
+                                        {
+                                            "key": "field_6ac6aa9ec37c2",
+                                            "label": "Description",
+                                            "name": "description",
+                                            "aria-label": "",
+                                            "type": "wysiwyg",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "<strong>Masterclass en Video (14 min)<\/strong>\r\nMetodología paso a paso para conciliar el\r\n100% de cuotas con referencias bancarias.",
+                                            "allow_in_bindings": 0,
+                                            "tabs": "all",
+                                            "toolbar": "full",
+                                            "media_upload": 1,
+                                            "delay": 0,
+                                            "parent_repeater": "field_6ac6a901c37be"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "key": "field_6ac6a91ac37bf",
+                                    "label": "Columns",
+                                    "name": "columns",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_6ac6a8cec37bd",
+                                                "operator": "!=",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "table",
+                                    "pagination": 0,
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Agregar Fila",
+                                    "rows_per_page": 20,
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_6ac6a930c37c0",
+                                            "label": "Item",
+                                            "name": "item",
+                                            "aria-label": "",
+                                            "type": "wysiwyg",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "<strong>Administradores de condominios y edificios<\/strong>\r\nQue pierden de 15 a 25 horas al mes cotejando estados de cuenta y comprobantes apócrifos.",
+                                            "allow_in_bindings": 0,
+                                            "tabs": "all",
+                                            "toolbar": "full",
+                                            "media_upload": 1,
+                                            "delay": 0,
+                                            "parent_repeater": "field_6ac6a91ac37bf"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "key": "field_6ac7bf3e66d70",
+                                    "label": "Styles",
+                                    "name": "",
+                                    "aria-label": "",
+                                    "type": "tab",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "placement": "top",
+                                    "endpoint": 0,
+                                    "selected": 0
+                                },
+                                {
+                                    "key": "field_6ac7bf4b66d71",
+                                    "label": "Padding",
+                                    "name": "padding",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "5rem 0",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_6ac7bf5966d72",
+                                    "label": "Background",
+                                    "name": "background",
+                                    "aria-label": "",
+                                    "type": "color_picker",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "#ffffff",
+                                    "enable_opacity": 0,
+                                    "return_format": "string",
+                                    "allow_in_bindings": 0,
+                                    "show_custom_palette": 0,
+                                    "show_color_wheel": 1,
+                                    "custom_palette_source": "",
+                                    "palette_colors": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -12729,5 +13146,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1791330392
+    "modified": 1791475572
 }

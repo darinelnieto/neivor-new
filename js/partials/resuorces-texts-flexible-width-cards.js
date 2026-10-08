@@ -1,0 +1,1 @@
+// JS for partial: resuorces-texts-flexible-width-cards\n

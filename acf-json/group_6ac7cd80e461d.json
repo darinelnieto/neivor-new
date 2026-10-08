@@ -1,0 +1,151 @@
+{
+    "key": "group_6ac7cd80e461d",
+    "title": "Resources suscription form",
+    "fields": [
+        {
+            "key": "field_6ac7cd8190841",
+            "label": "R suscription form",
+            "name": "r_suscription_form",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_6ac7e4570aceb",
+                    "label": "Intro form",
+                    "name": "intro_form",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Descarga en segundos las 3 herramientas auditadas y accede a la sesión grabada con resolución 4K.",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_6ac7ce4190843",
+                    "label": "Portal ID",
+                    "name": "portal_id",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 20854675,
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_6ac7ce5090844",
+                    "label": "Form id",
+                    "name": "form_id",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "10c4451a-86c6-47b0-bc6f-1835e50b6d59",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_6ac7ce6390845",
+                    "label": "Region",
+                    "name": "region",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "na1",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_6ac7cf7a90846",
+                    "label": "Text buttom submit",
+                    "name": "text_buttom_submit",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Descargar Recurso",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-resources-suscription"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1791485045
+}

@@ -1,0 +1,56 @@
+.resuorces-texts-flexible-width-cards-partial-ae2cc2 {
+    .title-content{
+        .icon-title{
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+    }
+    .item-card{
+        padding: 16px;
+        border-radius: 12px;
+        .icon-item{
+            width: 16.67px;
+            height: max-content; 
+            object-fit: contain;
+        }
+        .icon{
+            display: flex;
+            align-items:center;
+            justify-content: center;
+            position: relative;
+            min-width: 24px !important;
+            height: 24px !important;
+            border-radius: 50%;
+            &::before{
+                content: '';
+                width: 9.51px;
+                height: 7.01px;
+                border-left: 2px solid $white;
+                border-bottom: 2px solid $white;
+                position: absolute;
+                top: 25%;
+                left: 45%;
+                transform: rotate(-45deg) translate(-45%, -25%);
+            }
+            @media(max-width: 768px){
+                min-width: 16.67px !important;
+                height: 16.67px !important;
+                &::before{
+                    width: 7.51px;
+                    height: 5.01px;
+                    top: 20%;
+                    left: 45%;
+                    transform: rotate(-45deg) translate(-45%, -20%);
+                    border-width: 1.7px;
+                }
+            }
+        }
+        strong{
+            color: $dark;
+        }
+        p:last-child{
+            margin:0;
+        }
+    }
+}

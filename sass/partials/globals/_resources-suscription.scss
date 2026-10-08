@@ -1,0 +1,54 @@
+.resources-suscription-partial-f0d979 {
+    .hubspot-api-form{
+        .form-label{
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 0px;
+            vertical-align: middle;
+            color: $dark;
+            margin-bottom: 6px;
+        }
+        .form-control{
+            background: #F7F1FF;
+            padding: 15px 16px;
+            border-radius: 12px;
+            box-shadow: 0px 2px 4px 0px #0000000D inset;
+            border: none;
+            outline: none;
+            // Font
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 100%;
+            letter-spacing: 0px;
+            vertical-align: middle;
+            color: $dark;
+            &::placeholder{
+                color: #B8B2CC;
+            }
+        }
+        .hubspot-privacy-policy{
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 21px;
+            letter-spacing: 0px;
+            vertical-align: middle;
+            color: $dark;
+            a{
+                color: $dark;
+                text-decoration: none;
+                color: $violeta;
+                transition: color .2s ease;
+                font-weight: 600;
+                &:hover{
+                    color: $dark;
+                }
+            }
+        }
+        .submit-button{
+            border: none;
+            outline: none;
+            padding: 16px 40px;
+        }
+    }
+}

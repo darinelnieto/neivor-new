@@ -35,7 +35,17 @@ $hero_img = get_post_thumbnail_id();
                 <?php endif; ?>
                 <h1 class="t-size-36 fw-700 mb-4"><?= the_title(); ?></h1>
                 <?= wp_get_attachment_image($hero_img ?? '', 'large', false, array(
-                    'class' => 'hero-image mb-5',
+                    'class' => 'hero-image mb-5 d-block d-md-none',
+                    'loadin' => 'eage',
+                    'fetchpriority' => 'high',
+                    'alt' => get_the_title()
+                )) ?>
+            </div>
+        </div>
+        <div class="row" id="body-c">
+            <div class="col-12 col-md-8">
+                <?= wp_get_attachment_image($hero_img ?? '', 'large', false, array(
+                    'class' => 'hero-image mb-5 d-none d-md-block',
                     'loadin' => 'eage',
                     'fetchpriority' => 'high',
                     'alt' => get_the_title()
@@ -57,8 +67,8 @@ $hero_img = get_post_thumbnail_id();
                     ?>
                 </div>
             </div>
-            <div class="col-12 col-md-4" style="position: sticky; top: 2rem; align-self: flex-start;">
-                
+            <div class="col-12 col-md-4 sticky-content mb-5 mb-md-0">
+                <?php get_template_part('partials/globals/resources-suscription'); ?>
             </div>
         </div>
     </div>

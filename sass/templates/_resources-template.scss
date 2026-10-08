@@ -1,17 +1,39 @@
 #resources-template-9e5994 {
     padding-top: 8rem;
     min-height: 100vh;
+    @media(max-width: 768px){
+        padding-top: 4rem;
+        padding-bottom: 3rem;
+    }
     &::after{
         content: "";
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-        height: 605px;
+        height: 405px;
         background: linear-gradient(180deg, #7D65FE 0%, #B3A5FE 25.5%, #C4BAFF 35%, #DAD3FF 50%, #ECE8FF 65%, #F3F1FF 80%, #FFFFFF 100%);
         z-index: -1;
         @media(max-width: 768px) {
             height: 305px;
+        }
+    }
+    .t-size-36{
+        @media(max-width: 768px){
+            font-size: 32px;
+            line-height: 33.2px;
+        }
+    }
+    #body-c{
+        @media(max-width: 768px){
+            flex-direction: column-reverse;
+        }
+    }
+    .sticky-content{
+        @media(min-width: 769px){
+            position: sticky; 
+            top: 2rem; 
+            align-self: flex-start;
         }
     }
     .title-content{
@@ -45,6 +67,9 @@
                 width: 100%;
                 height: 420px;
                 border-radius: 12px;
+                @media(max-width: 768px){
+                    height: 220px;
+                }
             }
         }
     }
