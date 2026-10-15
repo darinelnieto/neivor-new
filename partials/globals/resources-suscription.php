@@ -16,10 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 $form = get_field('r_suscription_form', 'option');
+$form_id = get_field('form_id');
 $form_endpoint = add_query_arg(
 array(
     'portalId' => $form['portal_id'] ?? '',
-    'formId' => $form['form_id'] ?? '',
+    'formId' => $form_id ?? '',
     'region' => $form['region'] ?? 'na1',
 ),
 rest_url('neivor/v1/hubspot-subscribe')
