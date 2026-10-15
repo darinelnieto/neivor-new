@@ -42,7 +42,7 @@ $download_file_name = is_array($download_file) ? ($download_file['filename'] ?? 
     data-form-endpoint="<?= esc_url($form_endpoint); ?>"
     data-submit-endpoint="<?= esc_url($submit_endpoint); ?>"
     data-portal-id="<?= esc_attr($form['portal_id'] ?? ''); ?>"
-    data-form-id="<?= esc_attr($form['form_id'] ?? ''); ?>"
+    data-form-id="<?= esc_attr($form_id ?? ''); ?>"
     data-region="<?= esc_attr($form['region'] ?? 'na1'); ?>"
     data-submit-label="<?= esc_attr($form['text_buttom_submit'] ?? 'Enviar'); ?>"
     data-download-file-url="<?= esc_url($download_file_url); ?>"
