@@ -38,7 +38,7 @@ function render_resources(items) {
 
     var html = items.map(function (item) {
         var thumb = item.feature_image || '<div class="resource-placeholder">Sin imagen</div>';
-        return '<article class="col-12 col-md-6 col-lg-4">' +
+        return '<article class="col-12 col-md-6 col-lg-4 mb-4">' +
                     '<a href="' + item.permalink + '" class="resource-link">' +
                         '<div class="resource-thumb">' + thumb + '</div>' +
                         '<div class="resorce-texts">'+
