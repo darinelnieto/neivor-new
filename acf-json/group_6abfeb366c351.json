@@ -24,11 +24,11 @@
             "append": ""
         },
         {
-            "key": "field_6abffb5012177",
-            "label": "Form ID",
-            "name": "form_id",
+            "key": "field_6ad2814e04e9c",
+            "label": "Download file",
+            "name": "download_file",
             "aria-label": "",
-            "type": "text",
+            "type": "file",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -37,12 +37,12 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "725fe76c-bca3-4fe8-b2d9-06032fa38048",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0
         },
         {
             "key": "field_6abffbaa12178",
@@ -59,6 +59,48 @@
                 "id": ""
             },
             "default_value": "Plantilla Word + PDF",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6ac7e4570aceb",
+            "label": "Intro form",
+            "name": "intro_form",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Descarga en segundos las 3 herramientas auditadas y accede a la sesión grabada con resolución 4K.",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_6abffb5012177",
+            "label": "Form ID",
+            "name": "form_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "725fe76c-bca3-4fe8-b2d9-06032fa38048",
             "maxlength": "",
             "allow_in_bindings": 0,
             "placeholder": "",
@@ -89,5 +131,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1792084297
+    "modified": 1792180941
 }

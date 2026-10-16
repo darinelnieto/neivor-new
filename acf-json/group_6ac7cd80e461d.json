@@ -19,27 +19,6 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_6ac7e4570aceb",
-                    "label": "Intro form",
-                    "name": "intro_form",
-                    "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "Descarga en segundos las 3 herramientas auditadas y accede a la sesión grabada con resolución 4K.",
-                    "maxlength": "",
-                    "allow_in_bindings": 0,
-                    "rows": "",
-                    "placeholder": "",
-                    "new_lines": ""
-                },
-                {
                     "key": "field_6ac7ce4190843",
                     "label": "Portal ID",
                     "name": "portal_id",
@@ -147,5 +126,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1791485045
+    "modified": 1792180651
 }

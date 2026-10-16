@@ -33,8 +33,10 @@ $download_file_url = $download_file_id ? wp_get_attachment_url($download_file_id
 $download_file_name = is_array($download_file) ? ($download_file['filename'] ?? '') : '';
 ?>
 <div class="resources-suscription-partial-f0d979">
-    <?php if(!empty($form['intro_form'])): ?>
-        <p class="purple-light t-size-14 fw-400 mb-3"><?= $form['intro_form']; ?></p>
+    <?php if(!empty(get_field('download_label'))): ?>
+        <h2 class="h-size-20 fw-600 dark-color"><?= get_field('download_label'); ?></h2>
+    <?php endif; if(!empty(get_field('intro_form'))): ?>
+        <p class="purple-light t-size-14 fw-400 mb-3"><?= get_field('intro_form'); ?></p>
     <?php endif; ?>
     <div 
     class="form-new" 
