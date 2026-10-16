@@ -23,9 +23,9 @@ array(
     'formId' => $form_id ?? '',
     'region' => $form['region'] ?? 'na1',
 ),
-rest_url('neivor/v1/hubspot-subscribe')
+rest_url('neivor/v1/hubspot-resource-form')
 );
-$submit_endpoint = rest_url('neivor/v1/hubspot-subscribe');
+$submit_endpoint = rest_url('neivor/v1/hubspot-resource-submit');
 $script_handle = "home-v2-banner-js";
 $download_file = get_field('download_file');
 $download_file_id = is_array($download_file) ? ($download_file['ID'] ?? 0) : 0;

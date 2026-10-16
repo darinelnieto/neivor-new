@@ -44,3 +44,10 @@ Display theme name:
 ```bash
 php sajo theme:name
 ```
+
+## HubSpot resource forms
+
+The resources subscription partial retrieves form definitions from HubSpot's
+public v4 render-definition endpoint and submits field values through HubSpot's
+documented v3 public submission endpoint. The fields are rendered by the theme;
+no HubSpot embed or private app token is used.

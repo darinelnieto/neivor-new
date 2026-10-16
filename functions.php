@@ -975,7 +975,231 @@ add_action('rest_api_init', function () {
       'permission_callback' => '__return_true',
     )
   ));
+
+  register_rest_route('neivor/v1', '/hubspot-resource-form', array(
+    array(
+      'methods' => WP_REST_Server::READABLE,
+      'callback' => 'neivor_hubspot_resource_form_handler',
+      'permission_callback' => '__return_true',
+    )
+  ));
+
+  register_rest_route('neivor/v1', '/hubspot-resource-submit', array(
+    array(
+      'methods' => WP_REST_Server::CREATABLE,
+      'callback' => 'neivor_hubspot_resource_submit_handler',
+      'permission_callback' => '__return_true',
+    )
+  ));
 });
+
+function neivor_hubspot_resource_form_handler($request) {
+  $form_id = sanitize_text_field($request->get_param('formId'));
+  $portal_id = sanitize_text_field($request->get_param('portalId'));
+  $region = sanitize_key($request->get_param('region') ?: 'na1');
+
+  if (empty($form_id) || empty($portal_id)) {
+    return new WP_Error('missing_required_fields', 'portalId y formId son obligatorios', array('status' => 400));
+  }
+
+  if (!ctype_digit($portal_id) || !preg_match('/^[a-f0-9-]+$/i', $form_id) || !in_array($region, array('na1', 'eu1'), true)) {
+    return new WP_Error('invalid_hubspot_form', 'La configuración del formulario de HubSpot no es valida.', array('status' => 400));
+  }
+
+  $host = 'na1' === $region ? 'forms.hsforms.com' : 'forms-eu1.hsforms.com';
+  $response = wp_remote_get(
+    sprintf(
+      'https://%s/embed/v4/render-definition/%s/%s',
+      $host,
+      rawurlencode($portal_id),
+      rawurlencode($form_id)
+    ),
+    array(
+      'timeout' => 20,
+    )
+  );
+
+  if (is_wp_error($response)) {
+    return new WP_Error('hubspot_form_request_error', $response->get_error_message(), array('status' => 502));
+  }
+
+  $status_code = wp_remote_retrieve_response_code($response);
+  $body = json_decode(wp_remote_retrieve_body($response), true);
+
+  if ($status_code < 200 || $status_code >= 300 || !is_array($body)) {
+    $hubspot_message = is_array($body) && !empty($body['message'])
+      ? sanitize_text_field($body['message'])
+      : 'Respuesta invalida de HubSpot.';
+
+    return new WP_Error(
+      'hubspot_form_error',
+      'HubSpot no pudo leer el formulario: ' . $hubspot_message,
+      array('status' => $status_code === 401 || $status_code === 403 ? $status_code : 502)
+    );
+  }
+
+  if (($body['portalId'] ?? null) != $portal_id || ($body['form']['id'] ?? '') !== $form_id) {
+    return new WP_Error('invalid_hubspot_form', 'HubSpot devolvio un formulario incompatible.', array('status' => 502));
+  }
+
+  $field_types = array(
+    'text' => 'text',
+    'email' => 'email',
+    'number' => 'number',
+    'phoneNumber' => 'phone',
+    'textarea' => 'textarea',
+    'dropdownSelect' => 'select',
+    'radioSelect' => 'radio',
+    'multipleCheckbox' => 'checkbox',
+    'singleCheckbox' => 'single_checkbox',
+    'date' => 'date',
+    'hidden' => 'hidden',
+  );
+  $fields = array();
+  $submit_text = '';
+  $field_error = '';
+  $collect_fields = static function ($modules) use (&$collect_fields, &$fields, &$submit_text, &$field_error, $field_types) {
+    foreach ($modules as $module) {
+      if (!is_array($module)) {
+        continue;
+      }
+
+      if (($module['type'] ?? '') === 'submitButton') {
+        $submit_text = sanitize_text_field($module['text'] ?? $submit_text);
+      }
+
+      if (!empty($module['propertyReference'])) {
+        $module_type = $module['type'] ?? '';
+        if (!isset($field_types[$module_type])) {
+          $field_error = 'El formulario contiene un campo que este sitio no puede representar: ' . sanitize_text_field($module_type);
+          return;
+        }
+
+        $fields[] = array(
+          'name' => sanitize_text_field($module['propertyReference']),
+          'label' => sanitize_text_field($module['label'] ?? $module['propertyReference']),
+          'fieldType' => $field_types[$module_type],
+          'required' => !empty($module['required']),
+          'hidden' => 'hidden' === $module_type,
+          'placeholder' => sanitize_text_field($module['placeholder'] ?? ''),
+          'defaultValue' => sanitize_text_field($module['defaultValue'] ?? ''),
+          'options' => array_map(
+            static function ($option) {
+              return array(
+                'label' => sanitize_text_field($option['label'] ?? ''),
+                'value' => sanitize_text_field($option['value'] ?? ''),
+              );
+            },
+            is_array($module['options'] ?? null) ? $module['options'] : array()
+          ),
+        );
+      }
+
+      if (!empty($module['modules']) && is_array($module['modules'])) {
+        $collect_fields($module['modules']);
+      }
+    }
+  };
+  $collect_fields($body['form']['modules'] ?? array());
+
+  if ($field_error !== '') {
+    return new WP_Error('unsupported_hubspot_field_type', $field_error, array('status' => 422));
+  }
+
+  if (empty($fields)) {
+    return new WP_Error('empty_hubspot_form', 'HubSpot no devolvio campos compatibles para este formulario.', array('status' => 502));
+  }
+
+  return array(
+    'fields' => $fields,
+    'submitText' => $submit_text,
+    'privacyPolicyText' => '',
+  );
+}
+
+function neivor_hubspot_resource_submit_handler($request) {
+  $params = $request->get_json_params();
+  $params = is_array($params) ? $params : $request->get_params();
+  $portal_id = sanitize_text_field($params['portalId'] ?? '');
+  $form_id = sanitize_text_field($params['formId'] ?? '');
+  $region = sanitize_key($params['region'] ?? 'na1');
+  $request_fields = $params['fields'] ?? null;
+
+  if (empty($portal_id) || empty($form_id) || !ctype_digit($portal_id) || !preg_match('/^[a-f0-9-]+$/i', $form_id) || !is_array($request_fields)) {
+    return new WP_Error('missing_required_fields', 'portalId, formId y fields son obligatorios', array('status' => 400));
+  }
+
+  if (!in_array($region, array('na1', 'eu1'), true)) {
+    return new WP_Error('invalid_hubspot_region', 'La region de HubSpot no es valida.', array('status' => 400));
+  }
+
+  $fields = array();
+  foreach ($request_fields as $name => $value) {
+    $name = sanitize_text_field($name);
+    if ($name === '') {
+      continue;
+    }
+
+    $property_parts = explode('/', $name);
+    $property_name = sanitize_text_field(end($property_parts));
+    if ($property_name === '') {
+      continue;
+    }
+
+    $value = is_array($value)
+      ? implode(';', array_map('sanitize_text_field', $value))
+      : sanitize_text_field((string) $value);
+
+    $fields[] = array(
+      'name' => $property_name,
+      'value' => $value,
+    );
+  }
+
+  if (empty($fields)) {
+    return new WP_Error('empty_fields', 'El formulario no contiene datos.', array('status' => 400));
+  }
+
+  $page_uri = esc_url_raw($params['pageUri'] ?? home_url('/'));
+  $payload = array(
+    'fields' => $fields,
+    'context' => array(
+      'pageUri' => $page_uri,
+      'pageName' => sanitize_text_field($params['pageName'] ?? get_bloginfo('name')),
+      'hutk' => sanitize_text_field($_COOKIE['hubspotutk'] ?? ''),
+    ),
+  );
+
+  $response = wp_remote_post(
+    sprintf(
+      'https://api.hsforms.com/submissions/v3/integration/submit/%s/%s',
+      rawurlencode($portal_id),
+      rawurlencode($form_id)
+    ),
+    array(
+      'headers' => array('Content-Type' => 'application/json'),
+      'body' => wp_json_encode($payload),
+      'timeout' => 20,
+    )
+  );
+
+  if (is_wp_error($response)) {
+    return new WP_Error('hubspot_request_error', $response->get_error_message(), array('status' => 502));
+  }
+
+  $status_code = wp_remote_retrieve_response_code($response);
+  $response_body = wp_remote_retrieve_body($response);
+  $hubspot_body = json_decode($response_body, true);
+  if ($status_code < 200 || $status_code >= 300) {
+    $hubspot_message = is_array($hubspot_body) && !empty($hubspot_body['message'])
+      ? sanitize_text_field($hubspot_body['message'])
+      : 'HubSpot rechazo el formulario.';
+
+    return new WP_Error('hubspot_submit_error', $hubspot_message, array('status' => $status_code ?: 502));
+  }
+
+  return array('success' => true, 'hubspot_response' => $hubspot_body);
+}
 
 function neivor_hubspot_subscribe_form_handler($request) {
   $portal_id = sanitize_text_field($request->get_param('portalId'));

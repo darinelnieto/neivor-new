@@ -22,6 +22,20 @@
             return wrapper;
         }
 
+        if (fieldType === 'single_checkbox') {
+            var checkboxLabel = document.createElement('label');
+            checkboxLabel.className = 'd-block';
+            var checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.name = field.name;
+            checkbox.value = text(field.defaultValue || 'true');
+            checkbox.required = Boolean(field.required);
+            checkboxLabel.appendChild(checkbox);
+            checkboxLabel.appendChild(document.createTextNode(' ' + text(field.label || field.name)));
+            wrapper.appendChild(checkboxLabel);
+            return wrapper;
+        }
+
         if (!field.labelHidden) {
             var label = document.createElement('label');
             label.className = 'form-label';
@@ -39,6 +53,10 @@
             placeholder.textContent = 'Selecciona una opcion';
             input.appendChild(placeholder);
         } else if (fieldType === 'radio' || fieldType === 'checkbox') {
+            if (fieldType === 'checkbox') {
+                wrapper.classList.add('hubspot-checkbox-group');
+                wrapper.dataset.required = field.required ? 'true' : 'false';
+            }
             (field.options || []).forEach(function (option) {
                 var optionLabel = document.createElement('label');
                 optionLabel.className = 'd-block';
@@ -46,7 +64,7 @@
                 optionInput.type = fieldType;
                 optionInput.name = field.name;
                 optionInput.value = text(option.value);
-                optionInput.required = Boolean(field.required);
+                optionInput.required = fieldType === 'radio' && Boolean(field.required);
                 optionLabel.appendChild(optionInput);
                 optionLabel.appendChild(document.createTextNode(' ' + text(option.label || option.value)));
                 wrapper.appendChild(optionLabel);
@@ -108,6 +126,17 @@
 
         form.addEventListener('submit', async function (event) {
             event.preventDefault();
+            form.querySelectorAll('.hubspot-checkbox-group').forEach(function (group) {
+                var checkboxes = group.querySelectorAll('input[type="checkbox"]');
+                var hasSelection = Array.from(checkboxes).some(function (checkbox) {
+                    return checkbox.checked;
+                });
+                if (checkboxes.length) {
+                    checkboxes[0].setCustomValidity(
+                        group.dataset.required === 'true' && !hasSelection ? 'Selecciona una opción.' : ''
+                    );
+                }
+            });
             if (!form.checkValidity()) {
                 form.reportValidity();
                 return;
@@ -127,6 +156,7 @@
                     body: JSON.stringify({
                         portalId: container.dataset.portalId,
                         formId: container.dataset.formId,
+                        region: container.dataset.region || 'na1',
                         fields: fields,
                         pageUri: window.location.href,
                         pageName: document.title
