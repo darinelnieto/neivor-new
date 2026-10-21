@@ -81,7 +81,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="col-12 d-block d-md-none">
           <div class="nav-menu-movil">
               <?php get_template_part('partials/globals/nav-menu-movil'); ?>
-            </div>
+          </div>
+          <a href="https://www.neivor.com/agenda-una-demo-asesoria" class="open-dorp-down see-demo-link fw-600 p-size-18" target="_self">
+            <?= get_field('see_demo_text', 'option'); ?>
+          </a>
         </div>
       </div>
     </div>

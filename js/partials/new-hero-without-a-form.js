@@ -1,0 +1,1 @@
+// JS for partial: new-hero-without-a-form\n

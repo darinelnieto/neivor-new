@@ -33,9 +33,9 @@ $sing_in = get_field('external_links', 'option');
                 </li>
             <?php endforeach; ?>
         </ul>
-        <a href="https://www.neivor.com/agenda-una-demo-asesoria" class="open-dorp-down" target="_self">
+        <!-- <a href="https://www.neivor.com/agenda-una-demo-asesoria" class="open-dorp-down" target="_self">
             <?= get_field('see_demo_text', 'option'); ?>
-        </a>
+        </a> -->
     </nav>
     <div class="submenu">
         <button class="close-submenu">
