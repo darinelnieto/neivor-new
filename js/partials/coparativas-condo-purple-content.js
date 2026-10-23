@@ -1,0 +1,1 @@
+// JS for partial: coparativas-condo-purple-content\n

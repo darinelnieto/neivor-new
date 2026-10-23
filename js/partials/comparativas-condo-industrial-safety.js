@@ -1,0 +1,1 @@
+// JS for partial: comparativas-condo-industrial-safety\n

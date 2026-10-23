@@ -4,7 +4,7 @@
     padding: 7.5rem 0 3rem;
     overflow: hidden;
     @media(max-width: 768px) {
-        padding: 5rem 0 .5rem;
+        padding: 5rem 0;
     }
     &::before {
         content: "";
@@ -27,5 +27,45 @@
         width: 100%;
         height: auto;
         border-radius: 50px 0 0 0;
+    }
+    .hero-tags{
+        border-top: 1px solid #EBE5F9;
+        gap: 1rem 3rem;
+        box-sizing: border-box;
+        max-width: 100%;
+        .icon-item{
+            width: 13.33px;
+            height: auto;
+        }
+        .rounded-50{
+            display: flex;
+            width: 4px;
+            height: 4px;
+            background: #C9C4D7;
+            &:last-child{
+                display:none !important;
+            }
+            @media(max-width: 768px){
+                display: none;
+            }
+        }
+    }
+    .hero-label-tag{
+        width: max-content;
+        &::before{
+            content: '';
+            display: inline;
+            width: 10px !important;
+            height: 10px !important;
+            background: $violeta;
+            border-radius: 50%;
+        }
+    }
+    .hero-description, h1{
+        @media(max-width: 768px){
+            br{
+                display: none;
+            }
+        }
     }
 }

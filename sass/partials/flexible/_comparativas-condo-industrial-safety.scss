@@ -1,0 +1,36 @@
+.comparativas-condo-industrial-safety-partial-3faf4c {
+    padding: 6rem 0;
+    background: #F1EBFF;
+    .label{
+        background: #E5E0F3;
+        border: 1px solid #E5E0F3;
+    }
+    .item{
+        .icon{
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+    }
+    .card-item{
+        .label-subtitle{
+            .icon{
+                height: 17.42px;
+                width: auto;
+                object-fit: contain;
+            }
+        }
+        &.red{
+            border: 1px solid #BA1A1A4D;
+            .label-subtitle{
+                color: #BA1A1A;
+            }
+        }
+        &.green{
+            border: 2px solid #008654;
+            .label-subtitle{
+                color: #008654;
+            }
+        }
+    }
+}
