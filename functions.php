@@ -1454,6 +1454,7 @@ function neivor_hubspot_subscribe_handler($request) {
     'context' => array(
       'pageUri' => esc_url_raw($request['pageUri'] ?: home_url('/')),
       'pageName' => sanitize_text_field($request['pageName'] ?: get_bloginfo('name')),
+      'hutk' => sanitize_text_field(wp_unslash($_COOKIE['hubspotutk'] ?? '')),
     ),
   );
 
