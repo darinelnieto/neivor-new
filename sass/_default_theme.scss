@@ -820,3 +820,50 @@ table.bg-none:not(.form-table) thead th.bg-purple-light-2{
 .p-24{
     padding: 24px;
 }
+// Nav overly movil
+.movil-overly-sub-menu{
+    position: fixed;
+    bottom: 0;
+    left:0;
+    width: 100%;
+    z-index: 100;
+    background: $gray;
+    box-shadow: -6px 0px 7px -5px #000;
+    .see-demo-link{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        width: max-content;
+        height: 40px;
+        border-radius: 50px;
+        color: $dark;
+        background: linear-gradient(90deg, #FFB300 0%, #FFD700 100%);
+        text-decoration: none;
+        path{
+            fill: $dark;
+        }
+    }
+    .bar-menu{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 4px;
+        height: 39px;
+        width: 39px;
+        border: 1px solid $dark;
+        border-radius: 50%;
+        background: transparent;
+        outline: none;
+        padding: 0;
+        box-sizing: border-box;
+        span{
+            display: block;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: $dark;
+        }
+    }
+}
