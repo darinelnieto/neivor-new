@@ -49,7 +49,7 @@ if($banner):
                 )); ?>
                 <div class="container">
                     <div class="row">
-                        <div class="col-12 col-md-6">
+                        <div class="col-12">
                             <div class="text-contain">
                                 <h2><?= $item['title']; ?></h2>
                                 <p><?= $item['description']; ?></p>

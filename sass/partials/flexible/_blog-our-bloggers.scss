@@ -1,0 +1,12 @@
+.blog-our-bloggers-partial-515bf2 {
+    padding: 6rem 0;
+    .blogger-photo{
+        object-fit: cover;
+    }
+    .description{
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}

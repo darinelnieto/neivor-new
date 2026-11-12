@@ -142,6 +142,10 @@
                 return;
             }
 
+            if (window.neivorAttribution) {
+                window.neivorAttribution.fill(form);
+            }
+
             var fields = {};
             new FormData(form).forEach(function (fieldValue, name) {
                 fields[name] = fields[name] ? fields[name] + ';' + fieldValue : fieldValue;
@@ -159,7 +163,8 @@
                         region: container.dataset.region || 'na1',
                         fields: fields,
                         pageUri: window.location.href,
-                        pageName: document.title
+                        pageName: document.title,
+                        hutk: window.neivorAttribution ? window.neivorAttribution.getUtk() : ''
                     })
                 });
                 var data = await response.json();

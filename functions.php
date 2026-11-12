@@ -89,6 +89,8 @@ function sajo_scripts() {
   wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), sajo_asset_version('/js/bootstrap.min.js'), true);
   wp_enqueue_script('owl-carousel-js', get_template_directory_uri() . '/js/owl.carousel.min.js', array('jquery'), sajo_asset_version('/js/owl.carousel.min.js'), true);
   wp_enqueue_script('main-scripts', get_template_directory_uri() . '/js/main.bundle.js', array('jquery', 'owl-carousel-js'), sajo_asset_version('/js/main.bundle.js'), true);
+  // HubSpot attribution (first/last touch + hutk) on every page.
+  wp_enqueue_script('hubspot-attribution-js', get_template_directory_uri() . '/js/partials-min/globals-hubspot-attribution.min.js', array(), sajo_asset_version('/js/partials-min/globals-hubspot-attribution.min.js'), true);
 
   // Defer non-critical JS while keeping it in footer.
   wp_script_add_data('bootstrap-js', 'strategy', 'defer');
@@ -993,6 +995,37 @@ add_action('rest_api_init', function () {
   ));
 });
 
+/**
+ * HubSpot Forms API context (pageUri, pageName, hutk, ipAddress).
+ * Shared by every endpoint that submits to api.hsforms.com so HubSpot can
+ * join the contact with its visit history (original source).
+ */
+function neivor_hubspot_context($params) {
+  $params = is_array($params) ? $params : array();
+
+  $context = array(
+    'pageUri' => esc_url_raw(!empty($params['pageUri']) ? $params['pageUri'] : home_url('/')),
+    'pageName' => sanitize_text_field(!empty($params['pageName']) ? $params['pageName'] : get_bloginfo('name')),
+  );
+
+  // hutk: first the one sent by the browser, then the cookie as fallback.
+  $hutk = sanitize_text_field(wp_unslash($params['hutk'] ?? ''));
+  if (!preg_match('/^[a-f0-9]{32}$/i', $hutk)) {
+    $hutk = sanitize_text_field(wp_unslash($_COOKIE['hubspotutk'] ?? ''));
+  }
+  if (preg_match('/^[a-f0-9]{32}$/i', $hutk)) {
+    $context['hutk'] = $hutk;
+  }
+
+  // Real visitor IP (Cloudflare first).
+  $ip = sanitize_text_field(wp_unslash($_SERVER['HTTP_CF_CONNECTING_IP'] ?? ($_SERVER['REMOTE_ADDR'] ?? '')));
+  if (filter_var($ip, FILTER_VALIDATE_IP)) {
+    $context['ipAddress'] = $ip;
+  }
+
+  return $context;
+}
+
 function neivor_hubspot_resource_form_handler($request) {
   $form_id = sanitize_text_field($request->get_param('formId'));
   $portal_id = sanitize_text_field($request->get_param('portalId'));
@@ -1160,14 +1193,9 @@ function neivor_hubspot_resource_submit_handler($request) {
     return new WP_Error('empty_fields', 'El formulario no contiene datos.', array('status' => 400));
   }
 
-  $page_uri = esc_url_raw($params['pageUri'] ?? home_url('/'));
   $payload = array(
     'fields' => $fields,
-    'context' => array(
-      'pageUri' => $page_uri,
-      'pageName' => sanitize_text_field($params['pageName'] ?? get_bloginfo('name')),
-      'hutk' => sanitize_text_field($_COOKIE['hubspotutk'] ?? ''),
-    ),
+    'context' => neivor_hubspot_context($params),
   );
 
   $response = wp_remote_post(
@@ -1350,10 +1378,7 @@ function neivor_hubspot_submit_handler($request) {
       'headers' => array('Content-Type' => 'application/json'),
       'body' => wp_json_encode(array(
         'fields' => $fields,
-        'context' => array(
-      'pageUri' => esc_url_raw($params['pageUri'] ?? home_url('/')),
-      'pageName' => sanitize_text_field($params['pageName'] ?? get_bloginfo('name')),
-        ),
+        'context' => neivor_hubspot_context($request->get_params()),
       )),
       'timeout' => 20,
     )
@@ -1451,11 +1476,7 @@ function neivor_hubspot_subscribe_handler($request) {
 
   $payload = array(
     'fields' => $fields,
-    'context' => array(
-      'pageUri' => esc_url_raw($request['pageUri'] ?: home_url('/')),
-      'pageName' => sanitize_text_field($request['pageName'] ?: get_bloginfo('name')),
-      'hutk' => sanitize_text_field(wp_unslash($_COOKIE['hubspotutk'] ?? '')),
-    ),
+    'context' => neivor_hubspot_context($params),
   );
 
   $hubspot_url = sprintf(

@@ -319,26 +319,6 @@
             "append": ""
         },
         {
-            "key": "field_673237bee7c16",
-            "label": "See demo text",
-            "name": "see_demo_text",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
             "key": "field_67c24400ae564",
             "label": "External links",
             "name": "external_links",
@@ -428,11 +408,7 @@
             ]
         },
         {
-            "key": "field_67c24400ae564",
-            "label": "External links",
-            "name": "external_links",
             "aria-label": "",
-            "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -441,20 +417,38 @@
                 "class": "",
                 "id": ""
             },
+            "key": "field_6b2a1c0e9d001",
+            "label": "Móvil",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "aria-label": "",
+            "instructions": "Enlaces que se muestran al tocar el botón de 3 puntos en la barra inferior móvil (ej. Condominios, Rentas, Preventas, IA).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "key": "field_6b2a1c0e9d002",
+            "label": "Accesos rápidos móvil (menú de 3 puntos)",
+            "name": "movil_quick_links",
+            "type": "repeater",
             "layout": "table",
             "pagination": 0,
             "min": 0,
             "max": 0,
             "collapsed": "",
-            "button_label": "Agregar Fila",
+            "button_label": "Agregar enlace",
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_67c2445eae565",
-                    "label": "Icon",
-                    "name": "icon",
                     "aria-label": "",
-                    "type": "image",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -463,6 +457,10 @@
                         "class": "",
                         "id": ""
                     },
+                    "key": "field_6b2a1c0e9d003",
+                    "label": "Icono",
+                    "name": "icon",
+                    "type": "image",
                     "return_format": "array",
                     "library": "all",
                     "min_width": "",
@@ -471,48 +469,28 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": "",
-                    "preview_size": "medium",
-                    "parent_repeater": "field_67c24400ae564"
+                    "mime_types": "svg,png,webp,jpg",
+                    "allow_in_bindings": 0,
+                    "preview_size": "thumbnail",
+                    "parent_repeater": "field_6b2a1c0e9d002"
                 },
                 {
-                    "key": "field_67c2446bae566",
-                    "label": "Url",
-                    "name": "url",
                     "aria-label": "",
-                    "type": "url",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "placeholder": "",
-                    "parent_repeater": "field_67c24400ae564"
-                },
-                {
-                    "key": "field_67c2447dae567",
-                    "label": "Cta text",
-                    "name": "cta_text",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_67c24400ae564"
+                    "key": "field_6b2a1c0e9d004",
+                    "label": "Enlace",
+                    "name": "link",
+                    "type": "link",
+                    "return_format": "array",
+                    "allow_in_bindings": 0,
+                    "parent_repeater": "field_6b2a1c0e9d002"
                 }
             ]
         }
@@ -538,5 +516,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1786561544
+    "modified": 1794406204
 }

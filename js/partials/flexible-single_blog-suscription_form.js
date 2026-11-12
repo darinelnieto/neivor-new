@@ -40,7 +40,8 @@
                         firstname: firstName,
                         contentPreference: contentPreference,
                         pageUri: window.location.href,
-                        pageName: document.title
+                        pageName: document.title,
+                        hutk: window.neivorAttribution ? window.neivorAttribution.getUtk() : ''
                     })
                 });
 

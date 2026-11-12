@@ -844,7 +844,10 @@ table.bg-none:not(.form-table) thead th.bg-purple-light-2{
             fill: $dark;
         }
     }
-    .bar-menu{
+    .quick-links-wrapper{
+        position: relative;
+    }
+    .quick-links-toggle{
         display: flex;
         align-items: center;
         justify-content: center;
@@ -853,7 +856,6 @@ table.bg-none:not(.form-table) thead th.bg-purple-light-2{
         height: 39px;
         width: 39px;
         border: 1px solid $dark;
-        border-radius: 50%;
         background: transparent;
         outline: none;
         padding: 0;
@@ -864,6 +866,26 @@ table.bg-none:not(.form-table) thead th.bg-purple-light-2{
             height: 3px;
             border-radius: 50%;
             background: $dark;
+        }
+        &.active{
+            background: $dark;
+            span{
+                background: $white;
+            }
+        }
+    }
+    .quick-links-menu{
+        position: absolute;
+        right: 0;
+        bottom: calc(100% + 12px);
+        min-width: 210px;
+        a:hover{
+            background: $gray;
+        }
+        .quick-link-icon{
+            width: 14px;
+            height: 14px;
+            object-fit: contain;
         }
     }
 }

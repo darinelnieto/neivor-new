@@ -17,6 +17,23 @@ $(document).ready(function() {
     $('.close-submenu').on('click', function(){
       sub_menu_contain.removeClass('active');
     });
+
+    // Quick links (3 dots) in bottom bar
+    var quick_toggle = $('.quick-links-toggle');
+    var quick_menu = $('.quick-links-menu');
+    function setQuickLinks(open){
+      quick_toggle.toggleClass('active', open).attr('aria-expanded', open);
+      quick_menu.toggleClass('d-none', !open).attr('aria-hidden', !open);
+    }
+    quick_toggle.on('click', function(e){
+      e.stopPropagation();
+      setQuickLinks(quick_menu.hasClass('d-none'));
+    });
+    $(document).on('click', function(e){
+      if(!$(e.target).closest('.quick-links-wrapper').length){
+        setQuickLinks(false);
+      }
+    });
   }
 
   function openNav(){

@@ -16281,6 +16281,379 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_6b2b7e1a0c000": {
+                    "key": "layout_6b2b7e1a0c000",
+                    "name": "blog-our-bloggers",
+                    "label": "blog-our-bloggers",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "aria-label": "",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "key": "field_6b2b7e1a0c001",
+                            "label": "Our bloggers",
+                            "name": "our_bloggers",
+                            "type": "group",
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "aria-label": "",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "key": "field_6b2b7e1a0c002",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "type": "text",
+                                    "default_value": "Nuestros Blogers",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "aria-label": "",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "key": "field_6b2b7e1a0c003",
+                                    "label": "Authors",
+                                    "name": "authors",
+                                    "type": "repeater",
+                                    "layout": "table",
+                                    "pagination": 0,
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Agregar autor",
+                                    "rows_per_page": 20,
+                                    "sub_fields": [
+                                        {
+                                            "aria-label": "",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "key": "field_6b2b7e1a0c004",
+                                            "label": "Author",
+                                            "name": "author",
+                                            "type": "taxonomy",
+                                            "taxonomy": "autor",
+                                            "add_term": 0,
+                                            "save_terms": 0,
+                                            "load_terms": 0,
+                                            "return_format": "id",
+                                            "field_type": "select",
+                                            "allow_null": 0,
+                                            "multiple": 0,
+                                            "bidirectional": 0,
+                                            "allow_in_bindings": 0,
+                                            "bidirectional_target": [],
+                                            "parent_repeater": "field_6b2b7e1a0c003"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "key": "field_6b2b7e1a0c0a1",
+                                    "label": "Padding top",
+                                    "name": "padding_top",
+                                    "aria-label": "",
+                                    "type": "number",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": 96,
+                                    "min": "",
+                                    "max": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "step": "",
+                                    "prepend": "",
+                                    "append": "px"
+                                },
+                                {
+                                    "key": "field_6b2b7e1a0c0a2",
+                                    "label": "Padding bottom",
+                                    "name": "padding_bottom",
+                                    "aria-label": "",
+                                    "type": "number",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": 96,
+                                    "min": "",
+                                    "max": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "step": "",
+                                    "prepend": "",
+                                    "append": "px"
+                                },
+                                {
+                                    "key": "field_6b2b7e1a0c0a3",
+                                    "label": "Background",
+                                    "name": "background",
+                                    "aria-label": "",
+                                    "type": "color_picker",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "#FFFFFF",
+                                    "enable_opacity": 0,
+                                    "return_format": "string",
+                                    "allow_in_bindings": 0,
+                                    "show_custom_palette": 0,
+                                    "show_color_wheel": 1,
+                                    "custom_palette_source": "",
+                                    "palette_colors": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6b2c1a4e5d000": {
+                    "key": "layout_6b2c1a4e5d000",
+                    "name": "blog-neivor-reels",
+                    "label": "blog-neivor-reels",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "aria-label": "",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "key": "field_6b2c1a4e5d001",
+                            "label": "Neivor reels",
+                            "name": "neivor_reels",
+                            "type": "group",
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "aria-label": "",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "type": "text",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "key": "field_6b2c1a4e5d002",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "default_value": "Neivor Reels"
+                                },
+                                {
+                                    "aria-label": "",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "type": "text",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "key": "field_6b2c1a4e5d006",
+                                    "label": "Subtitle",
+                                    "name": "subtitle",
+                                    "default_value": "Conceptos clave explicados por nuestros expertos."
+                                },
+                                {
+                                    "aria-label": "",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "key": "field_6b2c1a4e5d003",
+                                    "label": "Reels",
+                                    "name": "reels",
+                                    "type": "repeater",
+                                    "layout": "table",
+                                    "pagination": 0,
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Agregar reel",
+                                    "rows_per_page": 20,
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_6b2c1a4e5d008",
+                                            "label": "Video",
+                                            "name": "video",
+                                            "aria-label": "",
+                                            "type": "oembed",
+                                            "instructions": "Link del Short o video de YouTube",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "width": 315,
+                                            "height": 560,
+                                            "allow_in_bindings": 0,
+                                            "parent_repeater": "field_6b2c1a4e5d003"
+                                        },
+                                        {
+                                            "aria-label": "",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "type": "text",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "key": "field_6b2c1a4e5d005",
+                                            "label": "Title",
+                                            "name": "title",
+                                            "default_value": "",
+                                            "parent_repeater": "field_6b2c1a4e5d003"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "key": "field_6b2c1a4e5d0a1",
+                                    "label": "Padding top",
+                                    "name": "padding_top",
+                                    "aria-label": "",
+                                    "type": "number",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": 96,
+                                    "min": "",
+                                    "max": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "step": "",
+                                    "prepend": "",
+                                    "append": "px"
+                                },
+                                {
+                                    "key": "field_6b2c1a4e5d0a2",
+                                    "label": "Padding bottom",
+                                    "name": "padding_bottom",
+                                    "aria-label": "",
+                                    "type": "number",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": 96,
+                                    "min": "",
+                                    "max": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "step": "",
+                                    "prepend": "",
+                                    "append": "px"
+                                },
+                                {
+                                    "key": "field_6b2c1a4e5d0a3",
+                                    "label": "Background",
+                                    "name": "background",
+                                    "aria-label": "",
+                                    "type": "color_picker",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "#FFFFFF",
+                                    "enable_opacity": 0,
+                                    "return_format": "string",
+                                    "allow_in_bindings": 0,
+                                    "show_custom_palette": 0,
+                                    "show_color_wheel": 1,
+                                    "custom_palette_source": "",
+                                    "palette_colors": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -16367,5 +16740,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1792790671
+    "modified": 1794440235
 }
