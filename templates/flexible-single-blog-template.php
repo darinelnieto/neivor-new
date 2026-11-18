@@ -1,11 +1,13 @@
    
 <?php
 $script_handle = "globals-footer-js";
+$script_path = get_template_directory() . "/js/partials-min/globals-footer.min.js";
+$script_version = file_exists( $script_path ) ? filemtime( $script_path ) : null;
 wp_enqueue_script(
     $script_handle,
     get_template_directory_uri() . "/js/partials-min/globals-footer.min.js",
     array("jquery"),
-    null,
+    $script_version,
     true
 );
 /**

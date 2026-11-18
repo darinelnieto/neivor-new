@@ -1,10 +1,13 @@
 <?php
 $script_handle = "flexible-single_blog_content_table-js";
+$script_version = file_exists( get_template_directory() . "/js/partials-min/flexible-single_blog_content_table.min.js" )
+    ? filemtime( get_template_directory() . "/js/partials-min/flexible-single_blog_content_table.min.js" )
+    : null;
 wp_enqueue_script(
     $script_handle,
     get_template_directory_uri() . "/js/partials-min/flexible-single_blog_content_table.min.js",
     array("jquery"),
-    null,
+    $script_version,
     true
 );
 /**

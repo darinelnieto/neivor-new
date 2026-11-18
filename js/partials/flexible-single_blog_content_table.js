@@ -83,6 +83,12 @@
 						return false;
 					}
 
+					if (heading.closest(
+						'.single-blog-suscription-form-partial-a2128d, .new-cta-banner-partial-home'
+					)) {
+						return false;
+					}
+
 					var text = getHeadingText(heading);
 					if (text.length === 0) {
 						return false;
@@ -148,27 +154,9 @@
 
 			var link = document.createElement('a');
 			link.className = linkClass ? 'toc-item-link ' + linkClass : 'toc-item-link';
-			link.href = '#' + headingId;
+			link.href = '#' + encodeURIComponent(headingId);
 			link.textContent = displayText;
 			link.title = text;
-
-			link.addEventListener('click', function (event) {
-				event.preventDefault();
-
-				var target = document.getElementById(this.getAttribute('href').slice(1));
-				if (!target) {
-					return;
-				}
-
-				target.scrollIntoView({
-					behavior: 'smooth',
-					block: 'start'
-				});
-
-				if (window.history && typeof window.history.replaceState === 'function') {
-					window.history.replaceState(null, '', this.getAttribute('href'));
-				}
-			});
 
 			li.appendChild(link);
 

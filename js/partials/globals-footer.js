@@ -4,6 +4,16 @@ $(()=>{
     $('#flexible-builder-template').find('a').each(function(){
         var href = $(this).attr('href');
 
+        if (
+            !href ||
+            (
+                href.charAt(0) === '#' &&
+                $(this).closest('.single-blog-content-table-partial-b93a11').length
+            )
+        ) {
+            return;
+        }
+
         if (href.endsWith('/')) {
             $(this).attr('href', href + blog_utm);
         } else {
