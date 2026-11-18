@@ -1,15 +1,4 @@
 <?php
-$script_handle = "flexible-home_v2_free_tools-js";
-wp_enqueue_script(
-    $script_handle,
-    get_template_directory_uri() . "/js/partials-min/flexible-home_v2_free_tools.min.js",
-    array("jquery"),
-    null,
-    true
-);
-?>
-
-<?php
 // Flexible Builder wrapper. Original: partials/home-v2/free-tools.php
 
 /**
@@ -25,6 +14,14 @@ if ( ! $ft ) return;
 
 $cards_html = '';
 if ( ! empty( $ft['cards'] ) ) {
+    $script_handle = "flexible-home_v2_free_tools-js";
+    wp_enqueue_script(
+        $script_handle,
+        get_template_directory_uri() . "/js/partials-min/flexible-home_v2_free_tools.min.js",
+        array("jquery"),
+        null,
+        true
+    );
     foreach ( $ft['cards'] as $card ) {
         $link_url    = $card['link']['url'] ?? '#';
         $link_title  = $card['link']['title'] ?? 'USAR';
@@ -59,7 +56,6 @@ if ( ! empty( $ft['cards'] ) ) {
         <?php
         $cards_html .= ob_get_clean();
     }
-}
 ?>
 <section class="new-free-tools-partial-home">
     <div class="container">
@@ -82,3 +78,4 @@ if ( ! empty( $ft['cards'] ) ) {
     </div>
 </section>
 <?php
+}
