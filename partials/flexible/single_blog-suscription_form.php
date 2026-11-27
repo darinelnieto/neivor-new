@@ -17,7 +17,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 $suscription = get_field('suscription_group', 'option');
 
+// Formulario según categoría del post (Preventas / Rentas); Condominios o cualquier otra usa el principal.
 $hubspot_embed = isset($suscription['hubspot_form']) ? (string) $suscription['hubspot_form'] : '';
+if(has_category(array('preventas', 'Preventas')) && !empty($suscription['hubspot_form_preventas'])):
+    $hubspot_embed = (string) $suscription['hubspot_form_preventas'];
+elseif(has_category(array('rentas', 'Rentas')) && !empty($suscription['hubspot_form_rentas'])):
+    $hubspot_embed = (string) $suscription['hubspot_form_rentas'];
+endif;
 $portal_id = '20854675';
 $form_id = '10c4451a-86c6-47b0-bc6f-1835e50b6d59';
 

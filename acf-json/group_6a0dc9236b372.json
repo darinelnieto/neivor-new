@@ -62,11 +62,11 @@
                 },
                 {
                     "key": "field_6a0dc97bf95d6",
-                    "label": "HubSpot form",
+                    "label": "HubSpot form (Condominios \/ principal)",
                     "name": "hubspot_form",
                     "aria-label": "",
                     "type": "textarea",
-                    "instructions": "",
+                    "instructions": "Se usa en posts de la categoría Condominios y como formulario por defecto.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -75,6 +75,48 @@
                         "id": ""
                     },
                     "default_value": "<script charset=\"utf-8\" type=\"text\/javascript\" src=\"\/\/js.hsforms.net\/forms\/embed\/v2.js\"><\/script>\r\n<script>\r\n  hbspt.forms.create({\r\n    portalId: \"20854675\",\r\n    formId: \"10c4451a-86c6-47b0-bc6f-1835e50b6d59\",\r\n    region: \"na1\"\r\n  });\r\n<\/script>",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_6a0dc97bf95d7",
+                    "label": "HubSpot form (Preventas)",
+                    "name": "hubspot_form_preventas",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Se usa en posts de la categoría Preventas. Si está vacío se usa el formulario principal.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_6a0dc97bf95d8",
+                    "label": "HubSpot form (Rentas)",
+                    "name": "hubspot_form_rentas",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Se usa en posts de la categoría Rentas. Si está vacío se usa el formulario principal.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
                     "maxlength": "",
                     "allow_in_bindings": 0,
                     "rows": "",
@@ -105,5 +147,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1779290652
+    "modified": 1795786831
 }
